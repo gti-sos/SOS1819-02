@@ -12,5 +12,5 @@ app.get("/time",(request,response)=>{
 
 app.listen(port,() => {
     
-    console.log("magic is happening in port"+port);
+    console.log("magic is happening in port "+port);
 })
