@@ -408,7 +408,7 @@ app.put("/api/v1/companies-stats/:year", (req, res) => {
         res.sendStatus(404);
     }
     else {
-        moviesstats = updatedcompaniesstats2;
+        companiesstats = updatedcompaniesstats2;
         res.sendStatus(200);
     }
 
