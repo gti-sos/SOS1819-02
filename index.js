@@ -58,7 +58,7 @@ app.post("/api/v1/movies-stats", (req, res) => {
 });
 
 
-// DELETE /api/v1/uefa-club-rankings
+// DELETE /api/v1/movies-stats
 
 app.delete("/api/v1/movies-stats", (req, res) => {
 
@@ -303,6 +303,156 @@ app.put("/api/v1/scorers-stats", (req,res)=>{
 });
 
 
+//Recursos Pablo Garcia
+
+var companiesstats = [];
+
+// GET /api/v1/companies-stats/loadInitialData
+
+app.get("/api/v1/companies-stats/loadInitialData", (req, res) => {
+
+    companiesstats = [{
+        country: "EEUU",
+        year: "2014",
+        company: "apple",
+        income :  "182,795",
+        marketcapitalization:  "732.63" ,
+        employee: "80300"} ,
+
+    
+    {
+        country: "Corea del Sur",
+        year: "2007",
+        company: "samsung",
+        income :  "174,2",
+        marketcapitalization:  "110.10" ,
+        employee: "263000"}    
+        
+        
+    ];
+
+    res.sendStatus(200);
+});
+
+
+// GET /api/v1/companies-stats
+
+app.get("/api/v1/companies-stats", (req, res) => {
+    res.send(companiesstats);
+});
+
+
+// POST /api/v1/companies-stats
+
+app.post("/api/v1/companies-stats", (req, res) => {
+
+    var newcompaniesstats = req.body;
+
+    companiesstats.push(newcompaniesstats);
+
+    res.sendStatus(201);
+});
+
+
+// DELETE /api/v1/ucompanies-stats
+
+app.delete("/api/v1/companies-stats", (req, res) => {
+
+    companiesstats = [];
+
+    res.sendStatus(200);
+});
+
+
+// GET /api/v1/companies-stats/1997
+
+app.get("/api/v1/companies-stats/:year", (req, res) => {
+
+    var year = req.params.year;
+
+    var filteredcompaniesstats = companiesstats.filter((c) => {
+        return c.year == year;
+    });
+
+    if (filteredcompaniesstats.length >= 1) {
+        res.send(filteredcompaniesstats);
+    }
+    else {
+        res.sendStatus(404);
+    }
+
+});
+
+
+// PUT /api/v1/companies-stats/1997
+
+app.put("/api/v1/companies-stats/:year", (req, res) => {
+
+    var year = req.params.year;
+    var updatedcompaniesstats = req.body;
+    var found = false;
+
+    var updatedcompaniesstats2 = companiesstats.map((c) => {
+
+        if (c.year == year) {
+            found = true;
+            return updatedcompaniesstats;
+        }
+        else {
+            return c;
+        }
+
+    });
+
+    if (found == false) {
+        res.sendStatus(404);
+    }
+    else {
+        moviesstats = updatedcompaniesstats2;
+        res.sendStatus(200);
+    }
+
+});
+
+
+// DELETE /api/v1/companies-stats/1997
+
+app.delete("/api/v1/companies-stats/:year", (req, res) => {
+
+    var year = req.params.year;
+    var found = false;
+
+    var updatedYear = companiesstats.filter((c) => {
+
+        if (c.year == year)
+            found = true;
+
+        return c.year != year;
+    });
+
+    if (found == false) {
+        res.sendStatus(404);
+    }
+    else {
+        companiesstats = updatedYear;
+        res.sendStatus(200);
+    }
+
+});
+
+// POST /api/v1/companies-stats/1997
+
+app.post("/api/v1/companies-stats/:year", (req, res) => {
+
+    res.sendStatus(409);
+});
+
+// PUT /api/v1/companies-stats
+
+app.put("/api/v1/companies-stats", (req, res) => {
+
+    res.sendStatus(409);
+});
 
 
 
