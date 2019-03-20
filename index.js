@@ -419,7 +419,7 @@ app.put("/api/v1/companies-stats/:year", (req, res) => {
 
 app.delete("/api/v1/companies-stats/:year", (req, res) => {
 
-    var year = req.params.year;
+    var year = req.params.year; 
     var found = false;
 
     var updatedYear = companiesstats.filter((c) => {
