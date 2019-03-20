@@ -292,14 +292,14 @@ app.delete("/api/v1/scorers-stats/:country", (req,res)=>{
 
 app.post("/api/v1/scorers-stats/:country", (req,res)=>{
 
-    res.sendStatus(409);
+    res.sendStatus(405);
 });
 
 // PUT /api/v1/scorers-stats
 
 app.put("/api/v1/scorers-stats", (req,res)=>{
 
-    res.sendStatus(409);
+    res.sendStatus(405);
 });
 
 
@@ -444,14 +444,14 @@ app.delete("/api/v1/companies-stats/:year", (req, res) => {
 
 app.post("/api/v1/companies-stats/:year", (req, res) => {
 
-    res.sendStatus(409);
+    res.sendStatus(405);
 });
 
 // PUT /api/v1/companies-stats
 
 app.put("/api/v1/companies-stats", (req, res) => {
 
-    res.sendStatus(409);
+    res.sendStatus(405);
 });
 
 
