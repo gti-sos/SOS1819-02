@@ -48,12 +48,12 @@ app.get("/api/v1/movies-stats", (req, res) => {
 
 // POST /api/v1/movies-stats
 
-app.post("/api/v1/movies-stats", (req, res) => {
-
+app.post("/api/v1/movies-stats", (req,res)=>{
+    
     var newmoviesstats = req.body;
-
-    moviesstats.push(newmoviesstats);
-
+    
+   moviesstats.push(newmoviesstats);
+    
     res.sendStatus(201);
 });
 
@@ -148,14 +148,14 @@ app.delete("/api/v1/movies-stats/:year", (req, res) => {
 
 app.post("/api/v1/movies-stats/:year", (req, res) => {
 
-    res.sendStatus(409);
+    res.sendStatus(405);
 });
 
 // PUT /api/v1/movies-stats
 
 app.put("/api/v1/movies-stats", (req, res) => {
 
-    res.sendStatus(409);
+    res.sendStatus(405);
 });
 
 
