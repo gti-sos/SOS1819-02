@@ -11,23 +11,17 @@ var port = process.env.PORT || 8080;
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?retryWrites=true";
 var movies;
+var companies;
+var scorers;
+
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
 client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
-    console.log("Connected to database.");
-    
-}); 
-
-var scorers;
-client.connect(error => {
-    scorers = client.db("sos1819-02").collection("scorers");
-    console.log("Connected to database.");
-    
-}); 
-var companies;
-client.connect(error => {
     companies = client.db("sos1819-02").collection("companies");
+    scorers = client.db("sos1819-02").collection("scorers");
+
+
     console.log("Connected to database.");
     
 }); 
