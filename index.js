@@ -210,7 +210,7 @@ app.delete("/api/v1/movies-stats/:year", (req, res) => {
 
 app.post("/api/v1/movies-stats/:year", (req, res) => {
 
-    res.sendStatus(405);
+    res.sendStatus(409);
 });
 
 // PUT /api/v1/movies-stats
