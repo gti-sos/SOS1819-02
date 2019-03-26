@@ -6,6 +6,25 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?retryWrites=true";
+var movies;
+const client = new MongoClient(uri, { useNewUrlParser: true });
+ client.connect(error => {
+    movies = client.db("sos1819-02").collection("movies");
+    console.log("Connected to database.");
+    
+}); 
+
+
+
+
+
+
+
+
 app.use("/", express.static(__dirname + "/public"));
 
 
@@ -31,7 +50,32 @@ app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
         name: "Ben Hur",
         movienomination: "12",
         movieaward:"11",
-        movieedition : "32" }    
+        movieedition : "32" }   ,
+        
+    {
+        country: "Nueva Zelanda",
+        year: "2003",
+        name: "El Señor de los Anillos: el retorno del Rey",
+        movienomination: "11",
+        movieaward:"11",
+        movieedition : "76" }  ,
+        
+        
+    {
+        country: "EEUU",
+        year: "1939",
+        name: "Lo que el viento se llevó",
+        movienomination: "13",
+        movieaward:"10",
+        movieedition : "12" }  ,
+        
+    {
+        country: "EEUU",
+        year: "1961",
+        name: "West Side Story",
+        movienomination: "11",
+        movieaward:"10",
+        movieedition : "34" }      
         
     ];
 
@@ -42,8 +86,17 @@ app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
 // GET /api/v1/movies-stats
 
 app.get("/api/v1/movies-stats", (req, res) => {
-    res.send(moviesstats);
+    
+    moviesstats.find({}).toArray((error, moviesArray) =>{
+        
+        res.send(moviesstats);
+    if (error) {
+            console.log("Error: " + error);
+        }
+    });
 });
+
+    
 
 
 // POST /api/v1/movies-stats
