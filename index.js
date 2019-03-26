@@ -379,7 +379,7 @@ app.put("/api/v1/scorers-stats", (req, res) => {
 //Recursos Pablo Garcia
 "======================="
 
-var companiesstats = [];
+//var companiesstats = [];
 
 // GET /api/v1/companies-stats/docs
 
