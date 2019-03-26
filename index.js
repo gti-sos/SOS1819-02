@@ -36,6 +36,16 @@ app.use("/", express.static(__dirname + "/public"));
 
 //Recursos Alejandro Martin
 
+
+
+//GET /api/v1/movies-stats/docs
+/*
+app.get("/api/v1/movies-stats/docs/", (req,res)=>{
+    res.redirect("");
+});
+*/
+
+
 var moviesstats = [];
 
 // GET /api/v1/movies-stats/loadInitialData
@@ -85,7 +95,7 @@ app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
         
     ];
 
-movies.find({}).toArray((error, moviesArray) => {
+    movies.find({}).toArray((error, moviesArray) => {
         if (moviesArray.length == 0) {
             movies.insert(moviesstatsinitial);
             res.sendStatus(200);
