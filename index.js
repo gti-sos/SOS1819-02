@@ -381,6 +381,12 @@ app.put("/api/v1/scorers-stats", (req, res) => {
 
 var companiesstats = [];
 
+// GET /api/v1/companies-stats/docs
+
+app.get("/api/v1/companies-stats/docs", (req, res) => {
+    res.redirect("https://documenter.getpostman.com/view/6990295/S17oyqep");
+})
+
 // GET /api/v1/companies-stats/loadInitialData
 
 app.get("/api/v1/companies-stats/loadInitialData", (req, res) => {
