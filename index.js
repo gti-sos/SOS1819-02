@@ -43,7 +43,7 @@ var moviesstats = [];
 
 app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
 
-    moviesstatsinitial = [{
+    var moviesstatsinitial = [{
             country: "EEUU",
             year: "1997",
             name: "Titanic",
@@ -385,7 +385,7 @@ var companiesstats = [];
 
 app.get("/api/v1/companies-stats/loadInitialData", (req, res) => {
 
-    companiesstatsinitial = [{
+    var companiesstatsinitial = [{
             country: "EEUU",
             year: "2014",
             company: "apple",
@@ -431,7 +431,7 @@ app.get("/api/v1/companies-stats/loadInitialData", (req, res) => {
 
 
     ];
-    movies.find({}).toArray((error, companiesArray) => {
+    companies.find({}).toArray((error, companiesArray) => {
         if (companiesArray.length == 0) {
             companies.insert(companiesstatsinitial);
             res.sendStatus(200);
@@ -461,10 +461,19 @@ app.get("/api/v1/companies-stats", (req, res) => {
 app.post("/api/v1/companies-stats", (req, res) => {
 
     var newcompaniesstats = req.body;
-
-    companiesstats.push(newcompaniesstats);
-
-    res.sendStatus(201);
+    var yearCompany = req.body.year;
+    companies.find({ "year": yearCompany }).toArray((error, companiesArray) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (companiesArray.length > 0) {
+            res.sendStatus(409);
+        }
+        else {
+            companies.insert(newcompaniesstats);
+            res.sendStatus(201);
+        }
+    });
 });
 
 
@@ -484,16 +493,17 @@ app.get("/api/v1/companies-stats/:year", (req, res) => {
 
     var year = req.params.year;
 
-    var filteredcompaniesstats = companiesstats.filter((c) => {
-        return c.year == year;
+    companies.find({ "year": year }).toArray((error, filteredcompaniesstats) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (filteredcompaniesstats.length >= 1) {
+            res.send(filteredcompaniesstats);
+        }
+        else {
+            res.sendStatus(404);
+        }
     });
-
-    if (filteredcompaniesstats.length >= 1) {
-        res.send(filteredcompaniesstats);
-    }
-    else {
-        res.sendStatus(404);
-    }
 
 });
 
@@ -504,27 +514,20 @@ app.put("/api/v1/companies-stats/:year", (req, res) => {
 
     var year = req.params.year;
     var updatedcompaniesstats = req.body;
-    var found = false;
 
-    var updatedcompaniesstats2 = companiesstats.map((c) => {
-
-        if (c.year == year) {
-            found = true;
-            return updatedcompaniesstats;
+    companies.find({ "year": year }).toArray((error, filteredcompaniesstats) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (filteredcompaniesstats.length === 0) {
+            res.sendStatus(400);
         }
         else {
-            return c;
+            companies.updateOne({ "year": year }, { $set: updatedcompaniesstats });
+            res.sendStatus(200);
         }
 
     });
-
-    if (found == false) {
-        res.sendStatus(404);
-    }
-    else {
-        companiesstats = updatedcompaniesstats2;
-        res.sendStatus(200);
-    }
 
 });
 
@@ -534,23 +537,19 @@ app.put("/api/v1/companies-stats/:year", (req, res) => {
 app.delete("/api/v1/companies-stats/:year", (req, res) => {
 
     var year = req.params.year;
-    var found = false;
 
-    var updatedYear = companiesstats.filter((c) => {
-
-        if (c.year == year)
-            found = true;
-
-        return c.year != year;
+    companies.find({ "year": year }).toArray((error, filteredcompaniesstats) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (filteredcompaniesstats.length === 0) {
+            res.sendStatus(404);
+        }
+        else {
+            companies.deleteOne({ "year": year });
+            res.sendStatus(200);
+        }
     });
-
-    if (found == false) {
-        res.sendStatus(404);
-    }
-    else {
-        companiesstats = updatedYear;
-        res.sendStatus(200);
-    }
 
 });
 
@@ -567,23 +566,6 @@ app.put("/api/v1/companies-stats", (req, res) => {
 
     res.sendStatus(405);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
