@@ -12,7 +12,8 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?retryWrites=true";
 var movies;
 const client = new MongoClient(uri, { useNewUrlParser: true });
- client.connect(error => {
+
+client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
     console.log("Connected to database.");
     
@@ -87,7 +88,7 @@ app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
 
 app.get("/api/v1/movies-stats", (req, res) => {
     
-    moviesstats.find({}).toArray((error, moviesArray) =>{
+    movies.find({}).toArray((error, moviesArray) =>{
         
         res.send(moviesstats);
     if (error) {
