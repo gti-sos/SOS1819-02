@@ -19,7 +19,18 @@ client.connect(error => {
     
 }); 
 
-
+var scorers;
+client.connect(error => {
+    scorers = client.db("sos1819-02").collection("scorers");
+    console.log("Connected to database.");
+    
+}); 
+var companies;
+client.connect(error => {
+    companies = client.db("sos1819-02").collection("companies");
+    console.log("Connected to database.");
+    
+}); 
 
 
 
