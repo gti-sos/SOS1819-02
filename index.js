@@ -487,9 +487,10 @@ app.post("/api/v1/companies-stats", (req, res) => {
 
 app.delete("/api/v1/companies-stats", (req, res) => {
 
-    companiesstats = [];
-
+    companiesstats.remove({});
+    console.log("Request accepted, removing all resources of database.");
     res.sendStatus(200);
+
 });
 
 
