@@ -90,7 +90,7 @@ app.get("/api/v1/movies-stats", (req, res) => {
     
     movies.find({}).toArray((error, moviesArray) =>{
         
-        res.send(moviesstats);
+        res.send(moviesArray);
     if (error) {
             console.log("Error: " + error);
         }
