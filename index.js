@@ -42,7 +42,7 @@ var moviesstats = [];
 
 app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
 
-    moviesstats = [{
+    moviesstatsinitial = [{
         country: "EEUU",
         year: "1997",
         name: "Titanic",
@@ -85,9 +85,16 @@ app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
         
     ];
 
-    res.sendStatus(200);
+movies.find({}).toArray((error, moviesArray) => {
+        if (moviesArray.length == 0) {
+            movies.insert(moviesstatsinitial);
+            res.sendStatus(200);
+        }
+        else {
+            res.sendStatus(409);
+        }
+    });
 });
-
 
 // GET /api/v1/movies-stats
 
@@ -110,20 +117,30 @@ app.get("/api/v1/movies-stats", (req, res) => {
 app.post("/api/v1/movies-stats", (req,res)=>{
     
     var newmoviesstats = req.body;
-    
-   moviesstats.push(newmoviesstats);
-    
-    res.sendStatus(201);
-});
+    var yearMovie = req.body.year;
 
+    movies.find({"year":yearMovie}).toArray((error , moviesArray) => {
+        
+   if (error) {
+            console.log("Error: " + error);
+        }
+        if (moviesArray.length > 0) {
+            res.sendStatus(409);
+        }
+        else {
+            movies.insert(newmoviesstats);
+            res.sendStatus(201);
+        }
+    });
+});
 
 // DELETE /api/v1/movies-stats
 
 app.delete("/api/v1/movies-stats", (req, res) => {
 
-    moviesstats = [];
-
+    movies.remove({});
     res.sendStatus(200);
+    
 });
 
 
@@ -153,55 +170,41 @@ app.put("/api/v1/movies-stats/:year", (req, res) => {
 
     var year = req.params.year;
     var updatedmoviesstats = req.body;
-    var found = false;
-
-    var updatedmoviesstats2 = moviesstats.map((c) => {
-
-        if (c.year == year) {
-            found = true;
-            return updatedmoviesstats;
+    
+   movies.find({ "year": year }).toArray((error, filteredmoviesstats) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (filteredmoviesstats.length == 0) {
+            res.sendStatus(400);
         }
         else {
-            return c;
+            movies.updateOne({ "year": year }, { $set: updatedmoviesstats });
+            res.sendStatus(200);
         }
-
     });
-
-    if (found == false) {
-        res.sendStatus(404);
-    }
-    else {
-        moviesstats = updatedmoviesstats2;
-        res.sendStatus(200);
-    }
-
 });
-
 
 // DELETE /api/v1/movies-stats/1997
 
 app.delete("/api/v1/movies-stats/:year", (req, res) => {
 
     var year = req.params.year;
-    var found = false;
-
-    var updatedYear = moviesstats.filter((c) => {
-
-        if (c.year == year)
-            found = true;
-
-        return c.year != year;
+        movies.find({ "year": year }).toArray((error, filteredmoviesstats) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (filteredmoviesstats.length == 0) {
+            res.sendStatus(404);
+        }
+        else {
+            movies.deleteOne({ "year": year });
+            res.sendStatus(200);
+        }
     });
-
-    if (found == false) {
-        res.sendStatus(404);
-    }
-    else {
-        moviesstats = updatedYear;
-        res.sendStatus(200);
-    }
-
 });
+
+
 
 // POST /api/v1/movies-stats/1997
 
