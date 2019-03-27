@@ -181,7 +181,7 @@ app.get("/api/v1/movies-stats/:year", (req, res) => {
             console.log("Error: " + error);
         }
         if (filteredmoviesstats.length >= 1) {
-            res.send(filteredmoviesstats);
+            res.send(filteredmoviesstats[0]);
         }
         else {
             res.sendStatus(404);
@@ -239,7 +239,7 @@ app.delete("/api/v1/movies-stats/:year", (req, res) => {
 
 app.post("/api/v1/movies-stats/:year", (req, res) => {
 
-    res.sendStatus(409);
+    res.sendStatus(405);
 });
 
 // PUT /api/v1/movies-stats
