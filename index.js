@@ -279,6 +279,20 @@ app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
         scorergoal: 311,
         scorermatch: 292,
         scoreraverage: 1.07
+    }, {
+        country: "mex",
+        year: "2000",
+        name: "chicharito",
+        scorergoal: 111,
+        scorermatch: 292,
+        scoreraverage: 0.50
+    }, {
+        country: "bra",
+        year: "2001",
+        name: "ronaldo-nazario",
+        scorergoal: 151,
+        scorermatch: 242,
+        scoreraverage: 0.67
     }];
 
 
