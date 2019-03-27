@@ -230,360 +230,380 @@ app.put("/api/v1/movies-stats", (req, res) => {
 //Recursos Alberto Pérez
 "========================"
 
-var scorersstats = [];
+//var scorersstats = [];
+
+// GET /api/v1/companies-stats/docs
+
+app.get("/api/v1/scorers-stats/docs", (req, res) => {
+    res.redirect("...........");
+})
 
 // GET /api/v1/scorers-stats/loadInitialData
 
 app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
 
-    scorersstats = [{
-        country: "argentina",
-        year: "2004",
-        name: "lionel-messi",
-        scorergoal: "405",
-        scorermatch: "440",
-        scoreraverage: "0.92"
-    }, {
-        country: "portugal",
-        year: "2009",
-        name: "cristiano-ronaldo",
-        scorergoal: "311",
-        scorermatch: "292",
-        scoreraverage: "1.07"
-    }];
+            var scorersstatsinitial = [{
+                country: "argentina",
+                year: "2004",
+                name: "lionel-messi",
+                scorergoal: "405",
+                scorermatch: "440",
+                scoreraverage: "0.92"
+            }, {
+                country: "portugal",
+                year: "2009",
+                name: "cristiano-ronaldo",
+                scorergoal: "311",
+                scorermatch: "292",
+                scoreraverage: "1.07"
+            }];
 
-    res.sendStatus(200);
+
+            scorers.find({}).toArray((error, scorersArray) => {
+                if (scorersArray.length == 0) {
+                    scorers.insert(scorersstatsinitial);
+                    res.sendStatus(200);
+                }
+                else {
+                    res.sendStatus(409);
+                }
+            });
 });
 
+            // GET /api/v1/scorers-stats
 
-// GET /api/v1/scorers-stats
+            app.get("/api/v1/scorers-stats", (req, res) => {
+                scorers.find({}).toArray((error, scorersArray) => {
+                    res.send(scorersArray)
+                    if (error) {
+                        console.log("Error:" + error);
+                    }
 
-app.get("/api/v1/scorers-stats", (req, res) => {
-    res.send(scorersstats);
-});
 
+                });
+            });
 
-// POST /api/v1/scorers-stats
 
-app.post("/api/v1/scorers-stats", (req, res) => {
+            // POST /api/v1/scorers-stats
 
-    var newscorersstats = req.body;
+            app.post("/api/v1/scorers-stats", (req, res) => {
 
-    scorersstats.push(newscorersstats);
+                var newscorersstats = req.body;
+                var countryScorer = req.body.country;
+                scorers.find({ "country": countryScorer }).toArray((error, scorersArray) => {
+                    if (error) {
+                        console.log("Error: " + error);
+                    }
+                    if (scorersArray.length > 0) {
+                        res.sendStatus(409);
+                    }
+                    else {
+                        scorers.insert(newscorersstats);
+                        res.sendStatus(201);
+                    }
+                });
+            });
 
-    res.sendStatus(201);
-});
 
+            // DELETE /api/v1/scorers-stats
 
-// DELETE /api/v1/scorers-stats
+            app.delete("/api/v1/scorers-stats", (req, res) => {
 
-app.delete("/api/v1/scorers-stats", (req, res) => {
+                scorersstats.remove({});
+                console.log("Request accepted, removing all resources of database.");
+                res.sendStatus(200);
 
-    scorersstats = [];
+            });
 
-    res.sendStatus(200);
-});
 
+            // GET /api/v1/scorers-stats/argentina
 
-// GET /api/v1/scorers-stats/argentina
+            app.get("/api/v1/scorers-stats/:country", (req, res) => {
 
-app.get("/api/v1/scorers-stats/:country", (req, res) => {
+                var country = req.params.country;
 
-    var country = req.params.country;
+                scorers.find({ "country": country }).toArray((error, filteredscorersstats) => {
+                    if (error) {
+                        console.log("Error: " + error);
+                    }
+                    if (filteredscorersstats.length >= 1) {
+                        res.send(filteredscorersstats);
+                    }
+                    else {
+                        res.sendStatus(404);
+                    }
+                });
 
-    var filteredscorersstats = scorersstats.filter((c) => {
-        return c.country == country;
-    });
+            });
 
-    if (filteredscorersstats.length >= 1) {
-        res.send(filteredscorersstats);
-    }
-    else {
-        res.sendStatus(404);
-    }
 
-});
+            // PUT /api/v1/scorers-stats/argentina
 
+            app.put("/api/v1/scorers-stats/:country", (req, res) => {
 
-// PUT /api/v1/scorers-stats/argentina
+                var country = req.params.country;
+                var updatedscorersstats = req.body;
 
-app.put("/api/v1/scorers-stats/:country", (req, res) => {
+                scorers.find({ "country": country }).toArray((error, filteredscorersstats) => {
+                    if (error) {
+                        console.log("Error: " + error);
+                    }
+                    if (filteredscorersstats.length === 0) {
+                        res.sendStatus(400);
+                    }
+                    else {
+                        scorers.updateOne({ "country": country }, { $set: updatedscorersstats });
+                        res.sendStatus(200);
+                    }
 
-    var country = req.params.country;
-    var updatedscorersstats = req.body;
-    var found = false;
+                });
 
-    var updatedscorersstats2 = scorersstats.map((c) => {
+            });
 
-        if (c.country == country) {
-            found = true;
-            return updatedscorersstats;
-        }
-        else {
-            return c;
-        }
 
-    });
+            // DELETE /api/v1/scorers-stats/argentina
 
-    if (found == false) {
-        res.sendStatus(404);
-    }
-    else {
-        scorersstats = updatedscorersstats2;
-        res.sendStatus(200);
-    }
+            app.delete("/api/v1/scorers-stats/:country", (req, res) => {
+                var country = req.params.country;
+
+                scorers.find({ "country": country }).toArray((error, filteredscorersstats) => {
+                    if (error) {
+                        console.log("Error: " + error);
+                    }
+                    if (filteredscorersstats.length === 0) {
+                        res.sendStatus(404);
+                    }
+                    else {
+                        scorers.deleteOne({ "country": country });
+                        res.sendStatus(200);
+                    }
+                });
+
+            });
+
+            // POST /api/v1/scorers-stats/argentina
+
+            app.post("/api/v1/scorers-stats/:country", (req, res) => {
+
+                res.sendStatus(405);
+            });
+
+            // PUT /api/v1/scorers-stats
+
+            app.put("/api/v1/scorers-stats", (req, res) => {
+
+                res.sendStatus(405);
+            });
+
+            "======================="
+            //Recursos Pablo Garcia
+            "======================="
+
+            var companiesstats = [];
+
+            // GET /api/v1/companies-stats/docs
+
+            app.get("/api/v1/companies-stats/docs", (req, res) => {
+                res.redirect("https://documenter.getpostman.com/view/6990295/S17oyqep");
+            })
+
+            // GET /api/v1/companies-stats/loadInitialData
+
+            app.get("/api/v1/companies-stats/loadInitialData", (req, res) => {
+
+                var companiesstatsinitial = [{
+                        country: "EEUU",
+                        year: "2014",
+                        company: "apple",
+                        income: "182,795",
+                        marketcapitalization: "732.63",
+                        employee: "80300"
+                    },
+                    {
+                        country: "Corea del Sur",
+                        year: "2007",
+                        company: "samsung",
+                        income: "174,2",
+                        marketcapitalization: "110.10",
+                        employee: "263000"
+                    },
+
+                    {
+                        country: "Alemania",
+                        year: "2007",
+                        company: "volkswagen",
+                        income: "160,3",
+                        marketcapitalization: "101.06",
+                        employee: "329305"
+                    },
+
+                    {
+                        country: "Reino Unido",
+                        year: "2009",
+                        company: "british petroleum",
+                        income: "246,1",
+                        marketcapitalization: "34.7",
+                        employee: "80300"
+                    },
+
+                    {
+                        country: "China",
+                        year: "2007",
+                        company: "petrochina",
+                        income: "169,7",
+                        marketcapitalization: "369.57",
+                        employee: "307000"
+                    }
+
+
+                ];
+                companies.find({}).toArray((error, companiesArray) => {
+                    if (companiesArray.length == 0) {
+                        companies.insert(companiesstatsinitial);
+                        res.sendStatus(200);
+                    }
+                    else {
+                        res.sendStatus(409);
+                    }
+                });
 
-});
+            });
 
 
-// DELETE /api/v1/scorers-stats/argentina
+            // GET /api/v1/companies-stats
+
+            app.get("/api/v1/companies-stats", (req, res) => {
+                companies.find({}).toArray((error, companiesArray) => {
+                    res.send(companiesArray);
+                    if (error) {
+                        console.log("Error: " + error);
+                    }
+                });
+            });
+
+
+            // POST /api/v1/companies-stats
+
+            app.post("/api/v1/companies-stats", (req, res) => {
 
-app.delete("/api/v1/scorers-stats/:country", (req, res) => {
+                var newcompaniesstats = req.body;
+                var yearCompany = req.body.year;
+                companies.find({ "year": yearCompany }).toArray((error, companiesArray) => {
+                    if (error) {
+                        console.log("Error: " + error);
+                    }
+                    if (companiesArray.length > 0) {
+                        res.sendStatus(409);
+                    }
+                    else {
+                        companies.insert(newcompaniesstats);
+                        res.sendStatus(201);
+                    }
+                });
+            });
 
-    var country = req.params.country;
-    var found = false;
 
-    var updatedCountry = scorersstats.filter((c) => {
+            // DELETE /api/v1/ucompanies-stats
 
-        if (c.country == country)
-            found = true;
+            app.delete("/api/v1/companies-stats", (req, res) => {
 
-        return c.country != country;
-    });
+                companiesstats.remove({});
+                console.log("Request accepted, removing all resources of database.");
+                res.sendStatus(200);
 
-    if (found == false) {
-        res.sendStatus(404);
-    }
-    else {
-        scorersstats = updatedCountry;
-        res.sendStatus(200);
-    }
-
-});
-
-// POST /api/v1/scorers-stats/argentina
-
-app.post("/api/v1/scorers-stats/:country", (req, res) => {
-
-    res.sendStatus(405);
-});
-
-// PUT /api/v1/scorers-stats
-
-app.put("/api/v1/scorers-stats", (req, res) => {
-
-    res.sendStatus(405);
-});
-
-"======================="
-//Recursos Pablo Garcia
-"======================="
-
-//var companiesstats = [];
-
-// GET /api/v1/companies-stats/docs
-
-app.get("/api/v1/companies-stats/docs", (req, res) => {
-    res.redirect("https://documenter.getpostman.com/view/6990295/S17oyqep");
-})
-
-// GET /api/v1/companies-stats/loadInitialData
-
-app.get("/api/v1/companies-stats/loadInitialData", (req, res) => {
-
-    var companiesstatsinitial = [{
-            country: "EEUU",
-            year: "2014",
-            company: "apple",
-            income: "182,795",
-            marketcapitalization: "732.63",
-            employee: "80300"
-        },
-        {
-            country: "Corea del Sur",
-            year: "2007",
-            company: "samsung",
-            income: "174,2",
-            marketcapitalization: "110.10",
-            employee: "263000"
-        },
-
-        {
-            country: "Alemania",
-            year: "2007",
-            company: "volkswagen",
-            income: "160,3",
-            marketcapitalization: "101.06",
-            employee: "329305"
-        },
-
-        {
-            country: "Reino Unido",
-            year: "2009",
-            company: "british petroleum",
-            income: "246,1",
-            marketcapitalization: "34.7",
-            employee: "80300"
-        },
+            });
 
-        {
-            country: "China",
-            year: "2007",
-            company: "petrochina",
-            income: "169,7",
-            marketcapitalization: "369.57",
-            employee: "307000"
-        },
-
-
-    ];
-    companies.find({}).toArray((error, companiesArray) => {
-        if (companiesArray.length == 0) {
-            companies.insert(companiesstatsinitial);
-            res.sendStatus(200);
-        }
-        else {
-            res.sendStatus(409);
-        }
-    });
 
-});
+            // GET /api/v1/companies-stats/1997
 
+            app.get("/api/v1/companies-stats/:year", (req, res) => {
 
-// GET /api/v1/companies-stats
+                var year = req.params.year;
 
-app.get("/api/v1/companies-stats", (req, res) => {
-    companies.find({}).toArray((error, companiesArray) => {
-        res.send(companiesArray);
-        if (error) {
-            console.log("Error: " + error);
-        }
-    });
-});
+                companies.find({ "year": year }).toArray((error, filteredcompaniesstats) => {
+                    if (error) {
+                        console.log("Error: " + error);
+                    }
+                    if (filteredcompaniesstats.length >= 1) {
+                        res.send(filteredcompaniesstats);
+                    }
+                    else {
+                        res.sendStatus(404);
+                    }
+                });
 
+            });
 
-// POST /api/v1/companies-stats
 
-app.post("/api/v1/companies-stats", (req, res) => {
+            // PUT /api/v1/companies-stats/1997
 
-    var newcompaniesstats = req.body;
-    var yearCompany = req.body.year;
-    companies.find({ "year": yearCompany }).toArray((error, companiesArray) => {
-        if (error) {
-            console.log("Error: " + error);
-        }
-        if (companiesArray.length > 0) {
-            res.sendStatus(409);
-        }
-        else {
-            companies.insert(newcompaniesstats);
-            res.sendStatus(201);
-        }
-    });
-});
+            app.put("/api/v1/companies-stats/:year", (req, res) => {
 
+                var year = req.params.year;
+                var updatedcompaniesstats = req.body;
 
-// DELETE /api/v1/ucompanies-stats
+                companies.find({ "year": year }).toArray((error, filteredcompaniesstats) => {
+                    if (error) {
+                        console.log("Error: " + error);
+                    }
+                    if (filteredcompaniesstats.length === 0) {
+                        res.sendStatus(400);
+                    }
+                    else {
+                        companies.updateOne({ "year": year }, { $set: updatedcompaniesstats });
+                        res.sendStatus(200);
+                    }
 
-app.delete("/api/v1/companies-stats", (req, res) => {
+                });
 
-    companiesstats.remove({});
-    console.log("Request accepted, removing all resources of database.");
-    res.sendStatus(200);
+            });
 
-});
 
+            // DELETE /api/v1/companies-stats/1997
 
-// GET /api/v1/companies-stats/1997
+            app.delete("/api/v1/companies-stats/:year", (req, res) => {
 
-app.get("/api/v1/companies-stats/:year", (req, res) => {
+                var year = req.params.year;
 
-    var year = req.params.year;
+                companies.find({ "year": year }).toArray((error, filteredcompaniesstats) => {
+                    if (error) {
+                        console.log("Error: " + error);
+                    }
+                    if (filteredcompaniesstats.length === 0) {
+                        res.sendStatus(404);
+                    }
+                    else {
+                        companies.deleteOne({ "year": year });
+                        res.sendStatus(200);
+                    }
+                });
 
-    companies.find({ "year": year }).toArray((error, filteredcompaniesstats) => {
-        if (error) {
-            console.log("Error: " + error);
-        }
-        if (filteredcompaniesstats.length >= 1) {
-            res.send(filteredcompaniesstats);
-        }
-        else {
-            res.sendStatus(404);
-        }
-    });
+            });
 
-});
+            // POST /api/v1/companies-stats/1997
 
+            app.post("/api/v1/companies-stats/:year", (req, res) => {
 
-// PUT /api/v1/companies-stats/1997
+                res.sendStatus(405);
+            });
 
-app.put("/api/v1/companies-stats/:year", (req, res) => {
+            // PUT /api/v1/companies-stats
 
-    var year = req.params.year;
-    var updatedcompaniesstats = req.body;
+            app.put("/api/v1/companies-stats", (req, res) => {
 
-    companies.find({ "year": year }).toArray((error, filteredcompaniesstats) => {
-        if (error) {
-            console.log("Error: " + error);
-        }
-        if (filteredcompaniesstats.length === 0) {
-            res.sendStatus(400);
-        }
-        else {
-            companies.updateOne({ "year": year }, { $set: updatedcompaniesstats });
-            res.sendStatus(200);
-        }
+                res.sendStatus(405);
+            });
 
-    });
 
-});
 
 
-// DELETE /api/v1/companies-stats/1997
 
-app.delete("/api/v1/companies-stats/:year", (req, res) => {
 
-    var year = req.params.year;
+            app.get("/time", (request, response) => {
+                response.send(new Date());
+            })
 
-    companies.find({ "year": year }).toArray((error, filteredcompaniesstats) => {
-        if (error) {
-            console.log("Error: " + error);
-        }
-        if (filteredcompaniesstats.length === 0) {
-            res.sendStatus(404);
-        }
-        else {
-            companies.deleteOne({ "year": year });
-            res.sendStatus(200);
-        }
-    });
+            app.listen(port, () => {
 
-});
-
-// POST /api/v1/companies-stats/1997
-
-app.post("/api/v1/companies-stats/:year", (req, res) => {
-
-    res.sendStatus(405);
-});
-
-// PUT /api/v1/companies-stats
-
-app.put("/api/v1/companies-stats", (req, res) => {
-
-    res.sendStatus(405);
-});
-
-
-
-
-
-
-app.get("/time", (request, response) => {
-    response.send(new Date());
-})
-
-app.listen(port, () => {
-
-    console.log("magic is happening in port " + port);
-})
+                console.log("magic is happening in port " + port);
+            })
