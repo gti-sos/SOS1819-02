@@ -37,16 +37,6 @@ app.use("/", express.static(__dirname + "/public"));
 //Recursos Alejandro Martin
 "============================="
 
-
-
-//GET /api/v1/movies-stats/docs
-/*
-app.get("/api/v1/movies-stats/docs/", (req,res)=>{
-    res.redirect("");
-});
-*/
-
-
 var moviesstats = [];
 
 // GET /api/v1/movies-stats/loadInitialData
@@ -347,7 +337,8 @@ var scorersstats=[]
 // DELETE /api/v1/scorers-stats
 
 app.delete("/api/v1/scorers-stats", (req, res) => {
-    scorersstatsinitial.remove({});
+scorersstatsinitial.remove({});
+
     res.sendStatus(200);
 });
 
