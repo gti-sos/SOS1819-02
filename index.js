@@ -304,7 +304,7 @@ app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
                 });
             });
 
-
+            var scorersstats=[];
             // DELETE /api/v1/scorers-stats
 
             app.delete("/api/v1/scorers-stats", (req, res) => {
