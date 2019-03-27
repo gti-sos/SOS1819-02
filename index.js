@@ -507,27 +507,21 @@ app.get("/api/v1/companies-stats", (req, res) => {
 
 app.post("/api/v1/companies-stats", (req, res) => {
 
+    var newcompaniesstats = req.body;
+    var yearCompany = req.body.year;
 
-    var newStat = req.body;
+    companies.find({ "year": yearCompany }).toArray((error, companiesArray) => {
 
-    companiesstats.find(newStat).toArray((err, companiesArray) => {
-
-        if (err) console.log("FATAL ERROR !!: ", err);
-
-        if (companiesArray == 0) {
-
-            companiesstats.insert(newStat);
-            console.log("Request accepted, creating new resource in database.");
-            res.sendStatus(201);
-
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (companiesArray.length > 0) {
+            res.sendStatus(409);
         }
         else {
-
-            console.log("FATAL ERROR !!: Resource already exists in the database.");
-            res.sendStatus(409);
-
+            movies.insert(newcompaniesstats);
+            res.sendStatus(201);
         }
-
     });
 });
 
@@ -562,6 +556,8 @@ app.get("/api/v1/companies-stats/:year", (req, res) => {
     });
 
 });
+
+
 
 
 // PUT /api/v1/companies-stats/1997
