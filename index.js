@@ -42,7 +42,7 @@ app.use("/", express.static(__dirname + "/public"));
 
 //GET /api/v1/movies-stats/docs
 
-app.get("/api/v1/movies-stats/docs/", (req,res)=>{
+app.get("/api/v1/movies-stats/docs/", (req, res) => {
     res.redirect("https://documenter.getpostman.com/view/7067709/S17usmjv");
 });
 
@@ -137,13 +137,13 @@ app.post("/api/v1/movies-stats", (req, res) => {
 
     var newmoviesstats = req.body;
     var yearMovie = req.body.year;
-    
-    var newMovies= req.body;
 
-    if(!newMovies.country || !newMovies.year || !newMovies.name || !newMovies.movienomination|| !newMovies.movieaward || !newMovies.movieedition){
-            res.sendStatus(400);
-        }
-    
+    var newMovies = req.body;
+
+    if (!newMovies.country || !newMovies.year || !newMovies.name || !newMovies.movienomination || !newMovies.movieaward || !newMovies.movieedition) {
+        res.sendStatus(400);
+    }
+
 
     movies.find({ "year": yearMovie }).toArray((error, moviesArray) => {
 
@@ -196,7 +196,7 @@ app.get("/api/v1/movies-stats/:year", (req, res) => {
 // PUT /api/v1/movies-stats/1997
 
 app.put("/api/v1/movies-stats/:year", (req, res) => {
-    var id = req.params._id
+    var id = req.params._id;
     var year = req.params.year;
     var updatedmoviesstats = req.body;
     movies.find({}).toArray((err, moviesArray) => {
@@ -329,14 +329,14 @@ app.get("/api/v1/scorers-stats", (req, res) => {
 
 
 // POST /api/v1/scorers-stats
-//funxionA
+
 app.post("/api/v1/scorers-stats", (req, res) => {
 
     var nameScorer = req.body.name;
-    var newScorer= req.body;
-    if(!newScorer.country || !newScorer.year || !newScorer.name || !newScorer.scorergoal || !newScorer.scorermatch || !newScorer.scoreraverage){
-            res.sendStatus(400);
-        }
+    var newScorer = req.body;
+    if (!newScorer.country || !newScorer.year || !newScorer.name || !newScorer.scorergoal || !newScorer.scorermatch || !newScorer.scoreraverage) {
+        res.sendStatus(400);
+    }
     scorers.find({ "name": nameScorer }).toArray((error, scorersArray) => {
 
         if (error) {
@@ -352,7 +352,7 @@ app.post("/api/v1/scorers-stats", (req, res) => {
     });
 });
 
-var scorersstats=[]
+var scorersstats = []
 // DELETE /api/v1/scorers-stats
 
 app.delete("/api/v1/scorers-stats", (req, res) => {
@@ -443,13 +443,15 @@ app.put("/api/v1/scorers-stats", (req, res) => {
 //Recursos Pablo Garcia
 "======================="
 
-var companiesstats = [];
 
 // GET /api/v1/companies-stats/docs
 
 app.get("/api/v1/companies-stats/docs", (req, res) => {
     res.redirect("https://documenter.getpostman.com/view/6990295/S17oyqep");
 })
+
+var companiesstats = [];
+
 
 // GET /api/v1/companies-stats/loadInitialData
 
@@ -532,11 +534,11 @@ app.post("/api/v1/companies-stats", (req, res) => {
 
     var newcompaniesstats = req.body;
     var yearCompany = req.body.year;
-  var newCompany= req.body;
+    var newCompanies = req.body;
 
-    if(!newCompany.country || !newCompany.year || !newCompany.company || !newCompany.income || !newCompany.marketcapitalization || !newCompany.employee){
-            res.sendStatus(400);
-        }
+    if (!newCompanies.country || !newCompanies.year || !newCompanies.company || !newCompanies.income || !newCompanies.marketcapitalization || !newCompanies.employee) {
+        res.sendStatus(400);
+    }
     companies.find({ "year": yearCompany }).toArray((error, companiesArray) => {
 
         if (error) {
@@ -553,18 +555,18 @@ app.post("/api/v1/companies-stats", (req, res) => {
 });
 
 
-// DELETE /api/v1/ucompanies-stats
+// DELETE /api/v1/companies-stats
 
 app.delete("/api/v1/companies-stats", (req, res) => {
 
-    companiesstats.remove({});
-    //sconsole.log("Request accepted, removing all resources of database.");
+    companies.remove({});
+    //console.log("Request accepted, removing all resources of database.");
     res.sendStatus(200);
 
 });
 
 
-// GET /api/v1/companies-stats/1997
+// GET /api/v1/companies-stats/2007
 
 app.get("/api/v1/companies-stats/:year", (req, res) => {
 
@@ -575,7 +577,7 @@ app.get("/api/v1/companies-stats/:year", (req, res) => {
             console.log("Error: " + error);
         }
         if (filteredcompaniesstats.length >= 1) {
-            res.send(filteredcompaniesstats);
+            res.send(filteredcompaniesstats[0]);
         }
         else {
             res.sendStatus(404);
@@ -587,18 +589,18 @@ app.get("/api/v1/companies-stats/:year", (req, res) => {
 
 
 
-// PUT /api/v1/companies-stats/1997
+// PUT /api/v1/companies-stats/2007
 
 app.put("/api/v1/companies-stats/:year", (req, res) => {
-
+    var id = req.params._id;
     var year = req.params.year;
     var updatedcompaniesstats = req.body;
 
-    companies.find({ "year": year }).toArray((error, filteredcompaniesstats) => {
+    companies.find({}).toArray((error, companiesArray) => {
         if (error) {
             console.log("Error: " + error);
         }
-        if (filteredcompaniesstats.length === 0) {
+        if (companies != updatedcompaniesstats.year || id != updatedcompaniesstats._id) {
             res.sendStatus(400);
         }
         else {
