@@ -600,7 +600,7 @@ app.put("/api/v1/companies-stats/:year", (req, res) => {
         if (error) {
             console.log("Error: " + error);
         }
-        if (companies != updatedcompaniesstats.year || id != updatedcompaniesstats._id) {
+        if (year != updatedcompaniesstats.year || id != updatedcompaniesstats._id) {
             res.sendStatus(400);
         }
         else {
