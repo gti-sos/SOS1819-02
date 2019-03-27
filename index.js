@@ -240,13 +240,19 @@ app.put("/api/v1/movies-stats", (req, res) => {
 //Recursos Alberto Pérez
 "========================"
 
-var scorersstats = [];
+//var scorersstats = [];
+
+// GET /api/v1/companies-stats/docs
+
+app.get("/api/v1/scorers-stats/docs", (req, res) => {
+    res.redirect("...........");
+})
 
 // GET /api/v1/scorers-stats/loadInitialData
 
 app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
 
-    scorersstats = [{
+    var scorersstatsinitial = [{
         country: "argentina",
         year: "2004",
         name: "lionel-messi",
@@ -262,14 +268,29 @@ app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
         scoreraverage: "1.07"
     }];
 
-    res.sendStatus(200);
-});
 
+    scorers.find({}).toArray((error, scorersArray) => {
+        if (scorersArray.length == 0) {
+            scorers.insert(scorersstatsinitial);
+            res.sendStatus(200);
+        }
+        else {
+            res.sendStatus(409);
+        }
+    });
+});
 
 // GET /api/v1/scorers-stats
 
 app.get("/api/v1/scorers-stats", (req, res) => {
-    res.send(scorersstats);
+    scorers.find({}).toArray((error, scorersArray) => {
+        res.send(scorersArray)
+        if (error) {
+            console.log("Error:" + error);
+        }
+
+
+    });
 });
 
 
@@ -277,20 +298,53 @@ app.get("/api/v1/scorers-stats", (req, res) => {
 
 app.post("/api/v1/scorers-stats", (req, res) => {
 
-    var newscorersstats = req.body;
 
-    scorersstats.push(newscorersstats);
+    var newScorer= req.body;
+    var ok = false;
 
-    res.sendStatus(201);
+    if (!newScorer.country || !newScorer.year || !newScorer.name ||
+        !newScorer.scorergoal || !newScorer.scorermatch || !newScorer.scoreraverage ||
+        Object.keys(newScorer).length != 7) {
+        res.sendStatus(400);
+    }
+    else {
+
+        scorersstats.find({}).toArray((err, scorersArray) => {
+            for (var i = 0; i < scorersArray.length; i++) {
+
+                if (scorersArray[i].country == newScorer.country &&
+                    scorersArray[i].year == newScorer.year && scorersArray[i].name == newScorer.name &&
+                    scorersArray[i].scorergoal == newScorer.scorergoal && scorersArray[i].scorermatch == newScorer.scorermatch &&
+                    scorersArray[i].scoreraverage == newScorer.scoreraverage) {
+                    ok = true;
+
+                }
+
+            }
+
+
+            if (ok == true) {
+                res.sendStatus(409);
+            }
+            else {
+
+                scorersstats.insertOne(newScorer);
+                res.sendStatus(201);
+            }
+
+
+
+
+
+        });
+    }
 });
 
-
+var scorersstats=[]
 // DELETE /api/v1/scorers-stats
 
 app.delete("/api/v1/scorers-stats", (req, res) => {
-
-    scorersstats = [];
-
+    scorersstatsinitial.remove({});
     res.sendStatus(200);
 });
 
@@ -301,16 +355,17 @@ app.get("/api/v1/scorers-stats/:country", (req, res) => {
 
     var country = req.params.country;
 
-    var filteredscorersstats = scorersstats.filter((c) => {
-        return c.country == country;
+    scorers.find({ "country": country }).toArray((error, filteredscorersstats) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (filteredscorersstats.length >= 1) {
+            res.send(filteredscorersstats);
+        }
+        else {
+            res.sendStatus(404);
+        }
     });
-
-    if (filteredscorersstats.length >= 1) {
-        res.send(filteredscorersstats);
-    }
-    else {
-        res.sendStatus(404);
-    }
 
 });
 
@@ -321,27 +376,20 @@ app.put("/api/v1/scorers-stats/:country", (req, res) => {
 
     var country = req.params.country;
     var updatedscorersstats = req.body;
-    var found = false;
 
-    var updatedscorersstats2 = scorersstats.map((c) => {
-
-        if (c.country == country) {
-            found = true;
-            return updatedscorersstats;
+    scorers.find({ "country": country }).toArray((error, filteredscorersstats) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (filteredscorersstats.length === 0) {
+            res.sendStatus(400);
         }
         else {
-            return c;
+            scorers.updateOne({ "country": country }, { $set: updatedscorersstats });
+            res.sendStatus(200);
         }
 
     });
-
-    if (found == false) {
-        res.sendStatus(404);
-    }
-    else {
-        scorersstats = updatedscorersstats2;
-        res.sendStatus(200);
-    }
 
 });
 
@@ -349,25 +397,20 @@ app.put("/api/v1/scorers-stats/:country", (req, res) => {
 // DELETE /api/v1/scorers-stats/argentina
 
 app.delete("/api/v1/scorers-stats/:country", (req, res) => {
-
     var country = req.params.country;
-    var found = false;
 
-    var updatedCountry = scorersstats.filter((c) => {
-
-        if (c.country == country)
-            found = true;
-
-        return c.country != country;
+    scorers.find({ "country": country }).toArray((error, filteredscorersstats) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (filteredscorersstats.length === 0) {
+            res.sendStatus(404);
+        }
+        else {
+            scorers.deleteOne({ "country": country });
+            res.sendStatus(200);
+        }
     });
-
-    if (found == false) {
-        res.sendStatus(404);
-    }
-    else {
-        scorersstats = updatedCountry;
-        res.sendStatus(200);
-    }
 
 });
 
@@ -443,7 +486,7 @@ app.get("/api/v1/companies-stats/loadInitialData", (req, res) => {
             income: "169,7",
             marketcapitalization: "369.57",
             employee: "307000"
-        },
+        }
 
 
     ];
@@ -476,19 +519,27 @@ app.get("/api/v1/companies-stats", (req, res) => {
 
 app.post("/api/v1/companies-stats", (req, res) => {
 
-    var newcompaniesstats = req.body;
-    var yearCompany = req.body.year;
-    companies.find({ "year": yearCompany }).toArray((error, companiesArray) => {
-        if (error) {
-            console.log("Error: " + error);
-        }
-        if (companiesArray.length > 0) {
-            res.sendStatus(409);
+
+    var newStat = req.body;
+
+    companiesstats.find(newStat).toArray((err, companiesArray) => {
+
+        if (err) console.log("FATAL ERROR !!: ", err);
+
+        if (companiesArray == 0) {
+
+            companiesstats.insert(newStat);
+            console.log("Request accepted, creating new resource in database.");
+            res.sendStatus(201);
+
         }
         else {
-            companies.insert(newcompaniesstats);
-            res.sendStatus(201);
+
+            console.log("FATAL ERROR !!: Resource already exists in the database.");
+            res.sendStatus(409);
+
         }
+
     });
 });
 
@@ -497,9 +548,10 @@ app.post("/api/v1/companies-stats", (req, res) => {
 
 app.delete("/api/v1/companies-stats", (req, res) => {
 
-    companiesstats = [];
-
+    companiesstats.remove({});
+    console.log("Request accepted, removing all resources of database.");
     res.sendStatus(200);
+
 });
 
 
