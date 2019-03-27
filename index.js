@@ -332,7 +332,6 @@ app.get("/api/v1/scorers-stats", (req, res) => {
 
 app.post("/api/v1/scorers-stats", (req, res) => {
 
-var newscorersstats = req.body;
     var nameScorer = req.body.name;
     var newScorer= req.body;
 
@@ -348,7 +347,7 @@ var newscorersstats = req.body;
             res.sendStatus(409);
         }
         else {
-            scorers.insert(newscorersstats);
+            scorers.insert(newScorer);
             res.sendStatus(201);
         }
     });
