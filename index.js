@@ -288,9 +288,10 @@ app.get("/api/v1/scorers-stats", (req, res) => {
 
 app.post("/api/v1/scorers-stats", (req, res) => {
 
+
     var newscorersstats = req.body;
-    var idScorer = req.body.id;
-    scorers.find({ "idScorer": idScorer }).toArray((error, scorersArray) => {
+    var countryScorer = req.body.country;
+    scorers.find({ "idScorer": countryScorer }).toArray((error, scorersArray) => {
         if (error) {
             console.log("Error: " + error);
         }
@@ -303,6 +304,7 @@ app.post("/api/v1/scorers-stats", (req, res) => {
         }
     });
 });
+
 
 var scorersstats = [];
 // DELETE /api/v1/scorers-stats
