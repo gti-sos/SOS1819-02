@@ -534,7 +534,11 @@ app.post("/api/v1/companies-stats", (req, res) => {
 
     var newcompaniesstats = req.body;
     var yearCompany = req.body.year;
+  var newCompany= req.body;
 
+    if(!newCompany.country || !newCompany.year || !newCompany.company || !newCompany.income || !newCompany.marketcapitalization || !newCompany.employee){
+            res.sendStatus(400);
+        }
     companies.find({ "year": yearCompany }).toArray((error, companiesArray) => {
 
         if (error) {
@@ -544,7 +548,7 @@ app.post("/api/v1/companies-stats", (req, res) => {
             res.sendStatus(409);
         }
         else {
-            movies.insert(newcompaniesstats);
+            companies.insert(newcompaniesstats);
             res.sendStatus(201);
         }
     });
