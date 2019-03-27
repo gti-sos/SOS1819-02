@@ -186,21 +186,21 @@ app.get("/api/v1/movies-stats/:year", (req, res) => {
 // PUT /api/v1/movies-stats/1997
 
 app.put("/api/v1/movies-stats/:year", (req, res) => {
-
+    var id = req.params._id
     var year = req.params.year;
     var updatedmoviesstats = req.body;
-
-    movies.find({ "year": year }).toArray((error, filteredmoviesstats) => {
-        if (error) {
-            console.log("Error: " + error);
+    movies.find({}).toArray((err, moviesArray) => {
+        if (err) {
+            console.log(err);
         }
-        if (filteredmoviesstats.length == 0) {
+        if (movies != updatedmoviesstats.year || id != updatedmoviesstats._id) {
             res.sendStatus(400);
         }
         else {
-            movies.updateOne({ "year": year }, { $set: updatedmoviesstats });
+            movies.updateOne({ year: year }, { $set: updatedmoviesstats });
             res.sendStatus(200);
         }
+
     });
 });
 
