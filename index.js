@@ -39,11 +39,14 @@ app.use("/", express.static(__dirname + "/public"));
 
 
 
+
 //GET /api/v1/movies-stats/docs
 
 app.get("/api/v1/movies-stats/docs/", (req,res)=>{
     res.redirect("https://documenter.getpostman.com/view/7067709/S17usmjv");
 });
+
+
 
 
 
@@ -301,64 +304,42 @@ app.get("/api/v1/scorers-stats", (req, res) => {
 
 app.post("/api/v1/scorers-stats", (req, res) => {
 
+var newscorersstats = req.body;
+    var nameScorer = req.body.name;
 
-    var newScorer= req.body;
-    var ok = false;
+    scorers.find({ "name": nameScorer }).toArray((error, scorersArray) => {
 
-    if (!newScorer.country || !newScorer.year || !newScorer.name ||
-        !newScorer.scorergoal || !newScorer.scorermatch || !newScorer.scoreraverage ||
-        Object.keys(newScorer).length != 7) {
-        res.sendStatus(400);
-    }
-    else {
-
-        scorersstats.find({}).toArray((err, scorersArray) => {
-            for (var i = 0; i < scorersArray.length; i++) {
-
-                if (scorersArray[i].country == newScorer.country &&
-                    scorersArray[i].year == newScorer.year && scorersArray[i].name == newScorer.name &&
-                    scorersArray[i].scorergoal == newScorer.scorergoal && scorersArray[i].scorermatch == newScorer.scorermatch &&
-                    scorersArray[i].scoreraverage == newScorer.scoreraverage) {
-                    ok = true;
-
-                }
-
-            }
-
-
-            if (ok == true) {
-                res.sendStatus(409);
-            }
-            else {
-
-                scorersstats.insertOne(newScorer);
-                res.sendStatus(201);
-            }
-
-
-
-
-
-        });
-    }
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (scorersArray.length > 0) {
+            res.sendStatus(409);
+        }
+        else {
+            scorers.insert(newscorersstats);
+            res.sendStatus(201);
+        }
+    });
 });
 
 var scorersstats=[]
 // DELETE /api/v1/scorers-stats
 
 app.delete("/api/v1/scorers-stats", (req, res) => {
-    scorersstatsinitial.remove({});
+    scorers.remove({});
+
     res.sendStatus(200);
 });
 
 
 // GET /api/v1/scorers-stats/argentina
 
-app.get("/api/v1/scorers-stats/:country", (req, res) => {
+app.get("/api/v1/scorers-stats/:year", (req, res) => {
 
-    var country = req.params.country;
 
-    scorers.find({ "country": country }).toArray((error, filteredscorersstats) => {
+    var year = req.params.year;
+
+    scorers.find({ "year": year }).toArray((error, filteredscorersstats) => {
         if (error) {
             console.log("Error: " + error);
         }
@@ -375,27 +356,24 @@ app.get("/api/v1/scorers-stats/:country", (req, res) => {
 
 // PUT /api/v1/scorers-stats/argentina
 
-app.put("/api/v1/scorers-stats/:country", (req, res) => {
-
-    var country = req.params.country;
+app.put("/api/v1/scorers-stats/:year", (req, res) => {
+    var id = req.params._id
+    var year = req.params.year;
     var updatedscorersstats = req.body;
-
-    scorers.find({ "country": country }).toArray((error, filteredscorersstats) => {
-        if (error) {
-            console.log("Error: " + error);
+    scorers.find({}).toArray((err, scorersArray) => {
+        if (err) {
+            console.log(err);
         }
-        if (filteredscorersstats.length === 0) {
+        if (year != updatedscorersstats.year || id != updatedscorersstats._id) {
             res.sendStatus(400);
         }
         else {
-            scorers.updateOne({ "country": country }, { $set: updatedscorersstats });
+            scorers.updateOne({ year: year }, { $set: updatedscorersstats });
             res.sendStatus(200);
         }
 
     });
-
 });
-
 
 // DELETE /api/v1/scorers-stats/argentina
 
