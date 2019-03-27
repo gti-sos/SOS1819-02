@@ -166,18 +166,21 @@ app.get("/api/v1/movies-stats/:year", (req, res) => {
 
     var year = req.params.year;
 
-    var filteredmoviesstats = moviesstats.filter((c) => {
-        return c.year == year;
+    movies.find({ "year": year }).toArray((error, filteredmoviesstats) => {
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (filteredmoviesstats.length >= 1) {
+            res.send(filteredmoviesstats);
+        }
+        else {
+            res.sendStatus(404);
+        }
     });
 
-    if (filteredmoviesstats.length >= 1) {
-        res.send(filteredmoviesstats);
-    }
-    else {
-        res.sendStatus(404);
-    }
-
 });
+
+
 
 
 // PUT /api/v1/movies-stats/1997
