@@ -40,11 +40,11 @@ app.use("/", express.static(__dirname + "/public"));
 
 
 //GET /api/v1/movies-stats/docs
-/*
+
 app.get("/api/v1/movies-stats/docs/", (req,res)=>{
-    res.redirect("");
+    res.redirect("https://documenter.getpostman.com/view/7067709/S17usmjv");
 });
-*/
+
 
 
 var moviesstats = [];
