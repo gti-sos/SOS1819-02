@@ -289,8 +289,8 @@ app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
             app.post("/api/v1/scorers-stats", (req, res) => {
 
                 var newscorersstats = req.body;
-                var countryScorer = req.body.country;
-                scorers.find({ "country": countryScorer }).toArray((error, scorersArray) => {
+                var idScorer = req.body.id;
+                scorers.find({ "idScorer": idScorer }).toArray((error, scorersArray) => {
                     if (error) {
                         console.log("Error: " + error);
                     }
