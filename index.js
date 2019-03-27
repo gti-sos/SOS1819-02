@@ -330,13 +330,11 @@ app.post("/api/v1/scorers-stats", (req, res) => {
     }
 });
 
-
+var scorersstats=[]
 // DELETE /api/v1/scorers-stats
 
 app.delete("/api/v1/scorers-stats", (req, res) => {
-
-   app.delete("/api/v1/takingstats", (req, res) => {
-    scorersstats.remove({});
+    scorersstatsinitial.remove({});
     res.sendStatus(200);
 });
 
