@@ -203,7 +203,7 @@ app.put("/api/v1/movies-stats/:year", (req, res) => {
         if (err) {
             console.log(err);
         }
-        if (movies != updatedmoviesstats.year || id != updatedmoviesstats._id) {
+        if (year != updatedmoviesstats.year || id != updatedmoviesstats._id) {
             res.sendStatus(400);
         }
         else {
