@@ -1,6 +1,13 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
+/___________Paginacion y autentificacion(proceso)_________________/
+//var jwt = require("jsonwebtoken");
+//app.use(bodyParser.urlencoded({extended: false}));
+//app.use(bodyParser.json({limit: "10mb"}));
+
+
+
 var app = express();
 app.use(bodyParser.json());
 
@@ -445,6 +452,7 @@ app.put("/api/v1/scorers-stats", (req, res) => {
 
 
 // GET /api/v1/companies-stats/docs
+        //--> GET redirect POSTMAN
 
 app.get("/api/v1/companies-stats/docs", (req, res) => {
     res.redirect("https://documenter.getpostman.com/view/6990295/S17oyqep");
