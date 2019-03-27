@@ -327,7 +327,11 @@ app.post("/api/v1/scorers-stats", (req, res) => {
 
 var newscorersstats = req.body;
     var nameScorer = req.body.name;
+    var newScorer= req.body;
 
+    if(!newScorer.country || !newScorer.year || !newScorer.name || !newScorer.scorergoal || !newScorer.scorermatch || !newScorer.scoreraverage){
+            res.sendStatus(400);
+        }
     scorers.find({ "name": nameScorer }).toArray((error, scorersArray) => {
 
         if (error) {
