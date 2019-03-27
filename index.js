@@ -137,6 +137,13 @@ app.post("/api/v1/movies-stats", (req, res) => {
 
     var newmoviesstats = req.body;
     var yearMovie = req.body.year;
+    
+    var newMovies= req.body;
+
+    if(!newMovies.country || !newMovies.year || !newMovies.name || !newMovies.movienomination|| !newMovies.movieaward || !newMovies.movieedition){
+            res.sendStatus(400);
+        }
+    
 
     movies.find({ "year": yearMovie }).toArray((error, moviesArray) => {
 
