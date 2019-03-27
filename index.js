@@ -259,19 +259,26 @@ app.get("/api/v1/scorers-stats/docs", (req, res) => {
 app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
 
     var scorersstatsinitial = [{
-        country: "argentina",
+        country: "arg",
         year: "2004",
         name: "lionel-messi",
-        scorergoal: "405",
-        scorermatch: "440",
-        scoreraverage: "0.92"
+        scorergoal: 405,
+        scorermatch: 440,
+        scoreraverage: 0.92
     }, {
-        country: "portugal",
+        country: "prt",
         year: "2009",
         name: "cristiano-ronaldo",
-        scorergoal: "311",
-        scorermatch: "292",
-        scoreraverage: "1.07"
+        scorergoal: 311,
+        scorermatch: 292,
+        scoreraverage: 1.07
+    }, {
+        country: "esp",
+        year: "1994",
+        name: "raul-gonzalez",
+        scorergoal: 311,
+        scorermatch: 292,
+        scoreraverage: 1.07
     }];
 
 
