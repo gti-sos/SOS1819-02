@@ -329,12 +329,11 @@ app.get("/api/v1/scorers-stats", (req, res) => {
 
 
 // POST /api/v1/scorers-stats
-
+//funxionA
 app.post("/api/v1/scorers-stats", (req, res) => {
 
     var nameScorer = req.body.name;
     var newScorer= req.body;
-
     if(!newScorer.country || !newScorer.year || !newScorer.name || !newScorer.scorergoal || !newScorer.scorermatch || !newScorer.scoreraverage){
             res.sendStatus(400);
         }
@@ -559,7 +558,7 @@ app.post("/api/v1/companies-stats", (req, res) => {
 app.delete("/api/v1/companies-stats", (req, res) => {
 
     companiesstats.remove({});
-    console.log("Request accepted, removing all resources of database.");
+    //sconsole.log("Request accepted, removing all resources of database.");
     res.sendStatus(200);
 
 });
