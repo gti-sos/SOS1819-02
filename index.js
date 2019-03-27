@@ -258,7 +258,7 @@ app.put("/api/v1/movies-stats", (req, res) => {
 // GET /api/v1/companies-stats/docs
 
 app.get("/api/v1/scorers-stats/docs", (req, res) => {
-    res.redirect("...........");
+    res.redirect("https://documenter.getpostman.com/view/6869425/S17usmtj");
 })
 
 // GET /api/v1/scorers-stats/loadInitialData
