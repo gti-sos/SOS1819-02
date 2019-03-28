@@ -1,3 +1,4 @@
+console.log("declaracion de variables express y bodyParser");
 var express = require("express");
 var bodyParser = require("body-parser");
 
@@ -15,8 +16,11 @@ var port = process.env.PORT || 8080;
 
 
 
+console.log("MongoClient");
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?retryWrites=true";
+
+console.log("declaracion db");
 var movies;
 var companies;
 var scorers;
@@ -32,6 +36,7 @@ client.connect(error => {
     console.log("Connected to database.");
 
 });
+console.log("conectadas las 3 bases de datos");
 
 
 
@@ -45,9 +50,10 @@ app.use("/", express.static(__dirname + "/public"));
 "============================="
 
 
-
+console.log("###################Recursos Alejandro###################");
 
 //GET /api/v1/movies-stats/docs
+console.log("GET conjunto movies-stats/docs");
 
 app.get("/api/v1/movies-stats/docs/", (req, res) => {
     res.redirect("https://documenter.getpostman.com/view/7067709/S17usmjv");
@@ -56,11 +62,11 @@ app.get("/api/v1/movies-stats/docs/", (req, res) => {
 
 
 
-
+console.log("declaracion moviesstats vacio");
 var moviesstats = [];
 
 // GET /api/v1/movies-stats/loadInitialData
-
+console.log("GET loadInitialData");
 app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
 
     var moviesstatsinitial = [{
@@ -110,7 +116,7 @@ app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
         }
 
     ];
-
+    console.log("movies guardadas en moviesstatsinitial");
     movies.find({}).toArray((error, moviesArray) => {
         if (moviesArray.length == 0) {
             movies.insert(moviesstatsinitial);
@@ -123,7 +129,7 @@ app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
 });
 
 // GET /api/v1/movies-stats
-
+console.log("GET conjunto movies-stats");
 app.get("/api/v1/movies-stats", (req, res) => {
 
     movies.find({}).toArray((error, moviesArray) => {
@@ -139,7 +145,7 @@ app.get("/api/v1/movies-stats", (req, res) => {
 
 
 // POST /api/v1/movies-stats
-
+console.log("POST conjunto movies-stats");
 app.post("/api/v1/movies-stats", (req, res) => {
 
     var newmoviesstats = req.body;
@@ -168,7 +174,7 @@ app.post("/api/v1/movies-stats", (req, res) => {
 });
 
 // DELETE /api/v1/movies-stats
-
+console.log("DELETE conjunto movies-stats");
 app.delete("/api/v1/movies-stats", (req, res) => {
 
     movies.remove({});
@@ -178,7 +184,7 @@ app.delete("/api/v1/movies-stats", (req, res) => {
 
 
 // GET /api/v1/movies-stats/1997
-
+console.log("GET al año movies-stats/1997");
 app.get("/api/v1/movies-stats/:year", (req, res) => {
 
     var year = req.params.year;
@@ -201,7 +207,7 @@ app.get("/api/v1/movies-stats/:year", (req, res) => {
 
 
 // PUT /api/v1/movies-stats/1997
-
+console.log("PUT al año movies-stats/1997");
 app.put("/api/v1/movies-stats/:year", (req, res) => {
     var id = req.params._id;
     var year = req.params.year;
@@ -222,7 +228,7 @@ app.put("/api/v1/movies-stats/:year", (req, res) => {
 });
 
 // DELETE /api/v1/movies-stats/1997
-
+console.log("DELETE al año movies-stats/1997");
 app.delete("/api/v1/movies-stats/:year", (req, res) => {
 
     var year = req.params.year;
@@ -243,14 +249,14 @@ app.delete("/api/v1/movies-stats/:year", (req, res) => {
 
 
 // POST /api/v1/movies-stats/1997
-
+console.log("POST erroneo al año movies-stats/1997--> 405");
 app.post("/api/v1/movies-stats/:year", (req, res) => {
 
     res.sendStatus(405);
 });
 
 // PUT /api/v1/movies-stats
-
+console.log("PUT erroneo al conjunto movies-stats--> 405");
 app.put("/api/v1/movies-stats", (req, res) => {
 
     res.sendStatus(405);
@@ -259,16 +265,17 @@ app.put("/api/v1/movies-stats", (req, res) => {
 "========================"
 //Recursos Alberto Pérez
 "========================"
-
+console.log("###################Recursos ALBERTO###################");
 //var scorersstats = [];
-
+console.log("declaracion de scorerstats vacia (comentada)");
 // GET /api/v1/companies-stats/docs
-
+console.log("GET a scorers-stats/docs");
 app.get("/api/v1/scorers-stats/docs", (req, res) => {
     res.redirect("https://documenter.getpostman.com/view/6869425/S17usmtj");
 })
 
 // GET /api/v1/scorers-stats/loadInitialData
+console.log("GET loadInitialData /scorers-stats/loadInitialData ");
 
 app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
 
@@ -309,7 +316,7 @@ app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
         scoreraverage: 0.67
     }];
 
-
+console.log("scorersstatsinitial cargados con los jugadores");
     scorers.find({}).toArray((error, scorersArray) => {
         if (scorersArray.length == 0) {
             scorers.insert(scorersstatsinitial);
@@ -322,7 +329,7 @@ app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
 });
 
 // GET /api/v1/scorers-stats
-
+console.log("GET al conjunto /scorers-stats ");
 app.get("/api/v1/scorers-stats", (req, res) => {
     scorers.find({}).toArray((error, scorersArray) => {
         res.send(scorersArray)
@@ -336,7 +343,7 @@ app.get("/api/v1/scorers-stats", (req, res) => {
 
 
 // POST /api/v1/scorers-stats
-
+console.log("POST al conjunto /scorers-stats ");
 app.post("/api/v1/scorers-stats", (req, res) => {
 
     var nameScorer = req.body.name;
@@ -358,10 +365,10 @@ app.post("/api/v1/scorers-stats", (req, res) => {
         }
     });
 });
-
+console.log("Declaracion scorerstats vacio");
 var scorersstats = []
 // DELETE /api/v1/scorers-stats
-
+console.log("DELETE al conjunto /scorers-stats ");
 app.delete("/api/v1/scorers-stats", (req, res) => {
     scorers.remove({});
 
@@ -370,7 +377,7 @@ app.delete("/api/v1/scorers-stats", (req, res) => {
 
 
 // GET /api/v1/scorers-stats/argentina
-
+console.log("GET al año /scorers-stats/year ");
 app.get("/api/v1/scorers-stats/:year", (req, res) => {
 
 
@@ -392,7 +399,7 @@ app.get("/api/v1/scorers-stats/:year", (req, res) => {
 
 
 // PUT /api/v1/scorers-stats/argentina
-
+console.log("PUT al año /scorers-stats/year ")
 app.put("/api/v1/scorers-stats/:year", (req, res) => {
     var id = req.params._id
     var year = req.params.year;
@@ -413,7 +420,7 @@ app.put("/api/v1/scorers-stats/:year", (req, res) => {
 });
 
 // DELETE /api/v1/scorers-stats/argentina
-
+console.log("DELETE a un pais /scorers-stats/argentina ");
 app.delete("/api/v1/scorers-stats/:country", (req, res) => {
     var country = req.params.country;
 
@@ -433,14 +440,14 @@ app.delete("/api/v1/scorers-stats/:country", (req, res) => {
 });
 
 // POST /api/v1/scorers-stats/argentina
-
+console.log("POST Erroneo a un recurso /scorers-stats/argentina --> 405 ");
 app.post("/api/v1/scorers-stats/:country", (req, res) => {
 
     res.sendStatus(405);
 });
 
 // PUT /api/v1/scorers-stats
-
+console.log("PUT Erroneo al conjunto /scorers-stats/ --> 405 ");
 app.put("/api/v1/scorers-stats", (req, res) => {
 
     res.sendStatus(405);
@@ -450,19 +457,20 @@ app.put("/api/v1/scorers-stats", (req, res) => {
 //Recursos Pablo Garcia
 "======================="
 
+console.log("###################Recursos Pablo Garcia###################");
 
 // GET /api/v1/companies-stats/docs
         //--> GET redirect POSTMAN
-
+console.log("GET a docs");
 app.get("/api/v1/companies-stats/docs", (req, res) => {
     res.redirect("https://documenter.getpostman.com/view/6990295/S17oyqep");
 })
-
+console.log("Declara companiesstats vacia");
 var companiesstats = [];
 
 
 // GET /api/v1/companies-stats/loadInitialData
-
+console.log("GET loadInitialData");
 app.get("/api/v1/companies-stats/loadInitialData", (req, res) => {
 
     var companiesstatsinitial = [{
@@ -511,6 +519,7 @@ app.get("/api/v1/companies-stats/loadInitialData", (req, res) => {
 
 
     ];
+    console.log("cargadas companiesstatsinitial");
     companies.find({}).toArray((error, companiesArray) => {
         if (companiesArray.length == 0) {
             companies.insert(companiesstatsinitial);
@@ -525,7 +534,7 @@ app.get("/api/v1/companies-stats/loadInitialData", (req, res) => {
 
 
 // GET /api/v1/companies-stats
-
+console.log("GET al conjunto /companies-stats ");
 app.get("/api/v1/companies-stats", (req, res) => {
     companies.find({}).toArray((error, companiesArray) => {
         res.send(companiesArray);
@@ -537,7 +546,7 @@ app.get("/api/v1/companies-stats", (req, res) => {
 
 
 // POST /api/v1/companies-stats
-
+console.log("POST al conjunto /companies-stats ");
 app.post("/api/v1/companies-stats", (req, res) => {
 
     var newcompaniesstats = req.body;
@@ -564,7 +573,7 @@ app.post("/api/v1/companies-stats", (req, res) => {
 
 
 // DELETE /api/v1/companies-stats
-
+console.log("DELETE al conjunto /companies-stats ");
 app.delete("/api/v1/companies-stats", (req, res) => {
 
     companies.remove({});
@@ -575,7 +584,7 @@ app.delete("/api/v1/companies-stats", (req, res) => {
 
 
 // GET /api/v1/companies-stats/2007
-
+console.log("GET al AÑO /companies-stats/2007 ");
 app.get("/api/v1/companies-stats/:year", (req, res) => {
 
     var year = req.params.year;
@@ -598,7 +607,7 @@ app.get("/api/v1/companies-stats/:year", (req, res) => {
 
 
 // PUT /api/v1/companies-stats/2007
-
+console.log("GET al año /companies-stats/2007 ");
 app.put("/api/v1/companies-stats/:year", (req, res) => {
     var id = req.params._id;
     var year = req.params.year;
@@ -622,7 +631,7 @@ app.put("/api/v1/companies-stats/:year", (req, res) => {
 
 
 // DELETE /api/v1/companies-stats/1997
-
+console.log("DELETE al AÑO /companies-stats/1997 ");
 app.delete("/api/v1/companies-stats/:year", (req, res) => {
 
     var year = req.params.year;
@@ -643,14 +652,14 @@ app.delete("/api/v1/companies-stats/:year", (req, res) => {
 });
 
 // POST /api/v1/companies-stats/1997
-
+console.log("POST Erroneo al año /companies-stats/1997-->405 ");
 app.post("/api/v1/companies-stats/:year", (req, res) => {
 
     res.sendStatus(405);
 });
 
 // PUT /api/v1/companies-stats
-
+console.log("PUT Erroneo al conjunto /companies-stats/1997-->405 ");
 app.put("/api/v1/companies-stats", (req, res) => {
 
     res.sendStatus(405);
@@ -660,7 +669,7 @@ app.put("/api/v1/companies-stats", (req, res) => {
 
 
 
-
+console.log("GET /time ");
 app.get("/time", (request, response) => {
     response.send(new Date());
 })
@@ -669,3 +678,4 @@ app.listen(port, () => {
 
     console.log("magic is happening in port " + port);
 })
+console.log("fin ");
