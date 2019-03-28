@@ -388,7 +388,7 @@ app.get("/api/v1/scorers-stats/:year", (req, res) => {
             console.log("Error: " + error);
         }
         if (filteredscorersstats.length >= 1) {
-            res.send(filteredscorersstats);
+            res.send(filteredscorersstats[0]);
         }
         else {
             res.sendStatus(404);
