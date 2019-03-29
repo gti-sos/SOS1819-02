@@ -212,9 +212,9 @@ app.put("/api/v1/movies-stats/:year", (req, res) => {
     var id = req.params._id;
     var year = req.params.year;
     var updatedmoviesstats = req.body;
-    movies.find({}).toArray((err, moviesArray) => {
-        if (err) {
-            console.log(err);
+    movies.find({}).toArray((error, moviesArray) => {
+        if (error) {
+            console.log(error);
         }
         if (year != updatedmoviesstats.year || id != updatedmoviesstats._id) {
             res.sendStatus(400);
@@ -404,9 +404,9 @@ app.put("/api/v1/scorers-stats/:year", (req, res) => {
     var id = req.params._id
     var year = req.params.year;
     var updatedscorersstats = req.body;
-    scorers.find({}).toArray((err, scorersArray) => {
-        if (err) {
-            console.log(err);
+    scorers.find({}).toArray((error, scorersArray) => {
+        if (error) {
+            console.log(error);
         }
         if (year != updatedscorersstats.year || id != updatedscorersstats._id) {
             res.sendStatus(400);
