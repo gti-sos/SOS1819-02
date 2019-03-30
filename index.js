@@ -29,7 +29,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 
 client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
-    companies = client.db("sos1819-02").collection("companies");
+   // companies = client.db("sos1819-02").collection("companies");
     scorers = client.db("sos1819-02").collection("scorers");
 
 
@@ -457,6 +457,16 @@ app.put("/api/v1/scorers-stats", (req, res) => {
 //Recursos Pablo Garcia
 "======================="
 
+//CONECTAR A LA BASEDEDATOS MONGO
+const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/test?retryWrites=true"
+const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
+clientpgm.connect(error => {
+    companies = clientpgm.db("sos1819-02-pgm").collection("companies");
+console.log("Connected to database.");
+
+});
+    
+    
 console.log("###################Recursos Pablo Garcia###################");
 
 // GET /api/v1/companies-stats/docs
