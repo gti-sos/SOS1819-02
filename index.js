@@ -32,7 +32,14 @@ client.connect(error => {
    // companies = client.db("sos1819-02").collection("companies");
     scorers = client.db("sos1819-02").collection("scorers");
 
+//CONECTAR A LA BASEDEDATOS MONGO PABLO
+const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/test?retryWrites=true"
+const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
+clientpgm.connect(error => {
+    companies = clientpgm.db("sos1819-02-pgm").collection("companies");
+console.log("Connected to database.");
 
+});
     console.log("Connected to database.");
 
 });
@@ -456,16 +463,6 @@ app.put("/api/v1/scorers-stats", (req, res) => {
 "======================="
 //Recursos Pablo Garcia
 "======================="
-
-//CONECTAR A LA BASEDEDATOS MONGO
-const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/test?retryWrites=true"
-const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
-clientpgm.connect(error => {
-    companies = clientpgm.db("sos1819-02-pgm").collection("companies");
-console.log("Connected to database.");
-
-});
-    
     
 console.log("###################Recursos Pablo Garcia###################");
 
