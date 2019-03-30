@@ -29,17 +29,17 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 
 client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
-   // companies = client.db("sos1819-02").collection("companies");
+    companies = client.db("sos1819-02").collection("companies");
     scorers = client.db("sos1819-02").collection("scorers");
 
 //CONECTAR A LA BASEDEDATOS MONGO PABLO
-const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/test?retryWrites=true"
-const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
-clientpgm.connect(error => {
-    companies = clientpgm.db("sos1819-02-pgm").collection("companies");
-console.log("Connected to database.");
-
-});
+//const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/test?retryWrites=true"
+//const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
+//clientpgm.connect(error => {
+ //   companies = clientpgm.db("sos1819-02-pgm").collection("companies");
+//console.log("Connected to database.");
+//});
+   
     console.log("Connected to database.");
 
 });
