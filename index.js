@@ -26,7 +26,7 @@ var movies;
 var companies;
 var scorers;
 
-const client = new MongoClient(uri, { useNewUrlParser: true });
+const client = new MongoClient(uri,pgm, { useNewUrlParser: true });
 
 client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
