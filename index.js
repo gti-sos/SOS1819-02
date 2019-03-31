@@ -30,20 +30,20 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 
 client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
-    //companies = client.db("sos1819-02").collection("companies");
+    companies = client.db("sos1819-02-pgm").collection("companies");
     scorers = client.db("sos1819-02").collection("scorers");
    
     console.log("Connected to database.");
 
 });
-const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
+//const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
 
-clientpgm.connect(error => {
-    companies = clientpgm.db("sos1819-02-pgm").collection("companies");
+//clientpgm.connect(error => {
+//    companies = clientpgm.db("sos1819-02-pgm").collection("companies");
 
-    console.log("Connected to database de Pablo.");
+ //   console.log("Connected to database de Pablo.");
 
-});
+//});
 
 console.log("conectadas las 3 bases de datos");
 
