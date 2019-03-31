@@ -19,7 +19,7 @@ var port = process.env.PORT || 8080;
 console.log("MongoClient");
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?retryWrites=true";
-const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/test?retryWrites=true";
+const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/sos1819-02-pgm?retryWrites=true";
 
 console.log("declaracion db");
 var movies;
