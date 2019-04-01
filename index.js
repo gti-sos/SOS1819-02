@@ -17,6 +17,7 @@ console.log("MongoClient");
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?retryWrites=true";
 const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/sos1819-02-pgm?retryWrites=true";
+const apc = "mongodb+srv://test:test@sos1819-02-apc-kwvgb.mongodb.net/test?retryWrites=true";
 
 console.log("declaracion db");
 var movies;
@@ -25,14 +26,21 @@ var scorers;
 
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
+
 client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
-    scorers = client.db("sos1819-02").collection("scorers");
 
     console.log("Connected to database.");
 
 });
 
+const clientapc = new MongoClient(apc, { useNewUrlParser: true });
+clientapc.connect(error => {
+    scorers = client.db("sos1819-02-apc").collection("scorers");
+
+    console.log("Connected to database.");
+
+});
 //CONECTAR A LA BASEDEDATOS MONGO PABLO
 const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
 
