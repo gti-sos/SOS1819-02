@@ -52,4 +52,26 @@ app.delete(BASE_PATH+"/scorers-stats", (req, res) => {
     res.sendStatus(200);
 });
 
+app.post(BASE_PATH+"/scorers-stats", (req, res) => {
+
+    var nameScorer = req.body.name;
+    var newScorer = req.body;
+    if (!newScorer.country || !newScorer.year || !newScorer.name || !newScorer.scorergoal || !newScorer.scorermatch || !newScorer.scoreraverage) {
+        res.sendStatus(400);
+    }
+    scorers.find({ "name": nameScorer }).toArray((error, scorersArray) => {
+
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (scorersArray.length > 0) {
+            res.sendStatus(409);
+        }
+        else {
+            scorers.insert(newScorer);
+            res.sendStatus(201);
+        }
+    });
+});
+
     }
