@@ -8,17 +8,15 @@ var bodyParser = require("body-parser");
 //app.use(bodyParser.json({limit: "10mb"}));
 
 
-
 var app = express();
 app.use(bodyParser.json());
-
 var port = process.env.PORT || 8080;
-
 
 
 console.log("MongoClient");
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?retryWrites=true";
+const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/sos1819-02-pgm?retryWrites=true";
 
 console.log("declaracion db");
 var movies;
@@ -29,25 +27,22 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 
 client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
-    companies = client.db("sos1819-02").collection("companies");
     scorers = client.db("sos1819-02").collection("scorers");
 
-//CONECTAR A LA BASEDEDATOS MONGO PABLO
-//const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/test?retryWrites=true"
-//const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
-//clientpgm.connect(error => {
- //   companies = clientpgm.db("sos1819-02-pgm").collection("companies");
-//console.log("Connected to database.");
-//});
-   
     console.log("Connected to database.");
 
 });
+
+//CONECTAR A LA BASEDEDATOS MONGO PABLO
+const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
+
+clientpgm.connect(error => {
+    companies = clientpgm.db("sos1819-02-pgm").collection("companies");
+
+    console.log("Connected to database de Pablo.");
+});
+
 console.log("conectadas las 3 bases de datos");
-
-
-
-
 
 
 app.use("/", express.static(__dirname + "/public"));
@@ -323,7 +318,7 @@ app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
         scoreraverage: 0.67
     }];
 
-console.log("scorersstatsinitial cargados con los jugadores");
+    console.log("scorersstatsinitial cargados con los jugadores");
     scorers.find({}).toArray((error, scorersArray) => {
         if (scorersArray.length == 0) {
             scorers.insert(scorersstatsinitial);
@@ -463,11 +458,11 @@ app.put("/api/v1/scorers-stats", (req, res) => {
 "======================="
 //Recursos Pablo Garcia
 "======================="
-    
+
 console.log("###################Recursos Pablo Garcia###################");
 
 // GET /api/v1/companies-stats/docs
-        //--> GET redirect POSTMAN
+//--> GET redirect POSTMAN
 console.log("GET a docs");
 app.get("/api/v1/companies-stats/docs", (req, res) => {
     res.redirect("https://documenter.getpostman.com/view/6990295/S17oyqep");
