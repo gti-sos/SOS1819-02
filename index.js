@@ -31,7 +31,6 @@ client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
 
     console.log("Connected to database.");
-
 });
 
 const clientapc = new MongoClient(apc, { useNewUrlParser: true });
