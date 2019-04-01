@@ -1,7 +1,7 @@
 console.log("declaracion de variables express y bodyParser");
 var express = require("express");
 var bodyParser = require("body-parser");
-var apiScorers = require("./api-scorers/");
+var scorersApi = require("./api-scorers/");
 
 
 
@@ -14,9 +14,7 @@ var apiScorers = require("./api-scorers/");
 var app = express();
 app.use(bodyParser.json());
 var port = process.env.PORT || 8080;
-const BASE_PATH= "/api-scorers";
 
-apiScorers(app,BASE_PATH);
 
 console.log("MongoClient");
 const MongoClient = require('mongodb').MongoClient;
@@ -38,13 +36,7 @@ client.connect(error => {
     console.log("Connected to database.");
 });
 
-const clientapc = new MongoClient(apc, { useNewUrlParser: true });
-clientapc.connect(error => {
-    scorers = clientapc.db("sos1819-02-apc").collection("scorers");
 
-    console.log("Connected to database.");
-
-});
 //CONECTAR A LA BASEDEDATOS MONGO PABLO
 const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
 
@@ -276,22 +268,8 @@ app.put("/api/v1/movies-stats", (req, res) => {
     res.sendStatus(405);
 });
 
-"========================"
-//Recursos Alberto Pérez
-"========================"
-console.log("###################Recursos ALBERTO###################");
-//var scorersstats = [];
-console.log("declaracion de scorerstats vacia (comentada)");
-// GET /api/v1/companies-stats/docs
-console.log("GET a scorers-stats/docs");
-app.get("/api/v1/scorers-stats/docs", (req, res) => {
-    res.redirect("https://documenter.getpostman.com/view/6869425/S17usmtj");
-})
 
-// GET /api/v1/scorers-stats/loadInitialData
-console.log("GET loadInitialData /scorers-stats/loadInitialData ");
 
-app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
 
     var scorersstatsinitial = [{
         country: "arg",
@@ -466,6 +444,8 @@ app.put("/api/v1/scorers-stats", (req, res) => {
 
     res.sendStatus(405);
 });
+=======
+>>>>>>> dcdf6fbc675dd0cb73aadb88a33fbc5c7c956143
 
 "======================="
 //Recursos Pablo Garcia
@@ -679,8 +659,52 @@ app.put("/api/v1/companies-stats", (req, res) => {
     res.sendStatus(405);
 });
 
+var scorersstatsinitial = [{
+        country: "arg",
+        year: "2004",
+        name: "lionel",
+        scorergoal: 405,
+        scorermatch: 440,
+        scoreraverage: 0.92
+    }, {
+        country: "prt",
+        year: "2009",
+        name: "cristiano-ronaldo",
+        scorergoal: 311,
+        scorermatch: 292,
+        scoreraverage: 1.07
+    }, {
+        country: "esp",
+        year: "1994",
+        name: "raul-gonzalez",
+        scorergoal: 311,
+        scorermatch: 292,
+        scoreraverage: 1.07
+    }, {
+        country: "mex",
+        year: "2000",
+        name: "chicharito",
+        scorergoal: 111,
+        scorermatch: 292,
+        scoreraverage: 0.50
+    }, {
+        country: "bra",
+        year: "2001",
+        name: "ronaldo-nazario",
+        scorergoal: 151,
+        scorermatch: 242,
+        scoreraverage: 0.67
+    }];
 
 
+
+const clientapc = new MongoClient(apc, { useNewUrlParser: true });
+clientapc.connect(error => {
+    scorers = clientapc.db("sos1819-02-apc").collection("scorers");
+    scorersApi.register(app,scorers,scorersstatsinitial);
+    console.log("Connected to database.");
+
+});
 
 
 console.log("GET /time ");
