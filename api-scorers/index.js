@@ -32,8 +32,9 @@ app.get(BASE_PATH+"/scorers-stats/loadInitialData", (req,res)=>{
 
 app.get(BASE_PATH+"/scorers-stats", (req, res) => {
     
-    scorers.find({}).toArray((error,scorersArray)=>{
+    scorers.find({},{fields : {_id:0}}).toArray((error,scorersArray)=>{
         console.log("###############scorersArray#####################");
+        
         res.send(scorersArray);
         if (error) {
             console.log("Error:");
@@ -66,9 +67,11 @@ app.post(BASE_PATH+"/scorers-stats", (req, res) => {
         }
         if (scorersArray.length > 0) {
             res.sendStatus(409);
+            console.log("error 2");
         }
         else {
-            scorers.insert(newScorer);
+            console.log("incluye");
+            scorers.insertOne(newScorer);
             res.sendStatus(201);
         }
     });
