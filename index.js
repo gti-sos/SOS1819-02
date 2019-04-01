@@ -346,7 +346,7 @@ app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
 console.log("GET al conjunto /scorers-stats ");
 app.get("/api/v1/scorers-stats", (req, res) => {
     scorers.find({}).toArray((error, scorersArray) => {
-        res.send(scorersArray)
+        res.send(scorersArray )
         if (error) {
             console.log("Error:" + error);
         }
