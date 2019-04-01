@@ -36,7 +36,7 @@ client.connect(error => {
 
 const clientapc = new MongoClient(apc, { useNewUrlParser: true });
 clientapc.connect(error => {
-    scorers = client.db("sos1819-02-apc").collection("scorers");
+    scorers = clientapc.db("sos1819-02-apc").collection("scorers");
 
     console.log("Connected to database.");
 
