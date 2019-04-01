@@ -1,6 +1,9 @@
 console.log("declaracion de variables express y bodyParser");
 var express = require("express");
 var bodyParser = require("body-parser");
+var apiScorers = require("./api-scorers/");
+
+
 
 /___________Paginacion y autentificacion(proceso)_________________/
 //var jwt = require("jsonwebtoken");
@@ -11,7 +14,9 @@ var bodyParser = require("body-parser");
 var app = express();
 app.use(bodyParser.json());
 var port = process.env.PORT || 8080;
+const BASE_PATH= "/api-scorers";
 
+apiScorers(app,BASE_PATH);
 
 console.log("MongoClient");
 const MongoClient = require('mongodb').MongoClient;
