@@ -2,7 +2,7 @@ console.log("declaracion de variables express y bodyParser");
 var express = require("express");
 var bodyParser = require("body-parser");
 var scorersApi = require("./api-scorers/");
-
+//teneis que hacer el link a vuestra api
 
 
 /___________Paginacion y autentificacion(proceso)_________________/

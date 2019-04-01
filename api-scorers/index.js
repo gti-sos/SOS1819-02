@@ -76,5 +76,11 @@ app.post(BASE_PATH+"/scorers-stats", (req, res) => {
         }
     });
 });
+// PUT /api/v1/scorers-stats
+console.log("PUT Erroneo al conjunto /scorers-stats/ --> 405 ");
+app.put(BASE_PATH+"/scorers-stats", (req, res) => {
+
+    res.sendStatus(405);
+});
 
     }
