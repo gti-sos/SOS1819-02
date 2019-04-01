@@ -282,7 +282,7 @@ app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
     var scorersstatsinitial = [{
         country: "arg",
         year: "2004",
-        name: "lionel-messi",
+        name: "lionel",
         scorergoal: 405,
         scorermatch: 440,
         scoreraverage: 0.92
@@ -376,14 +376,14 @@ app.delete("/api/v1/scorers-stats", (req, res) => {
 });
 
 
-// GET /api/v1/scorers-stats/argentina
-console.log("GET al año /scorers-stats/year ");
-app.get("/api/v1/scorers-stats/:year", (req, res) => {
+// GET /api/v1/scorers-stats/name
+console.log("GET al año /scorers-stats/name ");
+app.get("/api/v1/scorers-stats/:name", (req, res) => {
 
 
-    var year = req.params.year;
+    var name = req.params.name;
 
-    scorers.find({ "year": year }).toArray((error, filteredscorersstats) => {
+    scorers.find({ "name": name }).toArray((error, filteredscorersstats) => {
         if (error) {
             console.log("Error: " + error);
         }
@@ -398,7 +398,7 @@ app.get("/api/v1/scorers-stats/:year", (req, res) => {
 });
 
 
-// PUT /api/v1/scorers-stats/argentina
+// PUT /api/v1/scorers-stats/year
 console.log("PUT al año /scorers-stats/year ")
 app.put("/api/v1/scorers-stats/:year", (req, res) => {
     var id = req.params._id
