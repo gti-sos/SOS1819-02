@@ -17,6 +17,7 @@ console.log("MongoClient");
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?retryWrites=true";
 const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/sos1819-02-pgm?retryWrites=true";
+const apc = "mongodb+srv://test:test@sos1819-02-apc-kwvgb.mongodb.net/sos1819-02-apc?retryWrites=true";
 
 console.log("declaracion db");
 var movies;
@@ -25,14 +26,21 @@ var scorers;
 
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
+
 client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
-    scorers = client.db("sos1819-02").collection("scorers");
 
     console.log("Connected to database.");
 
 });
 
+const clientapc = new MongoClient(apc, { useNewUrlParser: true });
+clientapc.connect(error => {
+    scorers = client.db("sos1819-02-apc").collection("scorers");
+
+    console.log("Connected to database.");
+
+});
 //CONECTAR A LA BASEDEDATOS MONGO PABLO
 const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
 
@@ -284,7 +292,7 @@ app.get("/api/v1/scorers-stats/loadInitialData", (req, res) => {
     var scorersstatsinitial = [{
         country: "arg",
         year: "2004",
-        name: "lionel-messi",
+        name: "lionel",
         scorergoal: 405,
         scorermatch: 440,
         scoreraverage: 0.92
@@ -378,14 +386,14 @@ app.delete("/api/v1/scorers-stats", (req, res) => {
 });
 
 
-// GET /api/v1/scorers-stats/argentina
-console.log("GET al año /scorers-stats/year ");
-app.get("/api/v1/scorers-stats/:year", (req, res) => {
+// GET /api/v1/scorers-stats/name
+console.log("GET al año /scorers-stats/name ");
+app.get("/api/v1/scorers-stats/:name", (req, res) => {
 
 
-    var year = req.params.year;
+    var name = req.params.name;
 
-    scorers.find({ "year": year }).toArray((error, filteredscorersstats) => {
+    scorers.find({ "name": name }).toArray((error, filteredscorersstats) => {
         if (error) {
             console.log("Error: " + error);
         }
@@ -400,7 +408,7 @@ app.get("/api/v1/scorers-stats/:year", (req, res) => {
 });
 
 
-// PUT /api/v1/scorers-stats/argentina
+// PUT /api/v1/scorers-stats/year
 console.log("PUT al año /scorers-stats/year ")
 app.put("/api/v1/scorers-stats/:year", (req, res) => {
     var id = req.params._id
