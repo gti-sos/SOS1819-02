@@ -72,7 +72,7 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
         var newScorer = req.body;
         if (!newScorer.country || !newScorer.year || !newScorer.name || !newScorer.scorergoal || !newScorer.scorermatch || !newScorer.scoreraverage) {
             res.sendStatus(400);
-        }
+        }else {
         scorers.find({ "name": nameScorer }).toArray((error, scorersArray) => {
 
             if (error) {
