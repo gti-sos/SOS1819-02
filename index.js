@@ -184,7 +184,13 @@ clientapc.connect(error => {
 
 });
 
-
+//CONECTAR A LA BASEDEDATOS MONGO PABLO
+const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
+clientpgm.connect(error => {
+    companies = clientpgm.db("sos1819-02-pgm").collection("companies");
+    companiesApi.register(app, companies, companiesstatsinitial);
+    console.log("Connected to database de Pablo.");
+});
 
 
 console.log("conectadas las 3 bases de datos");
