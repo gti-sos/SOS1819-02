@@ -34,7 +34,7 @@ app.get(BASE_PATH+"/movies-stats/loadInitialData", (req,res)=>{
     movies.find({}).toArray((error,moviesArray)=>{
         if(moviesArray.length==0){
             console.log("vacio");
-            scorers.insertMany(scorersstatsinitial);
+            movies.insertMany(moviesstatsinitial);
             console.log("movies insertadas");
             res.sendStatus(200);
         }

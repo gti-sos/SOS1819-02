@@ -186,7 +186,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 
 client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
-
+    moviesApi.register(app,movies,moviesstatsinitial);
     console.log("Connected to database.");
 });
 
