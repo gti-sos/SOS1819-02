@@ -109,4 +109,40 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
             }
         });
     });
+
+
+
+    // PUT /api/v1/companies-stats
+    console.log("PUT Erroneo al conjunto /companies-stats/ --> 405 ");
+    app.put(BASE_PATH + "/companies-stats", (req, res) => {
+
+        res.sendStatus(405);
+    });
+
+    console.log("PUT al año /companies-stats/year ")
+    app.put(BASE_PATH + "/companies-stats/:country/:year", (req, res) => {
+        var id = req.params._id
+        var country = req.params.country;
+        var year = req.params.year;
+        var updatedcompaniesstats = req.body;
+        companies.find({ "country": country, "year": year }).toArray((error, companiesArray) => {
+            if (error) {
+                console.log(error);
+            }
+            if (companiesArray.length == 0) {
+                res.sendStatus(404);
+            }
+            else {
+                if (id != updatedcompaniesstats._id) {
+                    res.sendStatus(400);
+                }
+                else {
+                    companies.updateOne({ year: year }, { $set: updatedcompaniesstats });
+                    companies.updateOne({ country: country }, { $set: updatedcompaniesstats });
+                    res.sendStatus(200);
+                }
+            }
+
+        });
+    });
 }
