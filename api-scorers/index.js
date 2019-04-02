@@ -18,7 +18,7 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
                 console.log("vacio");
                 scorers.insertMany(scorersstatsinitial);
                 console.log("cargado");
-                res.sendStatus(200);
+                res.sendStatus(201);
             }
             else {
                 res.sendStatus(409);
