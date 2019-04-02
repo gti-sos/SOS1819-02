@@ -17,6 +17,15 @@ const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?ret
 const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/sos1819-02-pgm?retryWrites=true";
 const apc = "mongodb+srv://test:test@sos1819-02-apc-kwvgb.mongodb.net/sos1819-02-apc?retryWrites=true";
 
+//CONECTAR A LA BASEDEDATOS MONGO PABLO
+const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
+clientpgm.connect(error => {
+    companies = clientpgm.db("sos1819-02-pgm").collection("companies");
+    companiesApi.register(app, companies, companiesstatsinitial);
+    console.log("Connected to database de Pablo.");
+});
+
+
 console.log("declaracion db");
 var movies;
 var companies;
@@ -184,13 +193,7 @@ clientapc.connect(error => {
 
 });
 
-//CONECTAR A LA BASEDEDATOS MONGO PABLO
-const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
-clientpgm.connect(error => {
-    companies = clientpgm.db("sos1819-02-pgm").collection("companies");
-    companiesApi.register(app, companies, companiesstatsinitial);
-    console.log("Connected to database de Pablo.");
-});
+
 
 
 console.log("conectadas las 3 bases de datos");
