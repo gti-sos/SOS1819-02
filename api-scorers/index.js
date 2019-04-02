@@ -45,7 +45,7 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
         const offset = parseInt(req.query.offset) || 0;
         const limit = parseInt(req.query.limit) || 10;
      
-        scorers.find(search, { fields: { _id: 0 } }).skip(offset).limit(limit).toArray((error, scorersArray) => {
+        scorers.find(search, { projection : { _id: 0 } }).skip(offset).limit(limit).toArray((error, scorersArray) => {
             console.log("###############scorersArray#####################");
 
             res.send(scorersArray);

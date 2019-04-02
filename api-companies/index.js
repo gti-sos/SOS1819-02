@@ -44,7 +44,7 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
         //Paginacion
         const offset = parseInt(req.query.offset) || 0;
         const limit = parseInt(req.query.limit) || 10;
-        companies.find(search, { fields: { _id: 0 } }).skip(offset).limit(limit).toArray((error, companiesArray) => {
+        companies.find(search, { projection : { _id: 0 } }).skip(offset).limit(limit).toArray((error, companiesArray) => {
             console.log("###############companiesArray#####################");
 
             res.send(companiesArray);
@@ -94,7 +94,7 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
         var country = req.params.country;
         var year = req.params.year;
 
-        companies.find({ "country": country, "year": year }, { fields: { _id: 0 } }).toArray((error, filteredcompaniesstats) => {
+        companies.find({ "country": country, "year": year }, { projection : { _id: 0 } }).toArray((error, filteredcompaniesstats) => {
             if (error) {
                 console.log("Error: " + error);
             }

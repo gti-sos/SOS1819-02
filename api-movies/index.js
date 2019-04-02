@@ -63,7 +63,7 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
         //Paginación
         const offset = parseInt(req.query.offset) || 0;
         const limit = parseInt(req.query.limit) || 10;
-        movies.find(search, { fields: { _id: 0 } }).skip(offset).limit(limit).toArray((error, moviesArray) => {
+        movies.find(search, { projection : { _id: 0 } }).skip(offset).limit(limit).toArray((error, moviesArray) => {
             console.log("###############GET movies Array#####################");
 
             res.send(moviesArray);
@@ -126,7 +126,7 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
         var country = req.params.country;
         var year = req.params.year;
 
-        movies.find({ "country": country , "year": year },{ fields: { _id: 0 }} ).toArray((error, filteredmoviesstats) => {
+        movies.find({ "country": country , "year": year },{ projection : { _id: 0 }} ).toArray((error, filteredmoviesstats) => {
             if (error) {
                 console.log("Error: " + error);
             }
