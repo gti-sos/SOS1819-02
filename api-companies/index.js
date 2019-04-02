@@ -96,11 +96,11 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
 
         var country = req.params.country;
         var year = req.params.year;
-        companies.find({ "country": country, "year": year }).toArray((error, filteredcompnaiesstats) => {
+        companies.find({ "country": country, "year": year }).toArray((error, filteredcompaniesstats) => {
             if (error) {
                 console.log("Error: " + error);
             }
-            if (filteredcompnaiesstats.length == 0) {
+            if (filteredcompaniesstats.length == 0) {
                 res.sendStatus(404);
             }
             else {

@@ -130,6 +130,24 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
 
 
 
+  // DELETE /api/v1/scorers-stats/EEUU/2014
+    console.log("DELETE al año scorers-stats/2014");
+    app.delete(BASE_PATH + "/scorers-stats/:country/:year", (req, res) => {
 
+        var country = req.params.country;
+        var year = req.params.year;
+        scorers.find({ "country": country, "year": year }).toArray((error, filteredscorersstats) => {
+            if (error) {
+                console.log("Error: " + error);
+            }
+            if (filteredscorersstats.length == 0) {
+                res.sendStatus(404);
+            }
+            else {
+                scorers.deleteOne({ "country": country, "year": year });
+                res.sendStatus(200);
+            }
+        });
+    });
 
 }
