@@ -90,5 +90,23 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
             }
         });
     });
+    // DELETE /api/v1/companies-stats/EEUU/2014
+    console.log("DELETE al año companies-stats/2014");
+    app.delete(BASE_PATH + "/companies-stats/:country/:year", (req, res) => {
 
+        var country = req.params.country;
+        var year = req.params.year;
+        companies.find({ "country": country, "year": year }).toArray((error, filteredcompnaiesstats) => {
+            if (error) {
+                console.log("Error: " + error);
+            }
+            if (filteredcompnaiesstats.length == 0) {
+                res.sendStatus(404);
+            }
+            else {
+                companies.deleteOne({ "country": country, "year": year });
+                res.sendStatus(200);
+            }
+        });
+    });
 }
