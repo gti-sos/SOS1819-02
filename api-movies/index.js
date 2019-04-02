@@ -87,8 +87,9 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
 
         if (!newMovies.country || !newMovies.year || !newMovies.name || !newMovies.movienomination || !newMovies.movieaward || !newMovies.movieedition) {
             res.sendStatus(400);
+            console.log("Json mal")
         }
-
+        else{
 
         movies.find({ "year": yearMovie }).toArray((error, moviesArray) => {
 
@@ -105,6 +106,7 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
                 console.log("creado correctamente")
             }
         });
+        }
     });
 
     // DELETE /api/v1/movies-stats
