@@ -31,7 +31,21 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
 
     app.get(BASE_PATH + "/scorers-stats", (req, res) => {
 
-        scorers.find({}, { fields: { _id: 0 } }).toArray((error, scorersArray) => {
+  //Búsqueda
+        var search = {}
+        if (req.query.country) search["country"] = req.query.country;
+        if (req.query.year) search["year"] = req.query.year;
+        if (req.query.name) search["name"] = req.query.name;
+        if (req.query.scorergoal) search["scorergoal"] = req.query.scorergoal;
+        if (req.query.scorermatch) search["scorermatch"] = req.query.scorermatch;
+        if (req.query.scoreraverage) search["scoreraverage"] = req.query.scoreraverage;
+
+
+        //Paginacion
+        const offset = parseInt(req.query.offset) || 0;
+        const limit = parseInt(req.query.limit) || 10;
+     
+        scorers.find(search, { fields: { _id: 0 } }).skip(offset).limit(limit).toArray((error, scorersArray) => {
             console.log("###############scorersArray#####################");
 
             res.send(scorersArray);
