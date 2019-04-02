@@ -27,11 +27,9 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
             }
         });
     });
-
-    //console.log(companies.find({}).toArray());
-
+    
+    // GET /api/v1/companies-stats
     app.get(BASE_PATH + "/companies-stats", (req, res) => {
-
 
         //Búsqueda
         var search = {}
@@ -52,21 +50,10 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
             res.send(companiesArray);
             if (error) {
                 console.log("Error:");
-                console.log(companies);
             }
-
-
         });
     });
-
-    // DELETE /api/v1/companies-stats
-    console.log("DELETE al conjunto /companies-stats ");
-    app.delete(BASE_PATH + "/companies-stats", (req, res) => {
-        companies.deleteMany({});
-
-        res.sendStatus(200);
-    });
-
+    // POST /api/v1/companies-stats
     app.post(BASE_PATH + "/companies-stats", (req, res) => {
 
         var Company = req.body.company;
@@ -90,36 +77,37 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
             }
         });
     });
-    // DELETE /api/v1/companies-stats/EEUU/2014
-    console.log("DELETE al año companies-stats/2014");
-    app.delete(BASE_PATH + "/companies-stats/:country/:year", (req, res) => {
+    
+    // DELETE /api/v1/companies-stats
+    console.log("DELETE al conjunto /companies-stats ");
+    app.delete(BASE_PATH + "/companies-stats", (req, res) => {
+        companies.deleteMany({});
+
+        res.sendStatus(200);
+    });
+    
+    // GET /api/v1/companies-stats/1997
+    console.log("GET al año companies-stats/2014");
+    app.get(BASE_PATH + "/companies-stats/:country/:year", (req, res) => {
 
         var country = req.params.country;
         var year = req.params.year;
-        companies.find({ "country": country, "year": year }).toArray((error, filteredcompaniesstats) => {
+
+        companies.find({ "country": country , "year": year },{ fields: { _id: 0 }} ).toArray((error, filteredcompaniesstats) => {
             if (error) {
                 console.log("Error: " + error);
             }
-            if (filteredcompaniesstats.length == 0) {
-                res.sendStatus(404);
+            if (filteredcompaniesstats.length >= 1) {
+                res.send(filteredcompaniesstats[0]);
             }
             else {
-                companies.deleteOne({ "country": country, "year": year });
-                res.sendStatus(200);
+                res.sendStatus(404);
             }
         });
+
     });
-
-
-
-    // PUT /api/v1/companies-stats
-    console.log("PUT Erroneo al conjunto /companies-stats/ --> 405 ");
-    app.put(BASE_PATH + "/companies-stats", (req, res) => {
-
-        res.sendStatus(405);
-    });
-
-    console.log("PUT al año /companies-stats/year ")
+   
+    // PUT /api/v1/companies-stats/2014
     app.put(BASE_PATH + "/companies-stats/:country/:year", (req, res) => {
         var id = req.params._id
         var country = req.params.country;
@@ -145,9 +133,37 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
 
         });
     });
+
+    // DELETE /api/v1/companies-stats/EEUU/2014
+    console.log("DELETE al año companies-stats/2014");
+    app.delete(BASE_PATH + "/companies-stats/:country/:year", (req, res) => {
+
+        var country = req.params.country;
+        var year = req.params.year;
+        companies.find({ "country": country, "year": year }).toArray((error, filteredcompaniesstats) => {
+            if (error) {
+                console.log("Error: " + error);
+            }
+            if (filteredcompaniesstats.length == 0) {
+                res.sendStatus(404);
+            }
+            else {
+                companies.deleteOne({ "country": country, "year": year });
+                res.sendStatus(200);
+            }
+        });
+    });
+ 
     // POST /api/v1/companies-stats/1997
     console.log("POST Erroneo al año /companies-stats/1997-->405 ");
     app.post(BASE_PATH +"/api/v1/companies-stats/:year", (req, res) => {
+
+        res.sendStatus(405);
+    });
+    
+    // PUT /api/v1/companies-stats
+    console.log("PUT Erroneo al conjunto /companies-stats/ --> 405 ");
+    app.put(BASE_PATH + "/companies-stats", (req, res) => {
 
         res.sendStatus(405);
     });
