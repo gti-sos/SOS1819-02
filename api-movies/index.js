@@ -49,14 +49,29 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
     console.log("GET conjunto movies-stats");
     app.get(BASE_PATH + "/movies-stats", (req, res) => {
 
-        movies.find({}, { fields: { _id: 0 } }).toArray((error, moviesArray) => {
-            console.log("############### GET moviesArray#####################");
+
+        //Búsqueda
+        var search = {}
+        if (req.query.country) search["country"] = req.query.country;
+        if (req.query.year) search["year"] = req.query.year;
+        if (req.query.name) search["name"] = req.query.company;
+        if (req.query.movienomination) search["movienomination"] = req.query.movienomination;
+        if (req.query.movieaward) search["movieaward"] = req.query.movieaward;
+        if (req.query.movieedition) search["movieedition"] = req.query.movieedition;
+
+
+        //Paginación
+        const offset = parseInt(req.query.offset) || 0;
+        const limit = parseInt(req.query.limit) || 10;
+        movies.find(search, { fields: { _id: 0 } }).skip(offset).limit(limit).toArray((error, moviesArray) => {
+            console.log("###############GET movies Array#####################");
 
             res.send(moviesArray);
             if (error) {
                 console.log("Error:");
-                console.log(movies);
             }
+
+
         });
     });
 
@@ -104,11 +119,12 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
 
     // GET /api/v1/movies-stats/1997
     console.log("GET al año movies-stats/1997");
-    app.get(BASE_PATH + "/movies-stats/:year", (req, res) => {
+    app.get(BASE_PATH + "/movies-stats/:country/:year", (req, res) => {
 
+        var country = req.params.country;
         var year = req.params.year;
 
-        movies.find({ "year": year }).toArray((error, filteredmoviesstats) => {
+        movies.find({ "country": country , "year": year },{ fields: { _id: 0 }} ).toArray((error, filteredmoviesstats) => {
             if (error) {
                 console.log("Error: " + error);
             }
@@ -125,26 +141,33 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
 
 
 
-   // PUT /api/v1/movies-stats/1997
-console.log("PUT al año movies-stats/1997");
-app.put(BASE_PATH + "/movies-stats/:year", (req, res) => {
-    var id = req.params._id;
-    var year = req.params.year;
-    var updatedmoviesstats = req.body;
-    movies.find({}).toArray((error, moviesArray) => {
-        if (error) {
-            console.log(error);
-        }
-        if (year != updatedmoviesstats.year || id != updatedmoviesstats._id) {
-            res.sendStatus(400);
-        }
-        else {
-            movies.updateOne({ year: year }, { $set: updatedmoviesstats });
-            res.sendStatus(200);
-        }
-
+    // PUT /api/v1/movies-stats/1997
+    console.log("PUT al año movies-stats/EEUU/1997");
+    app.put(BASE_PATH + "/movies-stats/:country/:year", (req, res) => {
+        var id = req.params._id
+        var country = req.params.country;
+        var year = req.params.year;
+        var updatedmoviesstats = req.body;
+        movies.find({ "country": country, "year": year }).toArray((error, moviesArray) => {
+            if (error) {
+                console.log(error);
+            }
+            if (moviesArray.length == 0) {
+                res.sendStatus(404);
+            }
+            else {
+                if (
+                    id != updatedmoviesstats._id) {
+                    res.sendStatus(400);
+                }
+                else {
+                    movies.updateOne({ year: year }, { $set: updatedmoviesstats });
+                    movies.updateOne({ country: country }, { $set: updatedmoviesstats });
+                    res.sendStatus(200);
+                }
+            }
+        });
     });
-});
 
     // DELETE /api/v1/movies-stats/EEUU/1997
     console.log("DELETE al año movies-stats/1997");

@@ -40,7 +40,7 @@ app.use("/", express.static(__dirname + "/public"));
 
 var moviesstatsinitial = [{
             country: "EEUU",
-            year: 1997,
+            year: "1997",
             name: "Titanic",
             movienomination: 14,
             movieaward: 11,
@@ -49,7 +49,7 @@ var moviesstatsinitial = [{
 
         {
             country: "EEUU",
-            year: 1959,
+            year: "1959",
             name: "Ben Hur",
             movienomination: 12,
             movieaward: 11,
@@ -58,7 +58,7 @@ var moviesstatsinitial = [{
 
         {
             country: "Nueva Zelanda",
-            year: 2003,
+            year: "2003",
             name: "El Señor de los Anillos: el retorno del Rey",
             movienomination: 11,
             movieaward: 11,
@@ -68,7 +68,7 @@ var moviesstatsinitial = [{
 
         {
             country: "EEUU",
-            year: 1939,
+            year: "1939",
             name: "Lo que el viento se llevó",
             movienomination: 13,
             movieaward: 10,
@@ -77,7 +77,7 @@ var moviesstatsinitial = [{
 
         {
             country: "EEUU",
-            year: 1961,
+            year: "1961",
             name: "West Side Story",
             movienomination: 11,
             movieaward: 10,
@@ -181,7 +181,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(error => {
     movies = client.db("sos1819-02").collection("movies");
     moviesApi.register(app,movies,moviesstatsinitial);
-    console.log("Connected to database.");
+    console.log("Connected to database ALE.");
 });
 
 
