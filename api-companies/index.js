@@ -155,7 +155,7 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
 
     // POST concreto /api/v1/companies-stats/EEUU/1997
     console.log("POST Erroneo al año /companies-stats/EEUU/1997-->405 ");
-    app.post(BASE_PATH + "/api/v1/companies-stats/:country/:year", (req, res) => {
+    app.post(BASE_PATH + "/companies-stats/:country/:year", (req, res) => {
 
         res.sendStatus(405);
     });
