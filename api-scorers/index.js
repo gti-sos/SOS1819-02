@@ -83,4 +83,32 @@ app.put(BASE_PATH+"/scorers-stats", (req, res) => {
     res.sendStatus(405);
 });
 
+console.log("PUT al año /scorers-stats/year ")
+app.put(BASE_PATH+"/scorers-stats/:country/:year", (req, res) => {
+    var id = req.params._id
+    var country = req.params.country;
+    var year = req.params.year;
+    var updatedscorersstats = req.body;
+    scorers.find({"country": country, "year": year}).toArray((error, scorersArray) => {
+        if (error) {
+            console.log(error);
+        }if(scorersArray.length==0){
+            res.sendStatus(404);
+        }else{
+        if (country != updatedscorersstats.country|| year != updatedscorersstats.year || id != updatedscorersstats._id) {
+            res.sendStatus(400);
+        }
+        else {
+            scorers.updateOne({ year: year }, { $set: updatedscorersstats });
+            scorers.updateOne({ country: country }, { $set: updatedscorersstats });
+            res.sendStatus(200);
+        }
+}
+    });
+});
+
+
+
+
+
     }
