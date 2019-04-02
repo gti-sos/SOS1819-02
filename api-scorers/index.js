@@ -2,7 +2,6 @@ var scorersApi = {};
 const BASE_PATH = "/api-scorers/v1";
 
 console.log("submodulo api-scorers");
-
 module.exports = scorersApi;
 
 scorersApi.register = function(app, scorers, scorersstatsinitial) {
@@ -97,7 +96,8 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
                 res.sendStatus(404);
             }
             else {
-                if (id != updatedscorersstats._id) {
+                if (
+                    id != updatedscorersstats._id) {
                     res.sendStatus(400);
                 }
                 else {
