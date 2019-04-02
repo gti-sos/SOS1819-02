@@ -86,44 +86,44 @@ var companiesstatsinitial = [{
         country: "EEUU",
         year: "2014",
         company: "apple",
-        income: "182,795",
-        marketcapitalization: "732.63",
-        employee: "80300"
+        income: 182.795,
+        marketcapitalization: 732.63,
+        employee: 80300
     },
     {
         country: "Corea del Sur",
         year: "2007",
         company: "samsung",
-        income: "174,2",
-        marketcapitalization: "110.10",
-        employee: "263000"
+        income: 174.2,
+        marketcapitalization: 110.10,
+        employee: 263000
     },
 
     {
         country: "Alemania",
         year: "2007",
         company: "volkswagen",
-        income: "160,3",
-        marketcapitalization: "101.06",
-        employee: "329305"
+        income: 160.3,
+        marketcapitalization: 101.06,
+        employee: 329305
     },
 
     {
         country: "Reino Unido",
         year: "2009",
         company: "british petroleum",
-        income: "246,1",
-        marketcapitalization: "34.7",
-        employee: "80300"
+        income: 246.1,
+        marketcapitalization: 34.7,
+        employee: 80300
     },
 
     {
         country: "China",
         year: "2007",
         company: "petrochina",
-        income: "169,7",
-        marketcapitalization: "369.57",
-        employee: "307000"
+        income: 169.7,
+        marketcapitalization: 369.57,
+        employee: 307000
     }
 ];
 
