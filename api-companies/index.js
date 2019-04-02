@@ -19,7 +19,7 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
                 console.log("vacio");
                 companies.insertMany(companiesstatsinitial);
                 console.log("cargado");
-                res.sendStatus(201);
+                res.sendStatus(200);
             }
             else {
                 res.sendStatus(409);
