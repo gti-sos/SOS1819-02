@@ -32,8 +32,9 @@ app.get(BASE_PATH+"/scorers-stats/loadInitialData", (req,res)=>{
 
 app.get(BASE_PATH+"/scorers-stats", (req, res) => {
     
-    scorers.find({}).toArray((error,scorersArray)=>{
+    scorers.find({},{fields : {_id:0}}).toArray((error,scorersArray)=>{
         console.log("###############scorersArray#####################");
+        
         res.send(scorersArray);
         if (error) {
             console.log("Error:");
@@ -50,6 +51,36 @@ app.delete(BASE_PATH+"/scorers-stats", (req, res) => {
     scorers.deleteMany({});
 
     res.sendStatus(200);
+});
+
+app.post(BASE_PATH+"/scorers-stats", (req, res) => {
+
+    var nameScorer = req.body.name;
+    var newScorer = req.body;
+    if (!newScorer.country || !newScorer.year || !newScorer.name || !newScorer.scorergoal || !newScorer.scorermatch || !newScorer.scoreraverage) {
+        res.sendStatus(400);
+    }
+    scorers.find({ "name": nameScorer }).toArray((error, scorersArray) => {
+
+        if (error) {
+            console.log("Error: " + error);
+        }
+        if (scorersArray.length > 0) {
+            res.sendStatus(409);
+            console.log("error 2");
+        }
+        else {
+            console.log("incluye");
+            scorers.insertOne(newScorer);
+            res.sendStatus(201);
+        }
+    });
+});
+// PUT /api/v1/scorers-stats
+console.log("PUT Erroneo al conjunto /scorers-stats/ --> 405 ");
+app.put(BASE_PATH+"/scorers-stats", (req, res) => {
+
+    res.sendStatus(405);
 });
 
     }
