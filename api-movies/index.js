@@ -9,7 +9,7 @@ module.exports = moviesApi;
 moviesApi.register = function(app, movies, moviesstatsinitial) {
     console.log("quedan registrados");
     app.get(BASE_PATH + "/movies-stats/docs", (req, res) => {
-        res.redirect("");
+        res.redirect("https://documenter.getpostman.com/view/7067709/S17xsmGb");
     })
 
 
