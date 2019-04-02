@@ -145,4 +145,10 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
 
         });
     });
+    // POST /api/v1/companies-stats/1997
+    console.log("POST Erroneo al año /companies-stats/1997-->405 ");
+    app.post(BASE_PATH +"/api/v1/companies-stats/:year", (req, res) => {
+
+        res.sendStatus(405);
+    });
 }
