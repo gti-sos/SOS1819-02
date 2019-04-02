@@ -92,12 +92,6 @@ var moviesstatsinitial = [{
 
 console.log("###################Recursos Pablo Garcia###################");
 
-// GET /api/v1/companies-stats/docs
-//--> GET redirect POSTMAN
-console.log("GET a docs");
-app.get("/api/v1/companies-stats/docs", (req, res) => {
-    res.redirect("https://documenter.getpostman.com/view/6990295/S17oyqep");
-})
 
     var companiesstatsinitial = [{
             country: "EEUU",
