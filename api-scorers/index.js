@@ -80,7 +80,7 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
             }
             if (scorersArray.length > 0) {
                 res.sendStatus(409);
-                console.log("error 2");
+                console.log("error conflicto 409");
             }
             else {
                 console.log("incluye");
@@ -88,6 +88,7 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
                 res.sendStatus(201);
             }
         });
+        }
     });
     // PUT /api/v1/scorers-stats
     console.log("PUT Erroneo al conjunto /scorers-stats/ --> 405 ");
