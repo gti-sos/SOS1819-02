@@ -190,7 +190,6 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
     });
 
 
-
     // POST /api/v1/movies-stats/EEUU/1997
     console.log("POST erroneo al año movies-stats/EEUU/1997--> 405");
     app.post(BASE_PATH + "/movies-stats/:country/:year", (req, res) => {
