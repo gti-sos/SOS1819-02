@@ -55,12 +55,12 @@ app.delete(BASE_PATH+"/companies-stats", (req, res) => {
 
 app.post(BASE_PATH+"/companies-stats", (req, res) => {
 
-    var yearCompany = req.body.year;
+    var Company = req.body.company;
     var newCompany = req.body;
     if (!newCompany.country || !newCompany.year || !newCompany.company || !newCompany.income || !newCompany.marketcapitalization || !newCompany.employee) {
         res.sendStatus(400);
     }
-    companies.find({ "year": yearCompany }).toArray((error, companiesArray) => {
+    companies.find({ "company": Company }).toArray((error, companiesArray) => {
 
         if (error) {
             console.log("Error: " + error);
