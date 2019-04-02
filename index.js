@@ -1,9 +1,9 @@
 console.log("declaracion de variables express y bodyParser");
 var express = require("express");
 var bodyParser = require("body-parser");
+var moviesApi = require("./api-movies/");
 var scorersApi = require("./api-scorers/");
 var companiesApi = require("./api-companies/");
-//teneis que hacer el link a vuestra api
 
 
 
@@ -29,17 +29,6 @@ var movies;
 var companies;
 var scorers;
 
-const client = new MongoClient(uri, { useNewUrlParser: true });
-
-
-client.connect(error => {
-    movies = client.db("sos1819-02").collection("movies");
-
-    console.log("Connected to database.");
-});
-
-
-console.log("conectadas las 3 bases de datos");
 
 
 app.use("/", express.static(__dirname + "/public"));
@@ -49,26 +38,7 @@ app.use("/", express.static(__dirname + "/public"));
 "============================="
 
 
-console.log("###################Recursos Alejandro###################");
-
-//GET /api/v1/movies-stats/docs
-console.log("GET conjunto movies-stats/docs");
-
-app.get("/api/v1/movies-stats/docs/", (req, res) => {
-    res.redirect("https://documenter.getpostman.com/view/7067709/S17usmjv");
-});
-
-
-
-
-console.log("declaracion moviesstats vacio");
-var moviesstats = [];
-
-// GET /api/v1/movies-stats/loadInitialData
-console.log("GET loadInitialData");
-app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
-
-    var moviesstatsinitial = [{
+var moviesstatsinitial = [{
             country: "EEUU",
             year: "1997",
             name: "Titanic",
@@ -115,155 +85,6 @@ app.get("/api/v1/movies-stats/loadInitialData", (req, res) => {
         }
 
     ];
-    console.log("movies guardadas en moviesstatsinitial");
-    movies.find({}).toArray((error, moviesArray) => {
-        if (moviesArray.length == 0) {
-            movies.insert(moviesstatsinitial);
-            res.sendStatus(200);
-        }
-        else {
-            res.sendStatus(409);
-        }
-    });
-});
-
-// GET /api/v1/movies-stats
-console.log("GET conjunto movies-stats");
-app.get("/api/v1/movies-stats", (req, res) => {
-
-    movies.find({}).toArray((error, moviesArray) => {
-
-        res.send(moviesArray);
-        if (error) {
-            console.log("Error: " + error);
-        }
-    });
-});
-
-
-
-
-// POST /api/v1/movies-stats
-console.log("POST conjunto movies-stats");
-app.post("/api/v1/movies-stats", (req, res) => {
-
-    var newmoviesstats = req.body;
-    var yearMovie = req.body.year;
-
-    var newMovies = req.body;
-
-    if (!newMovies.country || !newMovies.year || !newMovies.name || !newMovies.movienomination || !newMovies.movieaward || !newMovies.movieedition) {
-        res.sendStatus(400);
-    }
-
-
-    movies.find({ "year": yearMovie }).toArray((error, moviesArray) => {
-
-        if (error) {
-            console.log("Error: " + error);
-        }
-        if (moviesArray.length > 0) {
-            res.sendStatus(409);
-        }
-        else {
-            movies.insert(newmoviesstats);
-            res.sendStatus(201);
-        }
-    });
-});
-
-// DELETE /api/v1/movies-stats
-console.log("DELETE conjunto movies-stats");
-app.delete("/api/v1/movies-stats", (req, res) => {
-
-    movies.remove({});
-    res.sendStatus(200);
-
-});
-
-
-// GET /api/v1/movies-stats/1997
-console.log("GET al año movies-stats/1997");
-app.get("/api/v1/movies-stats/:year", (req, res) => {
-
-    var year = req.params.year;
-
-    movies.find({ "year": year }).toArray((error, filteredmoviesstats) => {
-        if (error) {
-            console.log("Error: " + error);
-        }
-        if (filteredmoviesstats.length >= 1) {
-            res.send(filteredmoviesstats[0]);
-        }
-        else {
-            res.sendStatus(404);
-        }
-    });
-
-});
-
-
-
-
-// PUT /api/v1/movies-stats/1997
-console.log("PUT al año movies-stats/1997");
-app.put("/api/v1/movies-stats/:year", (req, res) => {
-    var id = req.params._id;
-    var year = req.params.year;
-    var updatedmoviesstats = req.body;
-    movies.find({}).toArray((error, moviesArray) => {
-        if (error) {
-            console.log(error);
-        }
-        if (year != updatedmoviesstats.year || id != updatedmoviesstats._id) {
-            res.sendStatus(400);
-        }
-        else {
-            movies.updateOne({ year: year }, { $set: updatedmoviesstats });
-            res.sendStatus(200);
-        }
-
-    });
-});
-
-// DELETE /api/v1/movies-stats/1997
-console.log("DELETE al año movies-stats/1997");
-app.delete("/api/v1/movies-stats/:year", (req, res) => {
-
-    var year = req.params.year;
-    movies.find({ "year": year }).toArray((error, filteredmoviesstats) => {
-        if (error) {
-            console.log("Error: " + error);
-        }
-        if (filteredmoviesstats.length == 0) {
-            res.sendStatus(404);
-        }
-        else {
-            movies.deleteOne({ "year": year });
-            res.sendStatus(200);
-        }
-    });
-});
-
-
-
-// POST /api/v1/movies-stats/1997
-console.log("POST erroneo al año movies-stats/1997--> 405");
-app.post("/api/v1/movies-stats/:year", (req, res) => {
-
-    res.sendStatus(405);
-});
-
-// PUT /api/v1/movies-stats
-console.log("PUT erroneo al conjunto movies-stats--> 405");
-app.put("/api/v1/movies-stats", (req, res) => {
-
-    res.sendStatus(405);
-});
-
-
-
-
 
 "======================="
 //Recursos Pablo Garcia
@@ -360,6 +181,15 @@ var scorersstatsinitial = [{
     }];
 
 
+const client = new MongoClient(uri, { useNewUrlParser: true });
+
+
+client.connect(error => {
+    movies = client.db("sos1819-02").collection("movies");
+
+    console.log("Connected to database.");
+});
+
 
 const clientapc = new MongoClient(apc, { useNewUrlParser: true });
 clientapc.connect(error => {
@@ -377,6 +207,9 @@ clientpgm.connect(error => {
     companiesApi.register(app,companies,companiesstatsinitial);
     console.log("Connected to database de Pablo.");
 });
+
+
+console.log("conectadas las 3 bases de datos");
 
 
 
