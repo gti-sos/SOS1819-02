@@ -8,7 +8,7 @@ module.exports = companiesApi;
 companiesApi.register = function(app, companies, companiesstatsinitial) {
     console.log("quedan registrados");
     app.get(BASE_PATH + "/companies-stats/docs", (req, res) => {
-        res.redirect("https://documenter.getpostman.com/view/6990295/S17oyqep");
+        res.redirect("https://documenter.getpostman.com/view/6990295/S1EH21eC");
     })
 
     // loadInitialData
@@ -122,7 +122,7 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
                 res.sendStatus(404);
             }
             else {
-                if (id != updatedcompaniesstats._id) {
+                if (id != updatedcompaniesstats._id || companiesArray.length<=5) {
                     res.sendStatus(400);
                 }
                 else {
