@@ -159,7 +159,7 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
             }
             else {
                 if (
-                    id != updatedmoviesstats._id || !updatedmoviesstats.country || !updatedmoviesstats.year || !updatedmoviesstats.name || !updatedmoviesstats.movienomination || !updatedmoviesstats.movieaward || !updatedmoviesstats.movieedition ) {
+                    id != updatedmoviesstats._id || country != updatedmoviesstats.country || year != updatedmoviesstats.year || !updatedmoviesstats.country || !updatedmoviesstats.year || !updatedmoviesstats.name || !updatedmoviesstats.movienomination || !updatedmoviesstats.movieaward || !updatedmoviesstats.movieedition ) {
                     res.sendStatus(400);
                 }
                 else {
