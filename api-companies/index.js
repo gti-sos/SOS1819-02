@@ -126,9 +126,14 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
                     res.sendStatus(400);
                 }
                 else {
-                    companies.updateOne({ year: year }, { $set: updatedcompaniesstats });
+                    if (country != req.body.country || year != req.body.year) {
+                        res.sendStatus(400);
+                    } else {
+                        companies.updateOne({ year: year }, { $set: updatedcompaniesstats });
                     companies.updateOne({ country: country }, { $set: updatedcompaniesstats });
+                    
                     res.sendStatus(200);
+                    }
                 }
             }
         });
