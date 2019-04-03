@@ -36,9 +36,9 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
         if (req.query.country) search["country"] = req.query.country;
         if (req.query.year) search["year"] = req.query.year;
         if (req.query.company) search["company"] = req.query.company;
-        if (req.query.income) search["income"] = req.query.income;
-        if (req.query.marketcapitalization) search["marketcapitalization"] = req.query.marketcapitalization;
-        if (req.query.employee) search["employee"] = req.query.employee;
+        if (req.query.income) search["income"] = parseInt(req.query.income);
+        if (req.query.marketcapitalization) search["marketcapitalization"] = parseInt(req.query.marketcapitalization);
+        if (req.query.employee) search["employee"] = parseInt(req.query.employee);
 
 
         //Paginacion
