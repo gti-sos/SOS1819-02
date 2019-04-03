@@ -10,4 +10,4 @@
 -  **APIs**:
     - [https://sos1819-02.herokuapp.com/api/v1/movies-stats/docs](https://documenter.getpostman.com/view/7067709/S17usmjv) (developed by [Alejandro Martin Mancheño](https://github.com/alemarman1))
     - [https://sos1819-02.herokuapp.com/api/v1/scorers-stats/docs](https://documenter.getpostman.com/view/6869425/S17usmtj) (developed by [Alberto Pérez Caro](https://github.com/albpercar))
-    - [https://sos1819-02.herokuapp.com/api/v1/companies-stats/docs](https://documenter.getpostman.com/view/6990295/S17oyqep) (developed by [Pablo Garcia Martin](https://github.com/pabgarmar))
+    - [https://sos1819-02.herokuapp.com/api/v1/companies-stats/docs](https://documenter.getpostman.com/view/6990295/S1EH21eC) (developed by [Pablo Garcia Martin](https://github.com/pabgarmar))
