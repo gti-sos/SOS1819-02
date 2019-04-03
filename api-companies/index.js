@@ -122,7 +122,7 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
                 res.sendStatus(404);
             }
             else {
-                if (id != updatedcompaniesstats._id || companiesArray.length<=5) {
+                if (id != updatedcompaniesstats._id || companiesArray.length != 6) {
                     res.sendStatus(400);
                 }
                 else {
