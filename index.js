@@ -1,3 +1,5 @@
+/* global path*/
+
 console.log("declaracion de variables express y bodyParser");
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -22,8 +24,10 @@ var movies;
 var companies;
 var scorers;
 
+app.use("/", express.static(path.join(__dirname, "public"))); //conexion index.html principal
 
-app.use("/", express.static(__dirname + "/public"));
+app.use("/api-companies/v1/minipostman-companies", express.static(path.join(__dirname + "/public/api-companies")));  //conexion index.html tourist
+
 
 "============================="
 //Recursos Alejandro Martin
@@ -207,3 +211,6 @@ app.listen(port, () => {
     console.log("magic is happening in port " + port);
 })
 console.log("fin ");
+
+
+
