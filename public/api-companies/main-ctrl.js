@@ -1,6 +1,6 @@
 /* global angular $scope*/
 
-var app = angular.module("Companies");
+var app = angular.module("CompaniesApp");
 
 
 app.controller("MainCtrl", ["$scope","$http", function ($scope, $http){

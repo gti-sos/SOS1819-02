@@ -1,4 +1,4 @@
  /* global angular*/
         
-            angular.module("Companies",[]);
-            console.log("Companies initialized!");
+            angular.module("CompaniesApp",[]);
+            console.log("CompaniesApp initialized!");
