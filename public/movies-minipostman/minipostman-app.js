@@ -1,3 +1,3 @@
 /* global angular*/
-var app =  angular.module("MiniPostmanApp",[]);
+var app =  angular.module("MoviesApp",[]);
 console.log("Modular MiniPostmanApp inicializada");

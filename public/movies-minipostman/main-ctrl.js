@@ -1,4 +1,4 @@
-var app = angular.module("MiniPostmanMoviesApp");
+var app = angular.module("MoviesApp");
 
 app.controller("MainCtrl", ["$scope", "$http", function($scope, $http) {
     console.log("Modulo Movies MainCtrl Inicializado")
