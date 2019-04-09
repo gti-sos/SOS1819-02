@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html ng-app="CompaniesApp">
-    <head>
-            <title> SOS1819-02 </title>
-            <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
-            <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-            <script src="/bower_components/angular/angular.min.js"></script>
-            <script src="companies-stats.js"></script>
-            <script src="main-ctrl.js"></script>
-            
-    </head>
-    
-    <body ng-controller="MainCtrl">
-        
-            <style>
-body {
-  margin: 0; 
-  background-image: url("https://i.pinimg.com/originals/b9/c7/24/b9c724637277bce59f7bdc9d72ad2667.jpg")
-    
-}
 
-</style>
-        
-        <h1><p class="text-light">Companies APP</p></h1>
-        <div>
-            <label>URL: <input class="form-control text-center" ng-model="url" size="80"/></label>
-            <button class="btn btn-primary" ng-click="get()">Get</button>
-            <button class="btn btn-secondary" ng-click="post()">Post</button>
-            <button class="btn btn-warning" ng-click="put()">Put</button>
-            <button class="btn btn-danger" ng-click="delete()">Delete</button>
-            <button class="btn btn-info" ng-click="loadInitialData()">LoadInitialData</button>
-        </div>
-        
-        <div>
-            <label><p class="text-light">Status code: {{status}}</p></label>
-        </div>
-        
-        <div>
-            <textarea class="form-control" size="40" rows="20" ng-model="data"></textarea>
-        </div>
-    </body>
-    
-    
+<head>
+    <title> SOS1819-02 </title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="companies-stats.js"></script>
+    <script src="main-ctrl.js"></script>
+
+</head>
+
+<body ng-controller="MainCtrl">
+
+    <style>
+        body {
+            margin: 0;
+            background-image: url("https://i.pinimg.com/originals/b9/c7/24/b9c724637277bce59f7bdc9d72ad2667.jpg")
+        }
+    </style>
+
+    <h1>
+        <p class="text-light">Companies APP</p>
+    </h1>
+    <div>
+        <label>URL: <input class="form-control text-center" ng-model="url" size="80"/></label>
+        <button class="btn btn-primary" ng-click="get()">Get</button>
+        <button class="btn btn-secondary" ng-click="post()">Post</button>
+        <button class="btn btn-warning" ng-click="put()">Put</button>
+        <button class="btn btn-danger" ng-click="delete()">Delete</button>
+        <button class="btn btn-info" ng-click="loadInitialData()">LoadInitialData</button>
+    </div>
+
+    <div>
+        <label><p class="text-light">Status code: {{status}}</p></label>
+    </div>
+
+    <div>
+        <style>
+            body {
+                margin: 0;
+                background-image: url("https://br.freepik.com/vetores-gratis/resumo-de-fundo-com-uma-textura-da-aguarela_886474.htm")
+            }
+        </style>
+        <textarea class="form-control" size="40" rows="20" ng-model="data"></textarea>
+    </div>
+</body>
+
+
 </html>
