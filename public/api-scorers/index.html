@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="ScorersApp">
+
+<head>
+    <title> SOS1819-02 </title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="scorers-stats.js"></script>
+    <script src="main-ctrl.js"></script>
+
+</head>
+
+<body ng-controller="MainCtrl">
+
+    <style>
+        body {
+            margin: 0;
+            background-image: url("https://i.pinimg.com/originals/6b/85/4d/6b854d6ba1c432a0129a84a93be32ad0.jpg")
+        }
+    </style>
+
+    <h1>
+        <p>Scorers APP</p>
+    </h1>
+    <div>
+        <label>URL: <input class="form-control text-center" ng-model="url" size="80"/></label>
+        <button class="btn btn-primary" ng-click="get()">Get</button>
+        <button class="btn btn-secondary" ng-click="post()">Post</button>
+        <button class="btn btn-warning" ng-click="put()">Put</button>
+        <button class="btn btn-danger" ng-click="delete()">Delete</button>
+        <button class="btn btn-info" ng-click="loadInitialData()">LoadInitialData</button>
+    </div>
+
+    <div>
+        <label>
+           
+  
+
+        <p> Status code: {{status}}</p></label>
+    </div>
+
+    <div>
+
+
+        <textarea class="form-control" size="40" rows="20" ng-model="data"></textarea>
+    </div>
+</body>
+
+
+</html>
