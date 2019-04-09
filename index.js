@@ -1,5 +1,3 @@
-/* global path*/
-
 console.log("declaracion de variables express y bodyParser");
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -7,6 +5,7 @@ var moviesApi = require("./api-movies/");
 var scorersApi = require("./api-scorers/");
 var companiesApi = require("./api-companies/");
 
+var path = require("path");
 
 var app = express();
 app.use(bodyParser.json());
