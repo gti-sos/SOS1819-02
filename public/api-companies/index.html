@@ -1,0 +1,43 @@
+<html ng-app="Companies">
+    <head>
+            <title> SOS1819-02 </title>
+            <link rel="stylesheet" href="/labs/SOS1819-02/public/api-companies/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+            <script src="/labs/SOS1819-02/public/api-companies/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="/labs/SOS1819-02/public/api-companies/bower_components/angular/angular.min.js"></script>
+            <script src="companies.js"></script>
+            <script src="main-ctrl.js"></script>
+            
+    </head>
+    
+    <body ng-controller="MainCtrl">
+        
+            <style>
+body {
+  margin: 0; 
+  background-image: url("https://i2.wp.com/acorch.cl/wp-content/uploads/2017/04/purpura-y-morado-82360.jpg")
+    
+}
+
+</style>
+        
+        <h1><p class="text-light">Companies APP</p></h1>
+        <div>
+            <label>URL: <input class="form-control text-center" ng-model="url" size="80"/></label>
+            <button class="btn btn-primary" ng-click="get()">Get</button>
+            <button class="btn btn-secondary" ng-click="post()">Post</button>
+            <button class="btn btn-warning" ng-click="put()">Put</button>
+            <button class="btn btn-danger" ng-click="delete()">Delete</button>
+            <button class="btn btn-info" ng-click="loadInitialData()">Load Initial Data</button>
+        </div>
+        
+        <div>
+            <label><p class="text-light">Status code: {{status}}</p></label>
+        </div>
+        
+        <div>
+            <textarea class="form-control" size="40" rows="20" ng-model="data"></textarea>
+        </div>
+    </body>
+    
+    
+</html>
