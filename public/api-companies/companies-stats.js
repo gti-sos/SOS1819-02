@@ -1,4 +1,4 @@
- /* global angular $scope*/
+ /* global angular*/
         
-            angular.module("companies-stats.js",[]);
+            angular.module("Companies",[]);
             console.log("Companies initialized!");
