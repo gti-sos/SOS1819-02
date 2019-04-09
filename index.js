@@ -25,7 +25,8 @@ var scorers;
 
 app.use("/", express.static(path.join(__dirname, "public"))); //conexion index.html principal
 
-app.use("/api-companies/v1/minipostman-companies", express.static(path.join(__dirname + "/public/api-companies")));  //conexion index.html tourist
+app.use("/api-companies/v1/minipostman-companies", express.static(path.join(__dirname + "/public/api-companies")));  //conexion index.html companies
+app.use("/api-movies/v1/minipostman-movies", express.static(path.join(__dirname + "/public/movies-minipostman")));  //conexion index.html movies
 
 
 "============================="
