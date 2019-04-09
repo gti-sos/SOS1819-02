@@ -27,7 +27,7 @@ app.use("/", express.static(path.join(__dirname, "public"))); //conexion index.h
 
 app.use("/api-companies/v1/minipostman-companies", express.static(path.join(__dirname + "/public/api-companies")));  //conexion index.html companies
 app.use("/api-movies/v1/minipostman-movies", express.static(path.join(__dirname + "/public/movies-minipostman")));  //conexion index.html movies
-
+app.use("/api-scorers/v1/minipostman-scorers", express.static(path.join(__dirname + "/public/api-scorers")));  
 
 "============================="
 //Recursos Alejandro Martin
