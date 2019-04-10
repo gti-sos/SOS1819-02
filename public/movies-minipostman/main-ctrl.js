@@ -1,3 +1,4 @@
+/* global angular */
 var app = angular.module("MoviesApp");
 
 app.controller("MainCtrl", ["$scope", "$http", function($scope, $http) {
