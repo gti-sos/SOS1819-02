@@ -15,38 +15,52 @@
 
     <style>
         body {
-            color:white;
             margin: 0;
-            background-image: url("https://www.thesportsdb.com/images/media/league/fanart/02gtox1514467274.jpg");
+            
         }
         
         
     </style>
 
     <h1>
-        <p class="text-light"> Scorers APP</p>
+        <p> Scorers APP</p>
     </h1>
-    <div>
-        <label class="text-light" >URL: <input class="form-control text-center" ng-model="url" size="80"/></label>
-        <button class="btn btn-primary" ng-click="get()">Get</button>
-        <button class="btn btn-secondary" ng-click="post()">Post</button>
-        <button class="btn btn-warning" ng-click="put()">Put</button>
-        <button class="btn btn-danger" ng-click="delete()">Delete</button>
-        <button class="btn btn-info" ng-click="loadInitialData()">LoadInitialData</button>
-    </div>
 
     <div>
+         <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Pais</th>
+                <th>Año</th>
+                <th>Goles</th>
+                <th>Partidos</th>
+                <th>Promedio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="scorer in scorers">
+                <td>{{scorer.name}}</td>
+                <td>{{scorer.country}}</td>
+                <td>{{scorer.year}}</td>
+                <td>{{scorer.scorergoal}}</td>
+                <td>{{scorer.scorermatch}}</td>
+                <td>{{scorer.scoreraverage}}</td>
+                <td><button class="btn btn-danger" ng-click="deleteScorer(scorer.country,scorer.year)">Borrar</button></td>
+            </tr>
+            <tr>
+                <td><input class="form-control" ng-model="newScorer.name" value="new name"></td>
+                <td><input class="form-control" ng-model="newScorer.country" value="new country"></td>
+                <td><input class="form-control" ng-model="newScorer.year" value="new year"></td>
+                <td><input class="form-control" ng-model="newScorer.scorergoal" value="new goal"></td>
+                <td><input class="form-control" ng-model="newScorer.scorermatch" value="new match"></td>
+                <td><input class="form-control" ng-model="newScorer.scoreraverage" value="new average"></td>
+                <td><button class="btn btn-primary" ng-click="addScorer()">Add</button></td>
+            </tr>
+        </tbody>
+    </table>
         <label>
-           
-  
-
-        <b><p color=red > Status code: {{status}}</p></label></b>
-    </div>
-
-    <div>
-
-
-        <textarea class="form-control" size="40" rows="20" ng-model="data"></textarea>
     </div>
 </body>
 
