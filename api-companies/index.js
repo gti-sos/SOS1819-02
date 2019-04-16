@@ -55,15 +55,14 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
     });
     // POST CONJUNTO /api/v1/companies-stats
     app.post(BASE_PATH + "/companies-stats", (req, res) => {
-        var country = req.params.country;
-        var year = req.params.year;
+
         var Company = req.body.company;
         var newCompany = req.body;
         if (!newCompany.country || !newCompany.year || !newCompany.company || !newCompany.income || !newCompany.marketcapitalization || !newCompany.employee) {
             res.sendStatus(400);
         }
         else {
-            companies.find({ "company": Company , "year" : year, "country": country }).toArray((error, companiesArray) => {
+            companies.find({ "company": Company }).toArray((error, companiesArray) => {
 
                 if (error) {
                     console.log("Error: " + error);
