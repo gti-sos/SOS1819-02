@@ -1,0 +1,24 @@
+<table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Pais</th>
+                <th>Año</th>
+                <th>Goles</th>
+                <th>Partidos</th>
+                <th>Promedio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{updatedScorer.name}}</td>
+                <td><input class="form-control" ng-model="updatedScorer.country" value="new country"></td>
+                <td><input class="form-control" ng-model="updatedScorer.year" value="new year"></td>
+                <td><input class="form-control" ng-model="updatedScorer.scorergoal" value="new goal"></td>
+                <td><input class="form-control" ng-model="updatedScorer.scorermatch" value="new match"></td>
+                <td><input class="form-control" ng-model="updatedScorer.scoreraverage" value="new average"></td>
+                <td><button class="btn btn-primary" ng-click="updateScorer()">Update</button></td>
+            </tr>
+        </tbody> 
+    </table>

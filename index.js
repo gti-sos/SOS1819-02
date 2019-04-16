@@ -140,35 +140,35 @@ var scorersstatsinitial = [{
     name: "lionel",
     scorergoal: 405,
     scorermatch: 440,
-    scoreraverage: 0.92
+    scoreraverage: 50
 }, {
     country: "prt",
     year: "2009",
     name: "cristiano-ronaldo",
-    scorergoal: 311,
-    scorermatch: 292,
-    scoreraverage: 1.07
+    scorergoal: 308,
+    scorermatch: 200,
+    scoreraverage: 76
 }, {
     country: "esp",
     year: "1994",
     name: "raul-gonzalez",
     scorergoal: 311,
     scorermatch: 292,
-    scoreraverage: 1.07
+    scoreraverage: 24
 }, {
     country: "mex",
     year: "2000",
     name: "chicharito",
     scorergoal: 111,
-    scorermatch: 292,
-    scoreraverage: 0.50
+    scorermatch: 104,
+    scoreraverage: 22
 }, {
     country: "bra",
     year: "2001",
     name: "ronaldo-nazario",
     scorergoal: 151,
     scorermatch: 242,
-    scoreraverage: 0.67
+    scoreraverage: 25
 }];
 
 //MONGO ALE

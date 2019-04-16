@@ -36,10 +36,9 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
         if (req.query.country) search["country"] = req.query.country;
         if (req.query.year) search["year"] = req.query.year;
         if (req.query.name) search["name"] = req.query.name;
-        if (req.query.scorergoal) search["scorergoal"] = req.query.scorergoal;
-        if (req.query.scorermatch) search["scorermatch"] = req.query.scorermatch;
-        if (req.query.scoreraverage) search["scoreraverage"] = req.query.scoreraverage;
-
+        if (req.query.scorergoal) search["scorergoal"] = parseInt(req.query.scorergoal);
+        if (req.query.scorermatch) search["scorermatch"] = parseInt(req.query.scorermatch);
+        if (req.query.scoreraverage) search["scoreraverage"] = parseInt(req.query.scoreraverage);
 
         //Paginacion
         const offset = parseInt(req.query.offset) || 0;

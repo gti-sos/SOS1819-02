@@ -1,51 +1,34 @@
 /* global angular $scope*/
 
-var app = angular.module("ScorersApp");
+var app = angular.module("MiniPostmanScorersApp");
 
 
 app.controller("MainCtrl", ["$scope","$http", function ($scope, $http){
-                    console.log("Scorers MainCtrl Initialized!");
-                    var API = "/api-scorers/v1/scorers-stats/";
-                    refresh();
-                    
-                    function refresh(){
-                    
-                    $http.get(API).then(function(response){
-                        console.log("Datos recibidos: "+ JSON.stringify(response.data,null,2));
-                        $scope.scorers = response.data;
-                    }, function (error){
-                        $scope.status = error.status;
-                        $scope.data = "";
-                        });
-                    }
+                    console.log("Companies MainCtrl Initialized!");
+                    $scope.url = "https://sos1819-02.herokuapp.com/api-scorers/v1/scorers-stats/";
                     
                     
                     
-                    $scope.addScorer = function(){
-                        var newScorer = $scope.newScorer;
-                       console.log("nuevo contacto: "+JSON.stringify(newScorer,null,2));
-                         $http.post(API,newScorer).then(function(response){
-                        console.log("Response : "+ response.status + response.data);
-                        refresh();
+                    $scope.get = function(){
+                    $http.get($scope.url).then(function(response){
+                        $scope.status = response.status;
+                        $scope.data = JSON.stringify(response.data,null,2);
                     }, function (error){
                         $scope.status = error.status;
                         $scope.data = "";
                         });
                     };
                     
-                    $scope.deleteScorer = function(country,year){
-                       console.log("Borrando scorer cuyo country es: " +country);
-                       console.log("Borrando scorer cuyo year es: " +year);
-                       console.log(API+country+"/"+year);
-                         $http.delete(API+country+"/"+year).then(function(response){
-                        console.log("Response : "+ response.status + response.data);
-                        refresh();
+                    $scope.post = function(){
+                    $http.post($scope.url,$scope.data).then(function(response){
+                        $scope.status = response.status;
+                        $scope.data = "";
                     }, function (error){
                         $scope.status = error.status;
                         $scope.data = "";
                         });
                     };
-               /*     
+                    
                     $scope.put = function(){
                     $http.put($scope.url,$scope.data).then(function(response){
                         $scope.status = response.status;
@@ -76,5 +59,4 @@ app.controller("MainCtrl", ["$scope","$http", function ($scope, $http){
 			            	$scope.statusInfo = JSON.stringify(response.status, null, 2);
 			            });
                     };
-                    */
 }]);

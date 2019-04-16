@@ -6,62 +6,22 @@
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/bower_components/angular/angular.min.js"></script>
-    <script src="scorers-stats.js"></script>
-    <script src="main-ctrl.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="ScorersApp.js"></script>
+    <script src="listCtrl.js"></script>
+    <script src="editCtrl.js"></script>
+    
 
 </head>
 
-<body ng-controller="MainCtrl">
-
-    <style>
-        body {
-            margin: 0;
-            
-        }
-        
-        
-    </style>
-
+<body>
     <h1>
         <p> Scorers APP</p>
     </h1>
-
-    <div>
-         <table class="table">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Pais</th>
-                <th>Año</th>
-                <th>Goles</th>
-                <th>Partidos</th>
-                <th>Promedio</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="scorer in scorers">
-                <td>{{scorer.name}}</td>
-                <td>{{scorer.country}}</td>
-                <td>{{scorer.year}}</td>
-                <td>{{scorer.scorergoal}}</td>
-                <td>{{scorer.scorermatch}}</td>
-                <td>{{scorer.scoreraverage}}</td>
-                <td><button class="btn btn-danger" ng-click="deleteScorer(scorer.country,scorer.year)">Borrar</button></td>
-            </tr>
-            <tr>
-                <td><input class="form-control" ng-model="newScorer.name" value="new name"></td>
-                <td><input class="form-control" ng-model="newScorer.country" value="new country"></td>
-                <td><input class="form-control" ng-model="newScorer.year" value="new year"></td>
-                <td><input class="form-control" ng-model="newScorer.scorergoal" value="new goal"></td>
-                <td><input class="form-control" ng-model="newScorer.scorermatch" value="new match"></td>
-                <td><input class="form-control" ng-model="newScorer.scoreraverage" value="new average"></td>
-                <td><button class="btn btn-primary" ng-click="addScorer()">Add</button></td>
-            </tr>
-        </tbody>
-    </table>
-        <label>
+    <div ng-view>
+        
     </div>
+
 </body>
 
 

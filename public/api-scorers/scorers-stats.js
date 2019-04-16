@@ -1,4 +1,4 @@
  /* global angular*/
         
-            angular.module("ScorersApp",[]);
-            console.log("ScorersApp initialized!");
+            angular.module("MiniPostmanScorersApp",[]);
+            console.log("MiniPostmanScorersApp initialized!");
