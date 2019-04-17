@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="MiniPostmanCompaniesApp">
+
+<head>
+    <title> CompaniesApp </title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="compa-stats.js"></script>
+    <script src="princi-ctrl.js"></script>
+
+</head>
+
+<body ng-controller="PrinciCtrl">
+
+    <style>
+        body {
+            color:white;
+            margin: 0;
+            background-image: url("https://www.fineprintart.com/media/W1siZiIsIjIwMTMvMDQvMjYvMjFfMTBfMjlfMjdfYXBwbGVfbG9nby5qcGciXSxbInAiLCJ0aHVtYiIsIjEwMDB4MjMwMCJdXQ/apple-logo.jpg");
+        }
+        
+        
+    </style>
+
+    <h1>
+        <p class="text-light"> Companies APP</p>
+    </h1>
+    <div>
+        <label class="text-light" >URL: <input class="form-control text-center" ng-model="url" size="80"/></label>
+        <button class="btn btn-primary" ng-click="get()">Get</button>
+        <button class="btn btn-secondary" ng-click="post()">Post</button>
+        <button class="btn btn-warning" ng-click="put()">Put</button>
+        <button class="btn btn-danger" ng-click="delete()">Delete</button>
+        <button class="btn btn-info" ng-click="loadInitialData()">LoadInitialData</button>
+    </div>
+
+    <div>
+        <label>
+           
+  
+
+        <b><p color=red > Status code: {{status}}</p></label></b>
+    </div>
+
+    <div>
+
+
+        <textarea class="form-control" size="40" rows="20" ng-model="data"></textarea>
+    </div>
+</body>
+
+
+</html>
