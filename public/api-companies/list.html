@@ -1,0 +1,60 @@
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Empresa</th>
+                <th>Pais</th>
+                <th>Año</th>
+                <th>Ingresos</th>
+                <th>Capitalización</th>
+                <th>Empleados</th>
+                <th>Acciones</th>
+                <th><button class="btn btn-warning" ng-click="restaurar()">Restaurar</button></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="form-control" ng-model="searchForm.company" /></td>
+                <td><input class="form-control" ng-model="searchForm.country" /></td>
+                <td><input class="form-control" ng-model="searchForm.year" /></td>
+                <td><input class="form-control" ng-model="searchForm.income" /></td>
+                <td><input class="form-control" ng-model="searchForm.marketcapitalization" /></td>
+                <td><input class="form-control" ng-model="searchForm.employee" /></td>
+                <td><button type="button" class="btn btn-secondary" ng-click="searchCompany2()">Search</button></td>
+                <td><button type="button" class="btn btn-success" ng-click="searchCompany1()">Close</button></td>
+            </tr>
+            <tr ng-repeat="company in companies">
+                <td><a href="/api-companies/#!/{{company.country}}/{{company.year}}">{{company.company}}</a></td>
+                <td>{{company.country}}</td>
+                <td>{{company.year}}</td>
+                <td>{{company.income}}</td>
+                <td>{{company.marketcapitalization}}</td>
+                <td>{{company.employee}}</td>
+                <td><button class="btn btn-danger" ng-click="deleteCompany(company.country,company.year)">Borrar</button></td>
+            </tr>
+            <tr>
+                <td><input class="form-control" ng-model="newCompany.company" value="new company"></td>
+                <td><input class="form-control" ng-model="newCompany.country" value="new country"></td>
+                <td><input class="form-control" ng-model="newCompany.year" value="new year"></td>
+                <td><input class="form-control" ng-model="newCompany.income" value="new income"></td>
+                <td><input class="form-control" ng-model="newCompany.marketcapitalization" value="new marketcapitalization"></td>
+                <td><input class="form-control" ng-model="newCompany.employee" value="new employee"></td>
+                <td><button class="btn btn-primary" ng-click="addCompany()">Add</button></td>
+                <td><button class="btn btn-danger" ng-click="deleteCompanyAll()">Borrar todo</button></td>
+            </tr>
+            <tr>
+                <ul class="pagination">
+
+                    <td><button class="btn btn-dark" ng-click="previousPage()"><i>Previous Page</i></button></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-dark" ng-click="nextPage()"><i>Next Page</i></button></td>
+                    <td></td>
+                    <td></td>
+
+                </ul>
+            </tr>
+        </tbody>
+    </table>

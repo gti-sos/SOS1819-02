@@ -1,0 +1,24 @@
+<table class="table">
+        <thead>
+            <tr>
+                <th>Empresa</th>
+                <th>Pais</th>
+                <th>Año</th>
+                <th>Ingresos</th>
+                <th>Capitalización</th>
+                <th>Empleados</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{updatedCompany.company}}</td>
+                <td><input class="form-control" ng-model="updatedCompany.country" value="new country"></td>
+                <td><input class="form-control" ng-model="updatedCompany.year" value="new year"></td>
+                <td><input class="form-control" ng-model="updatedCompany.income" value="new income"></td>
+                <td><input class="form-control" ng-model="updatedCompany.marketcapitalization" value="new marketcapitalization"></td>
+                <td><input class="form-control" ng-model="updatedCompany.employee" value="new employee"></td>
+                <td><button class="btn btn-primary" ng-click="updatedCompany()">Update</button></td>
+            </tr>
+        </tbody> 
+    </table>
