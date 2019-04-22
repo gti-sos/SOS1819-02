@@ -31,7 +31,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     
                     refresh();
                  }
-                 $scope.searchMovie2 = function() {
+                 $scope.searchMovie = function() {
                     if ($scope.searchForm.name) {
                     search += ("&name=" + $scope.searchForm.name);
                     }
