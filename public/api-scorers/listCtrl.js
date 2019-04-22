@@ -12,12 +12,13 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     var paginationString = "";
                     $scope.currentPage = 1;
                     refresh();
-                    
+                    $scope.data= "Disfrute de AppScorers";
                     function refresh(){
                     paginationString = "&limit=" + limit + "&offset=" + offset;
                     $http.get(API+ search + paginationString).then(function(response){
                         console.log("Datos recibidos: "+ JSON.stringify(response.data,null,2));
                         $scope.scorers = response.data;
+                        
                         $scope.previousPage = function() {
                      if ($scope.currentPage > 1) {
                      offset -= limit;
@@ -82,6 +83,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                         var newScorer = $scope.newScorer;
                        console.log("nuevo contacto: "+JSON.stringify(newScorer,null,2));
                          $http.post(API,newScorer).then(function(response){
+                             $scope.data = "Scorers creado correctamente";
                         console.log("Response : "+ response.status + response.data);
                         refresh();
                     }, function (error){
@@ -95,6 +97,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                        console.log("Borrando scorer cuyo year es: " +year);
                        console.log(API+country+"/"+year);
                          $http.delete(API+country+"/"+year).then(function(response){
+                        $scope.data = "Scorers borrado correctamente";
                         console.log("Response : "+ response.status + response.data);
                         refresh();
                     }, function (error){
@@ -105,7 +108,9 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     
                      $scope.deleteScorerAll = function(){
                          $http.delete(API).then(function(response){
+                        $scope.data= "Borrado todos los AppScorers";
                         console.log("Response : "+ response.status + response.data);
+                        
                         refresh();
                     }, function (error){
                         $scope.status = error.status;
@@ -115,6 +120,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     
                     $scope.restaurar = function (){
                         $http.get(API + "loadInitialData").then(function (response){
+                        $scope.data = "Restaurado correctamente";
                         console.log("Response : "+ response.status + response.data);
                         refresh();
                         }).catch(function (response) {
