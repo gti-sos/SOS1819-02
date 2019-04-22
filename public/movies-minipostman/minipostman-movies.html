@@ -1,0 +1,50 @@
+<html ng-app="MoviesApp">
+
+<head>
+
+
+    <title>Mini Postman</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+
+    <script src="minipostman-app.js"></script>
+    <script src="main-ctrl.js"></script>
+
+</head>
+
+
+
+<body ng-controller="MainCtrl">
+
+    <style>
+        body {
+            margin: 0;
+            background-image: url("https://media.graytvinc.com/images/810*455/1280x720_60223P00-UDGZJ.jpg")
+        }
+    </style>
+
+    <h1>
+        <p class="text-light">MiniPostman Movies APP</p>
+    </h1>
+    <div>
+        <label class="text-light">URL: <input class="form-control text-center" ng-model="url" size="80"/></label>
+        <button class="btn btn-primary" ng-click="get()">Get</button>
+        <button class="btn btn-secondary" ng-click="post()">Post</button>
+        <button class="btn btn-warning" ng-click="put()">Put</button>
+        <button class="btn btn-danger" ng-click="delete()">Delete</button>
+        <button class="btn btn-info" ng-click="loadInitialData()">LoadInitialData</button>
+    </div>
+
+    <div>
+        <label><p class="text-light">Status code: {{status}}</p></label>
+    </div>
+
+    <div>
+        
+        <textarea class="form-control" size="40" rows="20" ng-model="data"></textarea>
+    </div>
+</body>
+
+
+</html>

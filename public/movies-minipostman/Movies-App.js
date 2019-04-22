@@ -1,7 +1,7 @@
         
         /*global angular*/
         
-        angular.module("ScorersApp",["ngRoute"])
+        angular.module("MoviesApp",["ngRoute"])
             .config(function($routeProvider){
              $routeProvider
              .when("/",{
@@ -11,5 +11,5 @@
              .when("/:country/:year",{
               templateUrl:"edit.html",
               controller: "editCtrl"
-             });
+             })
             })
