@@ -1,0 +1,24 @@
+<table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Pais</th>
+                <th>Año</th>
+                <th>Nominaciones</th>
+                <th>Premios</th>
+                <th>Edición</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{updatedMovie.name}}</td>
+                <td><input class="form-control" ng-model="updatedMovie.country" value="new country"></td>
+                <td><input class="form-control" ng-model="updatedMovie.year" value="new year"></td>
+                <td><input class="form-control" ng-model="updatedMovie.movienomination" value="new nomination"></td>
+                <td><input class="form-control" ng-model="updatedMovie.movieaward" value="new award"></td>
+                <td><input class="form-control" ng-model="updatedMovie.movieedition" value="new edition"></td>
+                <td><button class="btn btn-primary" ng-click="updateMovie()">Update</button></td>
+            </tr>
+        </tbody> 
+    </table>

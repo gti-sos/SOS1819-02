@@ -11,5 +11,5 @@
              .when("/:country/:year",{
               templateUrl:"edit.html",
               controller: "editCtrl"
-             })
+             });
             })
