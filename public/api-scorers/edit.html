@@ -1,5 +1,9 @@
 <table class="table">
         <thead>
+            <div class="alert alert-warning alert-dismissable">
+  
+  <center>{{data}} </center>
+</div>
             <tr>
                 <th>Nombre</th>
                 <th>Pais</th>
@@ -13,8 +17,8 @@
         <tbody>
             <tr>
                 <td>{{updatedScorer.name}}</td>
-                <td><input class="form-control" ng-model="updatedScorer.country" value="new country"></td>
-                <td><input class="form-control" ng-model="updatedScorer.year" value="new year"></td>
+                <td>{{updatedScorer.country}}</td>
+                <td>{{updatedScorer.year}}</td>
                 <td><input class="form-control" ng-model="updatedScorer.scorergoal" value="new goal"></td>
                 <td><input class="form-control" ng-model="updatedScorer.scorermatch" value="new match"></td>
                 <td><input class="form-control" ng-model="updatedScorer.scoreraverage" value="new average"></td>

@@ -17,11 +17,16 @@ app.controller("editCtrl", ["$scope","$http","$routeParams", "$location", functi
                     
                     
                     $scope.updateScorer = function(){
+                        if(confirm("¿Desea actualizar los datos?")){
                          $http.put(API,$scope.updatedScorer).then(function(response){
+                             window.alert("OK actualizado");
                          $location.path("/");
+                         
+                         
                     }, function (error){
                         $scope.status = error.status;
-                        $scope.data = "";
+                        $scope.data = "Los campos no estan rellenos correctamente";
                         });
                     }; 
+                    }
 }]);

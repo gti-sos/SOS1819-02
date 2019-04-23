@@ -39,6 +39,7 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
         if (req.query.scorergoal) search["scorergoal"] = parseInt(req.query.scorergoal);
         if (req.query.scorermatch) search["scorermatch"] = parseInt(req.query.scorermatch);
         if (req.query.scoreraverage) search["scoreraverage"] = parseInt(req.query.scoreraverage);
+        
 
         //Paginacion
         const offset = parseInt(req.query.offset) || 0;
@@ -74,7 +75,7 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
         }
         else {
             scorers.find({ "name": nameScorer }).toArray((error, scorersArray) => {
-
+                
                 if (error) {
                     console.log("Error: " + error);
                 }
@@ -110,6 +111,9 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
             if (scorersArray.length == 0) {
                 res.sendStatus(404);
             }
+            if (!updatedscorersstats.country || !updatedscorersstats.year || !updatedscorersstats.name || !updatedscorersstats.scorergoal || !updatedscorersstats.scorermatch || !updatedscorersstats.scoreraverage) {
+            res.sendStatus(400);
+        }
             else {
                 if (
                     id != updatedscorersstats._id) {
