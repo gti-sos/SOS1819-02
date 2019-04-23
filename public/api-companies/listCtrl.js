@@ -60,6 +60,7 @@ app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
                 if ($scope.searchForm.to) {
                     search += ("&to=" + $scope.searchForm.to);
                 }
+                window.alert("Búsqueda realizada");
                 console.log(search);
                 refresh();
                 search = "?";
