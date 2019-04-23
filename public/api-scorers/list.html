@@ -6,13 +6,13 @@
          <table class="table">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Pais</th>
-                <th>Año</th>
-                <th>Goles</th>
-                <th>Partidos</th>
-                <th>Promedio</th>
-                <th>Acciones</th>
+                <th><strong>Nombre</strong></th>
+                <th><strong>Pais</strong></th>
+                <th><strong>Año</strong></th>
+                <th><strong>Goles</strong></th>
+                <th><strong>Partidos</strong></th>
+                <th><strong>Promedio</strong></th>
+                <th><strong>Acciones</strong></th>
                 <th><button class="btn btn-warning" ng-click="restaurar()">restaurar</button></th>
             </tr>
         </thead>
@@ -28,12 +28,12 @@
                     <td><button type="button" class="btn btn-success" ng-click="searchScorer1()" >Cerrar Búsqueda</button></td>
                     </tr>
             <tr ng-repeat="scorer in scorers">
-                <td><a href="/api-scorers/#!/{{scorer.country}}/{{scorer.year}}">{{scorer.name}}</a></td>
-                <td>{{scorer.country}}</td>
-                <td>{{scorer.year}}</td>
-                <td>{{scorer.scorergoal}}</td>
-                <td>{{scorer.scorermatch}}</td>
-                <td>{{scorer.scoreraverage}}</td>
+                <td><strong><a href="/api-scorers/#!/{{scorer.country}}/{{scorer.year}}">{{scorer.name}}</strong></a></td>
+                <td><strong>{{scorer.country}}</strong></td>
+                <td><strong>{{scorer.year}}</strong></td>
+                <td><strong>{{scorer.scorergoal}}</strong></td>
+                <td><strong>{{scorer.scorermatch}}</strong></td>
+                <td><strong>{{scorer.scoreraverage}}</strong></td>
                 <td><button class="btn btn-danger" ng-click="deleteScorer(scorer.country,scorer.year)">Borrar</button></td>
             </tr>
             <tr>
