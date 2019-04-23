@@ -7,10 +7,12 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     console.log("Movies MainCtrl Inicializado!");
                     var API = "/api-movies/v1/movies-stats/";
                     var search = "?";
-                    var limit = 5;
+                    var limit = 10;
                     var offset = 0;
                     var paginationString = "";
                     $scope.currentPage = 1;
+                    $scope.data1="¡Bienvenidos!";
+                    $scope.data2="Esto es Movies APP y sus datos se encuentran actualizados";
                     refresh();
                     
                     function refresh(){
@@ -52,18 +54,21 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     search += ("&movieedition=" + $scope.searchForm.movieedition);
                     }
                     if ($scope.searchForm.from) {
-                    search += ("&from=" + $scope.searchForm.from);
+                    search += ("year&from=" + $scope.searchForm.from);
                     }
                     if ($scope.searchForm.to) {
                     search += ("&to=" + $scope.searchForm.to);
                     }
+                    
                     console.log(search);
+                    console.log(API+ search + paginationString);
+
                     refresh();
                     search="?";
                     };
 
                      $scope.nextPage = function() {
-                     if ($scope.scorers.length == limit) {
+                     if ($scope.movies.length == limit) {
                     offset += limit;
                     refresh();
                     $scope.currentPage += 1;
@@ -82,11 +87,16 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                         var newMovie = $scope.newMovie;
                        console.log("nueva pelicula: "+JSON.stringify(newMovie,null,2));
                          $http.post(API,newMovie).then(function(response){
+    
+                          $scope.data1="¡Genial!";
+                          $scope.data2="Creado con éxito";     
+                             
                         console.log("Response : "+ response.status + response.data);
                         refresh();
                     }, function (error){
+                        $scope.data1="¡Ohh!";
+                        $scope.data2="Rellene los campos correctamente";
                         $scope.status = error.status;
-                        $scope.data = "";
                         });
                     };
                     
@@ -94,33 +104,50 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                        console.log("Borrando movie cuyo country es: " +country);
                        console.log("Borrando movie cuyo year es: " +year);
                        console.log(API+country+"/"+year);
+                       if(confirm("¿Desea borrar los datos de la película?")){
                          $http.delete(API+country+"/"+year).then(function(response){
+                            $scope.data1="¡Genial!";
+                            $scope.data2="Borrada la película cuyo año es "+ year + " y su país es " + country;
                         console.log("Response : "+ response.status + response.data);
                         refresh();
                     }, function (error){
                         $scope.status = error.status;
-                        $scope.data = "";
+                        $scope.data1="¡Ohh!";
+                        $scope.data2="No se puede borrar";
                         });
+                       
                     };
+                    }
                     
+                    if(confirm("¿Desea borrarlo todos los datos?")){
                      $scope.deleteMovieAll = function(){
                          $http.delete(API).then(function(response){
+                          $scope.data1="¡Genial!";
+                          $scope.data2="Borraste todo con éxito";     
                         console.log("Response : "+ response.status + response.data);
                         refresh();
                     }, function (error){
                         $scope.status = error.status;
-                        $scope.data = "";
+                        $scope.data1="¡Ohh!";
+                        $scope.data2="No se puede borrar";
                         });
                     };
+                    }
                     
                     $scope.restaurar = function (){
+                        if(confirm("¿Desea restaurar los datos?")){
                         $http.get(API + "loadInitialData").then(function (response){
+                          $scope.data1="¡Genial!";
+                          $scope.data2="Restauraste los datos con éxito";
                         console.log("Response : "+ response.status + response.data);
                         refresh();
                         }).catch(function (response) {
+                            
+                            $scope.data1="¡Aviso!";
+                            $scope.data2="Para restaurar los datos debe previamente borrar todos los registros";
                             $scope.status = response.status;
 			            	$scope.statusInfo = JSON.stringify(response.status, null, 2);
 			            });
                     };
-
+                    }
 }]);
