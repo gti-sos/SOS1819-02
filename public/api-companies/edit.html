@@ -4,23 +4,23 @@
             <center>{{data}} </center>
         </div>
         <tr>
-            <th>Empresa</th>
-            <th>Pais</th>
-            <th>Año</th>
-            <th>Ingresos</th>
-            <th>Capitalización</th>
-            <th>Empleados</th>
-            <th>Acciones</th>
+            <th><FONT COLOR="orange">Empresa</FONT></th>
+            <th><FONT COLOR="orange">Pais</FONT></th>
+            <th><FONT COLOR="orange">Año</FONT></th>
+            <th><FONT COLOR="orange">Ingresos</FONT></th>
+            <th><FONT COLOR="orange">Capitalización</FONT></th>
+            <th><FONT COLOR="orange">Empleados</FONT></th>
+            <th><FONT COLOR="white">Acciones</FONT></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>{{updatedCompany.company}}</td>
-            <td>{{updatedCompany.country}}</td>
-            <td><input class="form-control" ng-model="updatedCompany.year" value="new year"></td>
-            <td><input class="form-control" ng-model="updatedCompany.income" value="new income"></td>
-            <td><input class="form-control" ng-model="updatedCompany.marketcapitalization" value="new marketcapitalization"></td>
-            <td><input class="form-control" ng-model="updatedCompany.employee" value="new employee"></td>
+            <td><FONT COLOR="blue">{{updatedCompany.company}}</FONT></td>
+            <td><FONT COLOR="blue">{{updatedCompany.country}}</FONT></td>
+            <td><FONT COLOR="white"><input class="form-control" ng-model="updatedCompany.year" value="new year"></FONT></td>
+            <td><FONT COLOR="white"><input class="form-control" ng-model="updatedCompany.income" value="new income"></FONT></td>
+            <td><FONT COLOR="white"><input class="form-control" ng-model="updatedCompany.marketcapitalization" value="new marketcapitalization"></FONT></td>
+            <td><FONT COLOR="white"><input class="form-control" ng-model="updatedCompany.employee" value="new employee"></FONT></td>
             <td><button class="btn btn-primary" ng-click="updateCompany()">Actualizar</button></td>
         </tr>
     </tbody>

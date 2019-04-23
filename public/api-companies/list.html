@@ -5,13 +5,13 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Empresa</th>
-                <th>País</th>
-                <th>Año</th>
-                <th>Ingresos</th>
-                <th>Capitalización</th>
-                <th>Empleados</th>
-                <th>Acciones</th>
+                <th> <FONT COLOR="orange">Empresa </FONT></th>
+                <th><FONT COLOR="orange">País</FONT></th>
+                <th><FONT COLOR="orange">Año</FONT></th>
+                <th><FONT COLOR="orange">Ingresos</FONT></th>
+                <th><FONT COLOR="orange">Capitalización</FONT></th>
+                <th><FONT COLOR="orange">Empleados</FONT></th>
+                <th><FONT COLOR="white">Acciones</FONT></th>
                 <th><button class="btn btn-warning" ng-click="restaurar()">Cargar datos Iniciales</button></th>
             </tr>
         </thead>
@@ -28,11 +28,11 @@
             </tr>
             <tr ng-repeat="company in companies">
                 <td><a href="/api-companies/#!/{{company.country}}/{{company.year}}">{{company.company}}</a></td>
-                <td>{{company.country}}</td>
-                <td>{{company.year}}</td>
-                <td>{{company.income}}</td>
-                <td>{{company.marketcapitalization}}</td>
-                <td>{{company.employee}}</td>
+                <td><FONT COLOR="orange">{{company.country}}</FONT></td>
+                <td><FONT COLOR="orange">{{company.year}}</FONT></td>
+                <td><FONT COLOR="orange">{{company.income}}</FONT></td>
+                <td><FONT COLOR="orange">{{company.marketcapitalization}}</FONT></td>
+                <td><FONT COLOR="orange">{{company.employee}}</FONT></td>
                 <td><button class="btn btn-danger" ng-click="deleteCompany(company.country,company.year)">Borrar</button></td>
             </tr>
             <tr>
