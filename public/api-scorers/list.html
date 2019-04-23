@@ -29,11 +29,11 @@
                     </tr>
             <tr ng-repeat="scorer in scorers">
                 <td><strong><a href="/api-scorers/#!/{{scorer.country}}/{{scorer.year}}">{{scorer.name}}</strong></a></td>
-                <td><strong>{{scorer.country}}</strong></td>
-                <td><strong>{{scorer.year}}</strong></td>
-                <td><strong>{{scorer.scorergoal}}</strong></td>
-                <td><strong>{{scorer.scorermatch}}</strong></td>
-                <td><strong>{{scorer.scoreraverage}}</strong></td>
+                <td><strong><FONT COLOR="orange">{{scorer.country}}</FONT></strong></td>
+                <td><strong><FONT COLOR="orange">{{scorer.year}}</FONT></strong></td>
+                <td><strong><FONT COLOR="orange">{{scorer.scorergoal}}</FONT></strong></td>
+                <td><strong><FONT COLOR="orange">{{scorer.scorermatch}}</FONT></strong></td>
+                <td><strong><FONT COLOR="orange">{{scorer.scoreraverage}}</FONT></strong></td>
                 <td><button class="btn btn-danger" ng-click="deleteScorer(scorer.country,scorer.year)">Borrar</button></td>
             </tr>
             <tr>
