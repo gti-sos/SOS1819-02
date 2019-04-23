@@ -119,8 +119,8 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     };
                     }
                     
-                    if(confirm("¿Desea borrarlo todos los datos?")){
                      $scope.deleteMovieAll = function(){
+                        if(confirm("¿Desea borrarlo todos los datos?")){
                          $http.delete(API).then(function(response){
                           $scope.data1="¡Genial!";
                           $scope.data2="Borraste todo con éxito";     
