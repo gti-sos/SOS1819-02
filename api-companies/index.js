@@ -44,7 +44,7 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
         //Paginacion
         const offset = parseInt(req.query.offset) || 0;
         const limit = parseInt(req.query.limit) || 10;
-        companies.find(search, { projection : { _id: 0 } }).skip(offset).limit(limit).toArray((error, companiesArray) => {
+        companies.find(search, { projection: { _id: 0 } }).skip(offset).limit(limit).toArray((error, companiesArray) => {
             console.log("###############companiesArray#####################");
 
             res.send(companiesArray);
@@ -55,14 +55,15 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
     });
     // POST CONJUNTO /api/v1/companies-stats
     app.post(BASE_PATH + "/companies-stats", (req, res) => {
+        var newcompaniesstats = req.body;
+        var yearCompany = req.body.year;
+        var newCompany= req.body;
 
-        var Company = req.body.company;
-        var newCompany = req.body;
         if (!newCompany.country || !newCompany.year || !newCompany.company || !newCompany.income || !newCompany.marketcapitalization || !newCompany.employee) {
             res.sendStatus(400);
         }
         else {
-            companies.find({ "company": Company }).toArray((error, companiesArray) => {
+            companies.find({ "year": yearCompany }).toArray((error, companiesArray) => {
 
                 if (error) {
                     console.log("Error: " + error);
@@ -73,7 +74,7 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
                 }
                 else {
                     console.log("incluye");
-                    companies.insertOne(newCompany);
+                    companies.insertOne(newcompaniesstats);
                     res.sendStatus(201);
                 }
             });
@@ -94,7 +95,7 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
         var country = req.params.country;
         var year = req.params.year;
 
-        companies.find({ "country": country, "year": year }, { projection : { _id: 0 } }).toArray((error, filteredcompaniesstats) => {
+        companies.find({ "country": country, "year": year }, { projection: { _id: 0 } }).toArray((error, filteredcompaniesstats) => {
             if (error) {
                 console.log("Error: " + error);
             }
@@ -122,17 +123,18 @@ companiesApi.register = function(app, companies, companiesstatsinitial) {
                 res.sendStatus(404);
             }
             else {
-                if (id != updatedcompaniesstats._id ||  !updatedcompaniesstats.country || !updatedcompaniesstats.year || !updatedcompaniesstats.company || !updatedcompaniesstats.income || !updatedcompaniesstats.marketcapitalization || !updatedcompaniesstats.employee ) {
+                if (id != updatedcompaniesstats._id || !updatedcompaniesstats.country || !updatedcompaniesstats.year || !updatedcompaniesstats.company || !updatedcompaniesstats.income || !updatedcompaniesstats.marketcapitalization || !updatedcompaniesstats.employee) {
                     res.sendStatus(400);
                 }
                 else {
                     if (country != req.body.country || year != req.body.year) {
                         res.sendStatus(400);
-                    } else {
+                    }
+                    else {
                         companies.updateOne({ year: year }, { $set: updatedcompaniesstats });
-                    companies.updateOne({ country: country }, { $set: updatedcompaniesstats });
-                    
-                    res.sendStatus(200);
+                        companies.updateOne({ country: country }, { $set: updatedcompaniesstats });
+
+                        res.sendStatus(200);
                     }
                 }
             }
