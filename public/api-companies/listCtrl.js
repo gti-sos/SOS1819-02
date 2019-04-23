@@ -7,10 +7,13 @@ app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
     console.log("Companies ListCtrl Initialized!");
     var API = "/api-companies/v1/companies-stats/";
     var search = "?";
-    var limit = 5;
+    var limit = 10;
     var offset = 0;
     var paginationString = "";
     $scope.currentPage = 1;
+    $scope.data1 = "¡Bienvenidos!";
+    $scope.data2 = "Los datos se encuentran actualizados";
+
     refresh();
 
     function refresh() {
@@ -82,11 +85,15 @@ app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
         var newCompany = $scope.newCompany;
         console.log("nueva compañia: " + JSON.stringify(newCompany, null, 2));
         $http.post(API, newCompany).then(function(response) {
+            $scope.data1 = "¡Genial!";
+            $scope.data2 = "Creado con éxito";
             console.log("Response : " + response.status + response.data);
             refresh();
         }, function(error) {
+            $scope.data1 = "¡Ohh!";
+            $scope.data2 = "Rellene los campos correctamente";
             $scope.status = error.status;
-            $scope.data = "";
+
         });
     };
 
@@ -94,35 +101,49 @@ app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
         console.log("Borrando compañia cuyo country es: " + country);
         console.log("Borrando compañia cuyo year es: " + year);
         console.log(API + country + "/" + year);
-        $http.delete(API + country + "/" + year).then(function(response) {
-            console.log("Response : " + response.status + response.data);
-            refresh();
-        }, function(error) {
-            $scope.status = error.status;
-            $scope.data = "";
-        });
-    };
+        if (confirm("¿Desea borrar los datos?")) {
+            $http.delete(API + country + "/" + year).then(function(response) {
+                $scope.data1 = "¡Genial!";
+                $scope.data2 = "Ha sido borrada la empresa cuyo año es " + year + " y su país es " + country;
+                console.log("Response : " + response.status + response.data);
+                refresh();
+            }, function(error) {
+                $scope.status = error.status;
+                $scope.data1 = "¡Ohh!";
+                $scope.data2 = "No se puede borrar";
+            });
+        };
+    }
 
     $scope.deleteCompanyAll = function() {
-        $http.delete(API).then(function(response) {
-            console.log("Response : " + response.status + response.data);
-            refresh();
-        }, function(error) {
-            $scope.status = error.status;
-            $scope.data = "";
-        });
+        if (confirm("¿Desea borrarlo todo?")) {
+            $http.delete(API).then(function(response) {
+                $scope.data1 = "¡Genial!";
+                $scope.data2 = "Borraste todo con éxito";
+                console.log("Response : " + response.status + response.data);
+                refresh();
+            }, function(error) {
+                $scope.status = error.status;
+                $scope.data1 = "¡Ohh!";
+                $scope.data2 = "No se puede borrar";
+            });
+        };
     };
-
     $scope.restaurar = function() {
-        $http.get(API + "loadInitialData").then(function(response) {
-            console.log("Response : " + response.status + response.data);
-            refresh();
-        }).catch(function(response) {
-            $scope.status = response.status;
-            $scope.statusInfo = JSON.stringify(response.status, null, 2);
-        });
-    };
+        if (confirm("¿Desea cargar los datos iniciales?")) {
+            $http.get(API + "loadInitialData").then(function(response) {
+                console.log("Response : " + response.status + response.data);
+                $scope.data1 = "¡Genial!";
+                $scope.data2 = "Restauraste los datos con éxito";
+                refresh();
+            }).catch(function(response) {
+                $scope.data1 = "¡Aviso!";
+                $scope.data2 = "Para restaurar los datos debe previamente borrar todos los registros";
+                $scope.status = response.status;
+                $scope.statusInfo = JSON.stringify(response.status, null, 2);
+            });
+        };
 
-
+    }
 
 }]);
