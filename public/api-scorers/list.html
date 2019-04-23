@@ -24,8 +24,8 @@
                     <td><input class="form-control" ng-model="searchForm.scorergoal" /></td>
                     <td><input class="form-control" ng-model="searchForm.scorermatch" /></td>
                     <td><input class="form-control" ng-model="searchForm.scoreraverage" /></td>
-                    <td><button type="button" class="btn btn-secondary"  ng-click="searchScorer2()">Search</button></td>
-                    <td><button type="button" class="btn btn-success" ng-click="searchScorer1()" >Close</button></td>
+                    <td><button type="button" class="btn btn-secondary"  ng-click="searchScorer2()">Buscar</button></td>
+                    <td><button type="button" class="btn btn-success" ng-click="searchScorer1()" >Cerrar Búsqueda</button></td>
                     </tr>
             <tr ng-repeat="scorer in scorers">
                 <td><a href="/api-scorers/#!/{{scorer.country}}/{{scorer.year}}">{{scorer.name}}</a></td>
@@ -43,23 +43,30 @@
                 <td><input class="form-control" ng-model="newScorer.scorergoal" value="new goal"></td>
                 <td><input class="form-control" ng-model="newScorer.scorermatch" value="new match"></td>
                 <td><input class="form-control" ng-model="newScorer.scoreraverage" value="new average"></td>
-                <td><button class="btn btn-primary" ng-click="addScorer()">Add</button></td>
+                <td><button class="btn btn-primary" ng-click="addScorer()">Añadir</button></td>
                 <td><button class="btn btn-danger" ng-click="deleteScorerAll()">Borrar todo</button></td>
             </tr>
             <tr>
                 <ul class="pagination">
         
-        <td><button class="btn btn-dark" ng-click="previousPage()"><i>Previous Page</i></button></td>
+        <td><button class="btn btn-dark" ng-click="previousPage()"><i><</i></button></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <td><button class="btn btn-dark" ng-click="nextPage()"><i>Next Page</i></button></td>
         <td></td>
-        <td></td><a href="/api-scorers/minipostman-scorers.html">Desarrolladores</a>
+        <td><button class="btn btn-dark" ng-click="nextPage()"><i>></i></button></td>
+        <td></td>
+        
         
         
     </ul>
+    
             </tr>
+            <div class="btn-group">
+                        <button type="button" class="btn btn-default"> <a href="/api-scorers/#!"><strong>Inicio </strong></button>
+                        <button type="button" <div class="btn btn-default">
+                        <strong> <a href="/api-scorers/minipostman-scorers.html">Desarrolladores</a> </strong> 
+                    </div></button>
         </tbody>
     </table>
