@@ -93,7 +93,7 @@ app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
             $scope.data1 = "¡Ohh!";
             $scope.data2 = "Rellene los campos correctamente";
             $scope.status = error.status;
-
+            
         });
     };
 
