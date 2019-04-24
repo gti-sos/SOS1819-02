@@ -21,6 +21,16 @@ app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
         $http.get(API + search + paginationString).then(function(response) {
             console.log("Datos recibidos: " + JSON.stringify(response.data, null, 2));
             $scope.companies = response.data;
+            if ($scope.scorers.length == 0) {
+
+                $scope.data2 = "No existe una empresa con esas caracteristicas";
+            }
+            else {
+
+            }
+
+
+
             $scope.previousPage = function() {
                 if ($scope.currentPage > 1) {
                     offset -= limit;
@@ -60,7 +70,7 @@ app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
                 if ($scope.searchForm.to) {
                     search += ("&to=" + $scope.searchForm.to);
                 }
-                
+
                 console.log(search);
                 refresh();
                 search = "?";
@@ -95,7 +105,7 @@ app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
             $scope.data1 = "¡Ohh!";
             $scope.data2 = "Rellene los campos correctamente";
             $scope.status = error.status;
-            
+
         });
     };
 
