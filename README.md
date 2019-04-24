@@ -13,9 +13,9 @@
 <li><strong>URL</strong>: <a href="http://sos1819-02.herokuapp.com/" rel="nofollow">http://sos1819-02.herokuapp.com/</a></li>
 <li><strong>APIs</strong>:
 <ul>
-<li><a href="https://sos1819-02.herokuapp.com/api/v1/movies-stats" rel="nofollow">https://sos1819-02.herokuapp.com/api/v1/movies-stats</a> (developed by <a href="https://github.com/alemarman1">Alejandro Martin Mancheño</a>)</li>
-<li><a href="https://sos1819-02.herokuapp.com/api/v1/scorers-stats" rel="nofollow">https://sos1819-02.herokuapp.com/api/v1/scorers-stats</a> (developed by <a href="https://github.com/albpercar">Alberto Pérez Caro</a>)</li>
-<li><a href="https://sos1819-02.herokuapp.com/api/v1/companies-stats/" rel="nofollow">https://sos1819-02.herokuapp.com/api/v1/companies-stats</a> (developed by <a href="https://github.com/pabgarmar">Pablo Garcia Martin</a>)</li>
+<li><a href="https://sos1819-02.herokuapp.com/api-movies/v1/movies-stats" rel="nofollow">https://sos1819-02.herokuapp.com/api-movies/v1/movies-stats</a> (developed by <a href="https://github.com/alemarman1">Alejandro Martin Mancheño</a>)</li>
+<li><a href="https://sos1819-02.herokuapp.com/api-scorers/v1/scorers-stats" rel="nofollow">https://sos1819-02.herokuapp.com/api-scorers/v1/scorers-stats</a> (developed by <a href="https://github.com/albpercar">Alberto Pérez Caro</a>)</li>
+<li><a href="https://sos1819-02.herokuapp.com/api-companies/v1/companies-stats/" rel="nofollow">https://sos1819-02.herokuapp.com/api-companies/v1/companies-stats</a> (developed by <a href="https://github.com/pabgarmar">Pablo Garcia Martin</a>)</li>
 </ul>
 </li>
 </ul>
