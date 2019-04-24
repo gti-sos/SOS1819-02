@@ -5,7 +5,7 @@ var app = angular.module("CompaniesApp");
 
 app.controller("MainCtrl", ["$scope","$http", function ($scope, $http){
                     console.log("Companies MainCtrl Initialized!");
-                    $scope.url = "https://sos1819-02.herokuapp.com/api/v1/companies-stats/";
+                    $scope.url = "https://sos1819-02.herokuapp.com/api-companies/v1/companies-stats/";
                     
                     
                     
