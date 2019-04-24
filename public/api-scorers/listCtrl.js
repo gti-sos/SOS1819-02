@@ -18,7 +18,18 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     paginationString = "&limit=" + limit + "&offset=" + offset;
                     $http.get(API+ search + paginationString).then(function(response){
                         console.log("Datos recibidos: "+ JSON.stringify(response.data,null,2));
+                        console.log(API+ search + paginationString);
                         $scope.scorers = response.data;
+                        console.log($scope.scorers.length);
+                    if($scope.scorers.length==0){
+                        
+                        $scope.data2="No existe un jugador con esas caracteristicas";
+                    }else{
+                    
+                    }
+                    
+                        
+                    
                         
                         $scope.previousPage = function() {
                      if ($scope.currentPage > 1) {
@@ -60,9 +71,11 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     search += ("&to=" + $scope.searchForm.to);
                     }
                     console.log(API+ search + paginationString);
+                    window.alert("¡Búsqueda realizada!");
                     refresh();
                     search="?";
-                    window.alert("¡Búsqueda realizada!");
+                    
+                    
                     };
 
                      $scope.nextPage = function() {
@@ -74,7 +87,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     };
                     }, function (error){
                         $scope.status = error.status;
-                        $scope.data = "";
+                        $scope.data2 = "no se encontro la busqueda";
                         });
                     
                     }
