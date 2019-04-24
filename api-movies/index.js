@@ -1,5 +1,5 @@
 var moviesApi = {};
-const BASE_PATH = "/api-movies/v1";
+const BASE_PATH = "/u1/v1";
 
 console.log("submodulo api-movies");
 
