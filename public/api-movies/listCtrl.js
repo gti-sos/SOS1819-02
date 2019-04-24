@@ -20,6 +20,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     $http.get(API+ search + paginationString).then(function(response){
                         console.log("Datos recibidos: "+ JSON.stringify(response.data,null,2));
                         $scope.movies = response.data;
+                        
                         $scope.previousPage = function() {
                      if ($scope.currentPage > 1) {
                      offset -= limit;
