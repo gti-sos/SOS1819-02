@@ -66,7 +66,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
 
                     refresh();
                     search="?";
-                    window.alert("¡Búsqueda realizada!");
+                    window.alert("¡Búsqueda realizada!    Si la lista está vacía es que no se han encontrado películas con estas características ");
                     };
 
                      $scope.nextPage = function() {
