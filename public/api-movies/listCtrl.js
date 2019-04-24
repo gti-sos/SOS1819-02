@@ -20,6 +20,12 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     $http.get(API+ search + paginationString).then(function(response){
                         console.log("Datos recibidos: "+ JSON.stringify(response.data,null,2));
                         $scope.movies = response.data;
+                         if($scope.movies.length==0){
+
+                        $scope.data2="No existe una película con esas características";
+                    }else{
+
+                    }
                         
                         $scope.previousPage = function() {
                      if ($scope.currentPage > 1) {
@@ -66,7 +72,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
 
                     refresh();
                     search="?";
-                    window.alert("¡Búsqueda realizada!    Si la lista está vacía es que no se han encontrado películas con estas características ");
+                    window.alert("¡Búsqueda realizada! ");
                     };
 
                      $scope.nextPage = function() {

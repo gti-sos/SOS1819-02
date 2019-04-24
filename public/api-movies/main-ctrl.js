@@ -3,7 +3,7 @@ var app = angular.module("MoviesApp");
 
 app.controller("MainCtrl", ["$scope", "$http", function($scope, $http) {
     console.log("Modulo Movies MainCtrl Inicializado")
-    $scope.url = "https://sos1819-02.herokuapp.com/ui/v1/movies-stats/";
+    $scope.url = "https://sos1819-02.herokuapp.com/api-movies/v1/movies-stats/";
 
     $scope.get = function() {
         $http.get($scope.url).then(function(response) {
