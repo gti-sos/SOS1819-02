@@ -54,7 +54,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     search += ("&movieedition=" + $scope.searchForm.movieedition);
                     }
                     if ($scope.searchForm.from) {
-                    search += ("year&from=" + $scope.searchForm.from);
+                    search += ("&from=" + $scope.searchForm.from);
                     }
                     if ($scope.searchForm.to) {
                     search += ("&to=" + $scope.searchForm.to);
@@ -65,6 +65,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
 
                     refresh();
                     search="?";
+                    window.alert("¡Búsqueda realizada!");
                     };
 
                      $scope.nextPage = function() {

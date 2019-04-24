@@ -8,13 +8,13 @@
          <table class="table">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Pais</th>
-                <th>Año</th>
-                <th>Nominaciones</th>
-                <th>Premios</th>
-                <th>Edición</th>
-                <th>Acciones</th>
+                <th><strong><FONT COLOR="orange">Nombre</FONT></strong></th>
+                <th><strong><FONT COLOR="orange">Pais</FONT></strong></th>
+                <th><strong><FONT COLOR="orange">Año</FONT></strong></th>
+                <th><strong><FONT COLOR="orange">Nominaciones</FONT></strong></th>
+                <th><strong><FONT COLOR="orange">Premios</FONT></strong></th>
+                <th><strong><FONT COLOR="orange">Edición</FONT></strong></th>
+                <th><strong><FONT COLOR="orange">Acciones</FONT></strong></th>
                 <th><button class="btn btn-warning" ng-click="restaurar()">Restaurar</button></th>
             </tr>
         </thead>
@@ -31,11 +31,11 @@
                     </tr>
             <tr ng-repeat="movie in movies">
                 <td><a href="/api-movies/#!/{{movie.country}}/{{movie.year}}">{{movie.name}}</a></td>
-                <td>{{movie.country}}</td>
-                <td>{{movie.year}}</td>
-                <td>{{movie.movienomination}}</td>
-                <td>{{movie.movieaward}}</td>
-                <td>{{movie.movieedition}}</td>
+                <td><strong><FONT COLOR="grey">{{movie.country}}</FONT></strong></td>
+                <td><strong><FONT COLOR="grey">{{movie.year}}</FONT></strong></td> 
+                <td><strong><FONT COLOR="grey">{{movie.movienomination}}</FONT></strong></td> 
+                <td><strong><FONT COLOR="grey">{{movie.movieaward}}</FONT></strong></td>   
+                <td><strong><FONT COLOR="grey">{{movie.movieedition}}</FONT></strong></td>  
                 <td><button class="btn btn-danger" ng-click="deleteMovie(movie.country,movie.year)">Borrar</button></td>
             </tr>
             <tr>
@@ -58,9 +58,14 @@
         <td></td>
         <td><button class="btn btn-dark" ng-click="nextPage()"><i>Siguiente Página</i></button></td>
         <td></td>
-        <td></td><a href="/api-movies/minipostman-movies.html">Desarrolladores</a>
-        
+
     </ul>
             </tr>
+            
+             <div class="btn-group">
+                        <button type="button" class="btn btn-default"> <a href="/api-movies/#!"><strong>Inicio </strong></button>
+                        <button type="button" <div class="btn btn-default">
+                        <strong> <a href="/api-movies/minipostman-movies.html">Desarrolladores</a> </strong> 
+                    </div></button>
         </tbody>
     </table>
