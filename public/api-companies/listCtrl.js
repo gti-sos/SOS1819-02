@@ -21,7 +21,7 @@ app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
         $http.get(API + search + paginationString).then(function(response) {
             console.log("Datos recibidos: " + JSON.stringify(response.data, null, 2));
             $scope.companies = response.data;
-            if ($scope.scorers.length == 0) {
+            if ($scope.companies.length == 0) {
 
                 $scope.data2 = "No existe una empresa con esas caracteristicas";
             }
