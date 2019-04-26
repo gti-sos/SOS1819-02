@@ -1,4 +1,14 @@
- /* global angular*/
+
+               
+        /*global angular*/
         
-            angular.module("CompaniesApp",[]);
-            console.log("CompaniesApp initialized!");
+        angular.module("CompaniesApp",["ngRoute"])
+            .config(function($routeProvider){
+             $routeProvider
+             .when("/",{
+              templateUrl:"companies.html",
+              controller: "MainCtrl"
+             })
+             
+             
+            })
