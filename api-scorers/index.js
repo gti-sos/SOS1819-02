@@ -1,5 +1,5 @@
 var scorersApi = {};
-const BASE_PATH = "/api-scorers/v1";
+const BASE_PATH = "/api/v1";
 
 console.log("submodulo api-scorers");
 module.exports = scorersApi;
