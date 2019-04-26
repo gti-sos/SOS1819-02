@@ -41,7 +41,7 @@
                 <td><button type="button" class="btn btn-success" ng-click="searchCompany1()">Cerrar</button></td>
             </tr>
             <tr ng-repeat="company in companies">
-                <td><a href="/api-companies/#!/{{company.country}}/{{company.year}}">{{company.company}}</a></td>
+                <td><a href="/api/#!/{{company.country}}/{{company.year}}">{{company.company}}</a></td>
                 <td>
                     <FONT COLOR="orange">{{company.country}}</FONT>
                 </td>
@@ -82,9 +82,9 @@
                     <td></td>
                     <td></td>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default"> <a href="/api-companies/#!"><strong>Inicio </strong></button>
+                        <button type="button" class="btn btn-default"> <a href="/api/#!"><strong>Inicio </strong></button>
                         <button type="button" <div class="btn btn-default">
-                        <strong> <a href="/api-companies/companies.html">Desarrolladores</a> </strong> 
+                        <strong> <a href="/api/companies.html">Desarrolladores</a> </strong> 
                     </div></button>
 
                         <!--  <FONT COLOR="orange"> Búsqueda </FONT>
