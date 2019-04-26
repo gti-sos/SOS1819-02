@@ -25,7 +25,7 @@ var scorers;
 
 app.use("/", express.static(path.join(__dirname, "public"))); //conexion index.html principal
 
-app.use("/ui/v1/companies-stats", express.static(path.join(__dirname + "/public/api-companies")));  //conexion index.html companies
+app.use("/ui/v1/companies-stats", express.static(path.join(__dirname + "/public/api")));  //conexion index.html companies
 app.use("/ui/v1/movies-stats", express.static(path.join(__dirname + "/public/api-movies")));  //conexion index.html movies
 app.use("/ui/v1/scorers-stats", express.static(path.join(__dirname + "/public/api-scorers")));  
 
