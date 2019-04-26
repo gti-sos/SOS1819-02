@@ -5,7 +5,7 @@ var app = angular.module("CompaniesApp");
 
 app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
     console.log("Companies ListCtrl Initialized!");
-    var API = "/api-companies/v1/companies-stats/";
+    var API = "/api/v1/companies-stats/";
     var search = "?";
     var limit = 10;
     var offset = 0;
