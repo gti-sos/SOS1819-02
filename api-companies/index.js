@@ -1,5 +1,5 @@
 var companiesApi = {};
-const BASE_PATH = "/api-companies/v1";
+const BASE_PATH = "/api/v1";
 
 console.log("submodulo api-companies");
 
