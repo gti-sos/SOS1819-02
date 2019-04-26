@@ -5,7 +5,7 @@ var app = angular.module("MoviesApp");
 
 app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     console.log("Movies MainCtrl Inicializado!");
-                    var API = "/api-movies/v1/movies-stats/";
+                    var API = "/api/v1/movies-stats/";
                     var search = "?";
                     var limit = 10;
                     var offset = 0;

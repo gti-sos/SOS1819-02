@@ -30,7 +30,7 @@
                     <td><button type="button" class="btn btn-success" ng-click="searchMovie1()" >Cerrar</button></td>
                     </tr>
             <tr ng-repeat="movie in movies">
-                <td><a href="/api-movies/#!/{{movie.country}}/{{movie.year}}">{{movie.name}}</a></td>
+                <td><a href="/ui/v1/movies-stats/#!/{{movie.country}}/{{movie.year}}">{{movie.name}}</a></td>
                 <td><strong><FONT COLOR="grey">{{movie.country}}</FONT></strong></td>
                 <td><strong><FONT COLOR="grey">{{movie.year}}</FONT></strong></td> 
                 <td><strong><FONT COLOR="grey">{{movie.movienomination}}</FONT></strong></td> 
@@ -63,7 +63,7 @@
             </tr>
             
              <div class="btn-group">
-                        <button type="button" class="btn btn-default"> <a href="/api-movies/#!"><strong>Inicio </strong></button>
+                        <button type="button" class="btn btn-default"> <a href="/ui/v1/movies-stats/#!/"><strong>Inicio </strong></button>
                         <button type="button" <div class="btn btn-default">
                         <strong> <a href="/api-movies/minipostman-movies.html">Desarrolladores</a> </strong> 
                     </div></button>
