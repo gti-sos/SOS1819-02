@@ -5,7 +5,7 @@ var app = angular.module("ScorersApp");
 
 app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     console.log("Scorers MainCtrl Initialized!");
-                    var API = "/api-scorers/v1/scorers-stats/";
+                    var API = "/api/v1/scorers-stats/";
                     var search = "?";
                     var limit = 10;
                     var offset = 0;

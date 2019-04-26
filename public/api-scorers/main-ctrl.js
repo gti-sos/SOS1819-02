@@ -5,7 +5,7 @@ var app = angular.module("MiniPostmanScorersApp");
 
 app.controller("MainCtrl", ["$scope","$http", function ($scope, $http){
                     console.log("Companies MainCtrl Initialized!");
-                    $scope.url = "https://sos1819-02.herokuapp.com/api-scorers/v1/scorers-stats/";
+                    $scope.url = "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/";
                     
                     
                     
