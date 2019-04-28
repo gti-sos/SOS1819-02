@@ -6,6 +6,7 @@ var scorersApi = require("./api-scorers/");
 var companiesApi = require("./api-companies/");
 
 var path = require("path");
+const BASE_PATH ="/api";
 
 var app = express();
 app.use(bodyParser.json());
@@ -158,12 +159,13 @@ console.log("conectadas las 3 bases de datos");
 console.log("GET /time ");
 app.get("/time", (request, response) => {
     response.send(new Date());
-})
+});
 
 app.listen(port, () => {
 
     console.log("magic is happening in port " + port);
-})
+});
+companiesApi(app, BASE_PATH, companies);
 console.log("fin ");
 
 
