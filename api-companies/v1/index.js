@@ -77,12 +77,12 @@ module.exports = function(app, BASE_PATH, companies) {
             marketcapitalization: 72.7,
             employee: 20500
         }, {
-            country: "Reino Unido",
-            year: "2009",
-            company: "british petroleum",
-            income: 246.1,
-            marketcapitalization: 34.7,
-            employee: 80300
+            country: "Finlandia",
+            year: "2006",
+            company: "nokia",
+            income: 565.1,
+            marketcapitalization: 45.6,
+            employee: 278500
         }, {
             country: "Reino Unido",
             year: "2009",
