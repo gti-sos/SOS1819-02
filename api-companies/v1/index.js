@@ -12,51 +12,85 @@ module.exports = function(app, BASE_PATH, companies) {
         "======================="
         //Recursos Pablo Garcia
         "======================="
-
         var companiesstatsinitial = [{
-                country: "EEUU",
-                year: "2014",
-                company: "apple",
-                income: 182.795,
-                marketcapitalization: 732.63,
-                employee: 80300
-            },
-            {
-                country: "Corea del Sur",
-                year: "2007",
-                company: "samsung",
-                income: 174.2,
-                marketcapitalization: 110.10,
-                employee: 263000
-            },
+            country: "EEUU",
+            year: "2014",
+            company: "apple",
+            income: 182.795,
+            marketcapitalization: 732.63,
+            employee: 80300
+        }, {
+            country: "Corea del Sur",
+            year: "2007",
+            company: "samsung",
+            income: 174.2,
+            marketcapitalization: 110.10,
+            employee: 263000
+        }, {
+            country: "Alemania",
+            year: "2007",
+            company: "volkswagen",
+            income: 160.3,
+            marketcapitalization: 101.06,
+            employee: 329305
+        }, {
+            country: "Reino Unido",
+            year: "2009",
+            company: "british petroleum",
+            income: 246.1,
+            marketcapitalization: 34.7,
+            employee: 80300
+        }, {
+            country: "China",
+            year: "2007",
+            company: "petrochina",
+            income: 169.7,
+            marketcapitalization: 369.57,
+            employee: 307000
+        }, {
+            country: "Belgica",
+            year: "2007",
+            company: "dexia",
+            income: 897.1,
+            marketcapitalization: 374.7,
+            employee: 876500
+        }, {
+            country: "Brasil",
+            year: "2007",
+            company: "petroleo brasileiro",
+            income: 765,
+            marketcapitalization: 47.5,
+            employee: 75200
+        }, {
+            country: "Canada",
+            year: "2007",
+            company: "royal bank",
+            income: 46.6,
+            marketcapitalization: 60.7,
+            employee: 175200
+        }, {
+            country: "España",
+            year: "2010",
+            company: "grupo santander",
+            income: 95.7,
+            marketcapitalization: 72.7,
+            employee: 20500
+        }, {
+            country: "Reino Unido",
+            year: "2009",
+            company: "british petroleum",
+            income: 246.1,
+            marketcapitalization: 34.7,
+            employee: 80300
+        }, {
+            country: "Japon",
+            year: "2015",
+            company: "Toyota",
+            income: 145.4,
+            marketcapitalization: 45.8,
+            employee: 62500
+        }, ];
 
-            {
-                country: "Alemania",
-                year: "2007",
-                company: "volkswagen",
-                income: 160.3,
-                marketcapitalization: 101.06,
-                employee: 329305
-            },
-
-            {
-                country: "Reino Unido",
-                year: "2009",
-                company: "british petroleum",
-                income: 246.1,
-                marketcapitalization: 34.7,
-                employee: 80300
-            },
-
-            {
-                country: "China",
-                year: "2007",
-                company: "petrochina",
-                income: 169.7,
-                marketcapitalization: 369.57,
-                employee: 307000
-            }
-        ];
         companies.find({}).toArray((error, companiesArray) => {
             if (companiesArray.length == 0) {
                 console.log("vacio");
