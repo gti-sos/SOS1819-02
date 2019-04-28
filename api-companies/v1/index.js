@@ -121,7 +121,7 @@ module.exports = function(app, BASE_PATH, companies) {
 
         //Paginacion
         const offset = parseInt(req.query.offset) || 0;
-        const limit = parseInt(req.query.limit) || 10;
+        const limit = parseInt(req.query.limit) || Number.MAX_SAFE_INTEGER;
         companies.find(search, { projection: { _id: 0 } }).skip(offset).limit(limit).toArray((error, companiesArray) => {
             console.log("###############companiesArray#####################");
 
