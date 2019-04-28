@@ -143,12 +143,13 @@ clientapc.connect(error => {
 });
 
 //CONECTAR A LA BASEDEDATOS MONGO PABLO
-var companiesstatsinitial;
+
 const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
 clientpgm.connect(error => {
     companies = clientpgm.db("sos1819-02-pgm").collection("companies");
     
     console.log("Connected to database de Pablo.");
+    companiesApi(app, BASE_PATH, companies);
 });
 
 
@@ -165,7 +166,7 @@ app.listen(port, () => {
 
     console.log("magic is happening in port " + port);
 });
-companiesApi(app, BASE_PATH, companies);
+
 console.log("fin ");
 
 
