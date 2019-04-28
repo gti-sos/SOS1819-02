@@ -146,7 +146,7 @@ var companiesstatsinitial;
 const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
 clientpgm.connect(error => {
     companies = clientpgm.db("sos1819-02-pgm").collection("companies");
-    companiesApi.register(app, companies, companiesstatsinitial);
+    
     console.log("Connected to database de Pablo.");
 });
 
