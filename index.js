@@ -142,6 +142,7 @@ clientapc.connect(error => {
 });
 
 //CONECTAR A LA BASEDEDATOS MONGO PABLO
+var companiesstatsinitial;
 const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
 clientpgm.connect(error => {
     companies = clientpgm.db("sos1819-02-pgm").collection("companies");
