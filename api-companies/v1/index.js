@@ -89,7 +89,7 @@ module.exports = function(app, BASE_PATH, companies) {
             income: 145.4,
             marketcapitalization: 45.8,
             employee: 62500
-        }, ];
+        } ];
 
         companies.find({}).toArray((error, companiesArray) => {
             if (companiesArray.length == 0) {
