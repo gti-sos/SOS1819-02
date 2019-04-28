@@ -34,12 +34,13 @@ module.exports = function(app, BASE_PATH, companies) {
             marketcapitalization: 101.06,
             employee: 329305
         }, {
-            country: "Reino Unido",
-            year: "2009",
-            company: "british petroleum",
-            income: 246.1,
-            marketcapitalization: 34.7,
-            employee: 80300
+            country: "Japon",
+            year: "2015",
+            company: "Toyota",
+            income: 145.4,
+            marketcapitalization: 45.8,
+            employee: 62500
+
         }, {
             country: "China",
             year: "2007",
@@ -83,13 +84,13 @@ module.exports = function(app, BASE_PATH, companies) {
             marketcapitalization: 34.7,
             employee: 80300
         }, {
-            country: "Japon",
-            year: "2015",
-            company: "Toyota",
-            income: 145.4,
-            marketcapitalization: 45.8,
-            employee: 62500
-        } ];
+            country: "Reino Unido",
+            year: "2009",
+            company: "british petroleum",
+            income: 246.1,
+            marketcapitalization: 34.7,
+            employee: 80300
+        }];
 
         companies.find({}).toArray((error, companiesArray) => {
             if (companiesArray.length == 0) {
