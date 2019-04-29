@@ -81,96 +81,86 @@
                     <td></td>
                     <td></td>
                     <td></td>
+
                     <head>
-  <title>Menu Desplegable</title>
-  <style type="text/css">
-    * {
-      margin: 7;
-      padding: 10 5;
-      border-radius: 20px 20px 20px 20px;
+                        <title>Menu Desplegable</title>
+                        <style type="text/css">
+                            * {
+                                
+                                border-radius: 20px 20px 20px 20px;
 
-    }
+                            }
 
-    #header {
-      margin: auto;
-      width: 500px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+                            #header {
+                                margin: auto;
+                                width: 500px;
+                                font-family: Arial, Helvetica, sans-serif;
+                            }
 
-    ul,
-    ol {
-      list-style: none;
-    }
+                            ul,
+                            ol {
+                                list-style: none;
+                            }
 
-    .nav>li {
-      float: left;
-    }
+                            .nav>li {
+                                float: left;
+                            }
 
-    .nav li a {
-      background-color: #000;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 12px;
-      display: block;
-    }
+                            .nav li a {
+                                background-color: blue;
+                                color: #fff;
+                                text-decoration: none;
+                                padding: 10px 12px;
+                                display: block;
+                            }
 
-    .nav li a:hover {
-      background-color: #434343;
-    }
+                            .nav li a:hover {
+                                background-color: #434343;
+                            }
 
-    .nav li ul {
-      display: none;
-      position: absolute;
-      min-width: 140px;
-    }
+                            .nav li ul {
+                                display: none;
+                                position: absolute;
+                                min-width: 140px;
+                            }
 
-    .nav li:hover>ul {
-      display: block;
-    }
+                            .nav li:hover>ul {
+                                display: block;
+                            }
 
-    .nav li ul li {
-      position: relative;
-    }
+                            .nav li ul li {
+                                position: relative;
+                            }
 
-    .nav li ul li ul {
-      right: -140px;
-      top: 0px;
-    }
-  </style>
-</head>
+                            .nav li ul li ul {
+                                right: -140px;
+                                top: 0px;
+                            }
+                        </style>
+                    </head>
 
-<body>
-  <div id="header">
-    <ul class="nav">
-      <li><a href="http://sos1819-02.herokuapp.com/">Inicio</a></li>
-      <li><a href="">Team</a>
-        <ul>
-          <li><a href="https://github.com/alemarman1">Alejandro</a></li>
-          <li><a href="https://github.com/albpercar">Alberto</a></li>
-          <li><a href="https://github.com/pabgarmar">Pablo</a></li>
-      </li>
-      </ul>
-      </li>
-     
-  </div>
-</body>
+                    <body>
+                        <div id="header">
+                            <ul class="nav">
+                                <li><a href="https://sos1819-02.herokuapp.com/ui/v1/companies-stats/#!/">Inicio</a></li>
+                                <li><a href="/api-companies/companies.html">Desarrolladores</a>
 
-</html>
+                            </ul>
+                            </li>
 
-<style>
-  html {
-    margin: 30;
+                        </div>
+                    </body>
 
-    background-color: #4547A4;
-  }
-</style>
+                    </html>
+
+<!--
                     <div class="btn-group">
                         <button type="button" class="btn btn-default"> <a href="/ui/v1/companies-stats/#!"><strong>Inicio </strong></button>
                         <button type="button" <div class="btn btn-default">
                         <strong> <a href="/api-companies/companies.html">Desarrolladores</a> </strong> 
                     </div></button>
 
-                        <!--  <FONT COLOR="orange"> Búsqueda </FONT>
+                          <FONT COLOR="orange"> Búsqueda </FONT>
                         <input class="form-control text-center ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" style="display:inline; width:100px;" ng-model="from" placeholder="Desde">
                         <input class="form-control text-center ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" style="display:inline; width:100px;" ng-model="to" placeholder="Hasta">
                         <button class="btn btn-info" style="display:inline; width:100px;" ng-click="getFromTo(from,to)">Buscar</button>
