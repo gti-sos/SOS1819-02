@@ -8,7 +8,7 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
     console.log("quedan registrados");
     app.get(BASE_PATH + "/scorers-stats/docs", (req, res) => {
         res.redirect("https://documenter.getpostman.com/view/6869425/S17usmtj");
-    })
+    });
 
     // loadInitialData
     app.get(BASE_PATH + "/scorers-stats/loadInitialData", (req, res) => {
