@@ -27,5 +27,5 @@ app.controller("editCtrl", ["$scope", "$http", "$routeParams", "$location", func
                 $scope.data = "Los campos no estan rellenos correctamente";
             });
         };
-    }
+    };
 }]);

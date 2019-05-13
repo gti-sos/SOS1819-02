@@ -1,6 +1,6 @@
  /* global angular*/
         
-            angular.module("AppManager",[]);
+            angular.module("CompaniesApp",[]);
             console.log("CompaniesApp initialized!");
             
             
