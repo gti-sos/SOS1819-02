@@ -8,7 +8,7 @@
               templateUrl:"/principal.html",
            
              })
-             .when("/ui/v1/companies-stats/#!/",{
+             .when("/api-companies/",{
               templateUrl:"./api-companies/list.html",
               controller: "ListCtrl"
              })
