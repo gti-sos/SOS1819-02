@@ -1,4 +1,24 @@
 <div class="alert alert-warning alert-dismissable">
+     <style>
+        body {
+            margin: 0;
+            background-image: url("http://sfwallpaper.com/images/apple-wood-wallpaper-15.jpg")
+        }
+    </style>
+<body>
+    <h1>
+        <p>
+            <div class="alert alert-info alert-dismissable">
+
+                <center>Companies APP </center>
+            </div>
+        </p>
+    </h1>
+   
+
+   
+</body>
+
     <center><strong> {{data1}} </strong> {{data2}} </center>
 </div>
 <div>
@@ -41,7 +61,7 @@
                 <td><button type="button" class="btn btn-success" ng-click="searchCompany1()">Cerrar</button></td>
             </tr>
             <tr ng-repeat="company in companies">
-                <td><a href="/ui/v1/companies-stats/#!/{{company.country}}/{{company.year}}">{{company.company}}</a></td>
+                <td><a href="/#!/api-companies/{{company.country}}/{{company.year}}">{{company.company}}</a></td>
                 <td>
                     <FONT COLOR="orange">{{company.country}}</FONT>
                 </td>
@@ -132,7 +152,7 @@
                     <body>
                         <div id="header">
                             <ul class="nav">
-                                <li><a href="/ui/v1/companies-stats/#!/">Inicio</a></li>
+                                <li><a href="/#!/api-companies/">Inicio</a></li>
                                 <li><a href="/api-companies/companies.html">Desarrolladores</a>
 
                             </ul>
