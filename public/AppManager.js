@@ -5,7 +5,7 @@
             .config(function($routeProvider){
              $routeProvider
              .when("/",{
-              templateUrl:"/principal.html",
+              templateUrl:"/AppMenu.html",
            
              })
              .when("/api-companies/",{
