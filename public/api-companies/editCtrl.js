@@ -1,6 +1,6 @@
 /* global angular $scope*/
 
-var app = angular.module("CompaniesApp");
+var app = angular.module("AppManager");
 
 
 app.controller("editCtrl", ["$scope", "$http", "$routeParams", "$location", function($scope, $http, $routeParams, $location) {
@@ -21,7 +21,7 @@ app.controller("editCtrl", ["$scope", "$http", "$routeParams", "$location", func
         if (confirm("¿Desea actualizar los datos?")) {
             $http.put(API, $scope.updatedCompany).then(function(response) {
                 window.alert("OK actualizado");
-                $location.path("/");
+                $location.path("/api-companies");
             }, function(error) {
                 $scope.status = error.status;
                 $scope.data = "Los campos no estan rellenos correctamente";
