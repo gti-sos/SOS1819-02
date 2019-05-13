@@ -1,6 +1,6 @@
 /* global angular $scope*/
 
-var app = angular.module("AppManager");
+var app = angular.module("CompaniesApp");
 
 
 app.controller("editCtrl", ["$scope", "$http", "$routeParams", "$location", function($scope, $http, $routeParams, $location) {
