@@ -12,7 +12,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     var paginationString = "";
                     $scope.currentPage = 1;
                     $scope.data1="¡Bienvenidos!";
-                    $scope.data2="Esto es app Scorers y sus datos se encuentran actualizados";
+                    $scope.data2="";
                     refresh();
                     function refresh(){
                     paginationString = "&limit=" + limit + "&offset=" + offset;
