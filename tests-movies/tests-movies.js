@@ -4,8 +4,8 @@ exports.config = {
     chromeOnly: true,
     specs: [
                 "e2e/TM01-loadMovies.js",
-                "e2e/TM01-createMovie.js",
-                "e2e/TM01-deleteMovie.js"
+                "e2e/TM02-createMovie.js",
+                "e2e/TM03-deleteMovie.js"
            ]
     
 };
