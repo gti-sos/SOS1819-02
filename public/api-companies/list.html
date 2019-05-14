@@ -77,7 +77,7 @@
                 <td>
                     <FONT COLOR="orange">{{company.employee}}</FONT>
                 </td>
-                <td><button class="btn btn-danger" ng-click="deleteCompany(company.country,company.year)">Borrar</button></td>
+                <td><button class="btn btn-danger" ng-click="deleteCompany(company.country,company.year)"value="Borrar {{company.country}}/{{company.year}}">Borrar</button></td>
             </tr>
             <tr>
                 <td><input class="form-control" ng-model="newCompany.company" value="new company"></td>
@@ -86,18 +86,18 @@
                 <td><input class="form-control" ng-model="newCompany.income" value="new income"></td>
                 <td><input class="form-control" ng-model="newCompany.marketcapitalization" value="new marketcapitalization"></td>
                 <td><input class="form-control" ng-model="newCompany.employee" value="new employee"></td>
-                <td><button class="btn btn-primary" ng-click="addCompany()">Añadir</button></td>
-                <td><button class="btn btn-danger" ng-click="deleteCompanyAll()">Borrar todo</button></td>
+                <td><button class="btn btn-primary" ng-click="addCompany()"value ="Añadir">Añadir</button></td>
+                <td><button class="btn btn-danger" ng-click="deleteCompanyAll()" >Borrar todo</button></td>
             </tr>
             <tr>
                 <ul class="pagination">
 
-                    <td><button class="btn btn-dark" ng-click="previousPage()"><i>Anterior</i></button></td>
+                    <td><button class="btn btn-dark" ng-click="previousPage()"value="Página Anterior"><i>Anterior</i></button></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><button class="btn btn-dark" ng-click="nextPage()"><i>Siguiente</i></button></td>
+                    <td><button class="btn btn-dark" ng-click="nextPage()"value="Siguiente Página"><i>Siguiente</i></button></td>
                     <td></td>
                     <td></td>
                     <td></td>
