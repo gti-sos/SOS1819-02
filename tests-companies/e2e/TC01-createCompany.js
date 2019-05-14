@@ -17,12 +17,12 @@ describe("Check if a new company can be created: ", function(){
                                     
                                 } else {
                                 
-                                    element(by.model('newCompany.company')).sendKeys('company123');
-                                    element(by.model('newCompany.country')).sendKeys('Country123');
-                                    element(by.model('newCompany.year')).sendKeys(123);
-                                    element(by.model('newCompany.income')).sendKeys(123);
-                                    element(by.model('newCompany.marketcapitalization')).sendKeys(123);
-                                    element(by.model('newCompany.employee')).sendKeys(123);
+                                    element(by.model('newCompany.company')).sendKeys('Renault');
+                                    element(by.model('newCompany.country')).sendKeys('Francia');
+                                    element(by.model('newCompany.year')).sendKeys(2007);
+                                    element(by.model('newCompany.income')).sendKeys(60155);
+                                    element(by.model('newCompany.marketcapitalization')).sendKeys(82453);
+                                    element(by.model('newCompany.employee')).sendKeys(20007);
 
                                     element(by.css('[value="Añadir"]')).click();
                                     
