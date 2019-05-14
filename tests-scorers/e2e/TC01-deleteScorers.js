@@ -11,7 +11,7 @@ describe("Check if a new scorer can be created: ", function(){
                         .all(by.repeater("scorer in scorers"))
                         .then(function (initialScorers){
 
-                                    element(by.css('[value="delete"]')).click();
+                                    element(by.css('[value="delete"]')).last().click();
                                     
                                     
                                         
