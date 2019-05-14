@@ -6,16 +6,14 @@ describe('Checking if an scorer is deleted', function(){
              element
                 .all(by.repeater("scorer in scorers"))
                 .then(function(initialScorers){
-                     console.log(initialScorers.length);
+                     console.log("esto es el initial Scorers"+initialScorers.length);
                       browser.driver.sleep(2000);
                       element.all(by.css('[value="delete"]')).last().click();
                       
                       element.all(by.repeater("scorer in scorers"))
                 .then(function(finalScorers){
-                 expect(finalScorers.length)<(initialScorers.length-1);
-                 console.log(finalScorers);
-                 console.log("initial"+ initialScorers);
-                    
+                 expect(finalScorers.length).toEqual(initialScorers.length-1);
+                    console.log("esto es el final Scorers"+finalScorers.length);
                     
                     
                 })
