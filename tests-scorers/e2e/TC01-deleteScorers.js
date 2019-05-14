@@ -6,9 +6,9 @@ describe('Checking if an scorer is deleted', function(){
 
          element
                 .all(by.repeater("scorer in scorers"))
+                console.log(scorer.name)
+                    console.log(scorer.country)
                 .then(function(initialScorers){
-                    console.log(scorer.name);
-                    console.log(scorer.country);
                      console.log(initialScorers.length);
                       browser.driver.sleep(2000);
                       element.all(by.css('[value="delete"]')).last().click();
