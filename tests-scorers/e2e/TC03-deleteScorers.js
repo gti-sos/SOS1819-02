@@ -14,7 +14,6 @@ describe('Checking if an scorer is deleted', function(){
                 .then(function(finalScorers){
                  expect(finalScorers.length).toEqual(initialScorers.length-1);
                  console.log(finalScorers);
-                 element.all(by.css('[value="delete"]')).last().click();
                     
                     
                     
