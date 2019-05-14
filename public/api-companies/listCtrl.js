@@ -127,7 +127,6 @@ app.controller("ListCtrlcompanies", ["$scope", "$http", function($scope, $http) 
     
 
     $scope.deleteCompanyAll = function() {
-        if (confirm("¿Desea borrarlo todo?")) {
             $http.delete(API).then(function(response) {
                 $scope.data1 = "¡Genial!";
                 $scope.data2 = "Borraste todo con éxito";
@@ -139,7 +138,7 @@ app.controller("ListCtrlcompanies", ["$scope", "$http", function($scope, $http) 
                 $scope.data2 = "No se puede borrar";
             });
         };
-    };
+    
     $scope.restaurar = function() {
         if (confirm("¿Desea cargar los datos iniciales?")) {
             $http.get(API + "loadInitialData").then(function(response) {
