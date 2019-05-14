@@ -30,7 +30,7 @@ describe("Check if a new company can be created: ", function(){
                                         .all(by.repeater("company in companies"))
                                         .then(function(finalCompanies){
                                             
-                                                expect(finalCompanies.length).toEqual(finalCompanies.lenght);
+                                                expect(finalCompanies.length).toEqual(initialCompanies.length+1);
                                             
                                             }
                                         );
