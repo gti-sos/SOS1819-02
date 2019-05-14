@@ -1,0 +1,924 @@
+{
+	"info": {
+		"_postman_id": "0d426fe3-6017-4786-89ff-70777b5ab604",
+		"name": "Newman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DELETE/200/api-companies/v1/companies-stats/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f0edfb28-825c-4b72-a11b-2e87f45ec49c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						""
+					]
+				},
+				"description": "DELETE al conjunto"
+			},
+			"response": []
+		},
+		{
+			"name": "GET lista Vacia/200/api-companies/v1/companies-stats/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "00fce55b-660a-4d96-8a69-5586da32cd87",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Colección vacía\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length === 0).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						""
+					]
+				},
+				"description": "Despues del DELETE al CONJUNTO devuelve la lista vacia ->200 "
+			},
+			"response": []
+		},
+		{
+			"name": "GET loadInitialData/api-companies/v1/companies-stats/loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "00fce55b-660a-4d96-8a69-5586da32cd87",
+						"exec": [
+							"pm.test(\"Status code is 201 'Created'\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						"loadInitialData"
+					]
+				},
+				"description": "loadInitialData->201 \n"
+			},
+			"response": []
+		},
+		{
+			"name": "GET CONFLICT/409/api-companies/v1/companies-stats/loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3abd8ae6-57a4-48ec-af6a-2cf22947e011",
+						"exec": [
+							"pm.test(\"Status code is 409 'Conflict'\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						"loadInitialData"
+					]
+				},
+				"description": "GET loadInitialData --> conflict después de haber hecho ya uno"
+			},
+			"response": []
+		},
+		{
+			"name": "GET CONJUNTO/200/api-companies/v1/companies-stats/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b3c41076-713f-4e3c-9196-39f25dfd129c",
+						"exec": [
+							"pm.test(\"Status code is 200 'OK'\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						""
+					]
+				},
+				"description": "GET a la ruta base"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Concreto/200/api-companies/v1/companies-stats/EEUU/2014",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0716c8ac-7a6e-4521-ac5c-efff72d896f1",
+						"exec": [
+							"pm.test(\"Status code is 200 'OK'\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response must be JSON.\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/EEUU/2014",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						"EEUU",
+						"2014"
+					]
+				},
+				"description": "GET a un recurso concreto -> pais /año"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Concreto/200/api-companies/v1/companies-stats/EEUU/2014",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "817f3052-0825-460f-a410-642315e0696c",
+						"exec": [
+							"pm.test(\"Status code is 200 'OK'\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/EEUU/2014",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						"EEUU",
+						"2014"
+					]
+				},
+				"description": "DELETE a un recurso concreto -> pais/año"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE NOT FOUND/404/api-companies/v1/companies-stats/EEUU/2014",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c30eb838-ce0d-4bcb-b75d-89947113178b",
+						"exec": [
+							"pm.test(\"Status code is 404 'Not Found'\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/EEUU/2014",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						"EEUU",
+						"2014"
+					]
+				},
+				"description": "DELETE de un recurso ya borrado -> 404 not found"
+			},
+			"response": []
+		},
+		{
+			"name": "GET NOT FOUND/404/api-companies/v1/companies-stats/EEUU/2014",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9f096695-3a54-470f-beec-75bc5567df18",
+						"exec": [
+							"pm.test(\"Status code is 404 'Not Found'\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/EEUU/2014",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						"EEUU",
+						"2014"
+					]
+				},
+				"description": "GET a un recurso borrado ->404 NOT FOUND "
+			},
+			"response": []
+		},
+		{
+			"name": "POST CONJUNTO/200/api-companies/v1/companies-stats/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "00d92cc7-27e8-4568-b90f-5becef6d71d6",
+						"exec": [
+							"pm.test(\"Status code is 201 'Created'\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"EEUU\",\r\n\"year\": \"2014\",\r\n\"company\": \"apple\",\r\n\"income\": \"174,2\",\r\n\"marketcapitalization\": \"110.10\",\r\n\"employee\": \"263000\"\r\n}"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						""
+					]
+				},
+				"description": "Crear un nuevo recurso-> 201 CREATED"
+			},
+			"response": []
+		},
+		{
+			"name": "POST CONFLICT/409/api-companies/v1/companies-stats/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "de8c9237-6df5-4d46-8648-0a166737c1aa",
+						"exec": [
+							"pm.test(\"Status code is 409 'Conflict'\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"EEUU\",\r\n\"year\": \"2014\",\r\n\"company\": \"apple\",\r\n\"income\": \"174,2\",\r\n\"marketcapitalization\": \"110.10\",\r\n\"employee\": \"263000\"\r\n}"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						""
+					]
+				},
+				"description": "CONFLICT recurso ya existente ->409"
+			},
+			"response": []
+		},
+		{
+			"name": "POST/400 BAD REQUEST/api-companies/v1/companies-stats/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7db45b7e-dd56-4f24-890f-1981b360455b",
+						"exec": [
+							"pm.test(\"Status code is 400 'Bad Request'\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"EEUU\",\r\n\"year\": \"2014\",\r\n\"income\": \"174,2\",\r\n\"marketcapitalization\": \"110.10\",\r\n\"employee\": \"263000\"\r\n}"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						""
+					]
+				},
+				"description": "400 BAD REQUEST -> al quitar uno de los campos"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Concreto/405/api-companies/v1/companies-stats/EEUU/2014",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "27f7b3a8-517a-486b-ba20-b0da39e8ccf4",
+						"exec": [
+							"pm.test(\"Status code is 405 'Method Not Allowed'\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"EEUU\",\r\n\"year\": \"2004\",\r\n\"company\": \"apple\",\r\n\"income\": \"174,2\",\r\n\"marketcapitalization\": \"110.10\",\r\n\"employee\": \"263000\"\r\n}"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/EEUU/2014",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						"EEUU",
+						"2014"
+					]
+				},
+				"description": "POST a un recurso concreto// Method not allowed -> 405 a "
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Concreto/200/api-companies/v1/companies-stats/EEUU/2014",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6529e77e-9d82-4f49-9833-bf1f3a96abf2",
+						"exec": [
+							"pm.test(\"Status code is 200 'OK'\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"EEUU\",\r\n\"year\": \"2014\",\r\n\"company\": \"manzana\",\r\n\"income\": \"174,2\",\r\n\"marketcapitalization\": \"110.10\",\r\n\"employee\": \"263000\"\r\n}"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/EEUU/2014",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						"EEUU",
+						"2014"
+					]
+				},
+				"description": "200 OK"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT/400/BAD REQUEST/api-companies/v1/companies-stats/EEUU/2014",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6529e77e-9d82-4f49-9833-bf1f3a96abf2",
+						"exec": [
+							"pm.test(\"Status code is 404 'Not Found'\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"EEUU\",\r\n\"year\": \"2004\",\r\n\"company\": \"apple\",\r\n\"income\": \"174,2\",\r\n\"marketcapitalization\": \"110.10\",\r\n\"employee\": \"263000\"\r\n}"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api-companies/v1/companies-stats/EEUU/2014",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api-companies",
+						"v1",
+						"companies-stats",
+						"EEUU",
+						"2014"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT/404 NOT FOUND/api-companies/v1/companies-stats/EEUU/2014",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24cfad8a-f572-46d2-8bb0-01cde222dcc0",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\t\t\n \t\t\"_id\": \"errorrrrrrrrrrrrrrrrrr\",\n        \"country\": \"EEUU\",\n        \"year\": \"2014\",\n        \"company\": \"apple\",\n        \"income\": \"182,795\",\n        \"marketcapitalization\": \"732.63\",\n        \"employee\": \"80300\"\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats/EEUU/2004",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats",
+						"EEUU",
+						"2004"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT CONJUNTO/405/api-companies/v1/companies-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "322bb536-7f08-4a11-aa47-a13e67f9aa52",
+						"exec": [
+							"pm.test(\"Status code is 405 'Method Not Allowed'\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"EEUU\",\r\n\"year\": \"2014\",\r\n\"company\": \"apple\",\r\n\"income\": 174.2,\r\n\"marketcapitalization\": 110.10,\r\n\"employee\": 263000\r\n}"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats"
+					]
+				},
+				"description": "METHOD NOT ALLOWED -> put a un conjunto 405"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE al CONJUNTO/api-companies/v1/companies-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "df5b250d-4512-4003-a133-aa048f0e2496",
+						"exec": [
+							"pm.test(\"Status code is 200 'OK'\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/companies-stats",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"companies-stats"
+					]
+				},
+				"description": "DELETE -> 200 OK "
+			},
+			"response": []
+		}
+	]
+}
