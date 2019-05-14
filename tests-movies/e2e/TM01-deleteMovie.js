@@ -14,7 +14,7 @@ describe("Check if a movie can be deleted: ", function(){
                                 
                                 if(initialMovies.length<10){
                                     
-                                    element(by.css('[value="Borrar Country123/123"]')).click();
+                                    element(by.css('[value="Borrar /api/v1/movies-stats/Country123/123"]')).click();
                                     
                                     element
                                         .all(by.repeater("movie in movies"))
@@ -29,7 +29,7 @@ describe("Check if a movie can be deleted: ", function(){
                                     
                                     element(by.css('[value="Página Anterior"]')).click();
                                     
-                                    element(by.css('[value="Borrar Country123/123"]')).click();
+                                    element(by.css('[value="Borrar /api/v1/movies-stats/Country123/123"]')).click();
                                     
                                     element
                                         .all(by.repeater("movie in movies"))
