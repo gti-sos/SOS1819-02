@@ -1,6 +1,6 @@
 /* global angular $scope*/
 
-var app = angular.module("MoviesApp");
+var app = angular.module("AppManager");
 
 
 app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
