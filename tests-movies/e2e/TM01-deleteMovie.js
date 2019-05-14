@@ -8,12 +8,11 @@ describe('Checking if an expense is deleted', function(){
                 .then(function(initialMovies){
                      console.log(initialMovies.length);
                       browser.driver.sleep(2000);
-                      element.all(by.css('[value="Borrar"]')).last().click();
+                      element.all(by.css('[value="Borrar"]')).click();
                       
                       element.all(by.repeater("movie in movies"))
                 .then(function(finalMovies){
-                 expect(finalMovies.length).toEqual(initialMovies.length-1);
-                    
+                 expect(finalMovies.length).toEqual(0);                    
                     
                     
                 })
