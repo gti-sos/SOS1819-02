@@ -49,7 +49,7 @@
                 <td><strong><FONT COLOR="red">{{scorer.scorergoal}}</FONT></strong></td>
                 <td><strong><FONT COLOR="red">{{scorer.scorermatch}}</FONT></strong></td>
                 <td><strong><FONT COLOR="red">{{scorer.scoreraverage}}</FONT></strong></td>
-                <td><button class="btn btn-danger" ng-click="deleteScorer(scorer.country,scorer.year)">Borrar</button></td>
+                <td><button class="btn btn-danger" value ="delete" ng-click="deleteScorer(scorer.country,scorer.year) ">Borrar</button></td>
             </tr>
             <tr>
                 <td><input class="form-control" ng-model="newScorer.name" value="new name"></td>
@@ -59,7 +59,7 @@
                 <td><input class="form-control" ng-model="newScorer.scorermatch" value="new match"></td>
                 <td><input class="form-control" ng-model="newScorer.scoreraverage" value="new average"></td>
                 <td><button class="btn btn-primary" ng-click="addScorer()"value ="Añadir">Añadir</button></td>
-                <td><button class="btn btn-danger" value ="deletetodo" ng-click="deleteScorerAll()">Borrar todo</button></td>
+                <td><button class="btn btn-danger" value ="delete" ng-click="deleteScorerAll()">Borrar todo</button></td>
             </tr>
             <tr>
                 <ul class="pagination">
