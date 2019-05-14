@@ -10,11 +10,11 @@
              })
              .when("/api-movies/",{
               templateUrl:"./api-movies/list.html",
-              controller: "ListCtrl"
+              controller: "ListCtrlMovies"
              })
              .when("/api-movies/:country/:year",{
               templateUrl:"./api-movies/edit.html",
-              controller: "editCtrl"
+              controller: "editCtrlMovies"
              })
              .when("/api-scorers/",{
               templateUrl:"./api-scorers/list.html",

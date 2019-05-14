@@ -2,7 +2,7 @@
 var app = angular.module("AppManager");
 
 
-app.controller("editCtrl", ["$scope","$http","$routeParams", "$location", function ($scope, $http,$routeParams,$location){
+app.controller("editCtrlMovies", ["$scope","$http","$routeParams", "$location", function ($scope, $http,$routeParams,$location){
                     console.log("Movies editCtrl Inicializado!");
                     var API = "/api/v1/movies-stats/"+$routeParams.country+"/"+$routeParams.year;
                     
@@ -22,7 +22,7 @@ app.controller("editCtrl", ["$scope","$http","$routeParams", "$location", functi
 
                         $http.put(API,$scope.updatedMovie).then(function(response){
                         window.alert("OK actualizado");
-                        $location.path("/");
+                        $location.path("/api-movies/");
                         
                     }, function (error){
                         $scope.status = error.status;
