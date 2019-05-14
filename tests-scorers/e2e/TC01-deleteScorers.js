@@ -13,6 +13,8 @@ describe('Checking if an scorer is deleted', function(){
                       element.all(by.repeater("scorer in scorers"))
                 .then(function(finalScorers){
                  expect(finalScorers.length).toEqual(initialScorers.length-1);
+                 console.log("finalScorers");
+                 console.log("initial"+ initialScorers);
                     
                     
                     
