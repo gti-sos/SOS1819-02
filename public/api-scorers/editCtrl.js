@@ -4,7 +4,7 @@ var app = angular.module("AppManager");
 
 app.controller("editCtrl", ["$scope","$http","$routeParams", "$location", function ($scope, $http,$routeParams,$location){
                     console.log("Scorers editCtrl Initialized!");
-                    var API = "/!#/api-scorers"+$routeParams.country+"/"+$routeParams.year;
+                    var API = "/api/v1/scorers-stats/"+$routeParams.country+"/"+$routeParams.year;
                     
                     $http.get(API).then(function(response){
                         console.log("Datos recibidos: "+ JSON.stringify(response.data,null,2));
