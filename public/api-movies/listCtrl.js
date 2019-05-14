@@ -112,7 +112,6 @@ app.controller("ListCtrlMovies", ["$scope","$http", function ($scope, $http){
                        console.log("Borrando movie cuyo country es: " +country);
                        console.log("Borrando movie cuyo year es: " +year);
                        console.log(API+country+"/"+year);
-                       if(confirm("¿Desea borrar los datos de la película?")){
                          $http.delete(API+country+"/"+year).then(function(response){
                             $scope.data1="¡Genial!";
                             $scope.data2="Borrada la película cuyo año es "+ year + " y su país es " + country;
@@ -125,10 +124,9 @@ app.controller("ListCtrlMovies", ["$scope","$http", function ($scope, $http){
                         });
                        
                     };
-                    }
+                    
                     
                      $scope.deleteMovieAll = function(){
-                        if(confirm("¿Desea borrarlo todos los datos?")){
                          $http.delete(API).then(function(response){
                           $scope.data1="¡Genial!";
                           $scope.data2="Borraste todo con éxito";     
@@ -140,7 +138,7 @@ app.controller("ListCtrlMovies", ["$scope","$http", function ($scope, $http){
                         $scope.data2="No se puede borrar";
                         });
                     };
-                    }
+                    
                     
                     $scope.restaurar = function (){
                         if(confirm("¿Desea restaurar los datos?")){
