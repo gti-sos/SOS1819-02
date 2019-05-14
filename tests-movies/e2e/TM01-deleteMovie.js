@@ -21,8 +21,7 @@ describe("Check if a movie can be deleted: ", function(){
                                         .all(by.repeater("movie in movies"))
                                         .then(function(finalMovies){
                                                 
-                                                expect(initialMovies.length).toBeGreaterThan(finalMovies.length);
-                                                
+                                        expect(finalMovies.length).toEqual(initialMovies.length-1);                                                
                                             }
                                         );
                                     
