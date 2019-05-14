@@ -113,7 +113,6 @@ app.controller("ListCtrlcompanies", ["$scope", "$http", function($scope, $http) 
         console.log("Borrando compañia cuyo country es: " + country);
         console.log("Borrando compañia cuyo year es: " + year);
         console.log(API + country + "/" + year);
-        if (confirm("¿Desea borrar los datos?")) {
             $http.delete(API + country + "/" + year).then(function(response) {
                 $scope.data1 = "¡Genial!";
                 $scope.data2 = "Ha sido borrada la empresa cuyo año es " + year + " y su país es " + country;
@@ -125,7 +124,7 @@ app.controller("ListCtrlcompanies", ["$scope", "$http", function($scope, $http) 
                 $scope.data2 = "No se puede borrar";
             });
         };
-    }
+    
 
     $scope.deleteCompanyAll = function() {
         if (confirm("¿Desea borrarlo todo?")) {
