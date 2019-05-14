@@ -20,7 +20,7 @@ app.controller("editCtrl", ["$scope","$http","$routeParams", "$location", functi
                         if(confirm("¿Desea actualizar los datos?")){
                          $http.put(API,$scope.updatedScorer).then(function(response){
                              window.alert("OK actualizado");
-                         $location.path("/");
+                         $location.path("/api-scorers");
                          
                          
                     }, function (error){
