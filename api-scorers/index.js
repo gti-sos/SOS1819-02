@@ -116,7 +116,7 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
      //   }
             else {
                 if (
-                    id != updatedscorersstats._id) {
+                    id != updatedscorersstats._id || !updatedscorersstats.scorergoal || !updatedscorersstats.scorermatch || !updatedscorersstats.scoreraverage) {
                     res.sendStatus(400);
                 }
                 else {
