@@ -11,7 +11,7 @@ describe("Check if a new company can be created: ", function(){
                         .all(by.repeater("company in companies"))
                         .then(function (initialCompanies){
                                 
-                                if(initialCompanies.length==10){
+                                if(initialCompanies.length==11){
                                     
                                     element(by.css('[value="Siguiente Página"]')).click().then(check());
                                     
