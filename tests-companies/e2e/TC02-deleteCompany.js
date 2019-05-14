@@ -15,7 +15,7 @@ describe('Checking if an expense is deleted', function() {
 
                         console.log(initialCompanies.length);
 
-                        //browser.driver.sleep(2000);
+                        browser.driver.sleep(2000);
 
                         element.all(by.css('[value="Borrar Country123/123"]')).click();
 
