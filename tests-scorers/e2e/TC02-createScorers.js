@@ -17,12 +17,12 @@ describe("Check if a new scorer can be created: ", function(){
                                     
                                 } else {
                                 
-                                    element(by.model('newScorer.name')).sendKeys('name123');
-                                    element(by.model('newScorer.country')).sendKeys('Country123');
-                                    element(by.model('newScorer.year')).sendKeys(123);
-                                    element(by.model('newScorer.scorergoal')).sendKeys(123);
-                                    element(by.model('newScorer.scorermatch')).sendKeys(123);
-                                    element(by.model('newScorer.scoreraverage')).sendKeys(123);
+                                    element(by.model('newScorer.name')).sendKeys('Rivaldo');
+                                    element(by.model('newScorer.country')).sendKeys('bra');
+                                    element(by.model('newScorer.year')).sendKeys(1987);
+                                    element(by.model('newScorer.scorergoal')).sendKeys(167);
+                                    element(by.model('newScorer.scorermatch')).sendKeys(350);
+                                    element(by.model('newScorer.scoreraverage')).sendKeys(54);
 
                                     element(by.css('[value="Añadir"]')).click();
                                     
