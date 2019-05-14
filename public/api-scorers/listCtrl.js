@@ -117,7 +117,6 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                        console.log("Borrando scorer cuyo country es: " +country);
                        console.log("Borrando scorer cuyo year es: " +year);
                        console.log(API+country+"/"+year);
-                       if(confirm("¿Desea borrar los datos del jugador?")){
                          $http.delete(API+country+"/"+year).then(function(response){
                              $scope.data1="¡Genial!";
                         $scope.data2="borrado el jugador cuyo año es "+ year + " y su pais es " + country;
@@ -130,10 +129,9 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                         $scope.data2="No se puede borrar";
                         });
                     };
-                    }
+                    
                     
                      $scope.deleteScorerAll = function(){
-                         if(confirm("¿Desea borrarlo todo?")){
                          $http.delete(API).then(function(response){
                          $scope.data1="¡Genial!";
                         $scope.data2="borraste todo con éxito";
@@ -147,7 +145,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                         $scope.data2="No se puede borrar";
                         });
                     };
-                     };
+                     
                     
                     $scope.restaurar = function (){
                         if(confirm("¿Desea restaurar los datos?")){
