@@ -1,10 +1,29 @@
+
+
+<div>
+    <body>
+    <h1>
+        <p> Movies APP</p>
+    </h1>
+
+        
+   
+
+</body>
+     <style>
+        body {
+            color:white;
+            margin: 0;
+            background-image: url("http://www.servimg.com/u/f77/11/51/95/22/comoes10.png");
+        }
+        
+        
+    </style>
 <div class="alert alert-warning alert-dismissable">
  
   <center><strong> {{data1}} </strong> {{data2}} </center>
 
-</div>
-
-<div>
+</div>    
          <table class="table">
         <thead>
             <tr>
@@ -30,7 +49,7 @@
                     <td><button type="button" class="btn btn-success" ng-click="searchMovie1()" >Cerrar</button></td>
                     </tr>
             <tr ng-repeat="movie in movies">
-                <td><a href="/ui/v1/movies-stats/#!/{{movie.country}}/{{movie.year}}">{{movie.name}}</a></td>
+                <td><a href="/#!/api-movies/{{movie.country}}/{{movie.year}}">{{movie.name}}</a></td>
                 <td><strong><FONT COLOR="grey">{{movie.country}}</FONT></strong></td>
                 <td><strong><FONT COLOR="grey">{{movie.year}}</FONT></strong></td> 
                 <td><strong><FONT COLOR="grey">{{movie.movienomination}}</FONT></strong></td> 
@@ -45,7 +64,7 @@
                 <td><input class="form-control" ng-model="newMovie.movienomination" value="new nomination"></td>
                 <td><input class="form-control" ng-model="newMovie.movieaward" value="new award"></td>
                 <td><input class="form-control" ng-model="newMovie.movieedition" value="new edition"></td>
-                <td><button class="btn btn-primary" ng-click="addMovie()">Añadir</button></td>
+                <td><button class="btn btn-primary" ng-click="addMovie()" value="Añadir" >Añadir</button></td>
                 <td><button class="btn btn-danger" ng-click="deleteMovieAll()">Borrar todo</button></td>
             </tr>
             <tr>
@@ -56,14 +75,14 @@
         <td></td>
         <td></td>
         <td></td>
-        <td><button class="btn btn-dark" ng-click="nextPage()"><i>Siguiente Página</i></button></td>
+        <td><button class="btn btn-dark" ng-click="nextPage()" value="Siguiente Página"><i>Siguiente Página</i></button></td>
         <td></td>
 
     </ul>
             </tr>
             
              <div class="btn-group">
-                        <button type="button" class="btn btn-default"> <a href="/ui/v1/movies-stats/#!/"><strong>Inicio </strong></button>
+                        <button type="button" class="btn btn-default"> <a href="/#!/api-movies"><strong>Inicio </strong></button>
                         <button type="button" <div class="btn btn-default">
                         <strong> <a href="/api-movies/minipostman-movies.html">Desarrolladores</a> </strong> 
                     </div></button>
