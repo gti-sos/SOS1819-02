@@ -6,6 +6,7 @@ exports.config = {
                 "e2e/TC01-loadScorers.js",
                 "e2e/TC01-createScorers.js",
                 "e2e/TC01-deleteScorers.js"
+                
            ]
     
 };
