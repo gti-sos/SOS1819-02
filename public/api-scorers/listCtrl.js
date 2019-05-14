@@ -122,6 +122,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                              $scope.data1="¡Genial!";
                         $scope.data2="borrado el jugador cuyo año es "+ year + " y su pais es " + country;
                         console.log("Response : "+ response.status + response.data);
+                        console.log("BORRADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
                         refresh();
                     }, function (error){
                         $scope.status = error.status;
@@ -137,7 +138,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                          $scope.data1="¡Genial!";
                         $scope.data2="borraste todo con éxito";
                         console.log("Response : "+ response.status + response.data);
-                         
+                        console.log("BORRADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
                         refresh();
                          
                     }, function (error){
