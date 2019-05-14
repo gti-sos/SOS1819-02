@@ -1,0 +1,909 @@
+{
+	"info": {
+		"_postman_id": "1089a830-e974-4e03-b08b-f61d0b4dc0ef",
+		"name": "SOS1819-02-scorers-stats-docs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DELETE /scorers-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /scorers-stats/ VACIO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Colección vacía\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length === 0).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /loadInitialData 200 OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 201 'Created'\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /loadInitialData 409",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 409 'Conflict'\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /scorers-stats/ 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 200 'OK'\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /scorers-stats/arg/2004 OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 200 'OK'\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response must be JSON.\", function () {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /scorers-stats/arg/2007 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/arg/2007",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						"arg",
+						"2007"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /scorers-stats/arg/2004 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/arg/2004",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						"arg",
+						"2004"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /scorers-stats/arg/2004 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/arg/2004",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						"arg",
+						"2004"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /scorers-stats/ 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"country\": \"arg\",\n        \"year\": \"1997\",\n        \"name\": \"maradona\",\n        \"scorergoal\": 2335,\n        \"scorermatch\": 440,\n        \"scoreraverage\": 0.92\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /scorers-stats/ 409",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"country\": \"arg\",\n        \"year\": \"1997\",\n        \"name\": \"maradona\",\n        \"scorergoal\": 2335,\n        \"scorermatch\": 440,\n        \"scoreraverage\": 0.92\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /scorers-stats/arg 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"country\": \"arg\",\n        \"year\": \"2004\",\n        \"name\": \"lionel-messi\",\n        \"scorergoal\": 233,\n        \"scorermatch\": 440,\n        \"scoreraverage\": 0.92\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/arg",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						"arg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /scorers-stats/ 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"country\": \"arg\",\n        \"year\": \"2004\",\n        \"name\": \"lionel-messi\",\n        \"scorergoool\": 233,\n        \"scoreraverage\": 0.92\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /scorers-stats/prt/2009 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"country\": \"prt\",\n        \"year\": \"2009\",\n        \"name\": \"cristiano-ronaldo2\",\n        \"scorergoal\": 55555,\n        \"scorermatch\": 292,\n        \"scoreraverage\": 1.07\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/prt/2009",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						"prt",
+						"2009"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /scorers-stats/prt/2006 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"country\": \"prt\",\n        \"year\": \"2009\",\n        \"name\": \"cristiano-ronaldo2\",\n        \"scorergoal\": 55555,\n        \"scorermatch\": 292,\n        \"scoreraverage\": 1.07\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/prt/2006",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						"prt",
+						"2006"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /scorers-stats/prt/2009 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\t\n\t\t\"_id\": \"saaaaaaaaaaaaaaaa\",\n        \"country\": \"prt\",\n        \"year\": \"2009\",\n        \"name\": \"cristiano-ronaldo2\",\n        \"scorergoal\": 55555,\n        \"scorermatch\": 292,\n        \"scoreraverage\": 1.07\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/prt/2009",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						"prt",
+						"2009"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /scorers-stats/esp/1994 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"_id\": \"aaaaaaaaaa\",\n        \"country\": \"esp\",\n        \"year\": \"1994\",\n        \"name\": \"raul-gonzalez\",\n        \"scorergoal\": 311,\n        \"scorermatch\": 292,\n        \"scoreraverage\": 1.07\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /scorers-stats/ 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7891bc52-f644-43f2-97d3-1752ea845838",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/scorers-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"scorers-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
