@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "start":"node index.js",
-    "test": "newman run https://www.getpostman.com/collections/a2fe8a58bdd820d6c2b6 ; newman run https://www.getpostman.com/collections/3213e6c059505dc44cef; newman run test-companies/backend/api-v1-tests-companies && protractor tests-companies/tests-companies.js",
+    "test": " newman run tests-companies/backend/api-v1-tests-companies.js && protractor tests-companies/tests-companies.js",
     "test-api1": "newman run https://www.getpostman.com/collections/a2fe8a58bdd820d6c2b6",
     "test-api2": "newman run https://www.getpostman.com/collections/3213e6c059505dc44cef",
     "test-api3": "newman run https://www.getpostman.com/collections/5d170272b07548167a9c"
