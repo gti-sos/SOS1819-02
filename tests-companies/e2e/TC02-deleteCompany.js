@@ -1,4 +1,4 @@
-describe('Checking if an compay is deleted', function() {
+describe('Checking if an company is deleted', function() {
     it('should show some companies', function() {
         browser
             .get('https://sos1819-02.herokuapp.com/#!/api-companies');
