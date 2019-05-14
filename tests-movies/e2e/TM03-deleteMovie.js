@@ -8,7 +8,7 @@ describe('Checking if an expense is deleted', function(){
                 .then(function(initialMovies){
                      console.log(initialMovies.length);
                       browser.driver.sleep(2000);
-                      element.all(by.css('[value="Borrar todo"]')).click();
+                      element.all(by.css('[value="Borrar todo"]')).last().click();
                       
                       element.all(by.repeater("movie in movies"))
                 .then(function(finalMovies){
