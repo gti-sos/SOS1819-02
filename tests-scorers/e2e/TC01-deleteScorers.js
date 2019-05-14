@@ -14,7 +14,7 @@ describe("Check if a scorer can be deleted: ", function(){
                                 
                                 if(initialScorers.length<10){
                                     
-                                    element(by.css('[value="delete"]')).click();
+                                    element(by.css('[value="delete"]')).last().click();
                                     
                                     element
                                         .all(by.repeater("scorer in scorers"))
