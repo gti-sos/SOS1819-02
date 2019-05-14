@@ -26,11 +26,11 @@
              })
              .when("/api-companies/",{
               templateUrl:"./api-companies/list.html",
-              controller: "ListCtrl"
+              controller: "ListCtrlcompanies"
              })
              .when("/api-companies/:country/:year",{
               templateUrl:"./api-companies/edit.html",
-              controller: "editCtrl"
+              controller: "editCtrlcompanies"
               
              });
             });

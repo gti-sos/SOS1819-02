@@ -3,7 +3,7 @@
 var app = angular.module("AppManager");
 
 
-app.controller("ListCtrl", ["$scope", "$http", function($scope, $http) {
+app.controller("ListCtrlcompanies", ["$scope", "$http", function($scope, $http) {
     console.log("Companies ListCtrl Initialized!");
     var API = "/api/v1/companies-stats/";
     var search = "?";

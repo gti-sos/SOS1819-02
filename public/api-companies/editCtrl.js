@@ -3,7 +3,7 @@
 var app = angular.module("AppManager");
 
 
-app.controller("editCtrl", ["$scope", "$http", "$routeParams", "$location", function($scope, $http, $routeParams, $location) {
+app.controller("editCtrlcompanies", ["$scope", "$http", "$routeParams", "$location", function($scope, $http, $routeParams, $location) {
     console.log("Companies editCtrl Initialized!");
     var API = "/api/v1/companies-stats/" + $routeParams.country + "/" + $routeParams.year;
 
@@ -27,5 +27,5 @@ app.controller("editCtrl", ["$scope", "$http", "$routeParams", "$location", func
                 $scope.data = "Los campos no estan rellenos correctamente";
             });
         };
-    };
+    }
 }]);
