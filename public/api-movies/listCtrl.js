@@ -3,7 +3,7 @@
 var app = angular.module("AppManager");
 
 
-app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
+app.controller("ListCtrlMovies", ["$scope","$http", function ($scope, $http){
                     console.log("Movies MainCtrl Inicializado!");
                     var API = "/api/v1/movies-stats/";
                     var search = "?";
