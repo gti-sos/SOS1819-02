@@ -1,29 +1,23 @@
-describe("Check if a new scorer can be created: ", function(){
-        it("List should grow after the Scorer creation", function(){
+describe('Checking if an scorer is deleted', function(){
+    it('should show some scorers',function(){
+        browser
+            .get("https://sos1819-02.herokuapp.com/#!/api-scorers");
             
-                browser.get("https://sos1819-02.herokuapp.com/#!/api-scorers");
-                
-                check();
-                
-                function check(){
-                   
-                    element
-                        .all(by.repeater("scorer in scorers"))
-                        .then(function (initialScorers){
 
-                                    element(by.css('[value="delete"]')).last().click();
-                                    
-                                    
-                                        
-                                }
-                                
-                            
-                        );
-                        
-                }
-                
-            }
-        );
-    
-    }
-);
+         element
+                .all(by.repeater("scorer in scorers"))
+                .then(function(initialScorers){
+                    console.log(scorer.name);
+                    console.log(scorer.country);
+                     console.log(initialScorers.length);
+                      browser.driver.sleep(2000);
+                      element.all(by.css('[value="delete"]')).last().click();
+                      
+                      element.all(by.repeater("scorer in scorers"))
+                .then(function(finalScorers){
+                 expect(finalScorers.length).toEqual(initialScorers.length-1);
+                    
+                    
+                    
+                })
+                })})})
