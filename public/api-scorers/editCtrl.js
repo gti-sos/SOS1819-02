@@ -1,5 +1,5 @@
 
-var app = angular.module("ScorersApp");
+var app = angular.module("AppManager");
 
 
 app.controller("editCtrl", ["$scope","$http","$routeParams", "$location", function ($scope, $http,$routeParams,$location){

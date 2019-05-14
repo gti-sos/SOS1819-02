@@ -1,3 +1,18 @@
+<body>
+    <h1>
+        <p> Scorers APP</p>
+    </h1>
+
+</body>
+<style>
+        body {
+            color:white;
+            margin: 0;
+            background-image: url("https://ep01.epimg.net/verne/imagenes/2018/12/03/articulo/1543853044_168056_1544110723_sumario_normal.jpg");
+        }
+        
+        
+</style>
 <div class="alert alert-warning alert-dismissable">
   
   <center><strong> {{data1}} </strong> {{data2}} </center>
@@ -28,7 +43,7 @@
                     <td><button type="button" class="btn btn-success" ng-click="searchScorer1()" >Cerrar Búsqueda</button></td>
                     </tr>
             <tr ng-repeat="scorer in scorers">
-                <td><strong><a href="/ui/v1/scorers-stats/#!/{{scorer.country}}/{{scorer.year}}">{{scorer.name}}</strong></a></td>
+                <td><strong><a href="/#!/api-scorers/{{scorer.country}}/{{scorer.year}}">{{scorer.name}}</strong></a></td>
                 <td><strong><FONT COLOR="orange">{{scorer.country}}</FONT></strong></td>
                 <td><strong><FONT COLOR="orange">{{scorer.year}}</FONT></strong></td>
                 <td><strong><FONT COLOR="orange">{{scorer.scorergoal}}</FONT></strong></td>

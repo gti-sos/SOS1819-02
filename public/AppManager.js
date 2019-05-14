@@ -16,6 +16,14 @@
               templateUrl:"./api-movies/edit.html",
               controller: "editCtrl"
              })
+             .when("/api-scorers/",{
+              templateUrl:"./api-scorers/list.html",
+              controller: "ListCtrl"
+             })
+             .when("/api-scorers/:country/:year",{
+              templateUrl:"./api-scorers/edit.html",
+              controller: "editCtrl"
+             })
              .when("/api-companies/",{
               templateUrl:"./api-companies/list.html",
               controller: "ListCtrl"
