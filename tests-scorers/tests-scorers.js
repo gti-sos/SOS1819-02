@@ -1,6 +1,6 @@
 exports.config = {
     
-    seleniumAddress: "http://localhost:4444/wd/hub",
+    seleniumAddress: "http://localhost:4445/wd/hub",
     chromeOnly: true,
     specs: [
                 "e2e/TC01-loadScorers.js",
