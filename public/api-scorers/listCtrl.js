@@ -23,7 +23,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                         console.log($scope.scorers.length);
                     if($scope.scorers.length==0){
                         
-                        $scope.data2="No existe un jugador con esas caracteristicas";
+                        $scope.data2="No encontramos ningun jugador";
                     }else{
                     
                     }
