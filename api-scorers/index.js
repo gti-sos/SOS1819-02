@@ -111,9 +111,9 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
             if (scorersArray.length == 0) {
                 res.sendStatus(404);
             }
-            if (!updatedscorersstats.country || !updatedscorersstats.year || !updatedscorersstats.name || !updatedscorersstats.scorergoal || !updatedscorersstats.scorermatch || !updatedscorersstats.scoreraverage) {
-            res.sendStatus(400);
-        }
+     //       if (!updatedscorersstats.country || !updatedscorersstats.year || !updatedscorersstats.name || !updatedscorersstats.scorergoal || !updatedscorersstats.scorermatch || !updatedscorersstats.scoreraverage) {
+     //       res.sendStatus(400);
+     //   }
             else {
                 if (
                     id != updatedscorersstats._id) {
