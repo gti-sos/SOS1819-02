@@ -1,7 +1,7 @@
 describe("Check if a new movie can be created: ", function(){
         it("List should grow after the movie creation", function(){
             
-                browser.get("https://sos1819-02.herokuapp.com/ui/v1/movies-stats/#!/");
+                browser.get("https://sos1819-02.herokuapp.com/#!/api-movies");
                 
                 check();
                 
