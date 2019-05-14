@@ -6,7 +6,7 @@ describe('Checking if an compay is deleted', function() {
         element
             .all(by.repeater("company in companies"))
             .then(function(initialCompanies) {
-                console.log(initialComapnies.length);
+                console.log(initialCompanies.length);
                 browser.driver.sleep(2000);
                 element.all(by.css('[value="Borrar"]')).click();
 
