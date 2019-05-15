@@ -11,10 +11,10 @@
   "devDependencies": {},
   "scripts": {
     "start":"node index.js",
-    "test": " newman run tests-scorers/backend/api-v1-testScorers.json && protractor tests-scorers/tests-scorers.js",
+    "test": " newman run tests-scorers/backend/api-v1-testScorers.json && protractor tests-scorers/tests-scorers.js"; "newman run tests-companies/backend/api-v1-tests-companies.json && protractor tests-companies/tests-companies.js",
     "test-api1": "newman run https://www.getpostman.com/collections/a2fe8a58bdd820d6c2b6",
-    "test-api2": "newman run tests-scorers/backend/api-v1-testScorers.json && protractor tests-scorers/tests-scorers.j",
-    "test-api3": "newman run https://www.getpostman.com/collections/5d170272b07548167a9c"
+    "test-api2": "newman run tests-scorers/backend/api-v1-testScorers.json && protractor tests-scorers/tests-scorers.js",
+    "test-api3": "newman run tests-companies/backend/api-v1-tests-companies.json && protractor tests-companies/tests-companies.js"
   },
   "repository": {
     "type": "git",
