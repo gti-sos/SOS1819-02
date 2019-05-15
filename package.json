@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "start":"node index.js",
-    "pretest": "tests-scorers/runPhantom.sh && tests-companies/runPhantom.sh",
+    "pretest": "tests-scorers/runPhantom.sh",
     "test": " newman run tests-scorers/backend/api-v1-testScorers.json && newman run tests-companies/backend/api-v1-tests-companies.json  && protractor tests-scorers/tests-scorers.js && protractor tests-companies/tests-companies.js ",
     "test-api1": "newman run https://www.getpostman.com/collections/a2fe8a58bdd820d6c2b6",
     "test-api2": "newman run tests-scorers/backend/api-v1-testScorers.json && protractor tests-scorers/tests-scorers.js",
