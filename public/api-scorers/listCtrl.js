@@ -22,7 +22,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                         $scope.scorers = response.data;
                         console.log($scope.scorers.length);
                     if($scope.scorers.length==0){
-                        
+                        $scope.data2="¡Oh!";
                         $scope.data2="No encontramos ningun jugador";
                     }else{
                     
@@ -87,6 +87,7 @@ app.controller("ListCtrl", ["$scope","$http", function ($scope, $http){
                     };
                     }, function (error){
                         $scope.status = error.status;
+                        $scope.data1 = "¡Ohh!";
                         $scope.data2 = "no se encontro la busqueda";
                         });
                     
