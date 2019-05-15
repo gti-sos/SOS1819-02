@@ -10,7 +10,7 @@ exec > $LOGFILE     # stdout replaced with file ""logfile.txt"".
 # ----------------------------------------------------------- #
 # All output from commands in this block sent to file $LOGFILE.
 
-phantomjs -w &
+phantomjs --webdriver=4444 &
 # ----------------------------------------------------------- #
 
 exec 1>&6 6>&-      # Restore stdout and close file descriptor #6.
