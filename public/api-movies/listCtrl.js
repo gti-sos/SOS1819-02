@@ -22,7 +22,7 @@ app.controller("ListCtrlMovies", ["$scope","$http", function ($scope, $http){
                         $scope.movies = response.data;
                          if($scope.movies.length==0){
 
-                        $scope.data2="No existe una película con esas características";
+                        $scope.data2="No encontramos una película con esas características";
                     }else{
 
                     }

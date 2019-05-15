@@ -1,5 +1,5 @@
-describe('Checking if an expense is deleted', function(){
-    it('should show some expenses',function(){
+describe('Checking if a movie is deleted', function(){
+    it('should show some movie',function(){
         browser
             .get("https://sos1819-02.herokuapp.com/#!/api-movies");
             
