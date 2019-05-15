@@ -1,0 +1,861 @@
+{
+	"info": {
+		"_postman_id": "b38eb89d-4b58-4c05-a78c-9ae4ed475642",
+		"name": "sos1819-02-D02",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DELETE ruta base // 200 OK)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "92c96e95-188f-45ec-9178-95b7c87858fc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET coleccion vacia // 200 ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "92c96e95-188f-45ec-9178-95b7c87858fc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Colección vacía\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length === 0).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET LoadInitialData //200OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "92c96e95-188f-45ec-9178-95b7c87858fc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET LoadInitialData //409 conflict",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "92c96e95-188f-45ec-9178-95b7c87858fc",
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"country\": \"EEUU\",\n        \"year\": \"1993\",\n        \"name\": \"Titanic\",\n        \"movienomination\": 14,\n        \"movieaward\": 11,\n        \"movieedition\": 70\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ruta base // 200 OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Devuelve jsonData con datos\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length > 0).to.be.true",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET recurso concreto // 200 OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/EEUU/1997",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						"EEUU",
+						"1997"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE recurso concreto // 200 OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/EEUU/1997",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						"EEUU",
+						"1997"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE recurso concreto que no existe // 404 Not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/EEUU/199999",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						"EEUU",
+						"199999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET recurso inexistente // 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/EEUU/1999999",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						"EEUU",
+						"1999999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST ruta base // 200 OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"country\": \"EEUU\",\n        \"year\": \"1997\",\n        \"name\": \"Titanic\",\n        \"movienomination\": 14,\n        \"movieaward\": 11,\n        \"movieedition\": 70\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST recurso concreto // 405 method not allowed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"country\": \"EEUU\",\n        \"year\": \"1997\",\n        \"name\": \"Titanic\",\n        \"movienomination\": 14,\n        \"movieaward\": 11,\n        \"movieedition\": 70\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/EEUU/1997",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						"EEUU",
+						"1997"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST ruta base (recurso ya existente) // 409 conflict",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"country\": \"EEUU\",\n        \"year\": \"1997\",\n        \"name\": \"Titanic\",\n        \"movienomination\": 14,\n        \"movieaward\": 11,\n        \"movieedition\": 70\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST json mal // 400 bad request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68bffbb0-8a23-43ac-8641-e38d2db62bd7",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"Titanic\",\n        \"movienomination\": 14,\n        \"movieaward\": 11,\n        \"movieedition\": 70\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT // 200 OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"country\": \"Nueva Zelanda\",\n        \"year\": \"2003\",\n        \"name\": \"El Señor de los Anillos: el retorno del Ismael\",\n        \"movienomination\": 11,\n        \"movieaward\": 11,\n        \"movieedition\": 76\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/Nueva Zelanda/2003",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						"Nueva Zelanda",
+						"2003"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT json incorrecto  // 400 bad request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n \t\t\"_id\": \"AAAAAAAAAAAAAAAAAAAAAA\",\n        \"country\": \"Nueva Zelanda\",\n        \"year\": \"2003\"\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/Nueva Zelanda/2003",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						"Nueva Zelanda",
+						"2003"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT año incorrecto// 404 not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"country\": \"Nueva Zelanda\",\n        \"year\": \"2019\",\n        \"name\": \"El Señor de los Anillos: el retorno del Ismael\",\n        \"movienomination\": 11,\n        \"movieaward\": 11,\n        \"movieedition\": 76\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/Nueva Zelanda/5000",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						"Nueva Zelanda",
+						"5000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT incorrecto a ruta base // 405 method not allowed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6355693-a501-46b8-92ad-f057223cd9c8",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"country\": \"Nueva Zelanda\",\n        \"year\": \"2019\",\n        \"name\": \"El Señor de los Anillos: el retorno del Rey\",\n        \"movienomination\": 11,\n        \"movieaward\": 11,\n        \"movieedition\": 76\n    }"
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats/",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE ruta base // 200 OK) Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "92c96e95-188f-45ec-9178-95b7c87858fc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos1819-02.herokuapp.com/api/v1/movies-stats",
+					"protocol": "https",
+					"host": [
+						"sos1819-02",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"movies-stats"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
