@@ -23,7 +23,7 @@ app.controller("ListCtrlcompanies", ["$scope", "$http", function($scope, $http) 
             $scope.companies = response.data;
             if ($scope.companies.length == 0) {
 
-                $scope.data2 = "No existe una empresa con esas caracteristicas";
+                $scope.data2 = "No encontramos ninguna empresa ";
             }
             else {
 
