@@ -2,7 +2,7 @@
 var app = angular.module("AppManager");
 
 
-app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", function ($scope, $http,$routeParams,$location){
+app.controller("grafCtrl", ["$scope","$http", function ($scope, $http){
                     console.log("Scorers grafCtrl Initialized!");
                     
     Highcharts.chart('container', {
