@@ -24,6 +24,10 @@
               templateUrl:"./api-scorers/edit.html",
               controller: "editCtrl"
              })
+             .when("/api-scorers/prueba",{
+              templateUrl:"./api-scorers/scorersGraph.html",
+              controller: "ScorersView"
+             })
              .when("/api-companies/",{
               templateUrl:"./api-companies/list.html",
               controller: "ListCtrlcompanies"
