@@ -26,7 +26,7 @@
              })
              .when("/api-scorers/prueba",{
               templateUrl:"./api-scorers/scorersGraph.html",
-              controller: "ScorersView"
+              controller: ""
              })
              .when("/api-companies/",{
               templateUrl:"./api-companies/list.html",
