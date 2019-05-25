@@ -16,6 +16,7 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
     var CandProperties = [];
     
         var data=[];
+        var j=0;
            
 
     $http.get(API).then(function(response){
@@ -47,6 +48,7 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
         
         
         //Highcharts Basic Columnpie
+        
         Highcharts.chart('container', {
             chart: {
                 type: 'column'
@@ -71,7 +73,7 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
             },
     labels: {
         items: [{
-            html: 'Total fruit consumption',
+            html: 'Total goles y partidos',
             style: {
                 left: '50px',
                 top: '18px',
@@ -79,22 +81,31 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
             }
         }]
     },
-    series: [{
+    series:[
+        {
         type: 'column',
-        name: names[0],
-        data: [scorergoals[0],scorermatches[0],scoreraverages[0]]
+        name: names[j],
+        data: [scorergoals[j],scorermatches[j],scoreraverages[j]],
+        operation: j=j+1
+        ,
     }, {
         type: 'column',
-        name: 'John',
-        data: [2, 3, 5, 7, 6]
+        name: names[j],
+        data: [scorergoals[j],scorermatches[j],scoreraverages[j]],
+        operation: j=j+1,
     }, {
         type: 'column',
-        name: 'Joe',
-        data: [4, 3, 3, 9, 0]
+        name: names[j],
+        data: [scorergoals[j],scorermatches[j],scoreraverages[j]],
+        operation: j=j+1,
     }, {
         type: 'spline',
-        name: 'Average',
-        data: [3, 2.67, 3, 6.33, 3.33],
+        name: 'Media',
+        operation: j=0,
+        data: [(scorergoals[j]+scorergoals[j+1]+scorergoals[j+2])/3,
+        (scorermatches[j]+scorermatches[j+1]+scorermatches[j+2])/3,
+        (scoreraverages[j]+scoreraverages[j+1]+scoreraverages[j+2])/3],
+    },{
         marker: {
             lineWidth: 2,
             lineColor: Highcharts.getOptions().colors[3],
@@ -102,19 +113,23 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
         }
     }, {
         type: 'pie',
+        operation: j=0,
         name: 'Total consumption',
         data: [{
-            name: "alw",
-            y: 13,
-            color: Highcharts.getOptions().colors[0] // Jane's color
+            name: names[j],
+            y: scorergoals[j]+scorermatches[j],
+            color: Highcharts.getOptions().colors[0], // Jane's color
+            operation: j=j+1,
         }, {
-            name: 'piterlangi',
-            y: 23,
-            color: Highcharts.getOptions().colors[1] // John's color
+            name: names[j],
+            y: scorergoals[j]+scorermatches[j],
+            color: Highcharts.getOptions().colors[1], // John's color
+            operation: j=j+1,
         }, {
-            name: 'Joe',
-            y: 19,
-            color: Highcharts.getOptions().colors[2] // Joe's color
+            name: names[j],
+            y: scorergoals[j]+scorermatches[j],
+            color: Highcharts.getOptions().colors[2], // Joe's color
+            operation: j=j+1,
         }],
         center: [100, 80],
         size: 100,
@@ -124,6 +139,7 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
         }
     }]
 });
+
 
                    
                     
