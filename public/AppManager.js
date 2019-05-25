@@ -35,6 +35,9 @@
              .when("/api-companies/:country/:year",{
               templateUrl:"./api-companies/edit.html",
               controller: "editCtrlcompanies"
-              
+             })
+             .when("/analytics",{
+              templateUrl:"./api-companies/companiesGraph.html",
+              controller: "grafComCtrl"
              });
             });
