@@ -5,6 +5,11 @@ var moviesApi = require("./api-movies/");
 var scorersApi = require("./api-scorers/");
 var companiesApi = require("./api-companies/");
 
+//Integración
+var cors = require("cors");
+
+
+
 var path = require("path");
 const BASE_PATH ="/api";
 
