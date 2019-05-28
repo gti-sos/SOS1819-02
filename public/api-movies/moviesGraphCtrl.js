@@ -19,6 +19,8 @@ app.controller("grafMoviesCtrl", ["$scope","$http","$routeParams", "$location", 
         countries = response.data.map(function(d) { return d.country });
         years = response.data.map(function(d) { return d.year });
         names = response.data.map(function(d) { return d.name });
+         console.log("nombre: "+names);
+
         movienomination = response.data.map(function(d) { return d.movienomination });
         movieawards = response.data.map(function(d) { return d.movieawards });
         movieedition = response.data.map(function(d) { return d.movieedition });
@@ -30,9 +32,21 @@ app.controller("grafMoviesCtrl", ["$scope","$http","$routeParams", "$location", 
  
 var chardata = [names , movieawards];
    
-console.log(chardata) ;   
-        
-        //Highcharts 3D Charts
+var chardata2 = response.data.map(function(movie){
+	newValue = movie.movieaward ;
+    newValue2 = movie.name ;
+
+return [newValue2 , newValue];
+});
+
+var chardata3 = response.data.map(function(movie){
+	newValue = movie.movieaward ;
+    newValue2 = movie.country ;
+
+return [newValue2 , newValue];
+});
+   
+        //////////Highcharts 3D Charts////////////////////
         
        // Set up the chart
 Highcharts.chart('container', {
@@ -65,15 +79,16 @@ Highcharts.chart('container', {
     },
     series: [{
         name: 'Premios Oscars',
-        data: chardata
+        data: chardata2
         
     }]
 });
 
-                   
+                    //////////AmChart////////////////////
+       
                     
                     
-                    
+
                     
 });
 }]);
