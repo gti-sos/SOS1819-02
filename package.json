@@ -5,14 +5,15 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
+    "highcharts": "^7.1.1",
     "mongodb": "^3.2.2"
   },
   "devDependencies": {},
   "scripts": {
-    "start":"node index.js",
-
-    "pretest": "tests-scorers/runPhantom.sh && tests-companies/runPhantom.sh && tests-movies/runPhantom.sh" ,
+    "start": "node index.js",
+    "pretest": "tests-scorers/runPhantom.sh && tests-companies/runPhantom.sh && tests-movies/runPhantom.sh",
     "test": " newman run tests-scorers/backend/api-v1-testScorers.json && newman run tests-companies/backend/api-v1-tests-companies.json && newman run tests-movies/backend/api-v1-testMovies.json && protractor tests-scorers/tests-scorers.js && protractor tests-companies/tests-companies.js && protractor tests-movies/tests-movies.js ",
     "test-api1": "newman run tests-movies/backend/api-v1-testMovies.json && protractor tests-movies/tests-movies.js ",
     "test-api2": "newman run tests-scorers/backend/api-v1-testScorers.json && protractor tests-scorers/tests-scorers.js",
