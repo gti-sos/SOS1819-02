@@ -11,11 +11,14 @@ var cors = require("cors");
 
 
 var path = require("path");
-const BASE_PATH ="/api";
+const BASE_PATH = "/api";
 
 var app = express();
+
 app.use(bodyParser.json());
 var port = process.env.PORT || 8080;
+
+app.use(cors());
 
 
 console.log("MongoClient");
@@ -31,9 +34,9 @@ var scorers;
 
 app.use("/", express.static(path.join(__dirname, "public"))); //conexion index.html principal
 
-app.use("/ui/v1/companies-stats", express.static(path.join(__dirname + "/public/api-companies")));  //conexion index.html companies
-app.use("/ui/v1/movies-stats", express.static(path.join(__dirname + "/public/api-movies")));  //conexion index.html movies
-app.use("/ui/v1/scorers-stats", express.static(path.join(__dirname + "/public/api-scorers")));  
+app.use("/ui/v1/companies-stats", express.static(path.join(__dirname + "/public/api-companies"))); //conexion index.html companies
+app.use("/ui/v1/movies-stats", express.static(path.join(__dirname + "/public/api-movies"))); //conexion index.html movies
+app.use("/ui/v1/scorers-stats", express.static(path.join(__dirname + "/public/api-scorers")));
 
 "============================="
 //Recursos Alejandro Martin
@@ -152,7 +155,7 @@ clientapc.connect(error => {
 const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
 clientpgm.connect(error => {
     companies = clientpgm.db("sos1819-02-pgm").collection("companies");
-    
+
     console.log("Connected to database de Pablo.");
     companiesApi(app, BASE_PATH, companies);
 });
@@ -173,6 +176,3 @@ app.listen(port, () => {
 });
 
 console.log("fin ");
-
-
-
