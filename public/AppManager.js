@@ -40,8 +40,12 @@
               templateUrl:"./api-companies/edit.html",
               controller: "editCtrlcompanies"
              })
-             .when("/analytics",{
+             .when("/analytics/api-companies",{
               templateUrl:"./api-companies/companiesGraph.html",
               controller: "grafComCtrl"
+             })
+             .when("/analytics",{
+              templateUrl:"./analytics.html",
+             
              });
             });
