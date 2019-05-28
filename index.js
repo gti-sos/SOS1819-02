@@ -41,7 +41,7 @@ app.use("/ui/v1/scorers-stats", express.static(path.join(__dirname + "/public/ap
 
 
 var moviesstatsinitial = [{
-        country: "EEUU",
+        country: "United States",
         year: "1997",
         name: "Titanic",
         movienomination: 14,
@@ -50,7 +50,7 @@ var moviesstatsinitial = [{
     },
 
     {
-        country: "EEUU",
+        country: "United States",
         year: "1959",
         name: "Ben Hur",
         movienomination: 12,
@@ -59,7 +59,7 @@ var moviesstatsinitial = [{
     },
 
     {
-        country: "Nueva Zelanda",
+        country: "New Zealand",
         year: "2003",
         name: "El Señor de los Anillos: el retorno del Rey",
         movienomination: 11,
@@ -69,7 +69,7 @@ var moviesstatsinitial = [{
 
 
     {
-        country: "EEUU",
+        country: "United States",
         year: "1939",
         name: "Lo que el viento se llevó",
         movienomination: 13,
@@ -78,7 +78,7 @@ var moviesstatsinitial = [{
     },
 
     {
-        country: "EEUU",
+        country: "United States",
         year: "1961",
         name: "West Side Story",
         movienomination: 11,

@@ -87,7 +87,32 @@ Highcharts.chart('container', {
                     //////////Geo////////////////////
 
 
+  $http.get(API).then(function(response) {
+                google.charts.load('current', {
+                    'packages': ['geochart'],
+                    // Note: you will need to get a mapsApiKey for your project.
+                    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+                    'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+                });
+                google.charts.setOnLoadCallback(drawRegionsMap);
 
+                function drawRegionsMap() {
+                 var aux = [];
+                    aux.push(["Country", "Nº Oscars"]);
+                    aux.push([data[0].country, data[0].movieaward]);
+                    aux.push([data[2].country, data[2].movieaward]);
+                    console.log(aux);
+                    var plot = google.visualization.arrayToDataTable(aux);
+
+                    var options = {};
+
+                    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                    chart.draw(plot, options);
+                }
+            });
+        
+    
           
                     
                     
