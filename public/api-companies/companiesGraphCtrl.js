@@ -21,7 +21,7 @@ app.controller("grafComCtrl", ["$scope", "$http", "$routeParams", "$location", f
         employees = response.data.map(function(d) { return d.employee });
 
         data = response.data;
-        console.log(names[1]);
+        console.log(companies[1]);
 
 
         Highcharts.chart('container', {
