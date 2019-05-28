@@ -58,7 +58,7 @@
                 <td><input class="form-control" ng-model="searchForm.marketcapitalization" /></td>
                 <td><input class="form-control" ng-model="searchForm.employee" /></td>
                 <td><button type="button" class="btn btn-secondary" ng-click="searchCompany2()">Buscar</button></td>
-                <td><button type="button" class="btn btn-success" ng-click="searchCompany1()">Cerrar</button></td>
+                <td><button type="button" class="btn btn-success" ng-click="searchCompany1()"><a href="/#!/api-companies/">Cerrar</button></td>
             </tr>
             <tr ng-repeat="company in companies">
                 <td><a href="/#!/api-companies/{{company.country}}/{{company.year}}">{{company.company}}</a></td>
