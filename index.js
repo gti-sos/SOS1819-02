@@ -1,5 +1,6 @@
 console.log("declaracion de variables express y bodyParser");
 var express = require("express");
+var request = require("request");
 var bodyParser = require("body-parser");
 var moviesApi = require("./api-movies/");
 var scorersApi = require("./api-scorers/");
@@ -27,10 +28,27 @@ const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?ret
 const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/sos1819-02-pgm?retryWrites=true";
 const apc = "mongodb+srv://test:test@sos1819-02-apc-kwvgb.mongodb.net/sos1819-02-apc?retryWrites=true";
 
-console.log("declaracion db");
 var movies;
 var companies;
 var scorers;
+
+
+//===============//
+// PROXY PABLO   //
+//===============//
+
+var apiServerHost = 'http://echo.httpkit.com';
+
+app.use("proxyPGM/", function(req, res) {
+
+  var url = apiServerHost + req.baseUrl + req.url;
+  
+  console.log('piped: '+req.baseUrl + req.url);
+ 
+  req.pipe(request(url)).pipe(res);
+});
+
+
 
 app.use("/", express.static(path.join(__dirname, "public"))); //conexion index.html principal
 
@@ -165,10 +183,11 @@ console.log("conectadas las 3 bases de datos");
 
 
 
-console.log("GET /time ");
+/*console.log("GET /time ");
 app.get("/time", (request, response) => {
     response.send(new Date());
 });
+*/
 
 app.listen(port, () => {
 

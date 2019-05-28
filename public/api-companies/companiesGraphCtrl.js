@@ -1,3 +1,7 @@
+ /*global angular */
+  /*global Highcharts */
+
+ 
 var app = angular.module("AppManager");
 
 app.controller("grafComCtrl", ["$scope", "$http", "$routeParams", "$location", function($scope, $http, $routeParams, $location) {
