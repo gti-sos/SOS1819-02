@@ -100,6 +100,8 @@ Highcharts.chart('container', {
                  var aux = [];
                     aux.push(["Country", "Nº Oscars"]);
                     aux.push([data[5].country, data[5].movieaward]);
+                    aux.push([data[6].country, data[6].movieaward]);
+
                     console.log(aux);
                     var plot = google.visualization.arrayToDataTable(aux);
 
