@@ -114,7 +114,7 @@ var moviesstatsinitial = [{
         movieaward: 8,
         movieedition: 81
     },{
-        country: "France",
+        country: "FR",
         year: "2011",
         name: "The Artist",
         movienomination: 10,
