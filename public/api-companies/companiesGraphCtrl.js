@@ -10,17 +10,16 @@
  app.controller("grafComCtrl", ["$scope", "$http", "$routeParams", "$location", function($scope, $http, $routeParams, $location) {
      console.log("Companies grafica ctrl Initialized!");
      var API = "/api/v1/companies-stats";
+     var countries = [];
+     var years = [];
+     var incomes = [];
 
-
-     //HIGHCHART
-
+     var data = [];
      $http.get(API).then(function(response) {
 
-         var data = [];
-
-         var countries = response.data.map(function(d) { return d.country });
-         var years = response.data.map(function(d) { return d.year });
-         var incomes = response.data.map(function(d) { return d.income });
+         countries = response.data.map(function(d) { return d.country });
+         years = response.data.map(function(d) { return d.year });
+         incomes = response.data.map(function(d) { return d.income });
 
 
          var chardata2 = response.data.map(function(company) {
@@ -32,6 +31,7 @@
          });
 
 
+         //HIGHCHART
 
          Highcharts.chart('container', {
              chart: {
@@ -46,7 +46,7 @@
              xAxis: {
                  type: 'companies',
                  title: {
-                     text: 'Compañías'
+                     text: 'Companies'
                  },
 
                  labels: {
@@ -89,35 +89,35 @@
 
              }]
          });
+
+         //GEOCHART
+
+         $http.get(API).then(function(response) {
+             google.charts.load('current', {
+
+                 'packages': ['geochart'],
+                 // Note: you will need to get a mapsApiKey for your project.
+                 // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+                 'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+             });
+             google.charts.setOnLoadCallback(drawRegionsMap);
+
+             function drawRegionsMap() {
+                 var aux = [];
+                 aux.push(["Country", "Ingresos"]);
+                 aux.push([countries[7],incomes[7]]);
+                 aux.push([countries[6],incomes[6]]);
+
+                 console.log(aux);
+                 var plot = google.visualization.arrayToDataTable(aux);
+
+                 var options = {};
+
+                 var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                 chart.draw(plot, options);
+             }
+         });
      });
-
-     //GEOCHART
-  $http.get(API).then(function(response) {
-        google.charts.load('current', { 'packages': ['geochart'] });
-        google.charts.setOnLoadCallback(drawRegionsMap);
-
-        function drawRegionsMap() {
-            var data = [];
-            data.push(['Compañias', 'Ingresos']);
-
-            var countries = response.data.map(function(d) { return d.country });
-            var years = response.data.map(function(d) { return d.year });
-            var companies = response.data.map(function(d) { return d.company });
-
-            for (var i = 0; i < countries.length; i++) {
-                if (years[i] == 2017) {
-                    data.push([countries[i], companies[i]]);
-                }
-            }
-            
-            console.log(data);
-
-            var data = google.visualization.arrayToDataTable(data);
-            var options = {};
-            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-            chart.draw(data, options);
-        }
-    })
-
  }]);
  
