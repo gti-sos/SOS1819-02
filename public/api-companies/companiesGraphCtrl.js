@@ -2,6 +2,7 @@
  /*global Highcharts */
  /*global newValue */
  /*global newValue2 */
+ /*global google */
 
 
  var app = angular.module("AppManager");
@@ -11,6 +12,7 @@
      var API = "/api/v1/companies-stats";
 
 
+     //HIGHCHART
 
      $http.get(API).then(function(response) {
 
@@ -82,8 +84,40 @@
                          fontFamily: 'Verdana, sans-serif'
                      }
                  }
+
+
+
              }]
          });
      });
+
+     //GEOCHART
+  $http.get(API).then(function(response) {
+        google.charts.load('current', { 'packages': ['geochart'] });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+            var data = [];
+            data.push(['Compañias', 'Ingresos']);
+
+            var countries = response.data.map(function(d) { return d.country });
+            var years = response.data.map(function(d) { return d.year });
+            var companies = response.data.map(function(d) { return d.company });
+
+            for (var i = 0; i < countries.length; i++) {
+                if (years[i] == 2017) {
+                    data.push([countries[i], companies[i]]);
+                }
+            }
+            
+            console.log(data);
+
+            var data = google.visualization.arrayToDataTable(data);
+            var options = {};
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+            chart.draw(data, options);
+        }
+    })
+
  }]);
  
