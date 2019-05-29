@@ -99,8 +99,7 @@ Highcharts.chart('container', {
                 function drawRegionsMap() {
                  var aux = [];
                     aux.push(["Country", "Nº Oscars"]);
-                    aux.push([data[0].country, data[0].movieaward]);
-                    aux.push([data[2].country, data[2].movieaward]);
+                    aux.push([data[5].country, data[5].movieaward]);
                     console.log(aux);
                     var plot = google.visualization.arrayToDataTable(aux);
 
