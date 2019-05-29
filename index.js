@@ -105,8 +105,22 @@ var moviesstatsinitial = [{
         movienomination: 11,
         movieaward: 10,
         movieedition: 34
+    },
+    {
+        country: "India",
+        year: "2008",
+        name: "Slumdog Millionaire",
+        movienomination: 10,
+        movieaward: 8,
+        movieedition: 81
+    },{
+        country: "FR",
+        year: "2011",
+        name: "The Artist",
+        movienomination: 10,
+        movieaward: 5,
+        movieedition: 84
     }
-
 ];
 
 
