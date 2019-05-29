@@ -56,7 +56,7 @@ module.exports = function(app, BASE_PATH, companies) {
             marketcapitalization: 374.7,
             employee: 876500
         }, {
-            country: "Brazil",
+            country: "Brasil",
             year: "2007",
             company: "petroleo brasileiro",
             income: 125,

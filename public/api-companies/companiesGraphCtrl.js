@@ -3,6 +3,7 @@
  /*global newValue */
  /*global newValue2 */
  /*global google */
+ /*global Chart */
 
 
  var app = angular.module("AppManager");
@@ -15,6 +16,10 @@
      var incomes = [];
 
      var data = [];
+
+
+
+     //HIGHCHART
      $http.get(API).then(function(response) {
 
          countries = response.data.map(function(d) { return d.country });
@@ -29,9 +34,6 @@
              return [newValue, newValue2];
 
          });
-
-
-         //HIGHCHART
 
          Highcharts.chart('container', {
              chart: {
@@ -78,7 +80,7 @@
                      color: 'orange',
                      align: 'right',
                      format: '{point.y:.1f}', // one decimal
-                     y: 11, // 10 pixels down from the top
+                     y: 10, // 10 pixels down from the top
                      style: {
                          fontSize: '13px',
                          fontFamily: 'Verdana, sans-serif'
@@ -105,8 +107,8 @@
              function drawRegionsMap() {
                  var aux = [];
                  aux.push(["Country", "Ingresos"]);
-                 aux.push([countries[7],incomes[7]]);
-                 aux.push([countries[6],incomes[6]]);
+                 aux.push([countries[7], incomes[7]]);
+                 aux.push([countries[4], incomes[4]]);
 
                  console.log(aux);
                  var plot = google.visualization.arrayToDataTable(aux);
@@ -118,7 +120,51 @@
                  chart.draw(plot, options);
              }
          });
-        
+
+         //  -----------------------
+
+
+       
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: {
+        labels: ['Apple', 'Samsung', 'Volkswagen', 'Toyota', 'PetroChina','Dexia'],
+        datasets: [{
+            label: '# Income',
+            data: [incomes[0],incomes[1],incomes[2],incomes[3],incomes[4],incomes[5]],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+
+
      });
  }]);
  
