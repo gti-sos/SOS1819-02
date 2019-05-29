@@ -52,14 +52,14 @@ module.exports = function(app, BASE_PATH, companies) {
             country: "Belgica",
             year: "2007",
             company: "dexia",
-            income: 897.1,
+            income: 197.1,
             marketcapitalization: 374.7,
             employee: 876500
         }, {
-            country: "Brasil",
+            country: "Brazil",
             year: "2007",
             company: "petroleo brasileiro",
-            income: 765,
+            income: 125,
             marketcapitalization: 47.5,
             employee: 75200
         }, {
@@ -80,14 +80,14 @@ module.exports = function(app, BASE_PATH, companies) {
             country: "Finlandia",
             year: "2006",
             company: "nokia",
-            income: 565.1,
+            income: 165.1,
             marketcapitalization: 45.6,
             employee: 278500
         }, {
             country: "Reino Unido",
             year: "2009",
             company: "british petroleum",
-            income: 246.1,
+            income: 146.1,
             marketcapitalization: 34.7,
             employee: 80300
         }];
