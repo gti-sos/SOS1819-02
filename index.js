@@ -1,5 +1,6 @@
 console.log("declaracion de variables express y bodyParser");
 var express = require("express");
+var request = require("request");
 var bodyParser = require("body-parser");
 var moviesApi = require("./api-movies/");
 var scorersApi = require("./api-scorers/");
@@ -11,11 +12,14 @@ var cors = require("cors");
 
 
 var path = require("path");
-const BASE_PATH ="/api";
+const BASE_PATH = "/api";
 
 var app = express();
+
 app.use(bodyParser.json());
 var port = process.env.PORT || 8080;
+
+app.use(cors());
 
 
 console.log("MongoClient");
@@ -24,16 +28,33 @@ const uri = "mongodb+srv://test:test@sos1819-02-qn7gl.mongodb.net/sos1819-02?ret
 const pgm = "mongodb+srv://test:test@sos1819-02-pgm-kocym.mongodb.net/sos1819-02-pgm?retryWrites=true";
 const apc = "mongodb+srv://test:test@sos1819-02-apc-kwvgb.mongodb.net/sos1819-02-apc?retryWrites=true";
 
-console.log("declaracion db");
 var movies;
 var companies;
 var scorers;
 
+
+//===============//
+// PROXY PABLO   //
+//===============//
+
+var apiServerHost = 'http://echo.httpkit.com';
+
+app.use("proxyPGM/", function(req, res) {
+
+  var url = apiServerHost + req.baseUrl + req.url;
+  
+  console.log('piped: '+req.baseUrl + req.url);
+ 
+  req.pipe(request(url)).pipe(res);
+});
+
+
+
 app.use("/", express.static(path.join(__dirname, "public"))); //conexion index.html principal
 
-app.use("/ui/v1/companies-stats", express.static(path.join(__dirname + "/public/api-companies")));  //conexion index.html companies
-app.use("/ui/v1/movies-stats", express.static(path.join(__dirname + "/public/api-movies")));  //conexion index.html movies
-app.use("/ui/v1/scorers-stats", express.static(path.join(__dirname + "/public/api-scorers")));  
+app.use("/ui/v1/companies-stats", express.static(path.join(__dirname + "/public/api-companies"))); //conexion index.html companies
+app.use("/ui/v1/movies-stats", express.static(path.join(__dirname + "/public/api-movies"))); //conexion index.html movies
+app.use("/ui/v1/scorers-stats", express.static(path.join(__dirname + "/public/api-scorers")));
 
 "============================="
 //Recursos Alejandro Martin
@@ -152,7 +173,7 @@ clientapc.connect(error => {
 const clientpgm = new MongoClient(pgm, { useNewUrlParser: true });
 clientpgm.connect(error => {
     companies = clientpgm.db("sos1819-02-pgm").collection("companies");
-    
+
     console.log("Connected to database de Pablo.");
     companiesApi(app, BASE_PATH, companies);
 });
@@ -162,10 +183,11 @@ console.log("conectadas las 3 bases de datos");
 
 
 
-console.log("GET /time ");
+/*console.log("GET /time ");
 app.get("/time", (request, response) => {
     response.send(new Date());
 });
+*/
 
 app.listen(port, () => {
 
@@ -173,6 +195,3 @@ app.listen(port, () => {
 });
 
 console.log("fin ");
-
-
-
