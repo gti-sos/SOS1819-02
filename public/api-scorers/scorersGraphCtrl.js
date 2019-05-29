@@ -63,7 +63,30 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
 });
         
 // Geo Chart
-      
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var aux = [];
+        aux.push(["Country","Número de goles"]);
+        aux.push([countries[5],scorergoals[5]]);
+        aux.push([countries[6],scorergoals[6]]);
+        
+        console.log(aux);
+        var plot = google.visualization.arrayToDataTable(aux);
+        
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(plot, options);
+      }
 
                    
                     
