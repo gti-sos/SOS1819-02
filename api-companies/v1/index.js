@@ -80,7 +80,7 @@ module.exports = function(app, BASE_PATH, companies) {
             country: "Finlandia",
             year: "2006",
             company: "nokia",
-            income: 565.1,
+            income: 165.1,
             marketcapitalization: 45.6,
             employee: 278500
         }, {
