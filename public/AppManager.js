@@ -31,6 +31,10 @@
             templateUrl: "./api-movies/Integrations/companies-stats.html",
             controller: "companiesCtrl"
             })
+            .when("/integrations/gpe/", {
+            templateUrl: "./api-movies/Integrations/gpe.html",
+            controller: "gpeCtrl"
+            })
              .when("/api-scorers/",{
               templateUrl:"./api-scorers/list.html",
               controller: "ListCtrl"

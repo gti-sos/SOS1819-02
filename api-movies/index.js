@@ -21,12 +21,14 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
         var url = externalAPI_HS + req.url;
         req.pipe(request(url)).pipe(res);
     });
-// Proxy companies-stats
- var externalAPI_CS= "http://sos1819-02.herokuapp.com";
-    app.use("/proxyCS", function(req, res) {
-        var url = externalAPI_CS + req.url;
+    
+// Proxy General-public-expenses
+    var externalAPI_gpe= "http://sos1819-11.herokuapp.com";
+    app.use("/proxyGPE", function(req, res) {
+        var url = externalAPI_gpe + req.url;
         req.pipe(request(url)).pipe(res);
-    });
+    });    
+
     
 
     "============================="
