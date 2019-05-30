@@ -4,18 +4,18 @@
         <tr>
             <th>Country</th>
             <th>Year</th>
-            <th>No Suicides Man</th>
-            <th>No Suicides Woman</th>
-            <th>Rank</th>
+            <th>happinessScore</th>
+            <th>lowerLimitTrust</th>
+            <th>upperLimitTrust</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="suicide in suicides">
-            <td>{{suicide.country}}</td>
-            <td>{{suicide.year}}</td>
-            <td>{{suicide.noSuicidesMan}}</td>
-            <td>{{suicide.noSuicidesWoman}}</td>
-            <td>{{suicide.rank}}</td>
+        <tr ng-repeat="happy in happys">
+            <td>{{happy.country}}</td>
+            <td>{{happy.year}}</td>
+            <td>{{happy.happinessScore}}</td>
+            <td>{{happy.lowerLimitTrust}}</td>
+            <td>{{happy.upperLimitTrust}}</td>
         </tr>
     </tbody>
 </table>

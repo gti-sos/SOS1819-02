@@ -20,8 +20,8 @@
               controller: "grafMoviesCtrl"
              })
              .when("/integrations/happiness-stats/", {
-            templateUrl: "./api-movies/Integrations/happiness-stats-ctrl.js",
-            controller: "happynessCtrl"
+            templateUrl: "./api-movies/Integrations/happiness-stats.html",
+            controller: "happinessCtrl"
             })
              .when("/api-scorers/",{
               templateUrl:"./api-scorers/list.html",

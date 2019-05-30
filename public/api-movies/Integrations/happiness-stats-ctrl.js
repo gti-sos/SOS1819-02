@@ -2,12 +2,12 @@
 
 var app = angular.module("AppManager");
 
-app.controller("happynessCtrl", ["$scope", "$http", function($scope, $http) {
+app.controller("happinessCtrl", ["$scope", "$http", function($scope, $http) {
 
 
     console.log("List Happyness-Stats Controller initialized.");
 
-    var API = "proxyHS/api/v1/";
+    var API = "proxyHS/api/v1/happiness-stats";
     refresh();
 
     function refresh() {
@@ -19,7 +19,7 @@ app.controller("happynessCtrl", ["$scope", "$http", function($scope, $http) {
 
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
-                $scope.suicides = response.data;
+                $scope.happy = response.data;
             });
     }
 
