@@ -15,10 +15,14 @@
               templateUrl:"./api-movies/edit.html",
               controller: "editCtrlMovies"
              })
-             .when("/api-movies/highcharts",{
+             .when("analytics/api-movies/",{
               templateUrl:"./api-movies/moviesGraph.html",
               controller: "grafMoviesCtrl"
              })
+             .when("/integrations/happiness-stats/", {
+            templateUrl: "./api-movies/Integrations/happiness-stats-ctrl.js",
+            controller: "happynessCtrl"
+            })
              .when("/api-scorers/",{
               templateUrl:"./api-scorers/list.html",
               controller: "ListCtrl"
