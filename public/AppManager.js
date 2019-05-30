@@ -31,7 +31,7 @@
               templateUrl:"./api-scorers/scorersGraph.html",
               controller: "grafCtrl"
              })
-             .when("/integrations/api-scorers",{
+             .when("/integrations/api1",{
               templateUrl:"./api-scorers/integracionAPI1.html",
               controller: "suicidesCtrl"
              })
