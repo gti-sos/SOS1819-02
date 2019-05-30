@@ -57,6 +57,15 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
 
         });
     });
+    
+    //INTEGRACIONES
+    var request = require("request");
+    var Api1 = "https://sos1819-04.herokuapp.com";
+    app.use("/proxySR", function(req,res){
+        var url = Api1 + req.url;
+        req.pipe(request(url)).pipe(res);
+    });
+    
 
     // DELETE /api/v1/scorers-stats
     console.log("DELETE al conjunto /scorers-stats ");
@@ -132,6 +141,8 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
 
         res.sendStatus(405);
     });
+    
+    
 
 
 
