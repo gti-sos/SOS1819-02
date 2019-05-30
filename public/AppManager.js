@@ -1,5 +1,4 @@
 
-        /*global angular*/
         
         angular.module("AppManager",["ngRoute"])
             .config(function($routeProvider){
@@ -32,7 +31,7 @@
               templateUrl:"./api-scorers/scorersGraph.html",
               controller: "grafCtrl"
              })
-             .when("/integrations/api1",{
+             .when("/integrations/api-scorers",{
               templateUrl:"./api-scorers/integracionAPI1.html",
               controller: "suicidesCtrl"
              })
@@ -50,15 +49,13 @@
              })
              .when("/analytics",{
               templateUrl:"./analytics.html",
-             
              })
-             .when("/integrations", {
+           .when("/integrations", {
             templateUrl: "./integrations.html",
-            })
+           })
            .when("/about", {
             templateUrl: "./about.html",
 
            });
-            });
-
+         });
 
