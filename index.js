@@ -163,6 +163,20 @@ var scorersstatsinitial = [{
     scorergoal: 151,
     scorermatch: 242,
     scoreraverage: 25
+}, {
+    country: "Argentina",
+    year: "2007",
+    name: "Riquelme",
+    scorergoal: 150,
+    scorermatch: 172,
+    scoreraverage: 29
+}, {
+    country: "Spain",
+    year: "2003",
+    name: "Capi",
+    scorergoal: 315,
+    scorermatch: 242,
+    scoreraverage: 86
 }];
 
 //MONGO ALE
