@@ -3,6 +3,7 @@
  /*global newValue */
  /*global newValue2 */
  /*global google */
+ /*global Chart */
 
 
  var app = angular.module("AppManager");
@@ -10,17 +11,20 @@
  app.controller("grafComCtrl", ["$scope", "$http", "$routeParams", "$location", function($scope, $http, $routeParams, $location) {
      console.log("Companies grafica ctrl Initialized!");
      var API = "/api/v1/companies-stats";
+     var countries = [];
+     var years = [];
+     var incomes = [];
+
+     var data = [];
+
 
 
      //HIGHCHART
-
      $http.get(API).then(function(response) {
 
-         var data = [];
-
-         var countries = response.data.map(function(d) { return d.country });
-         var years = response.data.map(function(d) { return d.year });
-         var incomes = response.data.map(function(d) { return d.income });
+         countries = response.data.map(function(d) { return d.country });
+         years = response.data.map(function(d) { return d.year });
+         incomes = response.data.map(function(d) { return d.income });
 
 
          var chardata2 = response.data.map(function(company) {
@@ -30,8 +34,6 @@
              return [newValue, newValue2];
 
          });
-
-
 
          Highcharts.chart('container', {
              chart: {
@@ -46,7 +48,7 @@
              xAxis: {
                  type: 'companies',
                  title: {
-                     text: 'Compañías'
+                     text: 'Companies'
                  },
 
                  labels: {
@@ -89,35 +91,80 @@
 
              }]
          });
-     });
 
-     //GEOCHART
-  $http.get(API).then(function(response) {
-        google.charts.load('current', { 'packages': ['geochart'] });
-        google.charts.setOnLoadCallback(drawRegionsMap);
+         //GEOCHART
 
-        function drawRegionsMap() {
-            var data = [];
-            data.push(['Compañias', 'Ingresos']);
+         $http.get(API).then(function(response) {
+             google.charts.load('current', {
 
-            var countries = response.data.map(function(d) { return d.country });
-            var years = response.data.map(function(d) { return d.year });
-            var companies = response.data.map(function(d) { return d.company });
+                 'packages': ['geochart'],
+                 // Note: you will need to get a mapsApiKey for your project.
+                 // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+                 'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+             });
+             google.charts.setOnLoadCallback(drawRegionsMap);
 
-            for (var i = 0; i < countries.length; i++) {
-                if (years[i] == 2017) {
-                    data.push([countries[i], companies[i]]);
+             function drawRegionsMap() {
+                 var aux = [];
+                 aux.push(["Country", "Ingresos"]);
+                 aux.push([countries[7], incomes[7]]);
+                 aux.push([countries[4], incomes[4]]);
+
+                 console.log(aux);
+                 var plot = google.visualization.arrayToDataTable(aux);
+
+                 var options = {};
+
+                 var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                 chart.draw(plot, options);
+             }
+         });
+
+         //  -----------------------
+
+
+       
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: {
+        labels: ['Apple', 'Samsung', 'Volkswagen', 'Toyota', 'PetroChina','Dexia'],
+        datasets: [{
+            label: '# Income',
+            data: [incomes[0],incomes[1],incomes[2],incomes[3],incomes[4],incomes[5]],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
                 }
-            }
-            
-            console.log(data);
-
-            var data = google.visualization.arrayToDataTable(data);
-            var options = {};
-            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-            chart.draw(data, options);
+            }]
         }
-    })
+    }
+});
 
+
+
+     });
  }]);
  
