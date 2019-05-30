@@ -28,9 +28,13 @@
               templateUrl:"./api-scorers/edit.html",
               controller: "editCtrl"
              })
-             .when("/api-scorers/prueba",{
+             .when("/analytics/api-scorers",{
               templateUrl:"./api-scorers/scorersGraph.html",
               controller: "grafCtrl"
+             })
+             .when("/integrations/api1",{
+              templateUrl:"./api-scorers/integracionAPI1.html",
+              controller: "suicidesCtrl"
              })
              .when("/api-companies/",{
               templateUrl:"./api-companies/list.html",
