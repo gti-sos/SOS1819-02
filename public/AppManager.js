@@ -16,7 +16,7 @@
               templateUrl:"./api-movies/edit.html",
               controller: "editCtrlMovies"
              })
-             .when("/api-movies/highcharts",{
+             .when("/analytics/api-movies/",{
               templateUrl:"./api-movies/moviesGraph.html",
               controller: "grafMoviesCtrl"
              })
