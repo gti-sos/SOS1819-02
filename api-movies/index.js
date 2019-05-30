@@ -12,6 +12,15 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
         res.redirect("https://documenter.getpostman.com/view/7067709/S17xsmGb");
     })
 
+//INTEGRACIONES    
+    
+// Proxy Happiness-Stats
+    var request = require("request");
+    var externalAPI_HS= "http://sos1819-04.herokuapp.com";
+    app.use("/proxyHS", function(req, res) {
+        var url = externalAPI_HS + req.url;
+        req.pipe(request(url)).pipe(res);
+    });
 
     "============================="
     //Recursos Alejandro Martin
