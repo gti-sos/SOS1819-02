@@ -23,6 +23,14 @@
             templateUrl: "./api-movies/Integrations/happiness-stats.html",
             controller: "happinessCtrl"
             })
+            .when("/integrations/biofuels/", {
+            templateUrl: "./api-movies/Integrations/biofuels.html",
+            controller: "biofuelsCtrl"
+            })
+            .when("/integrations/companies-stats/", {
+            templateUrl: "./api-movies/Integrations/companies-stats.html",
+            controller: "companiesCtrl"
+            })
              .when("/api-scorers/",{
               templateUrl:"./api-scorers/list.html",
               controller: "ListCtrl"

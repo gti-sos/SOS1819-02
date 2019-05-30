@@ -21,6 +21,13 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
         var url = externalAPI_HS + req.url;
         req.pipe(request(url)).pipe(res);
     });
+// Proxy companies-stats
+ var externalAPI_CS= "http://sos1819-02.herokuapp.com";
+    app.use("/proxyCS", function(req, res) {
+        var url = externalAPI_CS + req.url;
+        req.pipe(request(url)).pipe(res);
+    });
+    
 
     "============================="
     //Recursos Alejandro Martin

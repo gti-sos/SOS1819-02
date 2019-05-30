@@ -1,0 +1,21 @@
+<h1>Companies Stats</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Year</th>
+            <th>Ingresos</th>
+            <th>Capitalización</th>
+            <th>Empleados</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="company in companies">
+            <td>{{company.country}}</td>
+            <td>{{company.year}}</td>
+            <td>{{company.income}}</td>
+            <td>{{company.marketcapitalization}}</td>
+            <td>{{company.employee}}</td>
+        </tr>
+    </tbody>
+</table>

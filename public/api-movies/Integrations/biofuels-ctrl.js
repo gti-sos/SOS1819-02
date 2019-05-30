@@ -2,12 +2,12 @@
 
 var app = angular.module("AppManager");
 
-app.controller("happinessCtrl", ["$scope", "$http", function($scope, $http) {
+app.controller("biofuelsCtrl", ["$scope", "$http", function($scope, $http) {
 
 
-    console.log("List Happyness-Stats Controller initialized.");
+    console.log("List Biofuels Controller initialized.");
 
-    var API = "proxyHS/api/v1/happiness-stats";
+    var API = "https://sos1819-10.herokuapp.com/api/v2/biofuels-production";
     refresh();
 
     function refresh() {
@@ -19,7 +19,7 @@ app.controller("happinessCtrl", ["$scope", "$http", function($scope, $http) {
 
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
-                $scope.happys = response.data;
+                $scope.biofuels = response.data;
             });
     }
 
