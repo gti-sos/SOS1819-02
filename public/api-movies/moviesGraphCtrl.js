@@ -139,6 +139,10 @@ Highcharts.chart('container', {
   "movieaward": data[0].movieaward,
   "color": chart.colors.next()
 }, {
+ "year": data[5].year,
+  "movieaward": data[5].movieaward,
+  "color": chart.colors.next()
+}, {
  "year": data[6].year,
   "movieaward": data[6].movieaward,
   "color": chart.colors.next()
