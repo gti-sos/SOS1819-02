@@ -12,8 +12,12 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
     var scorermatches = [];
     var scoreraverages = [];
    
-    
-          
+   
+   var goles=[]; //para fusionCharts
+   var nombres=[];
+   var partidos=[];
+   var promedios=[];
+   
 
     $http.get(API).then(function(response){
         countries = response.data.map(function(d) { return d.country });
@@ -22,6 +26,25 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
         scorergoals = response.data.map(function(d) { return d.scorergoal });
         scorermatches = response.data.map(function(d) { return d.scorermatch });
         scoreraverages = response.data.map(function(d) { return d.scoreraverage });
+        
+        for (var i=0; i< names.length;i++){
+     goles.push({ "value" :scorergoals[i]});
+   }
+    
+       console.log("los goles-> "+goles); 
+       
+       for (var i=0; i< names.length;i++){
+     nombres.push({ "label" :names[i]});
+   }
+   
+   for (var i=0; i< names.length;i++){
+     partidos.push({ "value" :scorermatches[i]});
+   }
+   
+   for (var i=0; i< names.length;i++){
+     promedios.push({ "value" :scoreraverages[i]});
+   }
+    
         
  Highcharts.chart('container', {
     chart: {
@@ -91,11 +114,9 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
 // otro
 const dataSource = {
   chart: {
-    caption: "App Publishing Trend",
-    subcaption: "2012-2016",
-    xaxisname: "Years",
-    yaxisname: "Total number of apps in store",
-    formatnumberscale: "1",
+    caption: "FusionCharts",
+    xaxisname: "Jugadores",
+    formatnumberscale: "0.5",
     plottooltext:
       "<b>$dataValue</b> apps were available on <b>$seriesName</b> in $label",
     theme: "fusion",
@@ -103,85 +124,21 @@ const dataSource = {
   },
   categories: [
     {
-      category: [
-        {
-          label: "2012"
-        },
-        {
-          label: "2013"
-        },
-        {
-          label: "2014"
-        },
-        {
-          label: "2015"
-        },
-        {
-          label: "2016"
-        }
-      ]
+      category: nombres
     }
   ],
   dataset: [
     {
-      seriesname: "iOS App Store",
-      data: [
-        {
-          value: "125000"
-        },
-        {
-          value: "300000"
-        },
-        {
-          value: "480000"
-        },
-        {
-          value: "800000"
-        },
-        {
-          value: "1100000"
-        }
-      ]
+      seriesname: "Goles",
+      data: goles
     },
     {
-      seriesname: "Google Play Store",
-      data: [
-        {
-          value: "70000"
-        },
-        {
-          value: "150000"
-        },
-        {
-          value: "350000"
-        },
-        {
-          value: "600000"
-        },
-        {
-          value: "1400000"
-        }
-      ]
+      seriesname: "Partidos jugados",
+      data: partidos
     },
     {
-      seriesname: "Amazon AppStore",
-      data: [
-        {
-          value: "10000"
-        },
-        {
-          value: "100000"
-        },
-        {
-          value: "300000"
-        },
-        {
-          value: "600000"
-        },
-        {
-          value: "900000"
-        }
-      ]
+      seriesname: "Promedio",
+      data: promedios
     }
   ]
 };

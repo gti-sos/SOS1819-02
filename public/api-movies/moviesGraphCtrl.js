@@ -84,7 +84,7 @@ Highcharts.chart('container', {
     }]
 });
 
-                    //////////Geo////////////////////
+                    //////////GeoChart////////////////////
 
 
   $http.get(API).then(function(response) {
@@ -114,10 +114,59 @@ Highcharts.chart('container', {
             });
         
     
-          
-                    
-                    
+                              //////////AmChart///////////////////
 
-                    
+ 
+                   
+                                
+            // Themes begin
+            am4core.useTheme(am4themes_animated);
+            // Themes end
+            
+            // Create chart instance
+            var chart = am4core.create("chartdiv", am4charts.XYChart3D);
+            
+            // Add data
+ /*
+               var auxAmChart = response.data.map(function(movie){
+	newValue = movie.year ;
+    newValue2 = movie.movieaward ;    
+    return [newValue , newValue2, chart.colors.next()];
+    });
+    */
+            chart.data = [{
+  "year": data[0].year,
+  "movieaward": data[0].movieaward,
+  "color": chart.colors.next()
+}, {
+ "year": data[5].year,
+  "movieaward": data[5].movieaward,
+  "color": chart.colors.next()
+}, {
+ "year": data[6].year,
+  "movieaward": data[6].movieaward,
+  "color": chart.colors.next()
+}];
+         console.log("auxAmChart:");
+    //        console.log(JSON.stringify(auxAmChart,null,2));
+            
+            // Create axes
+            var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+            categoryAxis.dataFields.category = "year";
+            categoryAxis.numberFormatter.numberFormat = "#";
+            categoryAxis.renderer.inversed = true;
+            
+            var  valueAxis = chart.xAxes.push(new am4charts.ValueAxis()); 
+            
+            // Create series
+            var series = chart.series.push(new am4charts.ColumnSeries3D());
+            series.dataFields.valueX = "movieaward";
+            series.dataFields.categoryY = "year";
+            series.name = "Movieaward";
+            series.columns.template.propertyFields.fill = "color";
+            series.columns.template.tooltipText = "{valueX}";
+            series.columns.template.column3D.stroke = am4core.color("#fff");
+            series.columns.template.column3D.strokeOpacity = 0.2;
+                                
 });
 }]);
