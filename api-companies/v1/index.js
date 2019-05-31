@@ -6,6 +6,18 @@ module.exports = function(app, BASE_PATH, companies) {
         res.redirect("https://documenter.getpostman.com/view/6990295/S1EH21eC");
     })
 
+    //INTEGRACIONES
+    //===============//
+    // PROXY PABLO   //
+    //===============//
+    var request = require("request");
+    var Api= "http://sos1819-04.herokuapp.com";
+    app.use("/proxyADRI", function(req, res) {
+        var url = Api + req.url;
+        req.pipe(request(url)).pipe(res);
+    });
+
+
     // loadInitialData
     app.get(BASE_PATH + "/companies-stats/loadInitialData", (req, res) => {
         console.log("loadInitialPablo#########");

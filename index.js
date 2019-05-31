@@ -33,20 +33,6 @@ var companies;
 var scorers;
 
 
-//===============//
-// PROXY PABLO   //
-//===============//
-
-var apiServerHost = 'http://echo.httpkit.com';
-
-app.use("proxyPGM/", function(req, res) {
-
-  var url = apiServerHost + req.baseUrl + req.url;
-  
-  console.log('piped: '+req.baseUrl + req.url);
- 
-  req.pipe(request(url)).pipe(res);
-});
 
 //===============//
 // PROXY ALE   //
@@ -54,11 +40,11 @@ app.use("proxyPGM/", function(req, res) {
 
 app.use("proxyAMM/", function(req, res) {
 
-  var url = apiServerHost + req.baseUrl + req.url;
-  
-  console.log('piped: '+req.baseUrl + req.url);
- 
-  req.pipe(request(url)).pipe(res);
+    var url = apiServerHost + req.baseUrl + req.url;
+
+    console.log('piped: ' + req.baseUrl + req.url);
+
+    req.pipe(request(url)).pipe(res);
 });
 
 
@@ -126,7 +112,7 @@ var moviesstatsinitial = [{
         movienomination: 10,
         movieaward: 8,
         movieedition: 81
-    },{
+    }, {
         country: "FR",
         year: "2011",
         name: "The Artist",

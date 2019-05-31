@@ -1,0 +1,21 @@
+<h1>Beer Consumed </h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Year</th>
+            <th>Ratio</th>
+            <th>Variación</th>
+            <th>Consumo de País</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="beer_consumed in beer_consumeds">
+            <td>{{beer_consumed.country}}</td>
+            <td>{{beer_consumed.year}}</td>
+            <td>{{beer_consumed.rating}}</td>
+            <td>{{beer_consumed.variation}}</td>
+            <td>{{beer_consumed.countryConsumition}}</td>
+        </tr>
+    </tbody>
+</table>
