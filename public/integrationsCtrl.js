@@ -19,7 +19,7 @@ angular
                     Highcharts.chart('container_grupal', {
 
                         chart: {
-                            type: 'bubble',
+                            type: 'area',
                             plotBorderWidth: 1,
                             zoomType: 'xy'
                         },
@@ -51,7 +51,6 @@ angular
                                     style: {
                                         fontStyle: 'italic'
                                     },
-                                    text: 'Safe fat intake 65g/day'
                                 },
                                 zIndex: 3
                             }]
@@ -69,7 +68,7 @@ angular
                             maxPadding: 0.2,
                             plotLines: [{
                                 color: 'black',
-                                dashStyle: 'dot',
+                                dashStyle: 'yellow',
                                 width: 2,
                                 value: 50,
                                 label: {
@@ -77,8 +76,7 @@ angular
                                     style: {
                                         fontStyle: 'italic'
                                     },
-                                    text: 'Safe sugar intake 50g/day',
-                                    x: -10
+                                    
                                 },
                                 zIndex: 3
                             }]
@@ -87,7 +85,7 @@ angular
                         tooltip: {
                             useHTML: true,
                             headerFormat: '<table>',
-                            pointFormat: '<tr><th colspan="2"><h3>{point.name}</h3></th></tr>' +
+                            pointFormat: '<tr><th colspan="2"><h3>{point.comany}</h3></th></tr>' +
                                 '<tr><th>income:</th><td>{point.x}</td></tr>' +
                                 '<tr><th>movieedition:</th><td>{point.y}</td></tr>' +
                                 '<tr><th>scoreraverage:</th><td>{point.z}%</td></tr>',
@@ -99,18 +97,18 @@ angular
                             series: {
                                 dataLabels: {
                                     enabled: true,
-                                    format: '{point.name}'
+                                    format: '{point.company}'
                                 }
                             }
                         },
 
                         series: [{
                             data: [
-                                { x: response1.data[0].income, y: response3.data[0].movieedition, z: response2.data[0].scoreraverage, name: response1.data[0].company, name: response1.data[0].name },
-                                { x: response1.data[1].income, y: response3.data[1].movieedition, z: response2.data[1].scoreraverage, name: response1.data[1].company, name: response1.data[1].name },
-                                { x: response1.data[2].income, y: response3.data[2].movieedition, z: response2.data[2].scoreraverage, name: response1.data[2].company, name: response1.data[2].name },
-                                { x: response1.data[3].income, y: response3.data[3].movieedition, z: response2.data[3].scoreraverage, name: response1.data[3].company, name: response1.data[3].name },
-                                { x: response1.data[4].income, y: response3.data[4].movieedition, z: response2.data[4].scoreraverage, name: response1.data[4].company, name: response1.data[4].name }
+                                { x: response1.data[0].income, y: response3.data[0].movieedition, z: response2.data[0].scoreraverage, company: response1.data[0].company, company: response1.data[0].company },
+                                { x: response1.data[1].income, y: response3.data[1].movieedition, z: response2.data[1].scoreraverage, company: response1.data[1].company, company: response1.data[1].company },
+                                { x: response1.data[2].income, y: response3.data[2].movieedition, z: response2.data[2].scoreraverage, company: response1.data[2].company, company: response1.data[2].company },
+                                { x: response1.data[3].income, y: response3.data[3].movieedition, z: response2.data[3].scoreraverage, company: response1.data[3].company, company: response1.data[3].company },
+                                { x: response1.data[4].income, y: response3.data[4].movieedition, z: response2.data[4].scoreraverage, company: response1.data[4].company, company: response1.data[4].company }
                             ]
                         }]
                     });
