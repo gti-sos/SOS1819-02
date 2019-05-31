@@ -1,0 +1,21 @@
+<h1>uefa-country-rankings 06</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>season</th>
+            <th>rankingPosition</th>
+            <th>points</th>
+            <th>teams</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="uefa in uefas">
+            <td>{{uefa.country}}</td>
+            <td>{{uefa.season}}</td>
+            <td>{{uefa.rankingPosition}}</td>
+            <td>{{uefa.points}}</td>
+            <td>{{uefa.teams}}</td>
+        </tr>
+    </tbody>
+</table>
