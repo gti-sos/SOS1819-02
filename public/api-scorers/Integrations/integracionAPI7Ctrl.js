@@ -5,7 +5,7 @@ var app = angular.module("AppManager");
 app.controller("climateCtrl", ["$scope", "$http", function($scope, $http) {
 
 
-    console.log("List Suicides Controller initialized.");
+    console.log("Controller initialized.");
 
     var API = "https://sos1819-09.herokuapp.com/api/v2/climate-stats";
     refresh();

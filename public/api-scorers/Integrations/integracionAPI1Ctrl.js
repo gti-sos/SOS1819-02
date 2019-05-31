@@ -5,14 +5,14 @@ var app = angular.module("AppManager");
 app.controller("suicidesCtrl", ["$scope", "$http", function($scope, $http) {
 
 
-    console.log("List Suicides Controller initialized.");
+    console.log("Controller initialized.");
 
     var API = "proxySR/api/v1/suicide-rates";
     refresh();
 
     function refresh() {
 
-        console.log("Requesting biofuels to <" + API + ">...");
+        console.log("Requesting to <" + API + ">...");
         $http
             .get(API)
             .then(function(response) {

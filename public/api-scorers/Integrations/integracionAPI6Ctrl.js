@@ -5,7 +5,7 @@ var app = angular.module("AppManager");
 app.controller("unemploymentCtrl", ["$scope", "$http", function($scope, $http) {
 
 
-    console.log("List Suicides Controller initialized.");
+    console.log("Controller initialized.");
 
     var API = "https://sos1819-12.herokuapp.com/api/v1/youth-unemployment-stats";
     refresh();
