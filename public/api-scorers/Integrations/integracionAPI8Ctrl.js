@@ -7,7 +7,7 @@ app.controller("carCtrl", ["$scope", "$http", function($scope, $http) {
 
     console.log("Controller initialized.");
 
-    var API = "http://sos1819-10.herokuapp.com/api/v1/e-car-statics";
+    var API = "https://sos1819-10.herokuapp.com/api/v1/e-car-statics";
     refresh();
 
     function refresh() {
