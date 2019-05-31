@@ -1,0 +1,52 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">
+                País
+            </th>
+            <th scope="col">
+                Año
+            </th>
+            <th scope="col">
+                Tipo de ataque
+            </th>
+            <th scope="col">
+                Impacto en millones
+            </th>
+            <th scope="col">
+                Equipos afectados
+            </th>
+            <th scope="col">
+                Porcentaje general
+            </th>
+            <th scope="col">
+                Eliminar
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="attack in attacks">
+            <td>
+                
+                                    {{ attack.country }}
+                           
+            </td>
+            <td>
+                {{attack.year}}
+            </td>
+            <td>
+                {{attack.attacktype}}
+            </td>
+            <td>
+                {{attack.economicimpactmillions}}
+            </td>
+            <td>
+                {{attack.affectedequipments}}
+            </td>
+            <td>
+                {{attack.overallpercentage}}
+            </td>
+
+        </tr>
+    </tbody>
+</table>
