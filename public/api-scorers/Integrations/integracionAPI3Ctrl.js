@@ -19,7 +19,7 @@ app.controller("excountryCtrl", ["$scope", "$http", function($scope, $http) {
 
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
-                $scope.companies = response.data;
+                $scope.expcountries = response.data;
             });
     }
 
