@@ -1,0 +1,21 @@
+<h1>Country Stats</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Year</th>
+            <th>Extensión de fronteras</th>
+            <th>Población</th>
+            <th>Superficie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="country in countries">
+            <td>{{country.country}}</td>
+            <td>{{country.year}}</td>
+            <td>{{country.extensionOfBorders}}</td>
+            <td>{{country.population}}</td>
+            <td>{{country.territorialExtension}}</td>
+        </tr>
+    </tbody>
+</table>
