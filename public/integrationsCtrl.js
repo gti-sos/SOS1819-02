@@ -19,7 +19,7 @@ angular
                     Highcharts.chart('container_grupal', {
 
                         chart: {
-                            type: 'area',
+                            type: 'bubble',
                             plotBorderWidth: 1,
                             zoomType: 'xy'
                         },
