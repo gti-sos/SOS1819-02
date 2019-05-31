@@ -63,6 +63,7 @@
               templateUrl:"./api-companies/companiesGraph.html",
               controller: "grafComCtrl"
              })
+             //aaaaa
              .when("/analytics",{
               templateUrl:"./analytics.html",
              })
