@@ -19,7 +19,7 @@ app.controller("uefaCtrl", ["$scope", "$http", function($scope, $http) {
 
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
-                $scope.uefa = response.data;
+                $scope.uefas = response.data;
             });
     }
 
