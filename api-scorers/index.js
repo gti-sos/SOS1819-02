@@ -65,7 +65,7 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
         var url = Api1 + req.url;
         req.pipe(request(url)).pipe(res);
     });
-    
+    //segunda
 
     // DELETE /api/v1/scorers-stats
     console.log("DELETE al conjunto /scorers-stats ");
