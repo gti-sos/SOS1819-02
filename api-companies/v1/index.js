@@ -12,7 +12,7 @@ module.exports = function(app, BASE_PATH, companies) {
     //===============//
     var request = require("request");
     var Api= "http://sos1819-04.herokuapp.com";
-    app.use("/proxyADRI", function(req, res) {
+    app.use("/proxyJP", function(req, res) {
         var url = Api + req.url;
         req.pipe(request(url)).pipe(res);
     });

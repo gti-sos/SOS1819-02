@@ -2,12 +2,12 @@
 
 var app = angular.module("AppManager");
 
-app.controller("suicidesCtrl2", ["$scope", "$http", function($scope, $http) {
+app.controller("suicidesCtrl", ["$scope", "$http", function($scope, $http) {
 
 
     console.log("List Suicides Controller initialized.");
 
-    var API = "proxyADRI/api/v1/suicide-rates";
+    var API = "proxySR/api/v1/suicide-rates";
     refresh();
 
     function refresh() {
