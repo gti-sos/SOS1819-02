@@ -1,0 +1,21 @@
+<h1>youth-unemployment-stats 12</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>year</th>
+            <th>youth_unemployment</th>
+            <th>youth_unemployment_man</th>
+            <th>youth_unemployment_woman</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="unemployment in unemployments">
+            <td>{{unemployment.country}}</td>
+            <td>{{unemployment.year}}</td>
+            <td>{{unemployment.youth_unemployment}}</td>
+            <td>{{unemployment.youth_unemployment_man}}</td>
+            <td>{{unemployment.youth_unemployment_woman}}</td>
+        </tr>
+    </tbody>
+</table>
