@@ -67,6 +67,10 @@
               templateUrl:"./api-companies/companiesGraph.html",
               controller: "grafComCtrl"
              })
+              .when("/integrations/beer",{
+              templateUrl:"./api-companies/Beer.html",
+              controller: "BeerCtrl"
+             })
              .when("/analytics",{
               templateUrl:"./analytics.html",
              })
