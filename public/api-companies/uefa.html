@@ -12,14 +12,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="uefa in uefas">
-            <td>{{uefa.team}}</td>
-            <td>{{uefa.country}}</td>
-            <td>{{uefa.season}}</td>
-            <td>{{uefa.points}}</td>
-            <td>{{uefa.ptsseason}}</td>
-            <td>{{uefa.ptsbeforeseason}}</td>
+      <tr ng-repeat="uefaclub in uefaclubrankings">
 
+                <td>{{uefaclub.team}}</td>
+                <td>{{uefaclub.season}}</td>
+                <td>{{uefaclub.country}}</td>
+                <td>{{uefaclub.points}}</td>
+                <td>{{uefaclub.ptsseason}}</td>
+                <td>{{uefaclub.ptsbeforeseason}}</td>
+                
         </tr>
     </tbody>
 </table>

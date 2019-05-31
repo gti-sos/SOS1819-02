@@ -2,12 +2,12 @@
 
 var app = angular.module("AppManager");
 
-app.controller("takingCtrl", ["$scope", "$http", function($scope, $http) {
+app.controller("touristCtrl", ["$scope", "$http", function($scope, $http) {
 
 
-    console.log("List takings Controller initialized.");
+    console.log("List tourist Controller initialized.");
 
-    var aux = "proxyDio/api/v1/takingStats";
+    var aux = "https://sos1819-08.herokuapp.com/API/v1/tourists-by-countries";
     refresh();
 
     function refresh() {
@@ -18,8 +18,7 @@ app.controller("takingCtrl", ["$scope", "$http", function($scope, $http) {
             .then(function(response) {
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
-                $scope.takingstats = response.data;
-                console.log("$scope.takingstats");
+                $scope.touristsByCountries = response.data;
             });
     }
 

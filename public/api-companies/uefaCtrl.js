@@ -7,7 +7,7 @@ app.controller("uefaCtrl", ["$scope", "$http", function($scope, $http) {
 
     console.log("List Uefa club rankings Controller initialized.");
 
-    var API = "proxyUEFA/api/v1/uefa-club-rankings";
+    var API = "https://sos1819-06.herokuapp.com/api/v1/uefa-club-rankings/";
     refresh();
 
     function refresh() {
@@ -19,7 +19,7 @@ app.controller("uefaCtrl", ["$scope", "$http", function($scope, $http) {
 
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
-                $scope.uefas = response.data;
+                $scope.uefaclubrankings = response.data;
             });
     }
 
