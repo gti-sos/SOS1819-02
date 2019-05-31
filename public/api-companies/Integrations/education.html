@@ -1,0 +1,28 @@
+<h1>Gasto Público General</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>País</th>
+            <th>Año</th>
+            <th>Gasto Público</th>
+            <th>Gasto de Educación</th>
+            <th>Gasto de Salud</th>
+            <th>Gasto de Defensa</th>
+            <th>Gasto Público PIB</th>
+            <th>Var</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="generalPublicExpenses in generalPublicExpenses">
+            <td style="vertical-align: middle;">{{ generalPublicExpenses.country }}</td>
+            <td style="vertical-align: middle;">{{ generalPublicExpenses.year }}</td>
+            <td style="vertical-align: middle;">{{ generalPublicExpenses.publicSpending }}</td>
+            <td style="vertical-align: middle;">{{ generalPublicExpenses.educationExpense }}</td>
+            <td style="vertical-align: middle;">{{ generalPublicExpenses.healthExpense }}</td>
+            <td style="vertical-align: middle;">{{ generalPublicExpenses.defenseSpending }}</td>
+            <td style="vertical-align: middle;">{{ generalPublicExpenses.publicSpendingPib }}</td>
+            <td style="vertical-align: middle;">{{ generalPublicExpenses.var_ }}</td>
+        </tr>
+        <tr>
+    </tbody>
+</table>

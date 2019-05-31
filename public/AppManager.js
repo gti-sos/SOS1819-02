@@ -115,6 +115,10 @@ angular.module("AppManager", ["ngRoute"])
     templateUrl: "./api-companies/Integrations/scorer.html",
     controller: "scorerCtrl"
    })
+   .when("/integrations/education", {
+    templateUrl: "./api-companies/Integrations/education.html",
+    controller: "educationCtrl"
+   })
    .when("/analytics", {
     templateUrl: "./analytics.html",
    })
