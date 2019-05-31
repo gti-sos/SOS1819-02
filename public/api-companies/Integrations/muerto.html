@@ -1,0 +1,30 @@
+<h1>Defunciones
+
+
+</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Provincia</th>
+            <th>Año</th>
+            <th>Vidas</th>
+            <th>Multa</th>
+            <th>Número de muertos</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="deceased in deceaseds">
+            <td>{{ deceased.province }}</td>
+            <td>{{ deceased.year }}</td>
+            <td>{{ deceased.life }}</td>
+            <td>{{ deceased.penalty }}</td>
+            <td>{{ deceased.number }}</td>
+            <td>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
