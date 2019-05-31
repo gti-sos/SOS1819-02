@@ -75,6 +75,10 @@ angular.module("AppManager", ["ngRoute"])
     templateUrl: "./api-scorers/Integrations/integracionAPI4.html",
     controller: "peliculasCtrl"
    })
+   .when("/integrations/api5", {
+    templateUrl: "./api-scorers/Integrations/integracionAPI5.html",
+    controller: "uefaCtrl"
+   })
    .when("/api-companies/", {
     templateUrl: "./api-companies/list.html",
     controller: "ListCtrlcompanies"
