@@ -29,12 +29,6 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
         req.pipe(request(url)).pipe(res);
     });    
     
-// Proxy Uefa-club-rankings
-    var externalAPI_UEFA= "http://sos1819-06.herokuapp.com";
-    app.use("/proxyUEFA",function(req, res) {
-        var url = externalAPI_UEFA + req.url;
-        req.pipe(request(url)).pipe(res);
-    });    
 
     
 

@@ -7,12 +7,12 @@ app.controller("uefaCtrl", ["$scope", "$http", function($scope, $http) {
 
     console.log("List Uefa club rankings Controller initialized.");
 
-    var API = "/proxyUEFA/api/v1/uefa-club-rankings/";
+    var API = "proxyUEFA/api/v1/uefa-club-rankings";
     refresh();
 
     function refresh() {
 
-        console.log("Requesting movies to <" + API + ">...");
+        console.log("Requesting  to <" + API + ">...");
         $http
             .get(API)
             .then(function(response) {
