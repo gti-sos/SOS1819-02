@@ -1,0 +1,21 @@
+<h1>Pollution Stats</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Year</th>
+            <th>Emisiones de CO2 totales</th>
+            <th>Emisiones de CO2 por 1000 dólares del PIB</th>
+            <th>Emisiones de CO2 toneladas per capita</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="pollution in pollutions">
+            <td>{{pollution.country}}</td>
+            <td>{{pollution.year}}</td>
+            <td>{{pollution.pollution_tco2}}</td>
+            <td>{{pollution.pollution_kg1000}}</td>
+            <td>{{pollution.pollution_perca}}</td>
+        </tr>
+    </tbody>
+</table>

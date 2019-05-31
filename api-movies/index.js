@@ -29,10 +29,17 @@ moviesApi.register = function(app, movies, moviesstatsinitial) {
         req.pipe(request(url)).pipe(res);
     });    
     
-// Proxy Uefa-club-rankings
-    var externalAPI_UEFA= "http://sos1819-06.herokuapp.com";
-    app.use("/proxyUEFA",function(req, res) {
-        var url = externalAPI_UEFA + req.url;
+// Proxy Economy
+    var externalAPI_ECONOMY= "http://sos1819-09.herokuapp.com";
+    app.use("/proxyE",function(req, res) {
+        var url = externalAPI_ECONOMY + req.url;
+        req.pipe(request(url)).pipe(res);
+    });    
+    
+// Proxy Pollution
+    var externalAPI_POLLUTION = "http://sos1819-12.herokuapp.com";
+    app.use("/proxyP",function(req, res) {
+        var url = externalAPI_POLLUTION + req.url;
         req.pipe(request(url)).pipe(res);
     });    
 

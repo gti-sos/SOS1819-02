@@ -39,6 +39,14 @@
             templateUrl: "./api-movies/Integrations/uefa.html",
             controller: "uefaCtrl"
             })
+            .when("/integrations/economy/", {
+            templateUrl: "./api-movies/Integrations/economy.html",
+            controller: "economyCtrl"
+            })
+            .when("/integrations/pollution/", {
+            templateUrl: "./api-movies/Integrations/pollution.html",
+            controller: "pollutionCtrl"
+            })
              .when("/api-scorers/",{
               templateUrl:"./api-scorers/list.html",
               controller: "ListCtrl"
