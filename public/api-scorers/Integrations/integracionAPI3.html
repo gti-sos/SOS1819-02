@@ -1,0 +1,21 @@
+<h1>expenses-of-countries</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Year</th>
+            <th>countryExpense</th>
+            <th>budgetPercentage</th>
+            <th>expensePerCapita</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="expcountry in expcountries">
+            <td>{{expcountry.country}}</td>
+            <td>{{expcountry.year}}</td>
+            <td>{{expcountry.countryExpense}}</td>
+            <td>{{expcountry.budgetPercentage}}</td>
+            <td>{{expcountry.expensePerCapita}}</td>
+        </tr>
+    </tbody>
+</table>
