@@ -1,3 +1,4 @@
+/*global angular*/
 angular.module("AppManager", ["ngRoute"])
  .config(function($routeProvider) {
   $routeProvider
@@ -35,16 +36,16 @@ angular.module("AppManager", ["ngRoute"])
     controller: "gpeCtrl"
    })
    .when("/integrations/economy/", {
-            templateUrl: "./api-movies/Integrations/economy.html",
-            controller: "economyCtrl"
+    templateUrl: "./api-movies/Integrations/economy.html",
+    controller: "economyCtrl"
    })
    .when("/integrations/pollution/", {
-            templateUrl: "./api-movies/Integrations/pollution.html",
-            controller: "pollutionCtrl"
-    })
-    .when("/integrations/country/", {
-            templateUrl: "./api-movies/Integrations/country.html",
-            controller: "countryCtrl"
+    templateUrl: "./api-movies/Integrations/pollution.html",
+    controller: "pollutionCtrl"
+   })
+   .when("/integrations/country/", {
+    templateUrl: "./api-movies/Integrations/country.html",
+    controller: "countryCtrl"
    })
    .when("/api-scorers/", {
     templateUrl: "./api-scorers/list.html",
@@ -59,11 +60,11 @@ angular.module("AppManager", ["ngRoute"])
     controller: "grafCtrl"
    })
    .when("/integrations/api1", {
-    templateUrl: "./api-scorers/integracionAPI1.html",
+    templateUrl: "./api-scorers/Integrations/integracionAPI1.html",
     controller: "suicidesCtrl"
    })
    .when("/integrations/api2", {
-    templateUrl: "./api-scorers/integracionAPI2.html",
+    templateUrl: "./api-scorers/Integrations/integracionAPI2.html",
     controller: "compaCtrl"
    })
    .when("/api-companies/", {
@@ -75,23 +76,23 @@ angular.module("AppManager", ["ngRoute"])
     controller: "editCtrlcompanies"
    })
    .when("/analytics/api-companies", {
-    templateUrl: "./api-companies/companiesGraph.html",
+    templateUrl: "./api-companies/Analitica/companiesGraph.html",
     controller: "grafComCtrl"
    })
    .when("/integrations/beer", {
-    templateUrl: "./api-companies/Beer.html",
+    templateUrl: "./api-companies/Integrations/Beer.html",
     controller: "BeerCtrl"
    })
    .when("/integrations/taking", {
-    templateUrl: "./api-companies/taking.html",
+    templateUrl: "./api-companies/Integrations/taking.html",
     controller: "takingCtrl"
    })
    .when("/integrations/uefa", {
-    templateUrl: "./api-companies/uefa.html",
+    templateUrl: "./api-companies/Integrations/uefa.html",
     controller: "uefaCtrl"
    })
    .when("/integrations/tourist", {
-    templateUrl: "./api-companies/tourist.html",
+    templateUrl: "./api-companies/Integrations/tourist.html",
     controller: "touristCtrl"
    })
    .when("/analytics", {
