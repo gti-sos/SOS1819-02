@@ -2,12 +2,12 @@
 
 var app = angular.module("AppManager");
 
-app.controller("biofuelsCtrl", ["$scope", "$http", function($scope, $http) {
+app.controller("elementsCtrl", ["$scope", "$http", function($scope, $http) {
 
 
-    console.log("List Biofuels Controller initialized.");
+    console.log("List Elements Controller initialized.");
 
-    var API = "https://sos1819-10.herokuapp.com/api/v2/biofuels-production";
+    var API = "https://sos1819-14.herokuapp.com/api/v2/biofuels-production";
     refresh();
 
     function refresh() {
