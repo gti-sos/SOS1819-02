@@ -24,13 +24,6 @@ module.exports = function(app, BASE_PATH, companies) {
         var url = Api2 + req.url;
         req.pipe(request(url)).pipe(res);
     });
-    ///////JAVIER/////////////////////
-// Proxy Uefa-club-rankings
-    var externalAPI_UEFA= "http://sos1819-06.herokuapp.com";
-    app.use("/proxyUEFA",function(req, res) {
-        var url = externalAPI_UEFA + req.url;
-        req.pipe(request(url)).pipe(res);
-    });    
 
 
     // loadInitialData

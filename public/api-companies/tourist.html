@@ -1,0 +1,36 @@
+<h1>Tourist Stats </h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p class="text-light">Pais</p>
+            </th>
+            <th>
+                <p class="text-light">Año</p>
+            </th>
+            <th>
+                <p class="text-light">Salidas de turistas</p>
+            </th>
+            <th>
+                <p class="text-light">Llegadas de turistas</p>
+            </th>
+            <th>
+                <p class="text-light">Ingresos turisticos</p>
+            </th>
+            <th>
+                <p class="text-light">Acciones</p>
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        </tr>
+        <tr ng-repeat="tourist in touristsByCountries">
+            <td>{{tourist.country}}</td>
+            <td>{{ tourist.year }}</td>
+            <td>{{ tourist.touristDeparture }}</td>
+            <td>{{ tourist.arrivalTourist }}</td>
+            <td>{{ tourist.incomeTourist }}</td>
+    </tbody>
+    </tbody>
+</table>
