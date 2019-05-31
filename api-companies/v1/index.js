@@ -16,6 +16,13 @@ module.exports = function(app, BASE_PATH, companies) {
         var url = Api + req.url;
         req.pipe(request(url)).pipe(res);
     });
+    ////////////////////////////////   
+    var request = require("request");
+    var Api2= "http://sos1819-07.herokuapp.com";
+    app.use("/proxyDio", function(req, res) {
+        var url = Api2 + req.url;
+        req.pipe(request(url)).pipe(res);
+    });
 
 
     // loadInitialData

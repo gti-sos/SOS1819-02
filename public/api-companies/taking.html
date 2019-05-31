@@ -1,0 +1,25 @@
+<h1>Taking Stats </h1>
+<table class="table">
+    <thead>
+        <th>Película</th>
+        <th>País</th>
+        <th>Año</th>
+        <th>Distribuidor</th>
+        <th>Recaudación</th>
+        <th>Ranking</th>
+        <th>Espectadores</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="taking in takingstats">
+            <td>{{ taking.film }}</td>
+            <td>{{ taking.country }}</td>
+            <td>{{ taking.year }}</td>
+            <td>{{ taking.distributor }}</td>
+            <td>{{ taking.money }}</td>
+            <td>{{ taking.rank }}</td>
+            <td>{{ taking.spectator }}</td>
+            <td>
+        </tr>
+    </tbody>
+</table>
