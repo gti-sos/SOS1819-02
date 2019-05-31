@@ -7,7 +7,7 @@ app.controller("BeerCtrl", ["$scope", "$http", function($scope, $http) {
 
     console.log("List Beer Controller initialized.");
 
-    var aux = "proxyBeer/api/v1/beer-consumed-stats";
+    var aux = "proxyJP/api/v1/beer-consumed-stats";
     refresh();
 
     function refresh() {
