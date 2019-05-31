@@ -10,19 +10,27 @@ module.exports = function(app, BASE_PATH, companies) {
     //===============//
     // PROXY PABLO   //
     //===============//
+  ////////JUANPE////////////////////////   
     var request = require("request");
     var Api= "http://sos1819-04.herokuapp.com";
     app.use("/proxyJP", function(req, res) {
         var url = Api + req.url;
         req.pipe(request(url)).pipe(res);
     });
-    ////////////////////////////////   
-    var request = require("request");
+    ////////DIONI////////////////////////   
+    
     var Api2= "http://sos1819-07.herokuapp.com";
     app.use("/proxyDio", function(req, res) {
         var url = Api2 + req.url;
         req.pipe(request(url)).pipe(res);
     });
+    ///////JAVIER/////////////////////
+// Proxy Uefa-club-rankings
+    var externalAPI_UEFA= "http://sos1819-06.herokuapp.com";
+    app.use("/proxyUEFA",function(req, res) {
+        var url = externalAPI_UEFA + req.url;
+        req.pipe(request(url)).pipe(res);
+    });    
 
 
     // loadInitialData
