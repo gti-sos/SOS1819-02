@@ -35,6 +35,10 @@
             templateUrl: "./api-movies/Integrations/gpe.html",
             controller: "gpeCtrl"
             })
+            .when("/integrations/uefa/", {
+            templateUrl: "./api-movies/Integrations/uefa.html",
+            controller: "uefaCtrl"
+            })
              .when("/api-scorers/",{
               templateUrl:"./api-scorers/list.html",
               controller: "ListCtrl"
