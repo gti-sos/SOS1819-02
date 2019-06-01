@@ -15,7 +15,7 @@ angular.module("AppManager", ["ngRoute"])
     templateUrl: "./api-movies/edit.html",
     controller: "editCtrlMovies"
    })
-   .when("analytics/api-movies/", {
+   .when("/analytics/api-movies", {
     templateUrl: "./api-movies/moviesGraph.html",
     controller: "grafMoviesCtrl"
    })

@@ -1,4 +1,5 @@
 var app = angular.module("AppManager");
+console.log("Prueba")
 
 
 app.controller("grafMoviesCtrl", ["$scope","$http","$routeParams", "$location", function ($scope, $http,$routeParams,$location){
