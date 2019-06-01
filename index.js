@@ -34,18 +34,6 @@ var scorers;
 
 
 
-//===============//
-// PROXY ALE   //
-//===============//
-
-app.use("proxyAMM/", function(req, res) {
-
-    var url = apiServerHost + req.baseUrl + req.url;
-
-    console.log('piped: ' + req.baseUrl + req.url);
-
-    req.pipe(request(url)).pipe(res);
-});
 
 app.use("/", express.static(path.join(__dirname, "public"))); //conexion index.html principal
 
