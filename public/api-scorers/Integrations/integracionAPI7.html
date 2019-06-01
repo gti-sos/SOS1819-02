@@ -1,0 +1,21 @@
+<h1>climate-stats 09</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>year</th>
+            <th>methane_stats</th>
+            <th>co2_stats</th>
+            <th>nitrous_oxide_stats</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="climate in climates">
+            <td>{{climate.country}}</td>
+            <td>{{climate.year}}</td>
+            <td>{{climate.youth_climate}}</td>
+            <td>{{climate.youth_climate_man}}</td>
+            <td>{{climate.youth_climate_woman}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -83,6 +83,18 @@ angular.module("AppManager", ["ngRoute"])
     templateUrl: "./api-scorers/Integrations/integracionAPI6.html",
     controller: "unemploymentCtrl"
    })
+   .when("/integrations/api7", {
+    templateUrl: "./api-scorers/Integrations/integracionAPI7.html",
+    controller: "climateCtrl"
+   })
+   .when("/integrations/api8", {
+    templateUrl: "./api-scorers/Integrations/integracionAPI8.html",
+    controller: "carCtrl"
+   })
+   .when("/integrations/api9", {
+    templateUrl: "./api-scorers/Integrations/integracionAPI9.html",
+    controller: "donaldCtrl"
+   })
    .when("/api-companies/", {
     templateUrl: "./api-companies/list.html",
     controller: "ListCtrlcompanies"
@@ -119,11 +131,21 @@ angular.module("AppManager", ["ngRoute"])
     templateUrl: "./api-companies/Integrations/education.html",
     controller: "educationCtrl"
    })
+   .when("/integrations/muerto", {
+    templateUrl: "./api-companies/Integrations/muerto.html",
+    controller: "muertoCtrl"
+   })
+   .when("/integrations/computer", {
+    templateUrl: "./api-companies/Integrations/computer.html",
+    controller: "computerCtrl"
+   })
    .when("/analytics", {
     templateUrl: "./analytics.html",
    })
    .when("/integrations", {
     templateUrl: "./integrations.html",
+    controller: "integrationsCtrl"
+
    })
    .when("/about", {
     templateUrl: "./about.html",

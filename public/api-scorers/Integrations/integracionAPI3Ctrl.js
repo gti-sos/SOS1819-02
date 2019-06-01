@@ -5,7 +5,7 @@ var app = angular.module("AppManager");
 app.controller("excountryCtrl", ["$scope", "$http", function($scope, $http) {
 
 
-    console.log("List Suicides Controller initialized.");
+    console.log("Controller initialized.");
 
     var API = "https://sos1819-08.herokuapp.com/api/v1/expenses-of-countries-in-education-and-culture";
     refresh();
