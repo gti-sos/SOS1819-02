@@ -47,8 +47,6 @@ app.use("proxyAMM/", function(req, res) {
     req.pipe(request(url)).pipe(res);
 });
 
-
-
 app.use("/", express.static(path.join(__dirname, "public"))); //conexion index.html principal
 
 app.use("/ui/v1/companies-stats", express.static(path.join(__dirname + "/public/api-companies"))); //conexion index.html companies
