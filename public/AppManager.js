@@ -117,7 +117,7 @@ angular.module("AppManager", ["ngRoute"])
    })
    .when("/integrations/uefa", {
     templateUrl: "./api-companies/Integrations/uefa.html",
-    controller: "uefaCtrl"
+    controller: "uefaJaCtrl"
    })
    .when("/integrations/tourist", {
     templateUrl: "./api-companies/Integrations/tourist.html",

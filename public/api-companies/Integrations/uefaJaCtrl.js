@@ -2,7 +2,7 @@
 
 var app = angular.module("AppManager");
 
-app.controller("uefaCtrl", ["$scope", "$http", function($scope, $http) {
+app.controller("uefaJaCtrl", ["$scope", "$http", function($scope, $http) {
 
 
     console.log("List Uefa club rankings Controller initialized.");
