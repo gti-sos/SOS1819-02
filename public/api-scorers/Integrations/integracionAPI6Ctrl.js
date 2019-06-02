@@ -7,7 +7,7 @@ app.controller("pruebaCtrl", ["$scope", "$http", function($scope, $http) {
 
     console.log("Controller initialized.");
 
-    var API = "proxyPO/api/v1/youth-unemployment-stats";
+    var API = "https://sos1819-12.herokuapp.com/api/v1/youth-unemployment-stats";
     refresh();
 
     function refresh() {

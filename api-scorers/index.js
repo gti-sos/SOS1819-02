@@ -67,11 +67,6 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
     });
     //segunda
     
-    var externalAPI_POLLU = "http://sos1819-12.herokuapp.com";
-    app.use("/proxyPO",function(req, res) {
-        var url = externalAPI_POLLU + req.url;
-        req.pipe(request(url)).pipe(res);
-    }); 
     
     // DELETE /api/v1/scorers-stats
     console.log("DELETE al conjunto /scorers-stats ");
