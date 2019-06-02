@@ -161,10 +161,11 @@ angular.module("AppManager", ["ngRoute"])
    })
    .when("/analytics", {
     templateUrl: "./analytics.html",
+    controller: "integrationsCtrl"
    })
    .when("/integrations", {
     templateUrl: "./integrations.html",
-    controller: "integrationsCtrl"
+    
    })
    .when("/integrations/integrationPablo", {
     templateUrl: "./integrationPablo.html",
