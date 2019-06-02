@@ -2,20 +2,20 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Country</th>
+            <th>Province</th>
             <th>Year</th>
-            <th>Ethanol</th>
-            <th>Gas Natural</th>
-            <th>Biodiesel</th>
+            <th>Victims</th>
+            <th>injurednothospitalizedinaccidents</th>
+            <th>accidentswithvictims</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="biofuel in biofuels">
-            <td>{{biofuel.country}}</td>
-            <td>{{biofuel.year}}</td>
-            <td>{{biofuel.ethanolFuel}}</td>
-            <td>{{biofuel.dryNaturalGas}}</td>
-            <td>{{biofuel.biodiesel}}</td>
+        <tr ng-repeat="element in elements">
+            <td>{{element.province}}</td>
+            <td>{{element.year}}</td>
+            <td>{{element.victims}}</td>
+            <td>{{element.injurednothospitalizedinaccidents}}</td>
+            <td>{{element.accidentswithvictims}}</td>
         </tr>
     </tbody>
 </table>

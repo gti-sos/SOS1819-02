@@ -7,7 +7,7 @@ app.controller("elementsCtrl", ["$scope", "$http", function($scope, $http) {
 
     console.log("List Elements Controller initialized.");
 
-    var API = "https://sos1819-14.herokuapp.com/api/v2/biofuels-production";
+    var API = "https://sos1819-14.herokuapp.com/api/v1/elements";
     refresh();
 
     function refresh() {
@@ -19,7 +19,7 @@ app.controller("elementsCtrl", ["$scope", "$http", function($scope, $http) {
 
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
-                $scope.biofuels = response.data;
+                $scope.elements = response.data;
             });
     }
 
