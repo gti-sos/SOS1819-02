@@ -2,7 +2,7 @@
 
 var app = angular.module("AppManager");
 
-app.controller("unemploymentCtrl", ["$scope", "$http", function($scope, $http) {
+app.controller("pruebaCtrl", ["$scope", "$http", function($scope, $http) {
 
 
     console.log("Controller initialized.");
