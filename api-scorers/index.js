@@ -66,7 +66,13 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
         req.pipe(request(url)).pipe(res);
     });
     //segunda
-
+    
+    var externalAPI_POLLU = "http://sos1819-12.herokuapp.com";
+    app.use("/proxyPO",function(req, res) {
+        var url = externalAPI_POLLU + req.url;
+        req.pipe(request(url)).pipe(res);
+    }); 
+    
     // DELETE /api/v1/scorers-stats
     console.log("DELETE al conjunto /scorers-stats ");
     app.delete(BASE_PATH + "/scorers-stats", (req, res) => {
