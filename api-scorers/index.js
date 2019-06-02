@@ -66,7 +66,8 @@ scorersApi.register = function(app, scorers, scorersstatsinitial) {
         req.pipe(request(url)).pipe(res);
     });
     //segunda
-
+    
+    
     // DELETE /api/v1/scorers-stats
     console.log("DELETE al conjunto /scorers-stats ");
     app.delete(BASE_PATH + "/scorers-stats", (req, res) => {
