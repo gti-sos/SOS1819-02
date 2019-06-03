@@ -20,7 +20,11 @@ app.controller("suicidesCtrl", ["$scope", "$http", function($scope, $http) {
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
                 $scope.suicides = response.data;
+                
+                
             });
+    
     }
+    
 
 }]);
