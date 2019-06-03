@@ -2,7 +2,7 @@
 
 var app = angular.module("AppManager");
 
-app.controller("suicidesCtrl", ["$scope", "$http", function($scope, $http) {
+app.controller("aCtrl", ["$scope", "$http", function($scope, $http) {
 
 
     console.log("Controller initialized.");

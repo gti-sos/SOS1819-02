@@ -111,7 +111,7 @@ app.controller("grafCtrl", ["$scope","$http","$routeParams", "$location", functi
         chart.draw(plot, options);
       }
 
-// otro
+// FusionChart
 const dataSource = {
   chart: {
     caption: "FusionCharts",
