@@ -55,7 +55,7 @@ angular.module("AppManager")
                         } ],
                         "startDuration": 1.5,
                         "graphs": [ {
-                          "balloonText": "x:<b>[[x]]</b> y:<b>[[y]]</b><br>company:<b>[[value]]</b>",
+                          "balloonText": "x:<b>[[x]]</b> y:<b>[[y]]</b><br>title:<b>[[value]]</b>",
                           "bullet": "circle",
                           "bulletBorderAlpha": 0.2,
                           "bulletAlpha": 0.8,
@@ -66,7 +66,7 @@ angular.module("AppManager")
                           "yField": "y",
                           "maxBulletSize": 100
                         }, {
-                          "balloonText": "x:<b>[[x]]</b> y:<b>[[y]]</b><br>value:<b>[[value]]</b>",
+                          "balloonText": "x:<b>[[x]]</b> y:<b>[[y]]</b><br>title:<b>[[value]]</b>",
                           "bullet": "diamond",
                           "bulletBorderAlpha": 0.2,
                           "bulletAlpha": 0.8,
