@@ -167,6 +167,10 @@ angular.module("AppManager", ["ngRoute"])
     templateUrl: "./api-companies/Integrations/ext1.html",
     controller: "ext1Ctrl"
    })
+   .when("/integrations/ext2", {
+    templateUrl: "./api-companies/Integrations/ext2.html",
+    controller: "ext2Ctrl"
+   })
    .when("/analytics", {
     templateUrl: "./analytics.html",
     controller: "integrationsCtrl"
