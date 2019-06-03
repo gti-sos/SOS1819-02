@@ -11,7 +11,7 @@ app.controller("takingCtrl", ["$scope", "$http", function($scope, $http) {
     var datoAux = [];
     var datoAux2 = [];
     var datoAux3 = [];
-    var x=[];
+    var x = [];
     refresh();
 
     function refresh() {
@@ -24,12 +24,12 @@ app.controller("takingCtrl", ["$scope", "$http", function($scope, $http) {
 
             });
 
-
+///////////////////////WIDGET///////////////////////////
 
 
         $http.get(api1).then(function(responseApi1) {
             var i;
-            
+
             for (i = 0; i < responseApi1.data.length; i++) {
                 datoAux.push(responseApi1.data[i].year);
                 datoAux2.push(responseApi1.data[i].employee);
@@ -43,7 +43,7 @@ app.controller("takingCtrl", ["$scope", "$http", function($scope, $http) {
             //HIGHCHART
 
 
-            Highcharts.chart('container', {
+            Highcharts.chart('containerDio', {
                 chart: {
                     type: 'column'
                 },
@@ -51,7 +51,7 @@ app.controller("takingCtrl", ["$scope", "$http", function($scope, $http) {
                     text: 'World\'s largest cities per 2017'
                 },
                 subtitle: {
-                    text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+                    text: ''
                 },
                 xAxis: {
                     type: 'category',
@@ -79,6 +79,7 @@ app.controller("takingCtrl", ["$scope", "$http", function($scope, $http) {
                     name: 'Population',
                     data: [
                         [datoAux[0], datoAux2[0]],
+                        
 
                     ],
                     dataLabels: {
