@@ -19,62 +19,54 @@ app.controller("formula1Ctrl", ["$scope", "$http", "$routeParams", function($sco
 
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
+var aux = []
 var aux1 = []
+var res = response.data
+   
+for (var i=0; i< res.length;i++){
+     aux.push(res[i].MRData.DriverTable.Drivers);
+   }   
     response.data.MRData.DriverTable.Drivers.forEach(e => {
-                aux1.push([e.driverId])
+                aux1.push([e.driverId, e.driverId.length])
             });
 
-console.log("aaaa :"+ aux1[0]);
+console.log("aaaa :"+ aux[0]);
 
-                Highcharts.chart('container', {
+    Highcharts.chart('container', {
+
     chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: 0,
-        plotShadow: false
+        type: 'item'
     },
+
     title: {
-        text: 'Algunos<br>Pilotos<br>F1',
-        align: 'center',
-        verticalAlign: 'middle',
-        y: 40
+        text: 'Highcharts item chart'
     },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+
+    subtitle: {
+        text: 'Parliament visualization'
     },
-    plotOptions: {
-        pie: {
-            dataLabels: {
-                enabled: true,
-                distance: -50,
-                style: {
-                    fontWeight: 'bold',
-                    color: 'white'
-                }
-            },
-            startAngle: -90,
-            endAngle: 90,
-            center: ['50%', '75%'],
-            size: '110%'
-        }
+
+    legend: {
+        labelFormat: '{name} <span style="opacity: 0.4">{y}</span>'
     },
+
     series: [{
-        type: 'pie',
-        name: 'Pilotos F1',
-        innerSize: '50%',
-        data: [
-            [aux1[0][0], 1],
-            [aux1[1][0], 1],
-            [aux1[2][0], 1],
-            {
-                name: 'Other',
-                y: 7.61,
-                dataLabels: {
-                    enabled: false
-                }
-            }
-        ]
+        name: 'Representatives',
+        keys: ['name', 'y', 'color', 'label'],
+        data: aux1,
+        dataLabels: {
+            enabled: true,
+            format: '{point.label}'
+        },
+
+        // Circular options
+        center: ['50%', '88%'],
+        size: '170%',
+        startAngle: -100,
+        endAngle: 100
     }]
 });
+
                 
                 
                 
