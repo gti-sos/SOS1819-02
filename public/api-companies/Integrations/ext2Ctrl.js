@@ -58,7 +58,7 @@ angular
                         startOnTick: false,
                         endOnTick: false,
                         title: {
-                            text: 'movieedition'
+                            text: 'Puntuación'
                         },
                         labels: {
                             format: '{value}'
