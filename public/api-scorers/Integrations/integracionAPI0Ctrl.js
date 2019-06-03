@@ -20,50 +20,52 @@ app.controller("aCtrl", ["$scope", "$http", function($scope, $http) {
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
 
-              const dataSource = {
-  chart: {
-    caption: "Top 5 countries with Global Oil Reserves",
-    subcaption: "MMbbl= One Million barrels",
-    enablesmartlabels: "1",
-    showlabels: "1",
-    numbersuffix: " MMbbl",
-    usedataplotcolorforlabels: "1",
-    plottooltext: "$label, <b>$value</b> MMbbl",
-    theme: "fusion"
+              var myConfig = {
+  "type":"venn",
+  "title":{
+    "text": "Facts About AngularJS"
   },
-  data: [
+  "tooltip":{
+    "text": "%t",
+    "border-radius": 5,
+    "font-size": 15
+  },
+  "series":[
     {
-      label: "Venezuela",
-      value: "290"
+      "values":[400],
+      "join":[15],
+      "text": "Popularity Of AngularJS Online",
+      "background-color":'#006ACC',
+      "tooltip":{
+        "background-color":'#006ACC',
+      }
     },
     {
-      label: "Saudi",
-      value: "260"
+      "values":[300],
+      "join":[15],
+      "text": "People Who Use AngularJS",
+      "background-color":'#FBB148',
+      "tooltip":{
+        "background-color":'#FBB148',
+      }
     },
     {
-      label: "Canada",
-      value: "180"
-    },
-    {
-      label: "Iran",
-      value: "140"
-    },
-    {
-      label: "Russia",
-      value: "115"
+      "values":[100],
+      "join":[15],
+      "text": "People Who Actually Know How To Use AngularJS",
+      "background-color":'#DD0031',
+      "tooltip":{
+        "background-color":'#DD0031',
+      }
     }
   ]
 };
-
-FusionCharts.ready(function() {
-  var myChart = new FusionCharts({
-    type: "doughnut3d",
-    renderAt: "chart-container",
-    width: "100%",
-    height: "100%",
-    dataFormat: "json",
-    dataSource
-  }).render();
+ 
+zingchart.render({ 
+	id : 'myChart', 
+	data : myConfig, 
+	height: '100%', 
+	width: "100%" 
 });
 
 

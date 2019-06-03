@@ -55,7 +55,7 @@ app.controller("compaCtrl", ["$scope", "$http", function($scope, $http) {
     showlabels: "1",
     numbersuffix: " MMbbl",
     usedataplotcolorforlabels: "1",
-    plottooltext: "$label, <b>$value</b> MMbbl",
+    plottooltext: "$label, <b>$value</b>",
     theme: "fusion"
   },
   data: 
