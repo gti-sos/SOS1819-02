@@ -20,52 +20,25 @@ app.controller("aCtrl", ["$scope", "$http", function($scope, $http) {
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
 
-              var myConfig = {
-  "type":"venn",
-  "title":{
-    "text": "Facts About AngularJS"
-  },
-  "tooltip":{
-    "text": "%t",
-    "border-radius": 5,
-    "font-size": 15
-  },
-  "series":[
-    {
-      "values":[400],
-      "join":[15],
-      "text": "Popularity Of AngularJS Online",
-      "background-color":'#006ACC',
-      "tooltip":{
-        "background-color":'#006ACC',
-      }
-    },
-    {
-      "values":[300],
-      "join":[15],
-      "text": "People Who Use AngularJS",
-      "background-color":'#FBB148',
-      "tooltip":{
-        "background-color":'#FBB148',
-      }
-    },
-    {
-      "values":[100],
-      "join":[15],
-      "text": "People Who Actually Know How To Use AngularJS",
-      "background-color":'#DD0031',
-      "tooltip":{
-        "background-color":'#DD0031',
-      }
-    }
-  ]
-};
- 
-zingchart.render({ 
-	id : 'myChart', 
-	data : myConfig, 
-	height: '100%', 
-	width: "100%" 
+              new Morris.Line({
+  // ID of the element in which to draw the chart.
+  element: 'myfirstchart',
+  // Chart data records -- each entry in this array corresponds to a point on
+  // the chart.
+  data: [
+    { year: '2008', value: 20 },
+    { year: '2009', value: 10 },
+    { year: '2010', value: 5 },
+    { year: '2011', value: 5 },
+    { year: '2012', value: 20 }
+  ],
+  // The name of the data record attribute that contains x-values.
+  xkey: 'year',
+  // A list of names of data record attributes that contain y-values.
+  ykeys: ['value'],
+  // Labels for the ykeys -- will be displayed when you hover over the
+  // chart.
+  labels: ['Value']
 });
 
 
