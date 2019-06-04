@@ -9,10 +9,7 @@ app.controller("takingCtrl", ["$scope", "$http", function($scope, $http) {
     var myApi = "https://sos1819-02.herokuapp.com/api/v1/companies-stats";
 
     var api1 = "proxyDio/api/v1/takingStats";
-    var datoAux = [];
-    var datoAux2 = [];
-    var datoAux3 = [];
-    var x = [];
+   
     refresh();
 
     function refresh() {
