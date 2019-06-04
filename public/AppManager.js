@@ -27,10 +27,6 @@ angular.module("AppManager", ["ngRoute"])
     templateUrl: "./api-movies/Integrations/biofuels.html",
     controller: "biofuelsCtrl"
    })
-   .when("/integrations/biofuels1/", {
-    templateUrl: "./api-movies/Integrations/biofuels1.html",
-    controller: "biofuels1Ctrl"
-   })
    .when("/integrations/companies-stats/", {
     templateUrl: "./api-movies/Integrations/companies-stats.html",
     controller: "companiesCtrl"
