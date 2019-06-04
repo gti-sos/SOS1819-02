@@ -30,7 +30,7 @@ for (var i=0; i< res.length;i++){
                 aux1.push([e.driverId, e.driverId.length])
             });
 
-console.log("aaaa :"+ aux[0]);
+console.log("aaaa :"+ aux1[0]);
 
     Highcharts.chart('container', {
 
