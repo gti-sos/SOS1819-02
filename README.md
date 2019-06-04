@@ -28,3 +28,6 @@
 </ul>
 </li>
 </ul>
+<li><strong>DOCKER</strong>:
+
+docker run -p 8080:8080 -d alemarman1/sos1819-02
