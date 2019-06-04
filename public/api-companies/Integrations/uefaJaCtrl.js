@@ -7,82 +7,87 @@ app.controller("uefaJaCtrl", ["$scope", "$http", function($scope, $http) {
 
     console.log("List Uefa club rankings Controller initialized.");
 
-    var API = "https://sos1819-06.herokuapp.com/api/v1/uefa-club-rankings/";
+    var apiPropia = "/api/v1/companies-stats";
+    var api = "https://sos1819-06.herokuapp.com/api/v1/uefa-club-rankings/";
     refresh();
 
     function refresh() {
 
-        console.log("Requesting  to <" + API + ">...");
+        console.log("Requesting  to <" + api + ">...");
         $http
-            .get(API)
-            .then(function(response) {
+            .get(api)
+            .then(function(response1) {
 
-                console.log("Data received:" + JSON.stringify(response.data, null, 2));
+                console.log("Data received:" + JSON.stringify(response1.data, null, 2));
 
-                $scope.uefaclubrankings = response.data;
+                $scope.uefaclubrankings = response1.data;
             });
     }
-    var apiPropia = "/api/v1/companies-stats";
-    var api = "https://sos1819-06.herokuapp.com/api/v1/uefa-club-rankings/";
+
 
 
 
     $http.get(api).then(function(response1) {
         $http.get(apiPropia).then(function(response2) {
+            var countries = [];
+            var years = [];
+            var incomes = [];
 
-    var years = [];
-
-    var data=[];
-
-
-            var countries = response2.data.map(function(d) { return d.country });
-            var years = response2.data.map(function(d) { return d.year });
-            var incomes = response2.data.map(function(d) { return d.income });
+            var data = [];
 
 
-            var chart = am4core.create("chartdiv", am4charts.RadarChart);
-            // Themes begin
-            am4core.useTheme(am4themes_animated);
-            // Themes end
 
-            // Create chart instance
-            var chart = am4core.create("chartdiv", am4charts.XYChart3D);
+            var points = response1.data.map(function(d) { return d.points });
+            countries = response2.data.map(function(d) { return d.country });
+            years = response2.data.map(function(d) { return d.year });
+            incomes = response2.data.map(function(d) { return d.income });
 
-           
-            chart.data = [{
-                "year": data[0].year,
-                "country": data[0].country,
-                "color": chart.colors.next()
-            }, {
-                "year": data[5].year,
-                "country": data[5].country,
-                "color": chart.colors.next()
-            }, {
-                "year": data[6].year,
-                "country": data[6].country,
-                "color": chart.colors.next()
-            }];
-            console.log("auxAmChart:");
-            //        console.log(JSON.stringify(auxAmChart,null,2));
 
-            // Create axes
-            var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-            categoryAxis.dataFields.category = "year";
-            categoryAxis.numberFormatter.numberFormat = "#";
-            categoryAxis.renderer.inversed = true;
+            var chardata2 = response2.data.map(function(company) {
+                newValue = company.company;
+                newValue2 = company.income;
 
-            var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+                return [newValue, newValue2];
 
-            // Create series
-            var series = chart.series.push(new am4charts.ColumnSeries3D());
-            series.dataFields.valueX = "country";
-            series.dataFields.categoryY = "year";
-            series.name = "country";
-            series.columns.template.propertyFields.fill = "color";
-            series.columns.template.tooltipText = "{valueX}";
-            series.columns.template.column3D.stroke = am4core.color("#fff");
-            series.columns.template.column3D.strokeOpacity = 0.2;
+            });
 
+
+            //GEOCHART
+
+            google.charts.load('current', {
+
+                'packages': ['geochart'],
+                // Note: you will need to get a mapsApiKey for your project.
+                // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+                'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+            });
+            google.charts.setOnLoadCallback(drawRegionsMap);
+
+
+            function drawRegionsMap() {
+                var aux = [];
+                aux.push(["Country", "Puntos"]);
+                aux.push([countries[7], points[7]]);
+                aux.push([countries[4], points[4]]);
+
+                console.log(aux);
+                var plot = google.visualization.arrayToDataTable(aux);
+
+                var options = {};
+
+                var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                chart.draw(plot, options);
+
+
+
+            }
         });
+
+
+
     });
+
+    ;
+
 }]);
