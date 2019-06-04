@@ -181,6 +181,9 @@ angular.module("AppManager", ["ngRoute"])
    .when("/integrations/integrationAle", {
     templateUrl: "./integrationAle.html",
    })
+   .when("/integrations/integrationAlberto", {
+    templateUrl: "./integrationAlberto.html",
+   })
    .when("/about", {
     templateUrl: "./about.html",
    });
