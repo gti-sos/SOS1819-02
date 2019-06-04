@@ -14,7 +14,8 @@ app.controller("scorerCtrl", ["$scope", "$http", function($scope, $http) {
 
     $http.get(apiPablo).then(function(response1) {
         $http.get(apiext).then(function(response2) {
-
+            $scope.scorers = response2.data;
+            console.log("$scope.scorers");
             var i = 0;
 
             var aux = response2.data.map(function(d) { return d.name });
@@ -33,8 +34,8 @@ app.controller("scorerCtrl", ["$scope", "$http", function($scope, $http) {
             console.log("Data received:" + JSON.stringify(incomes2, null, 2));
 
             var chardata2 = response1.data.map(function(company) {
-                newValue = company.company;
-                newValue2 = company.income;
+                var newValue = company.company;
+                var newValue2 = company.income;
 
                 return [newValue, newValue2];
 
@@ -44,7 +45,7 @@ app.controller("scorerCtrl", ["$scope", "$http", function($scope, $http) {
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: res ,
+                    labels: res,
                     datasets: [{
                         label: '# Income',
                         data: incomes2,
