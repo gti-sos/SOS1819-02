@@ -9,6 +9,7 @@
     "c3": "^0.7.1",
     "chart.js": "^2.8.0",
     "cors": "^2.8.5",
+    "echarts": "^4.2.1",
     "express": "^4.16.4",
     "fusioncharts": "^3.13.5",
     "highcharts": "^7.1.1",
