@@ -23,19 +23,24 @@ app.controller("peliculasCtrl", ["$scope", "$http", function($scope, $http) {
             .then(function(response1) {
 
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
+                var countries1 = [];
+                var countries2 = [];
                 
+                countries1 = response.data.map(function(d) { return d.country });
+                countries2 = response1.data.map(function(d) { return d.country });
+                var edition = response.data.map(function(d) { return d.movieedition });
+                var goles = response1.data.map(function(d) { return d.scorergoal });
+                var res = []
+                for (var i=0; i< goles.length;i++){
+                res.push({ year: "200"+i, value: edition[i] },{ year: "200"+i, value: goles[i] });
+                 }
                  new Morris.Line({
   // ID of the element in which to draw the chart.
   element: 'myfirstchart',
   // Chart data records -- each entry in this array corresponds to a point on
   // the chart.
-  data: [
-    { year: '2008', value: 20 },
-    { year: '2009', value: 10 },
-    { year: '2010', value: 5 },
-    { year: '2011', value: 5 },
-    { year: '2012', value: 20 }
-  ],
+  data: res,
+  
   // The name of the data record attribute that contains x-values.
   xkey: 'year',
   // A list of names of data record attributes that contain y-values.
