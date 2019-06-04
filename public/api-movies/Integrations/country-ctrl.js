@@ -51,7 +51,7 @@ console.log("aux :"+ aux);
             // Create chart instance
             var chart = am4core.create("chartdiv", am4charts.XYChart3D);
             
-            chart.titles.create().text = "Crude oil reserves";
+            chart.titles.create().text = "COUNTRY INTEGRATION";
             
             // Add data
             chart.data = aux;
