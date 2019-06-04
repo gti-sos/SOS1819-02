@@ -37,7 +37,7 @@ console.log("aux :"+ aux);
 var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	title:{
-		text: "Email Categories",
+		text: "Integración Elements",
 		horizontalAlign: "left"
 	},
 	data: [{
