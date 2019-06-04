@@ -12,7 +12,6 @@ angular
         $http.get(apiHappy).then(function(response1) {
                 $http.get(apiMovies).then(function(response2) {
                    
-                   ////////////AMCHARTS//////////
 
                    
            console.log("Data Happiness Stats received:" + JSON.stringify(response1.data, null, 2));
@@ -38,7 +37,7 @@ console.log("aux :"+ aux);
 
 
 
-            /////MORRIS CHARTS DONUT
+            /////MORRIS CHARTS DONUT/////////////77
             
   new  Morris.Donut({
      element: 'donut',
