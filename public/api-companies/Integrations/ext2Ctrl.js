@@ -10,110 +10,84 @@ angular
         var apiPablo = "https://sos1819-02.herokuapp.com/api/v1/companies-stats";
         var apiext = "https://api.tvmaze.com/search/people?q=lauren";
 
-        // Highcharts, integración externa
+
         $http.get(apiPablo).then(function(response1) {
             $http.get(apiext).then(function(response2) {
 
-                Highcharts.chart('containerExt', {
+                var i = 0;
 
-                    chart: {
-                        type: 'line',
-                        plotBorderWidth: 1,
-                        zoomType: 'xy'
-                    },
+                var countries = response2.data[1].person.name;
+                var aux = response2.data.map(function(d) { return d.person.name });
 
-                    legend: {
-                        enabled: false
-                    },
+                var years = response1.data.map(function(d) { return d.year });
+                var incomes = response1.data.map(function(d) { return d.income });
+                var incomes2 = []
+                var names = []
+                var res = [];
+                while (i < aux.length) {
+                    res.push(aux[i]);
+                    incomes2.push(incomes[i]);
+                    i++;
+                }
+                console.log("Data received:" + JSON.stringify(aux, null, 2));
 
-                    title: {
-                        text: 'Integración Externa'
-                    },
+                var chardata2 = response1.data.map(function(company) {
+                    newValue = company.company;
+                    newValue2 = company.income;
 
-                    xAxis: {
-                        gridLineWidth: 1,
-                        title: {
-                            text: 'income'
-                        },
-                        labels: {
-                            format: '{value}'
-                        },
-                        plotLines: [{
-                            color: 'yellow',
-                            dashStyle: 'dot',
-                            width: 2,
-                            value: 65,
-                            label: {
-                                rotation: 0,
-                                y: 15,
-                                style: {
-                                    fontStyle: 'italic'
-                                },
-                            },
-                            zIndex: 3
-                        }]
-                    },
+                    return [newValue, newValue2];
 
-                    yAxis: {
-                        startOnTick: false,
-                        endOnTick: false,
-                        title: {
-                            text: 'Puntuación'
-                        },
-                        labels: {
-                            format: '{value}'
-                        },
-                        maxPadding: 0.2,
-                        plotLines: [{
-                            color: 'yellow',
-                            dashStyle: 'yellow',
-                            width: 2,
-                            value: 50,
-                            label: {
-                                align: 'right',
-                                style: {
-                                    fontStyle: 'italic'
-                                },
-
-                            },
-                            zIndex: 3
-                        }]
-                    },
-
-                    tooltip: {
-                        useHTML: true,
-                        headerFormat: '<table>',
-                        pointFormat: '<tr><th colspan="2"><h3>{point.comany}</h3></th></tr>' +
-                            '<tr><th>income:</th><td>{point.x}</td></tr>' +
-                            '<tr><th>score:</th><td>{point.y}</td></tr>' +
-                            '<tr><th></th><td>{point.z}</td></tr>',
-                        footerFormat: '</table>',
-                        followPointer: true
-                    },
-
-                    plotOptions: {
-                        series: {
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.company}'
-                            }
-                        }
-                    },
-
-                    series: [{
-                        data: [
-                            { x: response1.data[0].income, y: response2.data[0].score, company: response1.data[0].company },
-                            { x: response1.data[1].income, y: response2.data[1].score, company: response1.data[1].company },
-                            { x: response1.data[2].income, y: response2.data[2].score, company: response1.data[2].company },
-                            { x: response1.data[3].income, y: response2.data[3].score, company: response1.data[3].company },
-                            { x: response1.data[4].income, y: response2.data[4].score, company: response1.data[4].company },
-
-                        ]
-                    }]
                 });
-            });
+
+
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: res,
+                        datasets: [{
+                            label: 'incomes2',
+                            data: incomes2,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(155, 106, 86, 0.2)',
+                                'rgba(15, 192, 192, 0.2)',
+                                'rgba(153, 102, 155, 0.2)',
+                                'rgba(155, 159, 14, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(140, 106, 86, 1)',
+                                'rgba(15, 192, 192, 1)',
+                                'rgba(100, 102, 1255, 1)',
+                                'rgba(1, 159, 14, 1)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+
+
+            })
         });
-
-
 
     }]);

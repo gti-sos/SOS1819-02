@@ -75,10 +75,6 @@ angular.module("AppManager", ["ngRoute"])
     templateUrl: "./api-scorers/scorersGraph.html",
     controller: "grafCtrl"
    })
-   .when("/integrations/api0", {
-    templateUrl: "./api-scorers/Integrations/integracionAPI0.html",
-    controller: "aCtrl"
-   })
    .when("/integrations/api1", {
     templateUrl: "./api-scorers/Integrations/integracionAPI1.html",
     controller: "suicidesCtrl"
@@ -163,7 +159,7 @@ angular.module("AppManager", ["ngRoute"])
     templateUrl: "./api-companies/Integrations/computer.html",
     controller: "computerCtrl"
    })
-    .when("/integrations/ext1", {
+   .when("/integrations/ext1", {
     templateUrl: "./api-companies/Integrations/ext1.html",
     controller: "ext1Ctrl"
    })
