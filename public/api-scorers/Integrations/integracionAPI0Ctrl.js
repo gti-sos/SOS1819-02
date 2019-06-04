@@ -20,26 +20,86 @@ app.controller("aCtrl", ["$scope", "$http", function($scope, $http) {
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
 
-              new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'myfirstchart',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: [
-    { year: '2008', value: 20 },
-    { year: '2009', value: 10 },
-    { year: '2010', value: 5 },
-    { year: '2011', value: 5 },
-    { year: '2012', value: 20 }
-  ],
-  // The name of the data record attribute that contains x-values.
-  xkey: 'year',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['Value']
-});
+//              var ctx = document.getElementById('myChart');
+
+// 		var lineChartData = {
+// 			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+// 			datasets: [{
+// 				label: 'My First dataset',
+// 				borderColor: window.chartColors.red,
+// 				backgroundColor: window.chartColors.red,
+// 				fill: false,
+// 				data: [
+// 					randomScalingFactor(),
+// 					randomScalingFactor(),
+// 					randomScalingFactor(),
+// 					randomScalingFactor(),
+// 					randomScalingFactor(),
+// 					randomScalingFactor(),
+// 					randomScalingFactor()
+// 				],
+// 				yAxisID: 'y-axis-1',
+// 			}, {
+// 				label: 'My Second dataset',
+// 				borderColor: window.chartColors.blue,
+// 				backgroundColor: window.chartColors.blue,
+// 				fill: false,
+// 				data: [
+// 					randomScalingFactor(),
+// 					randomScalingFactor(),
+// 					randomScalingFactor(),
+// 					randomScalingFactor(),
+// 					randomScalingFactor(),
+// 					randomScalingFactor(),
+// 					randomScalingFactor()
+// 				],
+// 				yAxisID: 'y-axis-2'
+// 			}]
+// 		};
+
+// 		window.onload = function() {
+// 			var ctx = document.getElementById('canvas').getContext('2d');
+// 			window.myLine = Chart.Line(ctx, {
+// 				data: lineChartData,
+// 				options: {
+// 					responsive: true,
+// 					hoverMode: 'index',
+// 					stacked: false,
+// 					title: {
+// 						display: true,
+// 						text: 'Chart.js Line Chart - Multi Axis'
+// 					},
+// 					scales: {
+// 						yAxes: [{
+// 							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+// 							display: true,
+// 							position: 'left',
+// 							id: 'y-axis-1',
+// 						}, {
+// 							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+// 							display: true,
+// 							position: 'right',
+// 							id: 'y-axis-2',
+
+// 							// grid line settings
+// 							gridLines: {
+// 								drawOnChartArea: false, // only want the grid lines for one axis to show up
+// 							},
+// 						}],
+// 					}
+// 				}
+// 			});
+// 		};
+
+// 		document.getElementById('randomizeData').addEventListener('click', function() {
+// 			lineChartData.datasets.forEach(function(dataset) {
+// 				dataset.data = dataset.data.map(function() {
+// 					return randomScalingFactor();
+// 				});
+// 			});
+
+// 			window.myLine.update();
+// 		});
 
 
                 
