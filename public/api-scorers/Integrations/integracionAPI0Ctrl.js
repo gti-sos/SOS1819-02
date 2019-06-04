@@ -20,32 +20,84 @@ app.controller("aCtrl", ["$scope", "$http", function($scope, $http) {
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
 
-           var chart = new CanvasJS.Chart("chartContainer", {
+        var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	title:{
-		text: "Integración Elements",
-		horizontalAlign: "left"
+		text: "Daily High Temperature at Different Beaches"
+	},
+	axisX: {
+		valueFormatString: "DD MMM,YY"
+	},
+	axisY: {
+		title: "Temperature (in °C)",
+		includeZero: false,
+		suffix: " °C"
+	},
+	legend:{
+		cursor: "pointer",
+		fontSize: 16,
+		itemclick: toggleDataSeries
+	},
+	toolTip:{
+		shared: true
 	},
 	data: [{
-		type: "pie",
-		startAngle: 60,
-		//innerRadius: 60,
-		indexLabelFontSize: 17,
-		indexLabel: "{label} - #percent%",
-		toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+		name: "Myrtle Beach",
+		type: "spline",
+		yValueFormatString: "#0.## °C",
+		showInLegend: true,
 		dataPoints: [
-			{ y: 450, label: "Food" },
-				{ y: 120, name: "Insurance" },
-				{ y: 300, name: "Traveling" },
-				{ y: 800, name: "Housing" },
-				{ y: 150, name: "Education" },
-				{ y: 150, name: "Shopping"},
-				{ y: 250, name: "Others" }
+			{ x: new Date(2017), y: 31 },
+			{ x: new Date(2018), y: 31 },
+			{ x: new Date(2019), y: 29 },
+			{ x: new Date(2020), y: 29 },
+			{ x: new Date(2021), y: 31 },
+			{ x: new Date(2022), y: 30 },
+			{ x: new Date(2023), y: 29 }
+		]
+	},
+	{
+		name: "Martha Vineyard",
+		type: "spline",
+		yValueFormatString: "#0.## °C",
+		showInLegend: true,
+		dataPoints: [
+			{ x: new Date(2017,6,24), y: 20 },
+			{ x: new Date(2017,6,25), y: 20 },
+			{ x: new Date(2017,6,26), y: 25 },
+			{ x: new Date(2017,6,27), y: 25 },
+			{ x: new Date(2017,6,28), y: 25 },
+			{ x: new Date(2017,6,29), y: 25 },
+			{ x: new Date(2017,6,30), y: 25 }
+		]
+	},
+	{
+		name: "Nantucket",
+		type: "spline",
+		yValueFormatString: "#0.## °C",
+		showInLegend: true,
+		dataPoints: [
+			{ x: new Date(2017,6,24), y: 22 },
+			{ x: new Date(2017,6,25), y: 19 },
+			{ x: new Date(2017,6,26), y: 23 },
+			{ x: new Date(2017,6,27), y: 24 },
+			{ x: new Date(2017,6,28), y: 24 },
+			{ x: new Date(2017,6,29), y: 23 },
+			{ x: new Date(2017,6,30), y: 23 }
 		]
 	}]
 });
 chart.render();
 
+function toggleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else{
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
                 
                 
             });
