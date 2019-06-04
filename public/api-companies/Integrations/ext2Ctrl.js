@@ -30,6 +30,7 @@ angular
                     i++;
                 }
                 console.log("Data received:" + JSON.stringify(aux, null, 2));
+                console.log("Data received:" + JSON.stringify(incomes2, null, 2));
 
                 var chardata2 = response1.data.map(function(company) {
                     newValue = company.company;
@@ -42,11 +43,11 @@ angular
 
                 var ctx = document.getElementById('myChart').getContext('2d');
                 var myChart = new Chart(ctx, {
-                    type: 'pie',
+                    type: 'doughnut',
                     data: {
                         labels: res,
                         datasets: [{
-                            label: 'incomes2',
+                            label: '# Income',
                             data: incomes2,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
