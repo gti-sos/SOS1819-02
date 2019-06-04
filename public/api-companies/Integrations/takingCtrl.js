@@ -6,108 +6,103 @@ app.controller("takingCtrl", ["$scope", "$http", function($scope, $http) {
 
 
     console.log("List takings Controller initialized.");
-    var myApi = "https://sos1819-02.herokuapp.com/api/v1/companies-stats";
 
     var api1 = "proxyDio/api/v1/takingStats";
-   
+    var datoAux = [];
+    var datoAux2 = [];
+    var datoAux3 = [];
+    var x = [];
     refresh();
 
     function refresh() {
 
-
-
-        ///////////////////////WIDGET///////////////////////////
-
-
-        $http.get(api1).then(function(responseApi1) {
-            $http.get(myApi).then(function(responseApi2) {
-                
-                console.log("Data received de DIONI:" + JSON.stringify(responseApi1.data, null, 2));
-                $scope.takingstats = responseApi1.data;
-                var incomes= [];
-                var films = responseApi1.data.map(function(d) { return d.film });
-                var i=0;
-                while(i<films.length){
-                    incomes.push(responseApi2.data[i].income);
-                    i++;
-                }
-
-
-
-
-                //HIGHCHART
-
-
-
-                var chart = Highcharts.chart('containerDio', {
-
-                    title: {
-                        text: 'Taking && Companies'
-                    },
-
-                    subtitle: {
-                        text: ''
-                    },
-
-                    xAxis: {
-                        categories: films
-                    },
-
-                    series: [{
-                        type: 'column',
-                        colorByPoint: true,
-                        data: incomes,
-                        showInLegend: false
-                    }]
-
-                });
-
-
-                $('#plain').click(function() {
-                    chart.update({
-                        chart: {
-                            inverted: false,
-                            polar: false
-                        },
-                        subtitle: {
-                            text: 'Barras'
-                        }
-                    });
-                });
-
-                $('#inverted').click(function() {
-                    chart.update({
-                        chart: {
-                            inverted: true,
-                            polar: false
-                        },
-                        subtitle: {
-                            text: 'Inverted'
-                        }
-                    });
-                });
-
-                $('#polar').click(function() {
-                    chart.update({
-                        chart: {
-                            inverted: false,
-                            polar: true
-                        },
-                        subtitle: {
-                            text: 'Polar'
-                        }
-                    });
-                });
-
-
+        console.log("Requesting to <" + api1 + ">...");
+        $http
+            .get(api1)
+            .then(function(response) {
+                console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
             });
 
+///////////////////////WIDGET///////////////////////////
+
+
+        $http.get(api1).then(function(responseApi1) {
+            var i;
+
+            for (i = 0; i < responseApi1.data.length; i++) {
+                datoAux.push(responseApi1.data[i].year);
+                datoAux2.push(responseApi1.data[i].employee);
+            }
+            console.log("Data received de DIONI:" + JSON.stringify(responseApi1.data, null, 2));
+            $scope.takingstats = responseApi1.data;
+            for (var i = 0; i < responseApi1.data.length; i++) {
+                datoAux[i];
+            }
+
+            //HIGHCHART
+
+
+            Highcharts.chart('containerDio', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'World\'s largest cities per 2017'
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: {
+                    type: 'category',
+                    labels: {
+                        rotation: -45,
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif'
+                        }
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Population (millions)'
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                tooltip: {
+                    pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
+                },
+                series: [{
+                    name: 'Population',
+                    data: [
+                        [datoAux[0], datoAux2[0]],
+                        
+
+                    ],
+                    dataLabels: {
+                        enabled: true,
+                        rotation: -90,
+                        color: '#FFFFFF',
+                        align: 'right',
+                        format: '{point.y:.1f}', // one decimal
+                        y: 10, // 10 pixels down from the top
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif'
+                        }
+                    }
+                }]
+            });
+
+
 
         });
+
+
+
+
     }
-
-
-
-
 }]);

@@ -163,7 +163,7 @@ angular.module("AppManager", ["ngRoute"])
     templateUrl: "./api-companies/Integrations/computer.html",
     controller: "computerCtrl"
    })
-   .when("/integrations/ext1", {
+    .when("/integrations/ext1", {
     templateUrl: "./api-companies/Integrations/ext1.html",
     controller: "ext1Ctrl"
    })
