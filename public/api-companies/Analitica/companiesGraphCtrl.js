@@ -19,7 +19,6 @@
 
 
 
-     //HIGHCHART
      $http.get(API).then(function(response) {
 
          countries = response.data.map(function(d) { return d.country });
@@ -34,6 +33,7 @@
              return [newValue, newValue2];
 
          });
+     //HIGHCHART
 
          Highcharts.chart('container', {
              chart: {
