@@ -20,44 +20,31 @@ app.controller("aCtrl", ["$scope", "$http", function($scope, $http) {
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
 
-             var ctx = document.getElementById('myChart');
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'pie', //radar
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
+           var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title:{
+		text: "Integración Elements",
+		horizontalAlign: "left"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 60,
+		//innerRadius: 60,
+		indexLabelFontSize: 17,
+		indexLabel: "{label} - #percent%",
+		toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+		dataPoints: [
+			{ y: 450, label: "Food" },
+				{ y: 120, name: "Insurance" },
+				{ y: 300, name: "Traveling" },
+				{ y: 800, name: "Housing" },
+				{ y: 150, name: "Education" },
+				{ y: 150, name: "Shopping"},
+				{ y: 250, name: "Others" }
+		]
+	}]
 });
+chart.render();
 
                 
                 

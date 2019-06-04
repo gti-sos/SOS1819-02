@@ -8,6 +8,7 @@ app.controller("pruebaCtrl", ["$scope", "$http", function($scope, $http) {
     console.log("Controller initialized.");
 
     var API = "https://sos1819-12.herokuapp.com/api/v1/youth-unemployment-stats";
+    var API2 = "/api/v1/scorers-stats";
     refresh();
 
     function refresh() {
@@ -16,10 +17,16 @@ app.controller("pruebaCtrl", ["$scope", "$http", function($scope, $http) {
         $http
             .get(API)
             .then(function(response) {
+        console.log("Requesting to <" + API + ">...");
+        $http
+            .get(API2)
+            .then(function(response1) {
 
                 console.log("Data received:" + JSON.stringify(response.data, null, 2));
 
                 $scope.unemployments= response.data;
+                
+            });
             });
     }
 
