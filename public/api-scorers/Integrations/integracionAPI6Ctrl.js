@@ -43,7 +43,7 @@ app.controller("pruebaCtrl", ["$scope", "$http", function($scope, $http) {
 	exportEnabled: true,
 	theme: "light1", // "light1", "light2", "dark1", "dark2"
 	title:{
-		text: "Simple Column Chart with Index Labels"
+		text: "CanvasJS:column"
 	},
 	data: [{
 		type: "column", //change type to bar, line, area, pie, etc

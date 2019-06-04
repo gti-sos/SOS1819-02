@@ -50,7 +50,7 @@ app.controller("excountryCtrl", ["$scope", "$http", function($scope, $http) {
                   var ctx = document.getElementById('myChart');
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'pie', //radar
+    type: 'pie', 
     data: {
         labels: ["Top1","Top2","Top3","Top4","Top5","Top6"],
         datasets: [{
