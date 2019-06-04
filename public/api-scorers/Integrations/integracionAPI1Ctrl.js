@@ -51,14 +51,14 @@ app.controller("suicidesCtrl", ["$scope", "$http", function($scope, $http) {
                 const dataSource = {
   chart: {
     theme: "fusion",
-    caption: "Sales & Profit Analysis",
-    subcaption: "For Last Quarter",
+    caption: "FusionCharts",
+    subcaption: "bubble-chart-with-quadrants",
     xaxisminvalue: "400",
     xaxismaxvalue: "500",
     yaxisminvalue: "0",
     yaxismaxvalue: "400",
-    xaxisname: "Average Price",
-    yaxisname: "Units Sold",
+    xaxisname: "Total de goles (x)",
+    yaxisname: "Promedio de suicidios(y)",
     plottooltext: "$name : Promedio goles: $zvalue%  total de goles: $xvalue , promedio suicidios: $yvalue",
     drawquadrant: "1",
     quadrantlabeltl: "Low Price / High Sales",
@@ -131,7 +131,7 @@ app.controller("suicidesCtrl", ["$scope", "$http", function($scope, $http) {
           startvalue: "0",
           endvalue: "200",
           istrendzone: "1",
-          color: "#aaaaaa",
+          color: "#bbbb",
           alpha: "7"
         }
       ]
