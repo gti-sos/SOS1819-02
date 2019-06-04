@@ -34,17 +34,13 @@ app.controller("uefaCtrl", ["$scope", "$http", function($scope, $http) {
                 
                 var goles = [];
                 
-                var res = [];
-                var res2 = [];
-                countries1 = response.data.map(function(d) { return d.country });
-                countries2 = response1.data.map(function(d) { return d.country });
-               var aux = response.data.map(function(d) { return d.rankingPosition });
-                year2 = response1.data.map(function(d) { return d.year });
+                
+               var aux = response.data.map(function(d) { return d.points });
                 goles = response1.data.map(function(d) { return d.scorergoal });
                 var res = [];
                 var res2=[];
                 var i =0;
-                while(i<goles.length){
+                while(i<6){
                     res.push(goles[i]);
                     res2.push(aux[i]);
                     i++;
@@ -76,7 +72,7 @@ var myChart = new Chart(ctx, {
             ],
             borderWidth: 1
         },{
-            label: 'gasto por habitante',
+            label: 'puntos por temporada',
             data: res2,
             backgroundColor: [
                 'rgba(55, 199, 32, 0.2)',
